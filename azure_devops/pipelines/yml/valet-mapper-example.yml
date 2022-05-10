@@ -1,0 +1,29 @@
+---
+variables:
+- name: BuildParameters.RESTOREBUILDPROJECTS
+  value: "**/*.csproj"
+- name: BUILDCONFIGURATION
+  value: Release
+name: "$(date:yyyyMMdd)$(rev:.r)"
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: windows-latest
+  steps:
+  - checkout: self
+  - task: NodeTool@0
+    displayName: Use Node 10.16.3
+    inputs:
+      versionSpec: 10.16.3
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: "$(BuildParameters.RESTOREBUILDPROJECTS)"
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: "$(BuildParameters.RESTOREBUILDPROJECTS)"
+      arguments: "--configuration $(BUILDCONFIGURATION)"
+ 

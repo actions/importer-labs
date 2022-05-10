@@ -1,0 +1,35 @@
+# This is a workflow to set up an Azure DevOps instance seeded with pipelines
+# You need to Add a secret for an Azure DevOps PAT called AZDOPAT
+
+name: Valet Bootstrap for Azure DevOps
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      AzDoOrgName:
+        description: 'Azure DevOps organization name'
+        required: true
+        type: string
+      AzDoUserName:
+        description: 'Azure DevOps user name'
+        required: true
+        type: string
+      AzDoProjectName:
+        description: 'Azure DevOps project name'
+        default: 'ValetBootstrap'
+        type: string
+jobs:
+  bootstrap:
+    name: Bootstrap
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Run powershell file to bootstrap Azure DevOps
+        env: 
+          AZDOPATTOUSE: ${{ secrets.AZDOPAT }}
+          ROOTFOLDER: ${{ github.workspace }}
+        shell: pwsh
+        run: |
+          ./azure_devops/bootstrap/azDevOps.ps1 -project ${{ github.event.inputs.AzDoProjectName }} -userName ${{ github.event.inputs.AzDoUserName }} -repoName ${{ github.event.inputs.AzDoProjectName }} -orgToUse ${{ github.event.inputs.AzDoOrgName }} -rootFolder $env:ROOTFOLDER -daPassword $env:AZDOPATTOUSE
