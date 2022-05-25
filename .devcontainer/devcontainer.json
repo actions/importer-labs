@@ -15,12 +15,7 @@
 	
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"GitHub.vscode-pull-request-github",
-		"ms-vscode.azure-account",
-		"ms-vscode.azurecli",
-		"ms-azure-devops.azure-pipelines",
 		"ms-azuretools.vscode-docker",
-		"ms-vscode.powershell"
 	],
-	"postCreateCommand": "docker login ghcr.io/valet-customers --username ${GITHUB_USER} --password ${VALET_PASSWORD} && docker pull ghcr.io/valet-customers/valet-cli:latest && chmod +x ./valet/valet-update && chmod +x ./valet/valet && pwsh ./azure_devops/bootstrap/updateEnvs.ps1 -ghPAT ${VALET_PASSWORD} -azdoPAT ${AZDO_TOKEN} -org ${AZDO_ORG} -proj ${AZDO_PROJECT} || echo 'Could not auto-build. Skipping.' "
+	"postCreateCommand": "sudo bash .devcontainer/setupcodespace.sh ${VALET_GHCR_PASSWORD} ${AZURE_DEVOPS_PROJECT} ${AZURE_DEVOPS_ORGANIZATION} ${AZURE_DEVOPS_ACCESS_TOKEN} ${GITHUB_USER} 'https://github.com/' && gh extension install github/gh-valet || echo 'Could not auto-build. Skipping.' "
 }

@@ -46,11 +46,31 @@ $projectToCreate = @{
     }
    }
    
-$projectResponse = Invoke-RestMethod -Method 'Post' -Uri $createtUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($projectToCreate|ConvertTo-Json) -ContentType "application/json"
-$projectResponse | ConvertTo-Json
+    try{
+        $projectResponse = Invoke-RestMethod -Method 'Post' -Uri $createtUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($projectToCreate|ConvertTo-Json) -ContentType "application/json"
+        $projectResponse | ConvertTo-Json
 
-Start-Sleep -s 5
-Write-Host "Yes! Project $project was created!"
+        Start-Sleep -s 5
+        Write-Host "Yes! Project $project was created!"
+
+    } Catch {
+        Write-Host " "
+        Write-Host "##########################################################################"
+        Write-Host "ERROR during project creation: $project"
+        Write-Host "The API call was: $createtUrlToUse"
+        Write-Host " "
+
+        if($_.ErrorDetails.Message) {
+            Write-Host "See error message below:"
+            Write-Host $_.ErrorDetails.Message
+        } else {
+            Write-Host $_
+            Write-Host "It is likely that the AZURE_DEVOPS_ACCESS_TOKEN is not set correctly in the worflow OR does not have sufficent permissions"
+        }
+        Write-Host " "
+        Write-Host "##########################################################################"
+        throw "Exiting. The Project $project was NOT created in Azure DevOps"
+    }
 
 ##########################################################################
 # IMPORT THE REPO
@@ -82,15 +102,15 @@ $addTextFile = @{
             $daFullName = $codeFile.FullName
             $codeBody = (Get-Content "$daFullName" -Raw)
             #Write-Host "codeBody: $codeBody"
-            Write-Host "folder: $folder"
+            #Write-Host "folder: $folder"
             $relath = $daFullName | Resolve-Path -Relative
-            Write-Host "relath: $relath"
+            #Write-Host "relath: $relath"
             $replaceSlash = $folder.Replace("/", "\")
             $repoPath = $relath.Substring($relath.lastIndexOf($replaceSlash) + $replaceSlash.Length)
             $wholeRepoPath = Join-Path -Path $itemPath -ChildPath $repoPath
             $wholeRepoPath = $wholeRepoPath.Replace("\", "/")
-            Write-Host "wholeRepoPath: $wholeRepoPath"
-             Write-Host "repoPath: $repoPath"
+            #Write-Host "wholeRepoPath: $wholeRepoPath"
+            #Write-Host "repoPath: $repoPath"
             @{
               "changeType"= "add" 
               "item"= @{
@@ -108,13 +128,28 @@ $addTextFile = @{
     )
     }
   
+try{
+        $repoUrlToUse = [string]::Format("https://dev.azure.com/{0}/{2}/_apis/git/repositories/{1}/pushes?api-version=7.1-preview.2", $orgToUse, $repoName, $project)
+        $pushResponse = Invoke-RestMethod -Method 'Post' -Uri $repoUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($addTextFile|ConvertTo-Json -Depth 5) -ContentType "application/json"
+        $repoIds = $pushResponse.repository.id
+        Write-Host "Yes! Repo Was was created! The repoId is $repoIds"
+} Catch {
+    Write-Host " "
+    Write-Host "##########################################################################"
+    Write-Host "ERROR during Repo creation:"
+    Write-Host "The API call was: $repoUrlToUse"
+    Write-Host " "
 
-$repoUrlToUse = [string]::Format("https://dev.azure.com/{0}/{2}/_apis/git/repositories/{1}/pushes?api-version=7.1-preview.2", $orgToUse, $repoName, $project)
-$pushResponse = Invoke-RestMethod -Method 'Post' -Uri $repoUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($addTextFile|ConvertTo-Json -Depth 5) -ContentType "application/json"
-$repoIds = $pushResponse.repository.id
-Write-Host "Yes! Repo Was was created!"
-
-Write-Host "Yes! Repo was imported into $repoIds"
+    if($_.ErrorDetails.Message) {
+        Write-Host "See error message below:"
+        Write-Host $_.ErrorDetails.Message
+    } else {
+        Write-Host $_
+    }
+    Write-Host " "
+    Write-Host "##########################################################################"
+    throw "Exiting. The Repo was NOT created. It is likely the Project was created in Azure DevOps."
+}
 
 ##########################################################################
 ##########################################################################
@@ -141,10 +176,26 @@ foreach ($f in $files)
           }
       }
   }
-  #$pipelineCreateBody | ConvertTo-Json
+  
+  try{
+        $repoResponse = Invoke-RestMethod -Method 'Post' -Uri $plUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($pipelineCreateBody|ConvertTo-Json) -ContentType "application/json"
+  } Catch {
+        Write-Host " "
+        Write-Host "##########################################################################"
+        Write-Host "ERROR during Pipeline creation:"
+        Write-Host "The API call was: $plUrlToUse"
+        Write-Host " "
 
-  $repoResponse = Invoke-RestMethod -Method 'Post' -Uri $plUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($pipelineCreateBody|ConvertTo-Json) -ContentType "application/json"
-  $repoResponse | ConvertTo-Json
+        if($_.ErrorDetails.Message) {
+            Write-Host "See error message below:"
+            Write-Host $_.ErrorDetails.Message
+        } else {
+            Write-Host $_
+        }
+        Write-Host " "
+        Write-Host "The Pipeline $nameOfPl was NOT created."
+        Write-Host "##########################################################################"
+    }
 }
 
 ##########################################################################
@@ -161,7 +212,24 @@ foreach ($f in $files)
 
   $pclassicreateBody = (Get-Content ./$pipelinesRoot/classic/$fileName).Replace("REPOTOREPLACE", "$repoName")
 
-  $repo2Response = Invoke-RestMethod -Method 'Post' -Uri $classicUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($pclassicreateBody) -ContentType "application/json"
-  $repo2Response | ConvertTo-Json
+  try{
+        Invoke-RestMethod -Method 'Post' -Uri $classicUrlToUse -Headers @{"Authorization"="Basic $BasicCreds"} -Body ($pclassicreateBody) -ContentType "application/json"
+    } Catch {
+        Write-Host " "
+        Write-Host "##########################################################################"
+        Write-Host "ERROR during Pipeline creation:"
+        Write-Host "The API call was: $classicUrlToUse"
+        Write-Host " "
+
+        if($_.ErrorDetails.Message) {
+            Write-Host "See error message below:"
+            Write-Host $_.ErrorDetails.Message
+        } else {
+            Write-Host $_
+        }
+        Write-Host " "
+        Write-Host "The Pipeline $nameOfPl was NOT created."
+        Write-Host "##########################################################################"
+    }
 }
 Write-Host "End Valet Bootstrap"

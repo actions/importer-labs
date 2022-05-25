@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Run powershell file to bootstrap Azure DevOps
         env: 
-          AZDOPATTOUSE: ${{ secrets.AZDOPAT }}
+          AZDOPATTOUSE: ${{ secrets.AZURE_DEVOPS_ACCESS_TOKEN }}
           ROOTFOLDER: ${{ github.workspace }}
         shell: pwsh
         run: |
