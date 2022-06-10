@@ -79,8 +79,6 @@ transform "DotNetCoreCLI@2" do |item|
   }
 end
 ```
-### Example
-![mapper-ex1](https://user-images.githubusercontent.com/26442605/161116232-c3dab5ba-8ca5-4dd0-a659-b871646ab82f.png)
 
 Run the `migrate` command with the transformer again and pass it the custom plugin. Look at the result and see if it results in a successful build. 
 
