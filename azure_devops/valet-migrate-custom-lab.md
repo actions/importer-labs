@@ -71,7 +71,7 @@ transform "DotNetCoreCLI@2" do |item|
     run_command << "shopt -s globstar; for f in ./**/*.csproj; do dotnet #{command} $f #{item['arguments']} ; done"
   else
     run_command << "dotnet #{command} #{item['projects']} #{item['arguments']}"
- end
+  end
  
   {
     shell: "bash",
