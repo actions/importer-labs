@@ -42,7 +42,7 @@ You will use the codespace preconfigured in this repository to perform the dry r
 2. Verify you are in the `valet` directory
   
 ```
-gh valet dry-run azure-devops pipeline --pipeline-id PIPELINE-ID --output-dir dry-runs
+gh valet dry-run azure-devops pipeline --pipeline-id PIPELINE-ID --output-dir dry-run
 ```
 3. Now, from the `valet` folder in your repository, run `gh valet dry-run` to see the output: 
 
