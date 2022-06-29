@@ -5,25 +5,13 @@ In this lab, you will use the Valet `migrate` command to migrate an Azure DevOps
 - [Identify the Azure DevOps pipeline ID to use](#identify-the-azure-devops-pipeline-id-to-use)
 - [Perform a migration](#perform-a-migration)
 - [View the pull request](#view-the-pull-request)
+- [Next Lab](#next-lab)
 
 ## Prerequisites
 
-1. Follow all steps [here](/labs/azure_devops#readme) to set up your environment
+1. Follow all steps [here](../azure_devops#readme) to set up your environment
 2. Create or start a codespace in this repository (if not started)
 3. Completed the [Valet audit lab](valet-audit-lab.md).
-4. Verify or add the following values to the `./valet/.env.local` file. All values were created [here](/labs/azure_devops#readme)
-```
-GITHUB_ACCESS_TOKEN=<GithHub PAT generated>
-GITHUB_INSTANCE_URL=https://github.com/
-
-AZURE_DEVOPS_PROJECT=<Project identified>
-AZURE_DEVOPS_ORGANIZATION=<Org identified>
-AZURE_DEVOPS_INSTANCE_URL=<DevOps instance>
-AZURE_DEVOPS_ACCESS_TOKEN=<Token Generated>
-```
-### Example ###
-
-![envlocal](https://user-images.githubusercontent.com/26442605/169069638-0bfa8f89-eaa9-423b-b2b7-447248e63e2b.png)
 
 ## Identify the Azure DevOps pipeline ID to use
 You will need a pipeline ID to perform the migration
@@ -67,3 +55,6 @@ The migrate output will show you the pull request on GitHub.
 
 ### Example
 ![migrate-pr](https://user-images.githubusercontent.com/26442605/161110724-f39d9cb9-1992-44c5-bea5-da2fcebb074c.png)
+
+### Next Lab
+[Migrate an Azure DevOps pipeline to GitHub Actions with a custom transformer](valet-migrate-custom-lab.md)

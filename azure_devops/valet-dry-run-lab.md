@@ -5,30 +5,18 @@ In this lab, you will use the `valet dry-run` command to convert an Azure DevOps
 - [Identify the Azure DevOps pipeline ID to use](#identify-the-azure-devops-pipeline-id-to-use)
 - [Perform a dry run](#perform-a-dry-run)
 - [View dry-run output](#view-dry-run-output)
+- [Next Lab](#next-lab)
 
 ## Prerequisites
 
-1. Follow all steps [here](/labs/azure_devops#readme) to set up your environment
+1. Follow all steps [here](../azure_devops#readme) to set up your environment
 2. Create or start a codespace in this repository (if not started)
 3. You have completed the [Valet audit lab](valet-audit-lab.md).
-4. Verify or add the following values to the `valet/.env.local` file. All values were created [here](/labs/azure_devops#readme)
-```
-GITHUB_ACCESS_TOKEN=<GithHub PAT generated>
-GITHUB_INSTANCE_URL=https://github.com/
-
-AZURE_DEVOPS_PROJECT=<Project identified>
-AZURE_DEVOPS_ORGANIZATION=<Org identified>
-AZURE_DEVOPS_INSTANCE_URL=<DevOps instance>
-AZURE_DEVOPS_ACCESS_TOKEN=<Token Generated>
-```
-### Example ###
-
-![envlocal](https://user-images.githubusercontent.com/26442605/169069638-0bfa8f89-eaa9-423b-b2b7-447248e63e2b.png)
 
 ## Identify the Azure DevOps pipeline ID to use
 You will need a pipeline ID to perform the dry run
 1. Go to the `valet/ValetBootstrap/pipelines` folder
-2. Open the `valet/ValetBootstrap/pipelines/valet-pipeline1.json` file
+2. Open the `valet/ValetBootstrap/pipelines/valet-pipeline1.config.json` file
 3. Look for the `$.web.href` link
 4. At the end of the link is the pipeline ID. Copy or note the ID.
 
@@ -60,3 +48,5 @@ The dry-run output will show you the GitHub Actions yml that will be migrated to
 ### Example
 ![valet-dr-3](https://user-images.githubusercontent.com/26442605/169616486-fd5512fa-0761-45fe-a252-5b2ef0926a04.png)
 
+### Next Lab
+[Migrate an Azure DevOps pipeline to GitHub Actions](valet-migrate-lab.md)
