@@ -34,6 +34,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
         -   Project and Team: `Read, Write, & Manage`
         -   Release: `Read`
         -   Service Connections: `Read`
+        -   Task Groups (Read)
         -   Variable Groups: `Read`
     -   Click `Create`
     -   Copy the PAT somewhere safe and temporary.
