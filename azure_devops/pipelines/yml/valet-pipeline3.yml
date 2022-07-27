@@ -1,0 +1,22 @@
+trigger:
+- build
+
+variables:
+ - name: OLD
+   value: "SECRET"
+  
+pool: MyPool
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- task: GoTool@0
+  inputs:
+    version: '1.10'
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: 'ACE CAT: valet-testing'
+    appType: 'functionAppLinux'
+    appName: 'demo'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
