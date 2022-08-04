@@ -28,7 +28,7 @@ fi
 
 # if Jenkins codespace secrets are set, spin up Jenkins instance 
 
-if [ -z "$7" -o -z "$8"] ]
+if [ -z "$7" -o -z "$8"]
 then
 else 
      echo "Jenkins secrets are set, starting Jenkins service"
