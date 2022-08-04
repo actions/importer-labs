@@ -1,0 +1,7 @@
+Started by user [8mha:////4FHr5QTGklXqOadv8AQsLAOFZ/MzjWF9aiBfgFz1Zj21AAAAnx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZh/dLi1CL9pNT0/LzE9NLUotTkRADRHK08yAAAAA==[0mBegona Guereca
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/monas_dev_work/monas_freestyle
+[monas_freestyle] $ /bin/sh -xe /tmp/jenkins12654124399786383135.sh
++ echo This is Monas free style project
+This is Monas free style project
+Finished: SUCCESS
