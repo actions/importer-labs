@@ -18,5 +18,5 @@
 		"ms-azuretools.vscode-docker",
 	],
 	"onCreateCommand": 'echo "export GITHUB_ACCESS_TOKEN=$VALET_GHCR_PASSWORD" >> ~/.bashrc',
-	"postCreateCommand": "sudo bash .devcontainer/setupcodespace.sh ${VALET_GHCR_PASSWORD} ${AZURE_DEVOPS_PROJECT} ${AZURE_DEVOPS_ORGANIZATION} ${AZURE_DEVOPS_ACCESS_TOKEN} ${GITHUB_USER} 'https://github.com/' && gh extension install github/gh-valet || echo 'Could not auto-build. Skipping.' "
+	"postCreateCommand": "sudo bash .devcontainer/setupcodespace.sh ${VALET_GHCR_PASSWORD} ${AZURE_DEVOPS_PROJECT} ${AZURE_DEVOPS_ORGANIZATION} ${AZURE_DEVOPS_ACCESS_TOKEN} ${GITHUB_USER} ${JENKINS_USERNAME} ${JENKINS_PASSWORD}'https://github.com/' && gh extension install github/gh-valet || echo 'Could not auto-build. Skipping.' "
 }

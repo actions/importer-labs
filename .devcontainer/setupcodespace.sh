@@ -25,4 +25,16 @@ then
      echo "Error: Set envars not set, valid values not passed in. You will have to manually use the valet/.env.local folder"
 fi
 
+
+# if Jenkins codespace secrets are set, spin up Jenkins instance 
+
+if [ -z "$7" -o -z "$8"] ]
+then
+else 
+     echo "Jenkins secrets are set, starting Jenkins service"
+     ../jenkins/jenkins_setup/setupjenkins.sh $7 $8
+fi
+
+
+
 echo "Finished setupcodespace.sh"
