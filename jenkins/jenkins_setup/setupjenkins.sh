@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 container_name="jenkins"
-username=$7
-password=$8
+username="admin"
+password="password"
 
 echo "Building Jenkins instance!"
 
 # Build jenkins image from docker compose file 
-docker build -t jenkins:$container_name $(pwd)
+docker build -t jenkins:$container_name .
 
 # wait until docker image is ready
 sleep 2
