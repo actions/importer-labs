@@ -12,14 +12,14 @@
       <arguments>
         <entry>
           <string>message</string>
-          <string>Hello World</string>
+          <string>Hello</string>
         </entry>
       </arguments>
       <sensitiveVariables/>
       <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
     </cps.a.ArgumentsActionImpl>
     <wf.a.TimingAction plugin="workflow-api@1188.v0016b_4f29881">
-      <startTime>1659652045225</startTime>
+      <startTime>1659739115690</startTime>
     </wf.a.TimingAction>
     <s.a.LogStorageAction/>
   </actions>

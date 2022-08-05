@@ -14,9 +14,10 @@
   <properties>
     <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
       <triggers>
-        <hudson.triggers.TimerTrigger>
-          <spec>H(0-30) 17 * * *</spec>
-        </hudson.triggers.TimerTrigger>
+        <hudson.triggers.SCMTrigger>
+          <spec>H(0-29)/10 * * * *</spec>
+          <ignorePostCommitHooks>false</ignorePostCommitHooks>
+        </hudson.triggers.SCMTrigger>
       </triggers>
     </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
   </properties>
@@ -27,7 +28,9 @@
     stages {
         stage(&apos;Hello&apos;) {
             steps {
-                echo &apos;Hello World&apos;
+                echo &apos;Hello&apos;
+                sleep 80
+                echo &apos;world&apos;
             }
         }
     }

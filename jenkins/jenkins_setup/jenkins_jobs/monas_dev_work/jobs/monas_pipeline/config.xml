@@ -20,6 +20,8 @@
         stage(&apos;Hello&apos;) {
             steps {
                 echo &apos;Hello World&apos;
+                sleep 80
+                echo &quot;Mona is the best dev &lt;3&quot;
             }
         }
     }

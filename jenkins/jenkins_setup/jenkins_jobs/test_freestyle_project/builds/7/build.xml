@@ -5,18 +5,18 @@
       <causeBag class="linked-hash-map">
         <entry>
           <hudson.model.Cause_-UserIdCause>
-            <userId>begonaguereca</userId>
+            <userId>admin</userId>
           </hudson.model.Cause_-UserIdCause>
           <int>1</int>
         </entry>
       </causeBag>
     </hudson.model.CauseAction>
   </actions>
-  <queueId>59</queueId>
-  <timestamp>1659652292696</timestamp>
-  <startTime>1659652292712</startTime>
+  <queueId>7</queueId>
+  <timestamp>1659738128248</timestamp>
+  <startTime>1659738128263</startTime>
   <result>SUCCESS</result>
-  <duration>9</duration>
+  <duration>6</duration>
   <charset>UTF-8</charset>
   <keepLog>false</keepLog>
   <builtOn></builtOn>

@@ -3,21 +3,33 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <jenkins.branch.RateLimitBranchProperty_-JobPropertyImpl plugin="branch-api@2.1046.v0ca_37783ecc5">
+      <durationName>second</durationName>
+      <count>1</count>
+      <userBoost>false</userBoost>
+    </jenkins.branch.RateLimitBranchProperty_-JobPropertyImpl>
+  </properties>
   <scm class="hudson.scm.NullSCM"/>
+  <quietPeriod>5</quietPeriod>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec>H(0-29)/10 * * * *</spec>
+      <spec>H/1 * * * *</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;Hello folks learning how to use Valet!&quot;</command>
+      <command>echo &quot;hello valet!&quot;
+sleep 70</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>echo &quot;I hope you are enjoying this lab&quot;</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

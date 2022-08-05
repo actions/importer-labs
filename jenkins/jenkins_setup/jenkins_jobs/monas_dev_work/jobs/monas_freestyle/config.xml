@@ -12,7 +12,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;This is Monas free style project&quot;</command>
+      <command>echo &quot;This is from Monas freestyle pipline&quot;
+sleep 80
+echo &quot;Hope you are enjoying the lab!&quot;</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>

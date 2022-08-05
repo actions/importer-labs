@@ -1,7 +1,12 @@
-Started by user [8mha:////4FHr5QTGklXqOadv8AQsLAOFZ/MzjWF9aiBfgFz1Zj21AAAAnx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZh/dLi1CL9pNT0/LzE9NLUotTkRADRHK08yAAAAA==[0mBegona Guereca
+Started by user [8mha:////4FxN3sVU1tfWybQ5wvlOBwq6oYMxrAYMsdxQHSOeUawSAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZu/dLi1CL9xJTczDwAcQdo88AAAAA=[0mBegona Guereca
+Started by user [8mha:////4FxN3sVU1tfWybQ5wvlOBwq6oYMxrAYMsdxQHSOeUawSAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZu/dLi1CL9xJTczDwAcQdo88AAAAA=[0mBegona Guereca
+Started by user [8mha:////4FxN3sVU1tfWybQ5wvlOBwq6oYMxrAYMsdxQHSOeUawSAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZu/dLi1CL9xJTczDwAcQdo88AAAAA=[0mBegona Guereca
 Running as SYSTEM
 Building in workspace /var/jenkins_home/workspace/monas_dev_work/monas_freestyle
-[monas_freestyle] $ /bin/sh -xe /tmp/jenkins6834801111486145295.sh
-+ echo This is Monas free style project
-This is Monas free style project
+[monas_freestyle] $ /bin/sh -xe /tmp/jenkins3020402151521087429.sh
++ echo This is from Monas freestyle pipline
+This is from Monas freestyle pipline
++ sleep 80
++ echo Hope you are enjoying the lab!
+Hope you are enjoying the lab!
 Finished: SUCCESS
