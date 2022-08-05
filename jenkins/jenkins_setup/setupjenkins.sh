@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-container_name="jenkins"
+container_name="valet"
 username="admin"
 password="password"
 
