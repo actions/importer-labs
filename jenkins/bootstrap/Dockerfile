@@ -11,4 +11,4 @@ RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
 COPY casc.yaml /var/jenkins_home/casc.yaml
 
 # seed with jobs
-COPY jenkins_jobs /usr/share/jenkins/ref/jobs
+COPY pipelines /usr/share/jenkins/ref/jobs
