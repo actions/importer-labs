@@ -1,7 +1,0 @@
-Started by user [8mha:////4FxN3sVU1tfWybQ5wvlOBwq6oYMxrAYMsdxQHSOeUawSAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgZu/dLi1CL9xJTczDwAcQdo88AAAAA=[0mBegona Guereca
-Running as SYSTEM
-Building in workspace /var/jenkins_home/workspace/test_freestyle_project
-[test_freestyle_project] $ /bin/sh -xe /tmp/jenkins15534595830832165184.sh
-+ echo hello valet!
-hello valet!
-Finished: SUCCESS
