@@ -3,7 +3,7 @@ container_name="gitlab"
 
 if [ ! -d /srv/gitlab ]; then
   echo -e "\U1F331 Seeding GitLab data"
-  sudo tar -xzf gitlab/bootstrap/gitlab.tar.gz -C /srv
+  sudo tar -xzf "$CODESPACE_VSCODE_FOLDER/gitlab/bootstrap/gitlab.tar.gz" -C /srv
 fi
 
 echo -e "Checking for GitLab \U1F575"
