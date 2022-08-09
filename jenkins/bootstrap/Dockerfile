@@ -12,3 +12,5 @@ COPY casc.yaml /var/jenkins_home/casc.yaml
 
 # seed with jobs
 COPY pipelines /usr/share/jenkins/ref/jobs
+
+
