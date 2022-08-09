@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 container_name="gitlab"
 
-if [ ! -d /srv/data ]; then
-  echo "Extracting GitLab data"
+if [ ! -d /srv/gitlab ]; then
+  echo -e "\U1F331 Seeding GitLab data"
   sudo tar -xzf gitlab/bootstrap/gitlab.tar.gz -C /srv
 fi
 
