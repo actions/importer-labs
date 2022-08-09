@@ -2,41 +2,15 @@
 
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to run the Valet CI/CD migration tool against an isolated GitLab instance running in Docker. 
 
-- [Use this Repo as a template](#repo-template)
 - [Prerequisites](#prerequisites)
-- [Codespace secrets](#codespace-secrets)
-- [Use Valet with a codespace](#use-valet-with-a-codespace)
+- [Setup Codespace for Valet](#setup-codespace-for-valet)
 - [Labs for GitLab](#labs-for-gitlab)
 
-## Repo template
-
-1. Verify you are in your own Repository created from the [Valet Labs](https://github.com/valet-customers/labs) template.
 
 ## Prerequisites
-1. Create a GitHub personal access token. 
-    - Navigate to your GitHub `Settings` - click your profile photo and click `Settings`.
-    - Go to `Developer Settings`
-    - Go to `Personal Access Tokens` -> `Legacy tokens (if present)`
-    - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
-    - Click `Generate token`
-    - Copy the PAT somewhere safe and temporary.
+1. [Valet Labs](https://github.com/valet-customers/labs) template has been used to generate this repository.
 
-## Codespace secrets
-Add the following Codespace secrets.
-- `VALET_GHCR_PASSWORD`: Add `VALET_GHCR_PASSWORD` as the `Name` and the GitHub personal access token created above as the value.
-
-Steps to create the codespace secrets. Complete for secret noted above:
-
-- Navigate to the `Settings` tab in this repo
-- Find `Secrets` and click the down arrow
-- Click `Codespaces`
-- Click `New Repository Secret` to create a new secret
-- Name the secret as noted above
-- Paste in the value noted above
-- Click `Add Secret`
-
-## Use Valet with a codespace
+## Setup Codespace for Valet
 
 1. Start the codespace
     - Click the `Code` button down arrow above repository on the repository's landing page.
