@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 container_name="gitlab"
+tar_file_path="$CODESPACE_VSCODE_FOLDER/gitlab/bootstrap/gitlab.tar.gz"
 
 if [ ! -d /srv/gitlab ]; then
-  echo -e "\U1F331 Seeding GitLab data"
-  sudo tar -xzf "$CODESPACE_VSCODE_FOLDER/gitlab/bootstrap/gitlab.tar.gz" -C /srv
+  echo -e "Seeding GitLab data \U1F331"
+  if [ ! -f $tar_file_path ]; then
+    echo -e "GitLab data file not found at $tar_file_path.\nPlease verify this file has not been removed\nExiting..."
+    return
+  fi
+  sudo tar -xzf $tar_file_path -C /srv
 fi
 
 echo -e "Checking for GitLab \U1F575"
@@ -32,7 +37,7 @@ fi
 export DOCKER_ARGS="--network=host"
 `grep -q "export DOCKER_ARGS=" ~/.bashrc || echo 'export DOCKER_ARGS="--network=host"' >> ~/.bashrc`
 
-echo -e "\U23F0 Waiting for GitLab to be ready. This might take a while..."
+echo -e "Waiting for GitLab to be ready. This might take a while \U23F0"
 until $(curl --output /dev/null --silent --head --fail http://localhost); do
   printf '.'
   sleep 5
