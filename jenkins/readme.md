@@ -47,7 +47,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
   - username: `admin`
   - password: `password`
 
-7. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populataed pipelines.
+2. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populataed pipelines.
 
 ## Labs for Jenkins
 
