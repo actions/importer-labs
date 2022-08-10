@@ -8,7 +8,7 @@ These Valet labs let you test-drive Valet by bootstrapping the environment of yo
 # Prerequisites
 1. Valet is currently private and customers must be onboarded prior to using it. Please reach out to [GitHub Sales](https://github.com/enterprise/contact) to inquire about being granted access.
 2. Create your own GitHub repository in your own GitHub organization or under your user with Codespaces enabled using this repository as a template. To do so: 
-   - Navigate to the top of this repository click `Use this template`.
+   - Navigate to the top of this repository and click `Use this template`.
    - Select the owner of the new repository. It could be your personal username or an organization you belong to.
    - Name the repository.
    - Click `Create repository from template`.
