@@ -41,7 +41,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 - Navigate to the terminal within your Codespace.
 - Run `source jenkins/bootstrap/setupjenkins.sh` to kick off the creation of your Jenkins instance.
 - After a couple seconds, a pop-up box should appear with a link to the forwarded URL for your Jenkins instance.
-- You can also access the fowarded URL by going to the `Ports` tab in your terminal. Right click on the URL listed under the `Local Address` and clicking the `Open in Browser` tab.
+- You can also access the forwarded URL by going to the `Ports` tab in your terminal. Right click on the URL listed under the `Local Address` and clicking the `Open in Browser` tab.
 - Once you have navigated to the url, the following default credentials have been assigned:
 
   - username: `admin`
