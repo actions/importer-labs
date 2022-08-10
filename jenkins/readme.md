@@ -66,7 +66,7 @@ Manually Install the GitHub CLI Valet extension. More information on the [GitHub
 - If you get a similiar error to the following, click the link to authorize the token
       ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
   - Restart Codespace after clicking the link
-- Verify Valet CLI is installed and working
+- Verify Valet CLI is installed and working by running `gh valet version`
 
 ## Troubleshooting Jenkins
 1. Navigate to the Docker tab on your left hand side. 
