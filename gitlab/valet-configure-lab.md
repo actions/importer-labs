@@ -17,7 +17,7 @@ In this lab, you will use Valet's `configure` command to set up the required sec
    2. In the `PORTS` tab find the row for port 80.
    3. Hover over the address under the `Local Address` column, and click the globe to open in browser
    4. Login to the GitLab server and following [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a token that has `read_api` scope.
-   5. Record token for use in later steps.
+   5. Record token for a later step.
 3. Create a GitHub personal access token. 
     - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
     - Go to `Developer Settings`
@@ -26,10 +26,10 @@ In this lab, you will use Valet's `configure` command to set up the required sec
     - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
     - Click `Generate token`
     - Copy the token somewhere safe and temporary.
-4. In the codespace terminal run `gh valet configure`.
+4. In the codespace terminal window click back to the `TERMINAL` tab and run `gh valet configure`.
 5. Using the down arrow key to highlight `GitLab CI`, press the spacebar to select, then hit enter to accept.
 6. Enter the previously generated GitHub access token from step 3.
-7. Enter the GitHub instance url or hit enter to accept the default, if you are using github.com
+7. Enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
 8. Enter the GitLab access token from step 2 and press enter.
 9. Enter `http://localhost` for the GitLab instance url
 10. If all went well you should see a similar output in your terminal 
