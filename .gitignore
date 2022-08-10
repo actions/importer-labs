@@ -350,4 +350,5 @@ MigrationBackup/
 .ionide/
 
 # valet files
-valet/.env*local
+.env*local
+credentials_file.yaml
