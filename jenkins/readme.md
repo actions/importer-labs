@@ -69,9 +69,10 @@ Manually Install the GitHub CLI Valet extension. More information on the [GitHub
 - Verify Valet CLI is installed and working
 
 ## Troubleshooting Jenkins
-1. Navigate to the Docker tab on your left hand side. 
+
+1. Navigate to the Docker tab on your left hand side.
 2. Under the `Containers` tab you should see a Docker container `jenkins:valet` listed with a green play button ▶
-    - If you see the `jenkins:valet` container, but it has a red stopped symbol next to it ▢, right click on the container and click on `start`, the container should begin running again. 
-    - If the container does not start even after trying to manually start it, right click on the `jenkins:valet` container and click the `remove` button. Next continue by following all the #bootstrap-jenkins instructions again. 
-    
+    - If you see the `jenkins:valet` container, but it has a red stopped symbol next to it ▢, right click on the container and click on `start`, the container should begin running again.
+    - If the container does not start even after trying to manually start it, right click on the `jenkins:valet` container and click the `remove` button. Next continue by following all the #bootstrap-jenkins instructions again.
+
 <img width="985" alt="Screen Shot 2022-08-09 at 3 06 46 PM" src="https://user-images.githubusercontent.com/19557880/183770210-c0386616-656e-4fe9-9324-b410ad62c406.png">
