@@ -3,8 +3,8 @@
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to spin up a Jenkins instance against which to run the Valet CI/CD migration tool.
 
 - [Use this Repo as a template](#repo-template)
-- [Use Valet with a codespace](#use-valet-with-a-codespace)
 - [Prerequisites](#prerequisites)
+- [Use Valet with a codespace](#use-valet-with-a-codespace)
 - [Bootstrap Jenkins](#bootstrap-jenkins)
 
 ## Repo template
@@ -36,18 +36,18 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 ## Bootstrap Jenkins
 
- 1. Run the Jenkins setup script.  This script will setup GitLab and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
+ 1. Run the Jenkins setup script.  This script will setup Jenkins and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
 
 - Navigate to the terminal within your Codespace.
 - Run `source jenkins/bootstrap/setupjenkins.sh` to kick off the creation of your Jenkins instance.
 - After a couple seconds, a pop-up box should appear with a link to the forwarded URL for your Jenkins instance.
-- You can also access the fowarded URL by going to the `Ports` tab in your terminal. Right click on the URL listed under the `Local Address` and clicking the `Open in Browser` tab.
+- You can also access the forwarded URL by going to the `Ports` tab in your terminal. Right click on the URL listed under the `Local Address` and clicking the `Open in Browser` tab.
 - Once you have navigated to the url, the following default credentials have been assigned:
 
   - username: `admin`
   - password: `password`
 
-7. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populataed pipelines.
+2. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populataed pipelines.
 
 ## Labs for Jenkins
 
@@ -66,7 +66,7 @@ Manually Install the GitHub CLI Valet extension. More information on the [GitHub
 - If you get a similiar error to the following, click the link to authorize the token
       ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
   - Restart Codespace after clicking the link
-- Verify Valet CLI is installed and working
+- Verify Valet CLI is installed and working by running `gh valet version`
 
 ## Troubleshooting Jenkins
 
