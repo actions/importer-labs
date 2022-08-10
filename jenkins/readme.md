@@ -36,7 +36,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 ## Bootstrap Jenkins
 
- 1. Run the Jenkins setup script.  This script will setup GitLab and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
+ 1. Run the Jenkins setup script.  This script will setup Jenkins and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
 
 - Navigate to the terminal within your Codespace.
 - Run `source jenkins/bootstrap/setupjenkins.sh` to kick off the creation of your Jenkins instance.
