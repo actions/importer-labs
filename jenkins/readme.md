@@ -33,6 +33,8 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
     - Verify Valet CLI is installed and working
     - Run `gh valet version` in the Visual Studio Code terminal and verify the output looks like the below image. Note the valet version will be different than below as the latest version gets pulled down.
        - If `gh valet version` did not produce a similar image with a version please follow these instructions [Troubleshoot GH Valet extension](#troubleshoot-gh-valet-extension)
+       
+<img width="836" alt="Screen Shot 2022-08-10 at 1 45 20 PM" src="https://user-images.githubusercontent.com/19557880/184017284-04233b97-d25e-48cf-be51-f7088c779fd5.png">
 
 ## Bootstrap Jenkins
 
@@ -64,10 +66,11 @@ Manually Install the GitHub CLI Valet extension. More information on the [GitHub
 - `gh extension install github/gh-valet`
 - Verify the result of the install is: `✓ Installed extension github/gh-valet`
 - If you get a similiar error to the following, click the link to authorize the token
-      ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
   - Restart Codespace after clicking the link
 - Verify Valet CLI is installed and working by running `gh valet version`
 
+![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
+  
 ## Troubleshooting Jenkins
 
 1. Navigate to the Docker tab on your left hand side.
