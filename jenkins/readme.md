@@ -61,7 +61,7 @@ Perform the following labs to test-drive Valet
 
 Manually Install the GitHub CLI Valet extension. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
 
-- Verify you are in the Visual Studio Code terminal
+- Verify you are in the codespace terminal
 - Run this command to install the GitHub Valet extension
 - `gh extension install github/gh-valet`
 - Verify the result of the install is: `✓ Installed extension github/gh-valet`
