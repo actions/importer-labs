@@ -26,15 +26,19 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
     - Click `Generate token`
     - Copy the token somewhere safe and temporary.
-4. In the codespace terminal window click back to the `TERMINAL` tab and run `gh valet configure`.
-5. Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, then hit enter to accept.
-6. At the prompt enter your GitHub Username and press enter.
-7. At the GitHub Container Registry prompt enter the GitHub PAT generated in step 3 and press enter
-8. At the GitHub PAT prompt enter the GitHub PAT generated in step 3 and press enter.
-9. At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
-10. At the GitLab token prompt enter the GitLab access token from step 2 and press enter.
-11. At the GitLab url prompt enter `http://localhost` and press enter.
-12. If all went well you should see a similar output in your terminal 
+3. Run Valet configure commands
+   - In the codespace terminal window click back to the `TERMINAL` tab.
+   - Within the terminal, navigate into the GitLab CI directory `cd valet`
+   - Run `gh valet configure`
+   - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, then hit enter to accept.
+   - At the prompt enter your GitHub Username and press enter.
+   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 3 and press enter
+   - At the GitHub PAT prompt enter the GitHub PAT generated in step 3 and press enter.
+   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
+   - At the GitLab CI token prompt enter the GitLab CI access token from step 2 and press enter.
+   - At the GitLab CI url prompt enter `http://localhost` and press enter.
+   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
+4. If all went well you should see a similar output in your terminal 
 ![configure-result](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
 
 ## Verify Valet Works
