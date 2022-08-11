@@ -44,5 +44,3 @@ until $(curl --output /dev/null --silent --head --fail http://localhost); do
 done
 
 echo -e '\nGitLab is up and running! \U1F680'
-echo "Username: root"
-docker exec -it $container_name grep 'Password:' /etc/gitlab/initial_root_password

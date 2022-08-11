@@ -33,7 +33,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
    - Click the `PORTS` tab in the codespace terminal window.
    - In the row that starts with `80` mouse over the address under the column heading `Local Address`, and click the globe icon.
    - Verify a new browser tab opened to the GitLab login screen.
-   - Login with the username and password printed in the terminal after step 3, if that is not available you can run the command again in the terminal to get it `source gitlab/bootstrap/setup.sh`.
+   - Login with the username: `root` and password: `valet-labs!`.
    - Verify that you can see the auto populated projects in GitLab, under the `valet` namespace by clicking the `Menu` icon in GitLab, then `Your projects`.
 
 ## Labs for GitLab
