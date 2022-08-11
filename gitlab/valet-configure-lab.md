@@ -1,5 +1,5 @@
 # Configure Valet to work with GitLab
-In this lab, you will use the Valet `configure` command to set up the required information to communicate with the GitLab and GitHub instances.  The `configure` command can be used for all of the supported providers, in this lab we will be focusing on GitLab.
+In this lab, you will use the Valet `configure` command to set up the required information to communicate with the GitLab and GitHub instances. The `configure` command can be used for all of the supported providers, in this lab we will be focusing on GitLab.
 
 - [Prerequisites](#prerequisites)
 - [Configuring Valet](#configuring-valet)
