@@ -4,7 +4,7 @@ The end result of this command will be the actions workflow writen to your local
 
 - [Prerequisites](#prerequisites)
 - [Perform a dry run](#perform-a-dry-run)
-- [View dry-run output](#view-dry-run-output)
+- [Review dry-run output](#review-dry-run-output)
 - [Next Lab](#next-lab)
 
 ## Prerequisites
@@ -34,19 +34,86 @@ We will be performing a dry-run against a preconfigured project in the GitLab in
 
 
 ## Review dry-run output
-The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated
+The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated.
 
-In the GitLab pipeline we had 3 stages and 6 jobs.  
+In the GitLab pipeline we had 3 stages and 6 jobs that run on a alpine image
 <details>
-<summary> GitLab Pipeline </summary>
+  <summary> Click to expand <em>GitLab Pipeline</em> </summary>
+ 
 ```yaml
-  # Testing
+stages:
+  - build
+  - test
+  - deploy
+
+image: alpine
+
+build_a:
+  stage: build
+  script:
+    - echo "This job builds something."
+    - sleep 100
+
+build_b:
+  stage: build
+  script:
+    - echo "This job builds something else."
+    - sleep 70
+
+test_a:
+  stage: test
+  script:
+    - echo "This job tests something. It will only run when all jobs in the"
+    - echo "build stage are complete."
+
+test_b:
+  stage: test
+  script:
+    - echo "This job tests something else. It will only run when all jobs in the"
+    - echo "build stage are complete too. It will start at about the same time as test_a."
+    - sleep 300
+
+deploy_a:
+  stage: deploy
+  script:
+    - echo "This job deploys something. It will only run when all jobs in the"
+    - echo "test stage complete."
+    - sleep 600
+
+deploy_b:
+  stage: deploy
+  script:
+    - echo "This job deploys something else. It will only run when all jobs in the"
+    - echo "test stage complete. It will start at about the same time as deploy_a."
+    - sleep 400
+
 ```
+
 </details>
 
-In the resulting yaml we have the same
+In the resulting yaml we have the same jobs (`build_a`, `build_b`, `test_a`, `test_b`, `deploy_a`, `deploy_b`) and the stages are now being enforced using Actions's keyword `needs`.  We can see this if we examine the `needs` for test_a and test_b, which make the test jobs depend on the build jobs.
+```diff
+- stages: test
++ needs:
++ - build_a
++ - build_b
+```
+
+The `image` in the GitLab pipeline has be transformed to `container` on each of the jobs.  
+```diff
+- image: alpine
++ container:
++   image: alpine
+```
+And `script` has been transformed to `run`
+```diff
+- script:
+-  - echo "This job builds something."
++ run: echo "This job builds something."
+```
+
 <details>
-<summary>Actions Workflow</summary>
+  <summary>Click to expand <em>Actions Workflow</em></summary>
   
 ```yaml
 name: valet/basic-pipeline-example
@@ -147,10 +214,10 @@ jobs:
 ```
 </details>
 
-### Example
-ADD_IMAGE
+## Includes Dry-Run
+In the previous dry-run we migrated a basic pipeline that map very nicely to concepts in GitHub Actions.  In this section we will dry-run a pipeline that does not map directly to Actions.  The `include-file-example` pipeline
 
-### Next Lab
+## Next Lab
 TBD
 
 
