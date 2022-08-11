@@ -36,9 +36,9 @@ We will be performing a dry-run against a preconfigured project in the GitLab in
 ## Review dry-run output
 The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated.
 
-In the GitLab pipeline we had 3 stages and 6 jobs that run on a alpine image
+__Click to Expand__
 <details>
-  <summary> Click to expand <em>GitLab Pipeline</em> </summary>
+  <summary><em>GitLab Pipeline</em> </summary>
  
 ```yaml
 stages:
@@ -91,29 +91,8 @@ deploy_b:
 
 </details>
 
-In the resulting yaml we have the same jobs (`build_a`, `build_b`, `test_a`, `test_b`, `deploy_a`, `deploy_b`) and the stages are now being enforced using Actions's keyword `needs`.  We can see this if we examine the `needs` for test_a and test_b, which make the test jobs depend on the build jobs.
-```diff
-- stages: test
-+ needs:
-+ - build_a
-+ - build_b
-```
-
-The `image` in the GitLab pipeline has be transformed to `container` on each of the jobs.  
-```diff
-- image: alpine
-+ container:
-+   image: alpine
-```
-And `script` has been transformed to `run`
-```diff
-- script:
--  - echo "This job builds something."
-+ run: echo "This job builds something."
-```
-
 <details>
-  <summary>Click to expand <em>Actions Workflow</em></summary>
+  <summary><em>Actions Workflow</em></summary>
   
 ```yaml
 name: valet/basic-pipeline-example
@@ -213,6 +192,29 @@ jobs:
     - run: sleep 400
 ```
 </details>
+
+In the GitLab pipeline we had 3 stages and 6 jobs that run on a alpine image
+
+In the Actions workflow we have the same jobs (`build_a`, `build_b`, `test_a`, `test_b`, `deploy_a`, `deploy_b`) and the stages are now being enforced using the `needs` keyword.  We can see this if we examine the `needs` for `test_a` and `test_b`, which make the test jobs depend on the build jobs.
+```diff
+- stages: test
++ needs:
++ - build_a
++ - build_b
+```
+
+The `image` in the GitLab pipeline has be transformed to `container` on each of the jobs.  
+```diff
+- image: alpine
++ container:
++   image: alpine
+```
+And `script` has been transformed to `run`
+```diff
+- script:
+-  - echo "This job builds something."
++ run: echo "This job builds something."
+```
 
 ## Includes Dry-Run
 In the previous dry-run we migrated a basic pipeline that map very nicely to concepts in GitHub Actions.  In this section we will dry-run a pipeline that does not map directly to Actions.  The `include-file-example` pipeline
