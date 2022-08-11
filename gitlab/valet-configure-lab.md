@@ -11,12 +11,13 @@ In this lab, you will use the Valet `configure` command to set up the required i
 1. Followed [steps](../gitlab#readme) to set up your codespace environment.
 
 ## Configuring Valet
-1. Run the setup script in the codespace terminal `source ./gitlab/bootstrap/setup.sh` and record the GitLab username and password for the next step.
+1. Run the setup script in the codespace terminal `source ./gitlab/bootstrap/setup.sh` to ensure the GitLab instance is ready.
 2. Login to the GitLab instance to generate a personal access token:
     - Click the `PORTS` tab in the codespace terminal window.
     - In the `PORTS` tab find the row for port 80.
     - Hover over the address under the `Local Address` column, and click the globe to "open in browser".
-    - Login to the GitLab server and following [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a token that has `read_api` scope.
+    - Login to the GitLab server with username: `root` and password: `valet-labs!`
+    - follow the GitLab [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a token that has `read_api` scope.
     - Record token for a later step.
 3. Create a GitHub personal access token (PAT). 
     - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
