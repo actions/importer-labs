@@ -33,8 +33,8 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Copy the token somewhere safe and temporary.
 3. Run Valet configure commands
    - In the codespace terminal window click back to the `TERMINAL` tab.
-   - Within the terminal, navigate into the Jenkins directory `cd valet`
-   - Run `gh valet configure`
+   - Within the terminal, ensure you are in the root dirrectory.
+   - Run `gh valet configure`.
    - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, then hit enter to accept.
    - At the prompt enter your GitHub Username and press enter.
    - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 3 and press enter
