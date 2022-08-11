@@ -224,7 +224,7 @@ include:
   - local: /config/build.gitlab-ci.yml
   - local: /config/test.gitlab-ci.yml
 ```
-and results in the below yaml.  The difference to note here is that Valet transformed the pipeline into a single workflow, it did not create reusable workflows for the `include` files `/config/build.gitlab-ci.yml` and `/config/test.gitlab-ci.yml`.  The reason for this is that the dependency graph of how the jobs run could not be guaranteed using reusable workflows.  This is an example of how concepts in GitLab don't always map directly to Actions and Valet has to make a decision on the safest path forward.  It is likely this could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date with a deeper understanding of pipeline. 
+and results in the below yaml.  The difference to note here is that Valet transformed the pipeline into a single workflow, it did not create reusable workflows for the `include` files `/config/build.gitlab-ci.yml` and `/config/test.gitlab-ci.yml`.  The reason for this is that the dependency graph of how the jobs run could not be guaranteed using reusable workflows.  This is an example of how concepts in GitLab don't always map directly to Actions and Valet has to make a decision on the safest path forward.  It is likely this could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date with a deeper understanding of the pipeline. 
 ```yaml
 name: valet/included-files-example
 on:
