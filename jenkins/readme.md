@@ -11,16 +11,6 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 1. Verify you are in your own Repository created from the landing page [Valet Labs](https://github.com/valet-customers/labs).
 
-## Prerequisites
-
-1. Create a GitHub personal access token.
-    - Navigate to your GitHub `Settings` - click your profile photo and click `Settings`.
-    - Go to `Developer Settings`
-    - Go to `Personal Access Tokens` -> `Legacy tokens (if present)`
-    - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
-    - Click `Generate token`
-    - Copy the PAT somewhere safe and temporary.
 
 ## Use Valet with a codespace
 
