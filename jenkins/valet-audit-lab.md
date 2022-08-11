@@ -1,6 +1,6 @@
 # Audit Jenkins pipelines using the Valet audit command
 
-In this lab, you will use Valet to `audit` an Azure DevOps organization. The `audit` command can be used to scan a CI server and output a summary of the current pipelines.
+In this lab, you will use Valet to `audit` a Jenkins organization. The `audit` command can be used to scan a CI server and output a summary of the current pipelines.
 
 What happens behind the scenes is that Valet will perform a `dry-run` transformation on each of the Jenkins pipelines to its GitHub actions equivalent. Once that process is complete, Valet will perform an aggregation of all of these transformed workflows. This summary can be used as a planning tool and to help you understand how complete of a migration is possible with Valet.
 
