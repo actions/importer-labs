@@ -33,8 +33,119 @@ We will be performing a dry-run against a preconfigured project in the GitLab in
    <img width="231" alt="dry-run-explorer" src="https://user-images.githubusercontent.com/18723510/184177477-747905a8-32f3-4c15-8955-32079844a509.png">
 
 
-## View dry-run output
-The dry-run output will show you the GitHub Actions yaml that will be migrated to GitHub.
+## Review dry-run output
+The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated
+
+In the GitLab pipeline we had 3 stages and 6 jobs.  
+<details>
+<summary> GitLab Pipeline </summary>
+```yaml
+  # Testing
+```
+</details>
+
+In the resulting yaml we have the same
+<details>
+<summary>Actions Workflow</summary>
+  
+```yaml
+name: valet/basic-pipeline-example
+on:
+  push:
+  workflow_dispatch:
+concurrency:
+  group: "${{ github.ref }}"
+  cancel-in-progress: true
+jobs:
+  build_a:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job builds something."
+    - run: sleep 100
+  build_b:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job builds something else."
+    - run: sleep 70
+  test_a:
+    needs:
+    - build_a
+    - build_b
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job tests something. It will only run when all jobs in the"
+    - run: echo "build stage are complete."
+  test_b:
+    needs:
+    - build_a
+    - build_b
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job tests something else. It will only run when all jobs in the"
+    - run: echo "build stage are complete too. It will start at about the same time as test_a."
+    - run: sleep 300
+  deploy_a:
+    needs:
+    - test_a
+    - test_b
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job deploys something. It will only run when all jobs in the"
+    - run: echo "test stage complete."
+    - run: sleep 600
+  deploy_b:
+    needs:
+    - test_a
+    - test_b
+    runs-on: ubuntu-latest
+    container:
+      image: alpine
+    timeout-minutes: 60
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 20
+        lfs: true
+    - run: echo "This job deploys something else. It will only run when all jobs in the"
+    - run: echo "test stage complete. It will start at about the same time as deploy_a."
+    - run: sleep 400
+```
+</details>
 
 ### Example
 ADD_IMAGE
