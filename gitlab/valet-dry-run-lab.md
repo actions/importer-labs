@@ -5,6 +5,7 @@ The end result of this command will be the actions workflow written to your loca
 - [Prerequisites](#prerequisites)
 - [Perform a dry run](#perform-a-dry-run)
 - [Review dry-run output](#review-dry-run-output)
+- [Includes Dry-Run](#includes-dry-run)
 - [Next Lab](#next-lab)
 
 ## Prerequisites
@@ -217,13 +218,13 @@ And `script` has been transformed to `run`
 ```
 
 ## Includes Dry-Run
-In the previous dry-run we migrated a basic pipeline that map very nicely to concepts in GitHub Actions.  In this section we will dry-run a pipeline that does not map directly to Actions.  The `included-files-example` pipeline which looks like
+In the previous dry-run we migrated a basic pipeline that map very nicely to concepts in GitHub Actions.  In this section we will examine the results of a dry-run that does not map directly to Actions using the `included-files-example` pipeline, which looks like
 ```yaml
 include:
   - local: /config/build.gitlab-ci.yml
   - local: /config/test.gitlab-ci.yml
 ```
-which results in the below yaml.  The difference to note here is that Valet transformed the pipeline into a single workflow, it did not create reusable workflows for the `include` files `/config/build.gitlab-ci.yml` and `/config/test.gitlab-ci.yml`.  The reason for this is that the dependance graph of how the jobs run could not be guaranteed using reusable workflows.  This is an example of how concepts in GitLab don't always map directly to Actions and Valet has to make a decision on the safest path to transform a pipeline.  It is likely this could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.  
+and results in the below yaml.  The difference to note here is that Valet transformed the pipeline into a single workflow, it did not create reusable workflows for the `include` files `/config/build.gitlab-ci.yml` and `/config/test.gitlab-ci.yml`.  The reason for this is that the dependency graph of how the jobs run could not be guaranteed using reusable workflows.  This is an example of how concepts in GitLab don't always map directly to Actions and Valet has to make a decision on the safest path forward.  It is likely this could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date with a deeper understanding of pipeline. 
 ```yaml
 name: valet/included-files-example
 on:
@@ -256,6 +257,8 @@ jobs:
     - run: echo "[BEFORE_SCRIPT] this is from test.gitlab-ci.yml"
     - run: echo "this is from a local file"
 ```
+
+Try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
 
 ## Next Lab
 [Audit GitLab Pipelines to GitHub Actions](../gitlab/valet-audit-lab.md)
