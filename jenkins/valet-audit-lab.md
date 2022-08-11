@@ -4,6 +4,8 @@ In this lab, you will use Valet to `audit` a Jenkins organization. The `audit` c
 
 What happens behind the scenes is that Valet will perform a `dry-run` transformation on each of the Jenkins pipelines to its GitHub actions equivalent. Once that process is complete, Valet will perform an aggregation of all of these transformed workflows. This summary can be used as a planning tool and to help you understand how complete of a migration is possible with Valet.
 
+By the end of this lab you should have performed an audit on the demo Jenkins instance, and have a good understanding of the components that make up an audit.
+
 - [Prerequisites](#prerequisites)
 - [Perform an audit](#perform-an-audit)
 - [View audit output](#view-audit-output)
@@ -17,17 +19,21 @@ What happens behind the scenes is that Valet will perform a `dry-run` transforma
 
 ## Perform an audit
 
-You will use the codespace preconfigured in this repository to perform the audit.
+We will be performing an audit against a preconfigured Jenkins instance. Before running the command we need to collect some information:
 
-1. Navigate to the codespace Visual Studio Code terminal.
-2. Verify you are in the root directory.
-3. Now, from root dirrectory, run the following Valet audit command:
+  1. Do we want to audit the entire Jenkins instance, or just a single folder? __In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to  configure a specific folder to be audited add the `-f <folder_path> flag to the audit command__
+  2. Where do we want to store the result? __./tmp/audit.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer__
+
+### Steps
+
+1. Navigate to the codespace terminal.
+2. Now, from root dirrectory, run the following Valet audit command:
   
 ```
 gh valet audit jenkins --output-dir tmp/audit
 ```
 
-4. Valet displays green log files to indicate a successful audit  
+3. Valet displays green log files to indicate a successful audit  
 
 ### Example
 
