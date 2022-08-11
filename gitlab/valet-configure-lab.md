@@ -13,11 +13,11 @@ In this lab, you will use the Valet `configure` command to set up the required i
 ## Configuring Valet
 1. Run the setup script in the codespace terminal `source ./gitlab/bootstrap/setup.sh` and record the GitLab username and password for the next step.
 2. Login to the GitLab instance to generate a personal access token:
-   1. Click the `PORTS` tab in the codespace terminal window.
-   2. In the `PORTS` tab find the row for port 80.
-   3. Hover over the address under the `Local Address` column, and click the globe to "open in browser".
-   4. Login to the GitLab server and following [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a token that has `read_api` scope.
-   5. Record token for a later step.
+    - Click the `PORTS` tab in the codespace terminal window.
+    - In the `PORTS` tab find the row for port 80.
+    - Hover over the address under the `Local Address` column, and click the globe to "open in browser".
+    - Login to the GitLab server and following [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a token that has `read_api` scope.
+    - Record token for a later step.
 3. Create a GitHub personal access token (PAT). 
     - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
     - Go to `Developer Settings`
@@ -28,7 +28,6 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Copy the token somewhere safe and temporary.
 3. Run Valet configure commands
    - In the codespace terminal window click back to the `TERMINAL` tab.
-   - Within the terminal, navigate into the GitLab CI directory `cd valet`
    - Run `gh valet configure`
    - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, then hit enter to accept.
    - At the prompt enter your GitHub Username and press enter.
@@ -38,8 +37,9 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - At the GitLab CI token prompt enter the GitLab CI access token from step 2 and press enter.
    - At the GitLab CI url prompt enter `http://localhost` and press enter.
    - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
-4. If all went well you should see a similar output in your terminal 
-![configure-result](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
+4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project.
+
+    ![configure-result](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
 
 ## Verify Valet Works
 To verify Valet works we are going to run a `update` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
