@@ -2,7 +2,7 @@
 
 In this lab, you will use Valet to `audit` a Jenkins organization. The `audit` command can be used to scan a CI server and output a summary of the current pipelines.
 
-What happens behind the scenes is that Valet will perform a `dry-run` transformation on each of the Jenkins pipelines to its GitHub actions equivalent. Once that process is complete, Valet will perform an aggregation of all of these transformed workflows. This summary can be used as a planning tool and to help you understand how complete of a migration is possible with Valet.
+What happens behind the scenes is that Valet will perform a `dry-run` transformation on each of the Jenkins pipelines into its GitHub actions equivalent. Once that process is complete, Valet will perform an aggregation of all of these transformed workflows. This aggregate summary can be used as a planning tool and to help you understand how complete of a migration is possible with Valet.
 
 - [Prerequisites](#prerequisites)
 - [Perform an audit](#perform-an-audit)
@@ -21,13 +21,13 @@ You will use the codespace preconfigured in this repository to perform the audit
 
 1. Navigate to the codespace Visual Studio Code terminal.
 2. Verify you are in the root directory.
-3. Now, from root dirrectory, run the following Valet audit command:
+3. Now, from root directory, run the following Valet audit command:
   
 ```
 gh valet audit jenkins --output-dir tmp/audit
 ```
 
-4. Valet displays green log files to indicate a successful audit  
+4. Valet displays green log files to indicate a successful audit. 
 
 ### Example
 
@@ -35,7 +35,7 @@ gh valet audit jenkins --output-dir tmp/audit
 
 ## View audit output
 
-The audit summary, logs, config files, jenkinsfiles, and transformed Actions workflows should all be located in the `tmp/audit` folder.
+The audit summary, logs, config files, jenkinsfiles, and transformed Actions Workflows should all be located within the `tmp/audit` folder.
 
 1. Under the `audit` folder find the `audit_summary.md`
 2. Right-click the `audit_summary.md` file and select `Open Preview`
@@ -52,15 +52,15 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions wor
 
 The audit summary starts by giving a summary of the types of pipelines that were extracted from Jenkins.
 
-- It shows how there were a total of 4 pipelines extracted.
+- It shows that there are a total of 4 pipelines extracted.
 
-- 50% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. So all of the build pluggins and triggers that are referenced  were all successfully converted into a GitHub Actions equivalent.
+- 50% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build pluggins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
 
-- 50% pipelines were partially successful. That means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that is referenced that Valet doesn’t get automatically mapped to a Github Actions equivalent.
+- 50% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
 
-- 0% of these pipelines are unsupported. If there were any that would fall under this category that would mean that those pipelines are using a pipeline type that is fundamentally not supported by Valet. If there were any scripted pipelines they would appear here.
+- 0% of these pipelines are unsupported. If there were any that would fall under this category, that would mean that those pipelines were using a pipeline type that is fundamentally not supported by Valet. If a Jenkins instance had any scripted pipelines they would appear here.
 
-- 0% of these fail altogether. pipeline. If there were any pipelines that would fall under this category taht would mean that these pipelines were misconfigured or there was an issue with Valet.
+- 0% of these fail altogether. If there were any pipelines that would fall under this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
 
 Under the `Job types` section, we can see that the `audit` command is able to support the conversion of project, freestyle (flow-defintion), and multibranch pipelines from Jenkins and convert them to a GitHub Actions workflow. Valet does not support converting [scripted pipelines](https://www.jenkins.io/doc/book/pipeline/syntax/#scripted-pipeline) (e.g. pure Groovy).
 
@@ -73,15 +73,15 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 Under the `Build steps` section we can see a breakdown of the build steps that were used in these pipelines.
 
 - <b>Supported:</b> 7/9 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
-- <b>Unknown:</b> 2/9 discrete build steps are considered known by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
+- <b>Unknown:</b> 2/9 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
 - <b>Unsupported:</b> There are currently no build steps that are unknown so this category is not shown. If there were unsupported steps, it would mean one of three things:
     1. The way that plugin was configured for a given job is unsupported.
     2. The plugin itself is fundamentally not supported in GitHub Actions.
-    3. It's supported by default in GH Actions.
+    3. It's supported by default in GitHub Actions.
 
-Under the `Actions` section we have the list of the actions that were used in order to implement the transformation of all of these build steps. Valet is a planning tool that can be really helpful to facilitate this migration to GitHub Actions and this list of Actions is a great place to understand what dependencies you will be taking on third-party actions after this migration.
+Under the `Actions` section we have the list of the Actions that were used in order to implement the transformation of all of these build steps. Valet is a planning tool that can help in facilitating the migration into GitHub Actions and this list of Actions is a great place to understand what dependencies you would be taking on third-party Actions after this migration.
 
- So if you are doing things like setting up the allow list of third-party Actions in a GitHub Enterprise server instance this list of Actions is a fantastic place to begin security reviews and audits of what third-party actions to depend on.
+For example, if you are doing things like setting up the allow list of third-party Actions in a GitHub Enterprise server instance this list of Actions is a fantastic place to begin security reviews and audits of what third-party actions to depend on.
 
 #### Example
 
@@ -103,7 +103,7 @@ Under the Manual task section you will find a list of all the manual tasks that 
 
 At the end of the Audit Summary page you will find a list of all of the files that were written to disk. Generally, for any given pipeline, you’ll find 2 or 3 associated files. In these files are the actual converted GitHub Actions workflows.
 
-In addition, you’ll see a file that shows the raw JSON data that we pull from Jenkins as well as any associated Jenkinsfiles for a given job. These files are really useful for us as the engineering team to help debug any issues and to understand what may have gone on in a transformation.
+In addition, you’ll see a file that shows the raw JSON data that we pull from Jenkins as well as any associated Jenkinsfiles for a given job. These files are really useful for engineering teams to help debug any issues and to understand what may have gone on in a transformation.
 
 #### Example
 
