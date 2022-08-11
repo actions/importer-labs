@@ -23,9 +23,9 @@ In this lab, you will use the Valet `configure` command to set up the required i
       - Under the `API token` section, click `Add new Token`.
       - Add a defaualt name to your token, then click `Generate`.
       - Copy the token that was generated and record token for a later step.
-      
+
 ![configure-result](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
-     
+
 2. Create a GitHub personal access token (PAT).
     - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
     - Go to `Developer Settings`
@@ -71,8 +71,7 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
     ```
 
  4. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and were generated with the correct permissions.
-  ![configure-dry-run](https://user-images.githubusercontent.com/19557880/184041510-018d7a17-9966-4a0f-af3f-4092dfb90ac0.png)
-
+  ![configure-dry-run](https://user-images.githubusercontent.com/19557880/184255620-8e9b120e-5de0-41df-9cb6-c52028de3b0f.png)
 
 ### Next Lab
 
