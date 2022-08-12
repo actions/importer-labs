@@ -15,7 +15,7 @@ By the end of this lab you will have performed an audit on the demo Jenkins inst
 ## Prerequisites
 
 1. Follow all steps [here](../jenkins#readme) to set up your environment.
-2. Follow all steps [here](../jenkins#valet_configure_lab) to finish setting up Valet.
+2. Follow all steps [here](../jenkins#valet_configure_lab) to configure Valet.
 
 ## Perform an audit
 
