@@ -20,7 +20,7 @@ We will be performing a dry-run against a preconfigured project in the GitLab in
   2. What is the namespace for that project? __Valet.  In this case the namespace is the same as the group the project is in__
   3. Where do we want to store the result? __./tmp/dry-run-lab.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer__
 
-#### Steps
+### Steps
 1. Navigate to the codespace terminal 
 2. Run the dry-run command using the values determined above
    ```
