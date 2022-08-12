@@ -50,7 +50,7 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions Wor
 
 ### Example
 
-![valet-audit-2](https://user-images.githubusercontent.com/26442605/169615428-26f7a962-2064-46d0-8206-ea930109b252.png)
+![valet-audit-2](https://user-images.githubusercontent.com/19557880/184410021-a5668d21-b290-48de-8aa0-00d2baa7ab90.png)
 
 ## Review the pipelines
 
