@@ -80,5 +80,27 @@ jobs:
   end
   ```
 ## Run with Customer Transformers
+To run the `dry-run` with our custom transformer we add the `--custom-transformers` option followed by the path of the file
+```bash
+gh valet dry-run gitlab --output-dir tmp --namespace valet --project custom-transformer --custom-transformers transformers.rb
+```
+
+The customer tranformer worked and now we have the `upload-artifact` in the place of the unsupported result.
+```diff
+- #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
++ uses: actions/upload-artifact@v2
++ with:
++   path: "$PLAN_JSON"
+```
+Also we can see the `PLAN_JSON` env has been updated to `custom_plan.json`
+```diff
+ env:
+   PLAN: plan.cache
+-  PLAN_JSON: plan.json
++  PLAN_JSON: custom_plan.json
+```
+
+Now that we have this custom transformers file we can add additional `transform` methods it need and reuse while running other `dry-run` and `migrate` commands
 
 ## Next Lab
+[Audit a GitLab Namespace](../gitlab/valet-audit-lab.md)
