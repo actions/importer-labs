@@ -95,7 +95,7 @@ For example, if you are doing things like setting up the allow list of third-par
 
 ### Trigger, Environment, Other
 
-Similar to `Build steps`, there are `Trigger`, `Environment`, a and catch all `Other` section that breakdown each of their uses accross the audited pipelines.
+Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `Other` section that breakdown each of their uses accross the audited pipelines.
 
 ### Example
 
