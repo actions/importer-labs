@@ -103,7 +103,7 @@ Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `O
 
 ### Manual Tasks
 
-Under the Manual task section you will find a list of all the manual tasks that the pipelines would surface in a migration. Manual tasks are a Valet construct that denote what `secrets` and `self-hosted` runners were referenced in the pipeline and will need to be migrated manually. We will see how these manual tasks appear on a pull request when we do a migration in a lab later on.
+Under the Manual task section you will find a list of all the manual tasks that the pipelines would surface in a migration. Manual tasks are Valet's way of indicating tasks a user needs to do in order for a pipeline to be functional, such as adding `secrets`, or setting up a `self-hosted` runner. We will see how these manual tasks appear on a pull request when we do a migration in a lab later on.
 
 ### Files
 
