@@ -218,7 +218,7 @@ And `script` has been transformed to `run`
 ```
 
 ## Includes Dry-Run
-In the previous dry-run we migrated a basic pipeline that map very nicely to concepts in GitHub Actions.  In this section we will examine the results of a dry-run that does not map directly to Actions using the `included-files-example` pipeline, which looks like
+In the previous dry-run we migrated a basic pipeline that mapped very nicely to concepts in GitHub Actions.  In this section we will examine the results of a dry-run that does not map directly to Actions using the `included-files-example` pipeline, which looks like
 ```yaml
 include:
   - local: /config/build.gitlab-ci.yml
