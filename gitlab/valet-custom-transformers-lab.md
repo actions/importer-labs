@@ -64,11 +64,11 @@ jobs:
 
 - Custom transformers files also let up replace value of `variables` by using the `env` method.  Lets replace the value for `PLAN_JSON` by adding the this line to the top of our ruby file. The first value of the `env` method is the target variable name and the second is the new value.
   ```ruby
-  env "PLAN_JSON", "my_plan.json"
+  env "PLAN_JSON", "custom_plan.json"
   ```
 - create a new file in the root of the workspace called `transformers.rb` with below contents 
   ```ruby
-  env "PLAN_JSON", "my_plan.json"
+  env "PLAN_JSON", "custom_plan.json"
 
   transform "artifacts.terraform" do |item|
     {
