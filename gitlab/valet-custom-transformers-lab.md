@@ -14,11 +14,11 @@ In this lab we want to do a `dry-run` of the `terraform-example` project.  Since
 
 ## Write Custom Transformer
 - Lets run the `dry-run` command to see what information we can get from the generated action yaml.
-  ```
+  ```bash
   gh valet dry-run gitlab --output-dir tmp --namespace valet --project custom-transformer
   ```
 - Open the resulting GitHub Actions workflow
-```
+```yaml
 name: valet/custom-transformer
 on:
   push:
@@ -42,7 +42,43 @@ jobs:
     - run: terraform show --json $PLAN | convert_report > $PLAN_JSON
 #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
 ```
-- We can see from the last line of the yaml that `artifacts.terraform` was not transformed.  In order for us to fix this we need to write a custom transformer.  The important information in this comment is the identifier `artifacts.terraform`.  This is how our custom transformer will target this step.  
+- We can see from the last line that `artifacts.terraform` was not transformed.  In order for us to write a custom transformer we need to know the identifier which in general is the value between the back ticks `artifacts.terraform`.  This is how our custom transformer will target the correct step.
+- The custom transformers file can have any name, but it is recommend that you use a `.rb` extension so the codespaces editor knows it is a ruby file.
+- we have chosen the `actions/upload-artifacts` as our replacement so we should look at the [docs](https://github.com/marketplace/actions/upload-a-build-artifact) to determine the correct final yaml
+  ```yaml
+  - uses: actions/upload-artifact@v3
+    with:
+      path: VALUE_FROM_GITLAB
+  ```
+- Now we know the final yaml we need we can write the ruby file.  In this file we will call the `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a Hash, which is basically the JSON version of the yaml we want.  Valet will call that method when it encounters the identifer and pass in an `item`.  The `item` is the values defined for that step in GitLab.  In this case the path of the terraform report.
+  ```ruby
+  transform "artifacts.terraform" do |item|
+    {
+      uses: "actions/upload-artifact@v2",
+      with: {
+        path: item
+      }
+    }
+  end
+  ```
+
+- Custom transformers files also let up replace value of `variables` by using the `env` method.  Lets replace the value for `PLAN_JSON` by adding the this line to the top of our ruby file. The first value of the `env` method is the target variable name and the second is the new value.
+  ```ruby
+  env "PLAN_JSON", "my_plan.json"
+  ```
+- create a new file in the root of the workspace called `transformers.rb` with below contents 
+  ```ruby
+  env "PLAN_JSON", "my_plan.json"
+
+  transform "artifacts.terraform" do |item|
+    {
+      uses: "actions/upload-artifact@v2",
+      with: {
+        path: item
+      }
+    }
+  end
+  ```
 ## Run with Customer Transformers
 
 ## Next Lab
