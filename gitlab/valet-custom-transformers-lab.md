@@ -15,7 +15,7 @@ In this lab we want to do a `dry-run` of the `terraform-example` project.  Since
 ## Write Custom Transformer
 - Lets run the `dry-run` command to see what information we can get from the generated action yaml.
   ```bash
-  gh valet dry-run gitlab --output-dir tmp --namespace valet --project custom-transformer
+  gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example
   ```
 - Open the resulting GitHub Actions workflow
 ```yaml
@@ -82,7 +82,7 @@ jobs:
 ## Run with Customer Transformers
 To run the `dry-run` with our custom transformer we add the `--custom-transformers` option followed by the path of the file
 ```bash
-gh valet dry-run gitlab --output-dir tmp --namespace valet --project custom-transformer --custom-transformers transformers.rb
+gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example --custom-transformers transformers.rb
 ```
 
 The customer tranformer worked and now we have the `upload-artifact` in the place of the unsupported result.
