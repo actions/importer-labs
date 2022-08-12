@@ -37,7 +37,7 @@ gh valet audit jenkins --output-dir tmp/audit
 
 ### Example
 
-![valet-audit-1](https://user-images.githubusercontent.com/19557880/184247823-77aa9fa0-da6a-48dc-b7a3-32e1a633045a.png)
+<img src="https://user-images.githubusercontent.com/19557880/184247823-77aa9fa0-da6a-48dc-b7a3-32e1a633045a.png" alt="valet-audit-1"/>
 
 ## View audit output
 
@@ -50,7 +50,7 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions Wor
 
 ### Example
 
-![valet-audit-2](https://user-images.githubusercontent.com/19557880/184410021-a5668d21-b290-48de-8aa0-00d2baa7ab90.png)
+<img src="https://user-images.githubusercontent.com/19557880/184410021-a5668d21-b290-48de-8aa0-00d2baa7ab90.png" alt="valet-audit-2"/>
 
 ## Review the pipelines
 
@@ -72,7 +72,7 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 
 #### Example
 
-![valet-audit-3](https://user-images.githubusercontent.com/19557880/184190501-6bb2ad34-1680-404a-9cb5-93012a25e0c8.png)
+<img src="https://user-images.githubusercontent.com/19557880/184190501-6bb2ad34-1680-404a-9cb5-93012a25e0c8.png" alt="valet-audit-3"/>
 
 ### Build steps
 
@@ -91,7 +91,7 @@ For example, if you are doing things like setting up the allow list of third-par
 
 #### Example
 
-![valet-audit-4](https://user-images.githubusercontent.com/19557880/184191935-c29c3121-66e2-4c33-a71e-07ad1ef42b5c.png)
+<img src="https://user-images.githubusercontent.com/19557880/184191935-c29c3121-66e2-4c33-a71e-07ad1ef42b5c.png" alt="valet-audit-4"/>
 
 ### Trigger, Environment, Other
 
@@ -99,7 +99,7 @@ Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `O
 
 ### Example
 
-![valet-audit-4](https://user-images.githubusercontent.com/19557880/184197153-8477c147-646b-4d05-8988-29ce4d28241f.png)
+<img src="https://user-images.githubusercontent.com/19557880/184197153-8477c147-646b-4d05-8988-29ce4d28241f.png" alt="valet-audit-5" height="400"/>
 
 ### Manual Tasks
 
@@ -113,7 +113,7 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 #### Example
 
-![valet-audit-5](https://user-images.githubusercontent.com/19557880/184228434-4b57f77b-db93-43d6-8b8d-4eebfc445160.png)
+<img src="https://user-images.githubusercontent.com/19557880/184228434-4b57f77b-db93-43d6-8b8d-4eebfc445160.png" alt="valet-audit-6" height="400"/>
 
 ### Next Lab
 
