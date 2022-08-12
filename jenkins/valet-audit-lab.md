@@ -80,7 +80,7 @@ Under the `Build steps` section we can see a breakdown of the build steps that w
 
 - <b>Supported:</b> 7/9 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
 - <b>Unknown:</b> 2/9 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
-- <b>Unsupported:</b> There are currently no build steps that are unknown so this category is not shown. If there were unsupported steps, it would mean one of three things:
+- <b>Unsupported:</b> There are currently no build steps that are unsupported so this category is not shown. If there were it would mean one of three things:
     1. The way that plugin was configured for a given job is unsupported.
     2. The plugin itself is fundamentally not supported in GitHub Actions.
     3. It's supported by default in GitHub Actions.
