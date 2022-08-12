@@ -4,7 +4,7 @@ In this lab, you will use Valet to `audit` a Jenkins organization. The `audit` c
 
 What happens behind the scenes is that Valet will perform a `dry-run` on each of the Jenkins pipelines.  Once that is complete, Valet will perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
 
-By the end of this lab you should have performed an audit on the demo Jenkins instance, and have a good understanding of the components that make up an audit.
+By the end of this lab you will have performed an audit on the demo Jenkins instance, and have a good understanding of the components that make up an audit.
 
 - [Prerequisites](#prerequisites)
 - [Perform an audit](#perform-an-audit)
