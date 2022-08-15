@@ -72,7 +72,7 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 
 #### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png" alt="valet-audit-3"/>
+<img src="https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png" alt="valet-audit-3" height="400"/>
 
 ### Build steps
 
@@ -107,7 +107,7 @@ Under the Manual task section you will find a list of all the manual tasks that 
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5" height="200"/>
 
 ### Files
 
