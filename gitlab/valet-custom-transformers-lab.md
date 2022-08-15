@@ -88,7 +88,7 @@ To run the `dry-run` with our custom transformer we will add the `--custom-trans
 gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example --custom-transformers transformers.rb
 ```
 
-The customer transformer worked and now we have the `upload-artifact` in the place of the unsupported result.
+The custom transformer worked and now we have the `upload-artifact` in the place of the unsupported result.
 ```diff
 - #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
 + uses: actions/upload-artifact@v2
