@@ -64,7 +64,7 @@ The audit summary starts by giving a summary of the types of pipelines that were
 
 - 42% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
 
-- 1% of these pipelines are unsupported. This means that the pipeline type is fundamentally unsupported by Valet. This is most likely a Jenkins scripted pipeline.
+- 1% of these pipelines were unsupported. This means that the pipeline type is fundamentally unsupported by Valet. This is most likely a Jenkins scripted pipeline.
 
 - 0% of these fail altogether. If there were any pipelines that would fall under this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
 
