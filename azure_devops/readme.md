@@ -52,7 +52,7 @@ Please add the following Codespace secrets.
 
 - `VALET_GHCR_PASSWORD`: Add `VALET_GHCR_PASSWORD` as the `Name` and the GitHub personal access token created above as the `Value`.
 - `AZURE_DEVOPS_ACCESS_TOKEN`: Add `AZURE_DEVOPS_ACCESS_TOKEN` as the `Name` and the Azure DevOps personal access token created above as the value.
-- `AZURE_DEVOPS_ORGANIZATION`: Add `AZURE_DEVOPS_ORGANIZATION` as the `Name` and the Azure DevOps organization noted above as the value.
+- `AZURE_DEVOPS_ORGANIZATION`: Add `AZURE_DEVOPS_ORGANIZATION` as the `Name` and the Azure DevOps organization noted above as the `Value`.
 - `AZURE_DEVOPS_PROJECT`: Add `AZURE_DEVOPS_PROJECT` as the `Name` and `ValetBootstrap` as the value.
 
 Steps to create the Codespace secrets. Complete for secret noted above:
