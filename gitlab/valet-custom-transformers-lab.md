@@ -103,7 +103,9 @@ Also we can see the `PLAN_JSON` env has been updated to `custom_plan.json`
 +  PLAN_JSON: custom_plan.json
 ```
 
-Now that we have this custom transformers file we can add additional `transform`and `env` methods as needed and reuse it while running other `dry-run` and `migrate` commands.  The custom transformers will only affect the pipeline being transformed if they contain the matching identifiers.  This means if you think a custom transformer should have altered the output, then the first thing to check is if the identifier is correct.  
+Now that we have this custom transformers file we can add additional `transform`and `env` methods as needed and reuse it while running other `dry-run` and `migrate` commands.  
+
+Note: The custom transformers will only affect the pipeline being transformed if they contain the matching identifiers. If you believe a custom transformer should have altered the output, double check that the identifier is correct.  
 
 ## Next Lab
 [Migrating a GitLab Pipeline](../gitlab/valet-migrate-lab.md)
