@@ -50,7 +50,10 @@ jobs:
     with:
       path: VALUE_FROM_GITLAB
   ```
-- Now we know the final yaml we can write the ruby file.  In this file we will call the `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a ruby Hash of the final YAML for the pipeline.  The ruby Hash can be thought of as the JSON representation of the YAML we want.  Valet will call that method when it encounters the identifier and pass in an `item`.  The `item` is the values defined for that step in GitLab.  In this case the path of the terraform report, if you were unsure you could use some basic ruby to print the `item` to the terminal by put the following line in the transform method `puts "This is the item: #{item}"`. 
+- Now that we know the final yaml needed for the transformer, we can start to write the ruby file.  In the custom transformers file we will call the `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a ruby Hash of the final YAML for the pipeline.  The ruby Hash can be thought of as the JSON representation of the YAML we want. Valet will call that method when it encounters the identifier and pass in an `item`.  The `item` is the values defined for that step in GitLab.  In this case the item is the path of the terraform report. 
+
+Note: If you were unsure what `item` represents, you could use some basic ruby to print `item` to the terminal. You can achieve this by adding the following line in the transform method:
+`puts "This is the item: #{item}"`
   ```ruby
   transform "artifacts.terraform" do |item|
     {
