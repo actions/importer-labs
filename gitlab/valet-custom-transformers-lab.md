@@ -1,5 +1,5 @@
 # Using Custom Transformers in a `dry-run`
-In this lab we want to do a `dry-run` of the `terraform-example` project.  Since we have already taken the `dry-run` lab we easily run the command and generate the GitHub workflow, but to our dismay Valet did not know how to transform the artifact report for Terraform and it shows as unsupported.  After some research we determine that the action `actions/upload-artifact` would be an adequate substitute for it.  This change will also require us to change the environment variable `PLAN_JSON` to point to a new value `custom_plan.json`.  We need to make this change in many pipelines and a automated way to apply this would be ideal.  Well, we are in luck we can use the `--custom-transformers` option of the `dry-run` command.  This will allow us to change the behavior of Valet using a simple ruby file.
+In this lab we want to do a `dry-run` of the `terraform-example` project.  Since we have already taken the `dry-run` lab we easily run the command and generate the GitHub workflow, but to our dismay Valet did not know how to transform the artifact report for Terraform and it shows as unsupported.  After some research we determine that the action `actions/upload-artifact` would be an adequate substitute for it.  This change will also require us to change the environment variable `PLAN_JSON` to point to a new value `custom_plan.json`.  We need to make this change in many pipelines and an automated way to apply this would be ideal.  Well, we are in luck we can use the `--custom-transformers` option of the `dry-run` command.  This will allow us to change the behavior of Valet using a simple ruby file.
 
 - [Prerequisites](#prerequisites)
 - [Write Custom Transformers](#write-custom-transformers)
@@ -12,12 +12,12 @@ In this lab we want to do a `dry-run` of the `terraform-example` project.  Since
 2. Completed the [configure lab](../gitlab/valet-configure-lab.md)
 3. Completed the [dry-run lab](../gitlab/valet-dry-run-lab.md)
 
-## Write Custom Transformer
-- Lets run the `dry-run` command to see what information we can get from the generated action yaml.
+## Write Custom Transformers
+- Let’s run the `dry-run` command to see what information we can get from the generated action yaml.
   ```bash
   gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example
   ```
-- Open the resulting GitHub Actions workflow
+- Open the resulting GitHub Actions workflow by opening `tmp/valet/custom-transformer.yml` from the explorer
 ```yaml
 name: valet/custom-transformer
 on:
@@ -42,15 +42,15 @@ jobs:
     - run: terraform show --json $PLAN | convert_report > $PLAN_JSON
 #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
 ```
-- We can see from the last line that `artifacts.terraform` was not transformed.  In order for us to write a custom transformer we need to know the identifier which in general is the value between the back ticks `artifacts.terraform`.  This is how our custom transformer will target the correct step.
-- The custom transformers file can have any name, but it is recommend that you use a `.rb` extension so the codespaces editor knows it is a ruby file.
+- We can see from the last line that `artifacts.terraform` was not transformed.  In order for us to write a custom transformer for this we need to know the identifier. In general this will be the value between the back ticks, which in this case is `artifacts.terraform`.  This is how our custom transformer will target the correct step.
+- The custom transformers file can have any name, but it is recommend that you use a `.rb` extension so the codespaces editor knows it is a ruby file and can provide syntax highlighting.
 - we have chosen the `actions/upload-artifacts` as our replacement so we should look at the [docs](https://github.com/marketplace/actions/upload-a-build-artifact) to determine the correct final yaml
   ```yaml
   - uses: actions/upload-artifact@v3
     with:
       path: VALUE_FROM_GITLAB
   ```
-- Now we know the final yaml we can write the ruby file.  In this file we will call the `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a Hash, which is basically the JSON version of the yaml we want.  Valet will call that method when it encounters the identifer and pass in an `item`.  The `item` is the values defined for that step in GitLab.  In this case the path of the terraform report.
+- Now we know the final yaml we can write the ruby file.  In this file we will call the `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a ruby Hash of the final YAML for the pipeline.  The ruby Hash can be thought of as the JSON representation of the YAML we want.  Valet will call that method when it encounters the identifier and pass in an `item`.  The `item` is the values defined for that step in GitLab.  In this case the path of the terraform report, if you were unsure you could use some basic ruby to print the `item` to the terminal by put the following line in the transform method `puts "This is the item: #{item}"`. 
   ```ruby
   transform "artifacts.terraform" do |item|
     {
@@ -62,11 +62,11 @@ jobs:
   end
   ```
 
-- Custom transformers files also let up replace value of `variables` by using the `env` method.  Lets replace the value for `PLAN_JSON` by adding the this line to the top of our ruby file. The first value of the `env` method is the target variable name and the second is the new value.
+- The custom transformers file also lets you replace values of `variables` by using the `env` method.  Let’s replace the value for `PLAN_JSON` by using the below line. The first value of the `env` method is the target variable name and the second is the new value to be used.
   ```ruby
   env "PLAN_JSON", "custom_plan.json"
   ```
-- create a new file in the root of the workspace called `transformers.rb` with below contents 
+- create a new file in the root of the workspace called `transformers.rb` with the following contents 
   ```ruby
   env "PLAN_JSON", "custom_plan.json"
 
@@ -79,13 +79,13 @@ jobs:
     }
   end
   ```
-## Run with Customer Transformers
-To run the `dry-run` with our custom transformer we add the `--custom-transformers` option followed by the path of the file
+## Run Again with Customer Transformers
+To run the `dry-run` with our custom transformer we will add the `--custom-transformers` option followed by the path of the ruby file
 ```bash
 gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example --custom-transformers transformers.rb
 ```
 
-The customer tranformer worked and now we have the `upload-artifact` in the place of the unsupported result.
+The customer transformer worked and now we have the `upload-artifact` in the place of the unsupported result.
 ```diff
 - #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
 + uses: actions/upload-artifact@v2
@@ -100,7 +100,7 @@ Also we can see the `PLAN_JSON` env has been updated to `custom_plan.json`
 +  PLAN_JSON: custom_plan.json
 ```
 
-Now that we have this custom transformers file we can add additional `transform` methods it need and reuse while running other `dry-run` and `migrate` commands
+Now that we have this custom transformers file we can add additional `transform`and `env` methods as needed and reuse it while running other `dry-run` and `migrate` commands.  The custom transformers will only affect the pipeline being transformed if they contain the matching identifiers.  This means if you think a custom transformer should have altered the output, then the first thing to check is if the identifier is correct.  
 
 ## Next Lab
 [Audit a GitLab Namespace](../gitlab/valet-audit-lab.md)
