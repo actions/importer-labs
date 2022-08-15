@@ -62,5 +62,5 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
   ![configure-dry-run](https://user-images.githubusercontent.com/18723510/183989794-d51fa29d-b4c0-4074-8402-a55ffcea3a6b.png)
 
 ### Next Lab
-[Dry run the migration of an GitLab pipeline to GitHub Actions](../gitlab/valet-dry-run-lab.md)
+[Dry run the migration of an GitLab pipeline to GitHub Actions](../gitlab/valet-audit-lab.md)
 
