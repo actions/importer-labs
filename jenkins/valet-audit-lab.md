@@ -33,7 +33,7 @@ We will be performing an audit against a preconfigured Jenkins instance. Before 
 gh valet audit jenkins --output-dir tmp/audit
 ```
 
-3. Valet displays green log files to indicate a successful audit  
+3. Valet will log the output files in green when the audit is successful
 
 ### Example
 
