@@ -1,8 +1,7 @@
 # Audit GitLab using the Valet audit command
 
-In this lab, you will use Valet to `audit` a GitLab namespace. The `audit` command can be used to scan a CI server and output a summary of the current pipelines.
-What happens behind the scenes is that Valet will perform a `dry-run` on each of the pipelines.  Once that is complete, Valet will perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
-By the end of this lab you will have performed an audit on the demo GitLab instance, and have a good understanding of the components that make up an audit.
+In this lab, you will use Valet to `audit` a GitLab namespace. The `audit` command will scan the GitLab namespace provided for all projects with pipelines that have run at least once, perform a `dry-run` on each of those pipelines, and finally perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
+The goal of this lab is to performed an audit on the demo GitLab instance, and gain a good understanding of the components that make up an audit output.
 
 - [Prerequisites](#prerequisites)
 - [Perform an audit](#perform-an-audit)
@@ -16,8 +15,7 @@ By the end of this lab you will have performed an audit on the demo GitLab insta
 2. Follow all steps [here](../gitlab#valet-configure-lab) to configure Valet.
 
 ## Perform an audit
-
-We will be performing an audit against a preconfigured GitLab instance. Before running the command we need to collect some information:
+Before running the command we need to collect some information:
 
   1. What namespace or group do we want to audit? __valet__
   2. Where do we want to store the result? __tmp/audit__
@@ -25,7 +23,7 @@ We will be performing an audit against a preconfigured GitLab instance. Before r
 ### Steps
 
 1. Navigate to the codespace terminal.
-2. Now, from root directory, run the following Valet audit command:
+2. Run the following Valet audit command:
   
 ```
 gh valet audit gitlab --output-dir tmp/audit --namespace valet
