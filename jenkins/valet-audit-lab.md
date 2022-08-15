@@ -27,7 +27,7 @@ We will be performing an audit against a preconfigured Jenkins instance. Before 
 ### Steps
 
 1. Navigate to the codespace terminal.
-2. Now, from root dirrectory, run the following Valet audit command:
+2. Now, from root directory, run the following Valet audit command:
   
 ```
 gh valet audit jenkins --output-dir tmp/audit
