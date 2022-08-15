@@ -19,7 +19,7 @@ By the end of this lab you will have performed an audit on the demo GitLab insta
 
 We will be performing an audit against a preconfigured GitLab instance. Before running the command we need to collect some information:
 
-  1. What namespace do we want to audit? __valet__
+  1. What namespace or group do we want to audit? __valet__
   2. Where do we want to store the result? __tmp/audit__
 
 ### Steps
