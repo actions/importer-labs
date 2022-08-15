@@ -17,7 +17,7 @@ In this lab we want to do a `dry-run` of the `terraform-example` project.  We ca
   ```bash
   gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example
   ```
-- Open the resulting GitHub Actions workflow by opening `tmp/valet/custom-transformer.yml` from the explorer
+- Open the resulting GitHub Actions workflow by navigating to `tmp/valet/custom-transformer.yml` from the explorer
 ```yaml
 name: valet/custom-transformer
 on:
