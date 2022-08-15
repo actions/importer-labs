@@ -21,7 +21,7 @@ By the end of this lab you will have performed an audit on the demo Jenkins inst
 
 We will be performing an audit against a preconfigured Jenkins instance. Before running the command we need to collect some information:
 
-  1. Do we want to audit the entire Jenkins instance, or just a single folder? __In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to  configure a specific folder to be audited add the `-f <folder_path> flag to the audit command__
+  1. Do we want to audit the entire Jenkins instance, or just a single folder? __In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command__
   2. Where do we want to store the result? __./tmp/audit.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer__
 
 ### Steps
