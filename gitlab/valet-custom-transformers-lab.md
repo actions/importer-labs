@@ -83,7 +83,7 @@ Note: If you were unsure what `item` represents, you could use some basic ruby t
   end
   ```
 ## Run Again with Customer Transformers
-To run the `dry-run` with our custom transformer we will add the `--custom-transformers` option followed by the path of the ruby file
+To run the `dry-run` with our custom transformer we will add the `--custom-transformers` flag followed by the path of the custom transformer ruby file
 ```bash
 gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example --custom-transformers transformers.rb
 ```
