@@ -37,7 +37,7 @@ gh valet audit jenkins --output-dir tmp/audit
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184247823-77aa9fa0-da6a-48dc-b7a3-32e1a633045a.png" alt="valet-audit-1"/>
+<img src="https://user-images.githubusercontent.com/19557880/184682347-b19760fa-36a6-423e-a445-bb30eda5ac59.png" alt="valet-audit-1"/>
 
 ## View audit output
 
@@ -50,7 +50,7 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions Wor
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184410021-a5668d21-b290-48de-8aa0-00d2baa7ab90.png" alt="valet-audit-2"/>
+<img src="https://user-images.githubusercontent.com/19557880/184682836-3b8155ae-f302-491e-8ce6-27cc57f96468.png" alt="valet-audit-2"/>
 
 ## Review the pipelines
 
@@ -58,13 +58,13 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions Wor
 
 The audit summary starts by giving a summary of the types of pipelines that were extracted from Jenkins.
 
-- It shows that there are a total of 4 pipelines extracted.
+- It shows that there are a total of 7 pipelines extracted.
 
-- 50% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build pluggins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
+- 42% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build pluggins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
 
-- 50% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
+- 42% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
 
-- 0% of these pipelines are unsupported. If there were any that would fall under this category, that would mean that those pipelines were using a pipeline type that is fundamentally not supported by Valet. If a Jenkins instance had any scripted pipelines they would appear here.
+- 1% of these pipelines are unsupported. This means that the pipeline type is fundamentally unsupported by Valet. This is most likely a Jenkins scripted pipeline.
 
 - 0% of these fail altogether. If there were any pipelines that would fall under this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
 
@@ -72,15 +72,15 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 
 #### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184190501-6bb2ad34-1680-404a-9cb5-93012a25e0c8.png" alt="valet-audit-3"/>
+<img src="https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png" alt="valet-audit-3"/>
 
 ### Build steps
 
 Under the `Build steps` section we can see a breakdown of the build steps that were used in these pipelines.
 
-- <b>Supported:</b> 7/9 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
-- <b>Unknown:</b> 2/9 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
-- <b>Unsupported:</b> There are currently no build steps that are unsupported so this category is not shown. If there were it would mean one of three things:
+- <b>Supported:</b> 12/16 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
+- <b>Unknown:</b> 2/16 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
+- <b>Unsupported:</b> 1/16 discrete build steps are considered unsupported by Valet. This could mean one of three things:
     1. The way that plugin was configured for a given job is unsupported.
     2. The plugin itself is fundamentally not supported in GitHub Actions.
     3. It's supported by default in GitHub Actions.
@@ -91,7 +91,7 @@ For example, if you are doing things like setting up the allow list of third-par
 
 #### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184191935-c29c3121-66e2-4c33-a71e-07ad1ef42b5c.png" alt="valet-audit-4"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684062-69ab0bde-5e32-45f8-a7dd-ed4655872975.png" alt="valet-audit-4"/>
 
 ### Trigger, Environment, Other
 
@@ -99,11 +99,15 @@ Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `O
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184197153-8477c147-646b-4d05-8988-29ce4d28241f.png" alt="valet-audit-5" height="400"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684174-43caff58-6083-45e1-a36e-6899d99c136b.png" alt="valet-audit-5" height="400"/>
 
 ### Manual Tasks
 
 Under the Manual task section you will find a list of all the manual tasks that the pipelines would surface in a migration. Manual tasks are Valet's way of indicating tasks a user needs to do in order for a pipeline to be functional, such as adding `secrets`, or setting up a `self-hosted` runner. We will see how these manual tasks appear on a pull request when we do a migration in a lab later on.
+
+### Example
+
+<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5" height="400"/>
 
 ### Files
 
@@ -113,7 +117,7 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 #### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184228434-4b57f77b-db93-43d6-8b8d-4eebfc445160.png" alt="valet-audit-6" height="400"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png" alt="valet-audit-6" height="400"/>
 
 ### Next Lab
 
