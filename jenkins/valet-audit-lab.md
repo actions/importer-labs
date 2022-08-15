@@ -79,7 +79,7 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 Under the `Build steps` section we can see a breakdown of the build steps that were used in these pipelines.
 
 - <b>Supported:</b> 12/16 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
-- <b>Unknown:</b> 2/16 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
+- <b>Unknown:</b> 3/16 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
 - <b>Unsupported:</b> 1/16 discrete build steps are considered unsupported by Valet. This could mean one of three things:
     1. The way that plugin was configured for a given job is unsupported.
     2. The plugin itself is fundamentally not supported in GitHub Actions.
