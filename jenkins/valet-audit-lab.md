@@ -99,7 +99,7 @@ Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `O
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184684174-43caff58-6083-45e1-a36e-6899d99c136b.png" alt="valet-audit-5" height="400"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684174-43caff58-6083-45e1-a36e-6899d99c136b.png" alt="valet-audit-5" height="600"/>
 
 ### Manual Tasks
 
@@ -107,7 +107,7 @@ Under the Manual task section you will find a list of all the manual tasks that 
 
 ### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5" height="400"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5"/>
 
 ### Files
 
@@ -117,7 +117,7 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 #### Example
 
-<img src="https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png" alt="valet-audit-6" height="400"/>
+<img src="https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png" alt="valet-audit-6" height="700"/>
 
 ### Next Lab
 
