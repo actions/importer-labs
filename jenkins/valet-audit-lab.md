@@ -46,7 +46,7 @@ The audit summary, logs, config files, jenkinsfiles, and transformed Actions Wor
 1. Under the `audit` folder find the `audit_summary.md`
 2. Right-click the `audit_summary.md` file and select `Open Preview`
 3. The file contains details about your current pipelines and what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
-4. Review the file, it should like like the image below:
+4. Review the file, it should look like the image below:
 
 ### Example
 
