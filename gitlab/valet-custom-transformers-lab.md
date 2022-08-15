@@ -43,7 +43,7 @@ jobs:
 #     # 'artifacts.terraform' was not transformed because there is no suitable equivalent in GitHub Actions
 ```
 - We can see from the last line that `artifacts.terraform` was not transformed.  In order for us to write a custom transformer for this we need to know the identifier. In general, the identifier will be the value between the backticks, which in this case is `artifacts.terraform`.  This is how our custom transformer will target the correct step.
-- The custom transformers file can have any name, but it is recommend that you use a `.rb` extension so the codespaces editor knows it is a ruby file and can provide syntax highlighting.
+- The custom transformers file can have any name, but it is recommended that you use an `.rb` extension so the codespaces editor knows it is a ruby file and can provide syntax highlighting.
 - we have chosen the `actions/upload-artifacts` as our replacement so we should look at the action's [documentation](https://github.com/marketplace/actions/upload-a-build-artifact) to determine the correct final yaml
   ```yaml
   - uses: actions/upload-artifact@v3
