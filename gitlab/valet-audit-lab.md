@@ -5,7 +5,8 @@ The goal of this lab is to performed an audit on the demo GitLab instance, and g
 
 - [Prerequisites](#prerequisites)
 - [Perform an audit](#perform-an-audit)
-- [View audit output](#view-audit-output)
+- [Audit Files](#audit-files)
+- [Review audit summary](#review-audit-summary)
 - [Review the pipelines](#review-the-pipelines)
 - [Next Lab](#next-lab)
 
@@ -23,7 +24,7 @@ Before running the command we need to collect some information:
 ### Steps
 
 1. Navigate to the codespace terminal.
-2. Run the following Valet audit command:
+2. Run the following Valet audit command with the provided answers above:
   
 ```
 gh valet audit gitlab --output-dir tmp/audit --namespace valet
@@ -32,8 +33,26 @@ gh valet audit gitlab --output-dir tmp/audit --namespace valet
 3. Valet will print the locations of the audit results in the terminal when complete
    ADD_SCREENSHOT_HERE
 
-## View audit output
+## Audit Files
+The `audit` command outputs the following files
 
+| File Type  |  Naming Convention |  Description |
+| ----------------- | ------------------------- | ---------------------------- |
+| GitLab Pipeline source | PROJECT_NAME.source.yml | The `.gitlab-ci.yml` file in the GitLab Project |
+| GitLab Project configuration | PROJECT_NAME.config.json | Contains meta data retrieved for the GitLab Project |
+| Valet log file | valet-TIMESTAMP.log |  Log generated during an audit. Mainly used for troubleshooting |
+| GitHub Action workflows | PROJECT_NAME.yml | GitHub Actions workflow that would be migrated to GitHub |
+| Error file | PROJECT_NAME.error.txt | Created when there is a error transforming the pipeline |
+| Audit Summary | audit_summary.md | Contains a summary of audit results and the main file of interest to understand the how complete of a migration can be done with Valet |
+| GitHub Actions Reusable Workflows & Composite Actions | .github/workflows/NAME_HERE.yml | These files will only appear if Valet encountered a pipeline that would generated them. These files would be part of the migration to GitHub if they existed |
+
+## Review audit summary
+1. Under the `audit` folder find the `audit_summary.md`
+2. Right-click the `audit_summary.md` file and select `Open Preview`
+3. This file contains details about what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
+4. Review the file, it should look like the image below:
+   ADD_SCREENSHOT_HERE
+   
 ## Review the pipelines
 
 ### Next Lab
