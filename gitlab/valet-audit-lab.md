@@ -241,7 +241,17 @@ Secrets: **1**
    
 ## Review the Pipelines Section
 The audit summary starts by giving a summary of the types of pipelines that were extracted.
-- It shows that there are a total of 11 pipelines extracted.
+```yaml
+## Pipelines
+
+Total: **11**
+
+- Successful: **10 (90%)**
+- Partially successful: **0 (0%)**
+- Unsupported: **1 (9%)**
+- Failed: **0 (0%)**
+```
+- It shows that there were a total of 11 pipelines extracted.
 - 90% were successful. This means that Valet knew how to map **all** the constructs of the pipeline to a GitHub Actions equivalent.
 - 0% were partially successful. If there were pipelines that fell into this category it would means that Valet knew how to map **less than 100%** of the constructs to a Github Actions equivalent.
 - 9% were unsupported. This means that the pipeline is fundamentally unsupported by Valet. In this example it is because one of the projects has Auto DevOps enabled.
