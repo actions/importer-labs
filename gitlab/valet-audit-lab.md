@@ -1,6 +1,6 @@
 # Audit GitLab using the Valet audit command
 
-In this lab, you will use Valet to `audit` a GitLab namespace. The `audit` command will scan the GitLab namespace provided for all projects with pipelines that have run at least once, perform a `dry-run` on each of those pipelines, and finally perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
+In this lab, you will use Valet to `audit` a GitLab namespace. The `audit` command will scan the GitLab namespace for all projects with pipelines that have run at least once, perform a `dry-run` on each of those pipelines, and finally perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
 The goal of this lab is to performed an audit on the demo GitLab instance, and gain a good understanding of the components that make up an audit output.
 
 - [Prerequisites](#prerequisites)
@@ -38,12 +38,12 @@ The `audit` command outputs the following files
 
 | File Type  |  Naming Convention |  Description |
 | ----------------- | ------------------------- | ---------------------------- |
-| GitLab Pipeline source | valet/PROJECT_NAME.source.yml | The `.gitlab-ci.yml` file in the GitLab Project |
-| GitLab Project configuration | valet/PROJECT_NAME.config.json | Contains meta data retrieved for the GitLab Project |
+| GitLab pipeline source | valet/PROJECT_NAME.source.yml | The `.gitlab-ci.yml` file in the GitLab Project |
+| GitLab project configuration | valet/PROJECT_NAME.config.json | Contains meta data retrieved for the GitLab Project |
 | Valet log file | log/valet-TIMESTAMP.log |  Log generated during an audit. Mainly used for troubleshooting |
-| GitHub Action workflows | valet/PROJECT_NAME.yml | GitHub Actions workflow that would be migrated to GitHub |
+| GitHub Actions workflows | valet/PROJECT_NAME.yml | GitHub Actions workflow that would be migrated to GitHub |
 | Error file | valet/PROJECT_NAME.error.txt | Created when there is a error transforming the pipeline |
-| Audit Summary | audit_summary.md | Contains a summary of audit results and the main file of interest to understand the how complete of a migration can be done with Valet |
+| Audit summary | audit_summary.md | Contains a summary of audit results and the main file of interest to understand the how complete of a migration can be done with Valet |
 | GitHub Actions Reusable Workflows & Composite Actions | .github/workflows/NAME_HERE.yml | These files will only appear if Valet encountered a pipeline that would generated them. These files would be part of the migration to GitHub if they existed |
 
 ## Review audit summary
@@ -242,9 +242,9 @@ Secrets: **1**
 ## Review the Pipelines Section
 The audit summary starts by giving a summary of the types of pipelines that were extracted.
 - It shows that there are a total of 11 pipelines extracted.
-- 90% were successful. This means that Valet knew how to map all the constructs of the pipeline to a GitHub Actions equivalent.
-- 0% were partially successful. If there were pipelines that fell into this category it would means that Valet knew how to map less than 100% of the constructs to a Github Actions equivalent.
-- 9% were unsupported. This means that the pipeline is fundamentally unsupported by Valet. In this example it is because one of the Projects has Auto DevOps enabled.
+- 90% were successful. This means that Valet knew how to map **all** the constructs of the pipeline to a GitHub Actions equivalent.
+- 0% were partially successful. If there were pipelines that fell into this category it would means that Valet knew how to map **less than 100%** of the constructs to a Github Actions equivalent.
+- 9% were unsupported. This means that the pipeline is fundamentally unsupported by Valet. In this example it is because one of the projects has Auto DevOps enabled.
 - 0% of these fail altogether. If there were pipelines that fall into this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
 
 Under the `Job types` section, we can see that the `audit` command was able to transform 10 YAML pipelines and encountered a unsupported Auto Devops pipeline
@@ -312,7 +312,7 @@ Valet breaks down the pipeline components further into `Triggers`, `Environment`
   ```
 - Other is a catch all for all other components
 
-The remaining sections `Successful` and `Failed` are groupings of the generated audit files that fell into those category.  For example, the project `child-parent-example` was successful and can be found under the `Successful` section, with all of the associated file links listed under the project name.  
+The remaining sections `Successful` and `Failed` are groupings of the generated audit files.  For example, the project `child-parent-example` was successfully transformed and can be found under the `Successful` section, with all of the associated file links listed under the project name.  
 
 ```yaml
 #### valet/child-parent-example
