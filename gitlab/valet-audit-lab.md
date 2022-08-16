@@ -7,7 +7,7 @@ The goal of this lab is to performed an audit on the demo GitLab instance, and g
 - [Perform an audit](#perform-an-audit)
 - [Audit Files](#audit-files)
 - [Review audit summary](#review-audit-summary)
-- [Review the pipelines](#review-the-pipelines)
+- [Review the Pipelines Section](#review-the-pipelines-section)
 - [Next Lab](#next-lab)
 
 ## Prerequisites
@@ -52,9 +52,9 @@ The `audit` command outputs the following files
 3. This file contains details about what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
 4. Review the file, it should match the `audit_summary` below:
 <details>
-<summary> audit_summary.md (Click to expand) </summary>
+<summary> Click to expand <code>audit_summary.md</code></summary>
   
-```
+```yaml
 # Audit summary
 
 Summary for [GitLab instance](http://localhost/valet)
@@ -239,6 +239,91 @@ Secrets: **1**
   
 </details>
    
-## Review the pipelines
+## Review the Pipelines Section
+The audit summary starts by giving a summary of the types of pipelines that were extracted.
+- It shows that there are a total of 11 pipelines extracted.
+- 90% were successful. This means that Valet knew how to map all the constructs of the pipeline to a GitHub Actions equivalent.
+- 0% were partially successful. If there were pipelines that fell into this category it would means that Valet knew how to map less than 100% of the constructs to a Github Actions equivalent.
+- 9% were unsupported. This means that the pipeline is fundamentally unsupported by Valet. In this example it is because one of the Projects has Auto DevOps enabled.
+- 0% of these fail altogether. If there were pipelines that fall into this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
+
+Under the `Job types` section, we can see that the `audit` command was able to transform 10 YAML pipelines and encountered a unsupported Auto Devops pipeline
+
+```yaml
+### Job types
+
+Supported: **10 (90%)**
+
+- YAML: **10**
+
+Unsupported: **1 (9%)**
+
+- Auto DevOps: **1**
+```
+
+Under the `Build steps` section we can see a breakdown of the build steps that are used in the pipelines and what was `Known` and `Unsupported` by Valet.  In a later lab we will address the unsupported step `artifacts.terraform`
+
+```yaml
+### Build steps
+
+Total: **136**
+
+Known: **135 (99%)**
+
+- script: **62**
+- checkout: **36**
+- before_script: **19**
+- artifacts: **5**
+- cache: **4**
+- after_script: **4**
+- dependencies: **4**
+- pages: **1**
+
+Unsupported: **1 (0%)**
+
+- artifacts.terraform: **1**
+```
+
+Under the `Actions` section in `Build Steps` we have the list of the Actions that were used in order to implement the transformation of all of these build steps. 
+
+```yaml
+Actions: **137**
+
+- run: **85**
+- actions/checkout@v2: **36**
+- actions/upload-artifact@v2: **5**
+- actions/cache@v2: **4**
+- actions/download-artifact@v2: **4**
+- ./.github/workflows/a-.gitlab-ci.yml: **1**
+- ./.github/workflows/b-.gitlab-ci.yml: **1**
+- JamesIves/github-pages-deploy-action@4.1.5: **1**
+```
+
+Valet is a planning tool that can help in facilitating the migration into GitHub Actions and this list of Actions is a great place to understand what dependencies you would be taking on third-party Actions after this migration.  For example, if you are doing things like setting up the allow list of third-party Actions in a GitHub Enterprise server instance this list of Actions is a fantastic place to begin security reviews and audits of what third-party actions to depend on.
+
+Valet breaks down the pipeline components further into `Triggers`, `Environment`, `Other`, and `Manual tasks`. 
+- Triggers are a list of pipeline trigger found
+- Environment are a list of project variables found
+- Manual tasks are a list of user tasks that needs to be done in order for a pipeline to be functional when migrating to GitHub, such as adding `secrets` for a masked project variable, like we see here for the variable `PASSWORD`.  In a later lab we will see how these manual tasks appear on a pull request when we do a migration.
+  ```
+  Secrets: **1**
+
+  - `${{ secrets.PASSWORD }}`: **1**
+  ```
+- Other is a catch all for all other components
+
+The remaining sections `Successful` and `Failed` are groupings of the generated audit files that fell into those category.  For example, the project `child-parent-example` was successful and can be found under the `Successful` section, with all of the associated file links listed under the project name.  
+
+```yaml
+#### valet/child-parent-example
+
+- [valet/child-parent-example.yml](valet/child-parent-example.yml)
+- [.github/workflows/a-.gitlab-ci.yml](.github/workflows/a-.gitlab-ci.yml)
+- [.github/workflows/b-.gitlab-ci.yml](.github/workflows/b-.gitlab-ci.yml)
+- [valet/child-parent-example.config.json](valet/child-parent-example.config.json)
+- [valet/child-parent-example.source.yml](valet/child-parent-example.source.yml)
+```
+Note: this has files under the `.github` directory. This tells us that this pipeline generated reusable workflows from the `include` statements used in the source pipeline.  
 
 ### Next Lab
+[Dry run the migration of a GitLab pipeline to GitHub Actions](valet-dry-run-lab.md)
