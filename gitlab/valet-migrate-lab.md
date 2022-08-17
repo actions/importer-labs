@@ -1,7 +1,7 @@
 # Migrate an GitLab Project to GitHub Actions 
 In this lab, we will use the Valet `migrate` command to migrate a GitLab pipeline to GitHub Actions. 
 The previous commands used in the labs, such as `audit` and `dry-run` have prepared us to run a migration.
-The `migrate` command will generate the GitHub Actions workflow files, like the `dry-run` did, and additionally create a pull request with the files.  
+The `migrate` command will transform the Gitlab pipeline into a GitHub Actions workflow like the `dry-run` command did, but instead of writing these files locally, it will open a pull request with the files. 
 The pull request will also contain a checklist of `Manual Tasks` if required. These tasks are changes that Valet could not do on our behalf, like creating a runner or adding a secret to a repository.
 
 - [Prerequisites](#prerequisites)
