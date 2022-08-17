@@ -47,8 +47,8 @@ The `audit` command outputs the following files:
 | GitHub Actions Reusable Workflows & Composite Actions | .github/workflows/NAME_HERE.yml | These files will only appear if Valet encountered a pipeline that would generated them. These files would be part of the migration to GitHub if they existed |
 
 ## Review audit summary
-1. Under the `audit` folder find the `audit_summary.md`
-2. Right-click the `audit_summary.md` file and select `Open Preview`
+1. Under the `audit` folder find the `audit_summary.md`.
+2. Right-click the `audit_summary.md` file and select `Open Preview`.
 3. This file contains details about what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
 4. Review the file, it should match the `audit_summary` below:
 <details>
