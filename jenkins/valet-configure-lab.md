@@ -75,4 +75,4 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
 
 ### Next Lab
 
-TODO
+[Dry-run Jenkins Pipelines to a GitHub Action Workflow](../Jenkins/valet-dry-run-lab.md)
