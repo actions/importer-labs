@@ -22,7 +22,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
     ```
         gh version 2.14.3 (2022-07-26)
         gh valet        github/gh-valet v0.1.12
-        valet-cli       v0.1.0.13392
+        valet-cli       unknown
     ```
     if results do not match try manually installing the valet extension, using the [troubleshooting](#troubleshooting) section.
     
@@ -38,7 +38,12 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 ## Labs for GitLab
 Perform the following labs to test-drive Valet
-- TBD
+- [Configure Valet to work with GitLab](valet-configure-lab.md)
+- [Audit GitLab using the Valet audit command](valet-audit-lab.md)
+- [Dry run the migration of an GitLab pipeline to GitHub Actions](valet-dry-run-lab.md)
+- [Using Custom Transformers in a dry-run](valet-custom-transformers-lab.md)
+- [Migrate an GitLab Project to GitHub Actions](valet-migrate-lab.md)
+- [Forecast the usage of a GitLab namespace](valet-forecast-lab.md)
 
 ## Troubleshooting
 -  **GitHub CLI Valet extension is not installed**. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
