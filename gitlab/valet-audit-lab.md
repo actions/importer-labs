@@ -34,7 +34,7 @@ gh valet audit gitlab --output-dir tmp/audit --namespace valet
   <img width="360" alt="Screen Shot 2022-08-16 at 9 57 36 AM" src="https://user-images.githubusercontent.com/18723510/184898037-1212493b-25e2-44b8-a3dc-2b6ef703daf3.png">
 
 ## Audit Files
-The `audit` command outputs the following files
+The `audit` command outputs the following files:
 
 | File Type  |  Naming Convention |  Description |
 | ----------------- | ------------------------- | ---------------------------- |
