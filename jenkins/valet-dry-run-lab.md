@@ -125,7 +125,7 @@ jobs:
 
 </details>
 
-In the Jenkins pipeline we had 2 stages and 4 steps that run on the `TeamARunner` self-hosted runner.
+In the Jenkins pipeline we have 2 stages and 4 steps that run on the self-hosted runner labeled `TeamARunner`.
 
 In the Actions workflow we have the same steps and the stages are now being enforced using the `needs` keyword.  We can see this if we examine the `needs` for `needs: build`, which make the test jobs depend on the build jobs.
 
