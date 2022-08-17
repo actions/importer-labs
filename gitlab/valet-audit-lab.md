@@ -271,7 +271,7 @@ Unsupported: **1 (9%)**
 - Auto DevOps: **1**
 ```
 
-Under the `Build steps` section we can see a breakdown of the build steps that are used in the pipelines and what was `Known` and `Unsupported` by Valet.  In a later lab we will address the unsupported step `artifacts.terraform`
+Under the `Build steps` section we can see a breakdown of the build steps that are used in the pipelines and what was `Known` and `Unsupported` by Valet.  In a later lab we will address the unsupported step `artifacts.terraform`.
 
 ```yaml
 ### Build steps
