@@ -37,7 +37,7 @@ We will be performing a dry-run against a preconfigured pipeline in the Jenkins 
    - Find `./tmp/dry-run-lab/valet` in the file explorer pane in codespaces.
    - Click `test_pipeline.yml` to open
 
-<img width="234" alt="Screen Shot 2022-08-16 at 9 55 44 AM" src="https://user-images.githubusercontent.com/19557880/184935840-d4bdcbc9-75e5-4918-a055-28b765eac50c.png">
+  <img width="234" alt="Screen Shot 2022-08-16 at 9 55 44 AM" src="https://user-images.githubusercontent.com/19557880/184935840-d4bdcbc9-75e5-4918-a055-28b765eac50c.png">
 
 ## Review dry-run output
 
