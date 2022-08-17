@@ -13,6 +13,8 @@ The pull request will contain a checklist of `Manual Tasks` if required. These t
 ## Prerequisites
 1. Followed [steps](../gitlab#readme) to set up your codespace environment.
 2. Completed the [configure lab](../gitlab/valet-configure-lab.md)
+3. Completed the [dry-run lab](../gitlab/valet-dry-run-lab.md)
+4. Completed the [dry-run lab with custom transformer](../gitlab/valet-custom-transformers-lab.md)
 
 ## Preparing for migration
 Before running the command we need to collect some information:
