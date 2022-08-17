@@ -14,7 +14,7 @@ The end result of this command will be the actions workflow written to your loca
 2. Completed the [configure lab](../Jenkins/valet-configure-lab.md)
 3. Completed the [audit lab](../Jenkins/valet-audit-lab.md)
 
-## Perform a dry run
+## Perform a dry-run
 
 We will be performing a dry-run against a preconfigured pipeline in the Jenkins instance. Before running the command we need to collect some information:
 
