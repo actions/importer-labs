@@ -39,7 +39,7 @@ gh valet migrate gitlab --target-url https://github.com/GITHUB-ORG-USERNAME-HERE
 - Now our review is completed we want to go back to the `Conversation` tab and click `Merge pull request`
 - Once the PR is merged the new workflow should start and we can view it by clicking `Actions` in the top navigation
   <img width="1119" alt="actions-screen-shot" src="https://user-images.githubusercontent.com/18723510/184960870-590b1a28-422f-4350-9ec0-0423bf7ad445.png">
-- The migration is complete and we have success transformed a pipeline in GitLab, transformed into a GitHub Actions workflow, added to a GitHub Repository, and run in Actions
+- The migration is complete and we have successfully transformed a pipeline from GitLab into a GitHub Actions workflow, added it to a GitHub Repository, and run the workflow in Actions.
 
 ### Next Lab
 [Forecast GitLab Usage](../gitlab/valet-forecast-lab.md)
