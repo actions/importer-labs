@@ -134,7 +134,7 @@ In the Actions workflow we have the same steps and the stages are now being enfo
 + needs: build
 ```
 
-The `agent` in the Jenkins pipeline has be transformed to `runs-on` on each of the jobs.  
+The `agent` in the Jenkins pipeline has been transformed to `runs-on` on each of the jobs.  
 
 ```diff
 - agent {
