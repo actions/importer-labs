@@ -153,7 +153,7 @@ And the `echo` commands remain mostly the same
 +   run: echo "DISABLE_AUTH is ${{ env.DISABLE_AUTH }}"
 ```
 
-Note how Valet was not able to find a suitable conversion for the `sleep` command.
+Note how Valet was not able to find a suitable conversion for the `sleep` command, and it added a comment to the yaml so this information was not lost, and it could be addressed manually later if needed.
 
 ```diff
 - sleep 80
