@@ -60,7 +60,7 @@ The `audit` command outputs the following files
 Summary for [GitLab instance](http://localhost/valet)
 
 - Valet version: **0.1.0.13413 (9623ae73787971925a4a05e83a947108291d2f15)**
-- Performed at: **8/16/22 at 12:52**
+- Performed at: **8/17/22 at 13:38**
 
 ## Pipelines
 
@@ -83,30 +83,30 @@ Unsupported: **1 (9%)**
 
 ### Build steps
 
-Total: **136**
+Total: **134**
 
-Known: **135 (99%)**
+Known: **133 (99%)**
 
 - script: **62**
-- checkout: **36**
+- checkout: **35**
 - before_script: **19**
 - artifacts: **5**
-- cache: **4**
 - after_script: **4**
 - dependencies: **4**
+- cache: **3**
 - pages: **1**
 
 Unsupported: **1 (0%)**
 
 - artifacts.terraform: **1**
 
-Actions: **137**
+Actions: **135**
 
 - run: **85**
-- actions/checkout@v2: **36**
+- actions/checkout@v2: **35**
 - actions/upload-artifact@v2: **5**
-- actions/cache@v2: **4**
 - actions/download-artifact@v2: **4**
+- actions/cache@v2: **3**
 - ./.github/workflows/a-.gitlab-ci.yml: **1**
 - ./.github/workflows/b-.gitlab-ci.yml: **1**
 - JamesIves/github-pages-deploy-action@4.1.5: **1**
@@ -143,18 +143,18 @@ Known: **10 (100%)**
 
 - auto_cancel_pending_pipelines: **10**
 
-Actions: **57**
+Actions: **53**
 
-- image: **24**
+- image: **23**
 - cancel_in_progress: **10**
 - group: **10**
 - GIT_SUBMODULE_STRATEGY: **3**
 - docker:dind: **2**
-- mysql:latest: **2**
-- redis:latest: **2**
-- postgres:latest: **2**
-- PLAN: **1**
 - PLAN_JSON: **1**
+- mysql:latest: **1**
+- PLAN: **1**
+- redis:latest: **1**
+- postgres:latest: **1**
 
 ### Manual tasks
 
@@ -276,17 +276,17 @@ Under the `Build steps` section we can see a breakdown of the build steps that a
 ```yaml
 ### Build steps
 
-Total: **136**
+Total: **134**
 
-Known: **135 (99%)**
+Known: **133 (99%)**
 
 - script: **62**
-- checkout: **36**
+- checkout: **35**
 - before_script: **19**
 - artifacts: **5**
-- cache: **4**
 - after_script: **4**
 - dependencies: **4**
+- cache: **3**
 - pages: **1**
 
 Unsupported: **1 (0%)**
@@ -297,13 +297,13 @@ Unsupported: **1 (0%)**
 Under the `Actions` section in `Build Steps` we have the list of the Actions that were used in order to implement the transformation of all of these build steps. 
 
 ```yaml
-Actions: **137**
+Actions: **135**
 
 - run: **85**
-- actions/checkout@v2: **36**
+- actions/checkout@v2: **35**
 - actions/upload-artifact@v2: **5**
-- actions/cache@v2: **4**
 - actions/download-artifact@v2: **4**
+- actions/cache@v2: **3**
 - ./.github/workflows/a-.gitlab-ci.yml: **1**
 - ./.github/workflows/b-.gitlab-ci.yml: **1**
 - JamesIves/github-pages-deploy-action@4.1.5: **1**
