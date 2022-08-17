@@ -12,7 +12,7 @@ if [ "$(docker ps -a | grep jenkins:$container_name)" ]; then
 else
   echo -e "\nStarting a new Jenkins container"
   # Build jenkins image from docker compose file 
-  docker build -t jenkins:$container_name .
+  docker build -t jenkins:$container_name -f $CODESPACE_VSCODE_FOLDER/jenkins/bootstrap/Dockerfile .
 
   # Build container
   docker run -d --name jenkins -p 8080:8080 --env JENKINS_ADMIN_ID=$username --env JENKINS_ADMIN_PASSWORD=$password jenkins:$container_name
