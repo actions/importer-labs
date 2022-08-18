@@ -1,10 +1,10 @@
 # Forecast the usage of a GitLab namespace
-In this lab we will us the `forecast` command to forecast potential GitHub Actions usage by computing metrics from historical pipeline data from the GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
+In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from historical pipeline data from the GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
 
 - [Prerequisites](#prerequisites)
 - [Prepare for forecast](#prepare-for-forecast)
 - [Perform a forecast](#perform-a-forecast)
-- [Review forecast output](#review-forecast-output)
+- [Review forecast report](#review-forecast-report)
 
 ## Prerequisites
 
@@ -27,18 +27,17 @@ Before we can run the forecast we need to answer a few questions so we can const
 gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 08-02-2022
 ```
 - Run the command in the codespace terminal.
-- Verify that you command outputed a similar result.
+- Verify that the command output is similar to this.
   ![forecast_output](https://user-images.githubusercontent.com/18723510/185232893-1ed46bca-f310-47dc-804c-40c13737f231.png)
 
 ## Review forecast report
-Lets open the forecast report and look at the calculated metrics. 
-- From the codespace explorer pane find `./tmp/forecast_reports/forecast_report.md` and click to open.
+Now we will open the forecast report and review the calculated metrics. 
+- From the codespace explorer pane find `./tmp/forecast_reports/forecast_report.md` and right-click, and select __Open Preview__.
   ![forecast_explorer](https://user-images.githubusercontent.com/18723510/185234641-948a551b-316f-4cce-9e7d-4c078ae11a04.png)
 - The file should be similar to this.
   <details>
   <summary>example forecast_report.md</summary>
   
-  ```yaml
   # Forecast report for [GitLab](http://localhost/valet)
 
   - Valet version: **0.1.0.13432(03b5bc9370a8f0073c0cc1a4b25f6b81d0005c0f)**
@@ -102,12 +101,14 @@ Lets open the forecast report and look at the calculated metrics.
     - Max: **9**
 
   > Note: Concurrent jobs are calculated by using a sliding window of 1m 0s.
-  ```
-  ### Metrics
-  
-  ### Sections
-  - `Total` shows the metrics using all of the known runners. 
-  - `gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
-  
+   
   </details>
+  
+### Metrics
+  
+### Sections
+- `Total` shows the metrics using all of the known runners. 
+- `gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
+  
+  
 ### TBD
