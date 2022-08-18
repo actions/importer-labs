@@ -143,7 +143,29 @@ Open the forecast report and review the calculated metrics.
        - Min: **0**
        - Max: **9**
 ### Runner Group Sections
-- The preceeding section show the same metrics as the `Total` section
-  
-  
-### TBD
+- The preceeding section show the same metrics as the `Total` section, but grouped by runner groups
+- In this case we only have one runner group `gitlab-runner` so the metrics will match the `Total` section
+  ## gitlab-runner
+
+   - Job count: **57**
+   - Pipeline count: **15**
+
+   - Execution time
+     - Total: **135 minutes**
+     - Median: **0 minutes**
+     - P90: **7 minutes**
+     - Min: **0 minutes**
+     - Max: **10 minutes**
+
+   - Queue time
+     - Median: **0 minutes**
+     - P90: **5 minutes**
+     - Min: **0 minutes**
+     - Max: **42 minutes**
+
+   - Concurrent jobs
+     - Median: **0**
+     - P90: **0**
+     - Min: **0**
+     - Max: **9**
+
