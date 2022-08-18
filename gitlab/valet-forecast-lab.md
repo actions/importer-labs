@@ -1,16 +1,17 @@
 # Forecast the usage of a GitLab namespace
-In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from historical pipeline data from the GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
+In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in our GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
 
 - [Prerequisites](#prerequisites)
 - [Prepare for forecast](#prepare-for-forecast)
 - [Perform a forecast](#perform-a-forecast)
 - [Review forecast report](#review-forecast-report)
+- [Review additional files](#review-additional-files)
 
 ## Prerequisites
 
 1. Followed [steps](../gitlab#readme) to set up your codespace environment.
 2. Completed the [configure lab](../gitlab/valet-configure-lab.md).
-3. Ran the setup script in the terminal to make sure the GitLab instance is ready .
+3. Ran the setup script in the terminal to make sure the GitLab instance is ready.
    ```
    source gitlab/bootstrap/setup.sh
    ```
@@ -18,11 +19,11 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 ## Prepare for forecast
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 1) What namespace do we want to run the forecast for?  __valet. This is the only group in the demo GitLab instance.__
-2) What is the date we want to start forecasting from?  __08-02-2022. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understand of the typical usage.  Too little data and the metrics might not give a accurrate picture__
+2) What is the date we want to start forecasting from?  __08-02-2022. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understand of the typical usage.  Too little data and the metrics might not give an accurrate picture__
 3) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__
 
 ## Perform a forecast
-- Construct the command using the values from the questions above, it should look like:
+- Using the answers above we get the following `forecast` command:
 ```
 gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 08-02-2022
 ```
@@ -122,7 +123,7 @@ Open the forecast report and review the calculated metrics.
   We can see we ran 15 pipelines that contained 57 jobs.  The number of jobs is expected to be larger than pipelines because a pipeline is typically a collection of jobs. For example `basic-pipeline-example` contains 6 jobs
   ![basic-pipeline-jobs](https://user-images.githubusercontent.com/18723510/185423928-ec1b13b5-01fc-4e48-bbe5-0a77be7cecea.png)
 
--  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quick job took less than a minute and was rounded down to 0.
+-  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
      - Execution time
        - Total: **135 minutes**
        - Median: **0 minutes**
@@ -136,15 +137,15 @@ Open the forecast report and review the calculated metrics.
        - P90: **5 minutes**
        - Min: **0 minutes**
        - Max: **42 minutes**
-- `Concurent jobs` show the metrics for how many jobs were run at the __same time__.
+- `Concurrent jobs` show the metrics for how many jobs were run at the __same time__.
      - Concurrent jobs
        - Median: **0**
        - P90: **0**
        - Min: **0**
        - Max: **9**
 ### Runner Group Sections
-- The preceeding section show the same metrics as the `Total` section, but grouped by runner groups
-- In this case we only have one runner group `gitlab-runner` so the metrics will match the `Total` section
+- The preceding section show the same metrics as the `Total` section, but are grouped by runner group
+- In this case we only have one runner group `gitlab-runner` so the metrics match the `Total` section. If there were different groups we could possibly identify runner types that needed to be increased or decreased when moving to GitHub Actions
   ## gitlab-runner
 
    - Job count: **57**
@@ -168,4 +169,8 @@ Open the forecast report and review the calculated metrics.
      - P90: **0**
      - Min: **0**
      - Max: **9**
+
+## Review additional files
+When Valet performs a `forecast` the main file of interest is the `forecast_report.md` but there are some additional files created in the results directory, that might help if troubleshooting is needed.  In the `jobs` directory a `.json` file was created.  This file is a simple JSON file containing the job objects retrieved from the GitLab instance.  This file is generally not something you would look at but if you thought you were missing a particular job or jobs in the metrics, you could look here and confirm.  Valet also generates logs and writes them to the `log` directory.  Again, this is not something you would typically look at but might be useful to know. 
+
 
