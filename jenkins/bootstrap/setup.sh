@@ -24,7 +24,7 @@ grep -q "export DOCKER_ARGS=" ~/.bashrc || echo 'export DOCKER_ARGS="--network=h
 
 echo -e "\nWaiting for Jenkins to start..."
 while ! curl -s http://localhost:8080/ > /dev/null; do
-  echo -e "."
+  printf "."
   sleep 5
 done
 
