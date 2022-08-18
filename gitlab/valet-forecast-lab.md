@@ -105,7 +105,13 @@ Now we will open the forecast report and review the calculated metrics.
   </details>
   
 ### Metrics
-  
+|  Name | Description |
+| ----- | ----------- |
+| Median | The __middle__ value |
+| P90 | 90% of the values are less than or equal too |
+| Min | The lowest value |
+| Max | The highest value |
+   
 ### Sections
 - `Total` shows the metrics using all of the known runners. 
 - `gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
