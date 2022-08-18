@@ -11,7 +11,7 @@ These customizations will be present in many of our company's pipelines and an a
 
 - [Prerequisites](#prerequisites)
 - [Perform a dry-run](#perform-a-dry-run)
-- [Custom transformers for an unknown step](#custom-transformers-for-unknown-step)
+- [Custom transformers for an unknown step](#custom-transformers-for-an-unknown-step)
 - [Custom transformers for an known step](#custom-transformers-for-known-step)
 - [Custom transformers for environment variables](#custom-transformers-for-environment-varibales)
 - [Custom transformers for runners](#custom-transformers-for-runners)
