@@ -19,7 +19,7 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 ## Prepare for forecast
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 1) What namespace do we want to run the forecast for?  __valet. This is the only group in the demo GitLab instance.__
-2) What is the date we want to start forecasting from?  __08-02-2022. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understand of the typical usage.  Too little data and the metrics might not give an accurrate picture__
+2) What is the date we want to start forecasting from?  __2022-08-02. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understanding of the typical usage.  Too little data and the metrics might not give an accurate picture__
 3) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__
 
 ## Perform a forecast
