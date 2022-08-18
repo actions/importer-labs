@@ -109,7 +109,7 @@ Open the forecast report and review the calculated metrics.
 |  Name | Description |
 | ----- | ----------- |
 | Median | The __middle__ value |
-| P90 | 90% of the values are less than or equal too |
+| P90 | 90% of the values are less than or equal to |
 | Min | The lowest value |
 | Max | The highest value |
    
