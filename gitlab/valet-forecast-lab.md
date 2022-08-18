@@ -144,7 +144,7 @@ Open the forecast report and review the calculated metrics.
        - Min: **0**
        - Max: **9**
 ### Runner Group Sections
-- The preceding section show the same metrics as the `Total` section, but are grouped by runner group
+- The preceding section shows the same metrics as the `Total` section, but are grouped by runner group. A runner group is a machine (or group of machines) that each job runs on
 - In this case we only have one runner group `gitlab-runner` so the metrics match the `Total` section. If there were different groups we could possibly identify runner types that needed to be increased or decreased when moving to GitHub Actions
   ## gitlab-runner
 
