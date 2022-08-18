@@ -113,7 +113,7 @@ Open the forecast report and review the calculated metrics.
 | Max | The highest value |
    
 ### Total Section
-- This section shows the metrics for all of the jobs run in projects in the `valet` group during the time between today and 08/02/2022. 
+- This section shows the metrics for all of the jobs run in projects contained in the `valet` group, from 08/02/2022 to the time the command was executed. 
    ## Total
 
    - Job count: **57**
@@ -122,7 +122,7 @@ Open the forecast report and review the calculated metrics.
   We can see we ran 15 pipelines that contained 57 jobs.  The number of jobs is expected to be larger than pipelines because a pipeline is typically a collection of jobs. For example `basic-pipeline-example` contains 6 jobs
   ![basic-pipeline-jobs](https://user-images.githubusercontent.com/18723510/185423928-ec1b13b5-01fc-4e48-bbe5-0a77be7cecea.png)
 
--  `Execution time` shows the metrics for the time a job took to ran. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quick job took less than a minute and was rounded down to 0.
+-  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quick job took less than a minute and was rounded down to 0.
      - Execution time
        - Total: **135 minutes**
        - Median: **0 minutes**
@@ -130,20 +130,20 @@ Open the forecast report and review the calculated metrics.
        - Min: **0 minutes**
        - Max: **10 minutes**
     
-- `Queue time` shows the metrics for how long jobs waited for a runner to be available.  
+- `Queue time` shows the metrics for how long jobs __waited__ for a runner to be available.  
      - Queue time
        - Median: **0 minutes**
        - P90: **5 minutes**
        - Min: **0 minutes**
        - Max: **42 minutes**
-- `Concurent jobs` show the metrics for how many jobs were run at the same time.
+- `Concurent jobs` show the metrics for how many jobs were run at the __same time__.
      - Concurrent jobs
        - Median: **0**
        - P90: **0**
        - Min: **0**
        - Max: **9**
-### Runner Section
-- The data`gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
+### Runner Group Sections
+- The preceeding section show the same metrics as the `Total` section
   
   
 ### TBD
