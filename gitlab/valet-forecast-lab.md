@@ -114,7 +114,7 @@ Open the forecast report and review the calculated metrics.
 | Max | The highest value |
    
 ### Total Section
-- This section shows the metrics for all of the jobs run in projects contained in the `valet` group, from 08/02/2022 to the time the command was executed. 
+- This section shows the metrics for all of the jobs run in projects contained in the `valet` namespace, from 08/02/2022 to the time the command was executed. 
    ## Total
 
    - Job count: **57**
