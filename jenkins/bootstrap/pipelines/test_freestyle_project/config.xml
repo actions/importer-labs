@@ -3,16 +3,11 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <jenkins.branch.RateLimitBranchProperty_-JobPropertyImpl plugin="branch-api@2.1046.v0ca_37783ecc5">
-      <durationName>second</durationName>
-      <count>1</count>
-      <userBoost>false</userBoost>
-    </jenkins.branch.RateLimitBranchProperty_-JobPropertyImpl>
-  </properties>
+  <properties/>
   <scm class="hudson.scm.NullSCM"/>
   <quietPeriod>5</quietPeriod>
-  <canRoam>true</canRoam>
+  <assignedNode>DemoRunner</assignedNode>
+  <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
@@ -33,6 +28,35 @@ sleep 70</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
-  <buildWrappers/>
+  <publishers>
+    <hudson.plugins.git.GitPublisher plugin="git@4.11.4">
+      <configVersion>2</configVersion>
+      <pushMerge>false</pushMerge>
+      <pushOnlyIfSuccess>false</pushOnlyIfSuccess>
+      <forcePush>false</forcePush>
+      <tagsToPush>
+        <hudson.plugins.git.GitPublisher_-TagToPush>
+          <tagName>this-important-tag</tagName>
+          <tagMessage></tagMessage>
+          <createTag>false</createTag>
+          <updateTag>false</updateTag>
+        </hudson.plugins.git.GitPublisher_-TagToPush>
+      </tagsToPush>
+    </hudson.plugins.git.GitPublisher>
+    <hudson.tasks.Mailer plugin="mailer@435.v79ef3972b_5c7">
+      <recipients>mona@github.com</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>true</sendToIndividuals>
+    </hudson.tasks.Mailer>
+  </publishers>
+  <buildWrappers>
+    <org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper plugin="credentials-binding@523.vd859a_4b_122e6">
+      <bindings>
+        <org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+          <credentialsId>${expression}</credentialsId>
+          <variable>first-var</variable>
+        </org.jenkinsci.plugins.credentialsbinding.impl.StringBinding>
+      </bindings>
+    </org.jenkinsci.plugins.credentialsbinding.impl.SecretBuildWrapper>
+  </buildWrappers>
 </project>

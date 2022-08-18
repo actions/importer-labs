@@ -11,16 +11,7 @@
   </actions>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-      <triggers>
-        <hudson.triggers.SCMTrigger>
-          <spec>H(0-29)/10 * * * *</spec>
-          <ignorePostCommitHooks>false</ignorePostCommitHooks>
-        </hudson.triggers.SCMTrigger>
-      </triggers>
-    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
-  </properties>
+  <properties/>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2759.v87459c4eea_ca_">
     <script>pipeline {
     agent {
@@ -33,20 +24,31 @@
     }
 
     stages {
-        stage(&apos;build&apos;) {
+        stage(&apos;Check Variables&apos;) {
             steps {
                 echo &quot;Database engine is ${DB_ENGINE}&quot;
-                sleep 80
                 echo &quot;DISABLE_AUTH is ${DISABLE_AUTH}&quot;
             }
         }
-        stage(&apos;test&apos;) {
-            steps{
+        stage(&apos;Build&apos;) {
+            steps {
+                archiveArtifacts artifacts: &apos;**/target/*.jar&apos;, fingerprint: true
+            }
+        }
+        
+        stage(&apos;Test&apos;) {
+            steps {
                 junit &apos;**/target/*.xml&apos; 
+            }
+        }
+        stage(&apos;Deploy&apos;) {
+            steps {
+                sh &apos;make publish&apos;
             }
         }
     }
 }
+
 </script>
     <sandbox>true</sandbox>
   </definition>
