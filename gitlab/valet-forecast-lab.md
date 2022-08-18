@@ -18,7 +18,7 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 ## Prepare for forecast
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 1) What namespace do we want to run the forecast for?  __valet. This is the only group in the demo GitLab instance.__
-2) What is the date we want to start forecasting from?  __08-02-2022. This is around but before the time the data was populated on our demo GitLab instance.__
+2) What is the date we want to start forecasting from?  __08-02-2022. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understand of the typical usage.  Too little data and the metrics might not give a accurrate picture__
 3) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__
 
 ## Perform a forecast
@@ -31,7 +31,7 @@ gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet -
   ![forecast_output](https://user-images.githubusercontent.com/18723510/185232893-1ed46bca-f310-47dc-804c-40c13737f231.png)
 
 ## Review forecast report
-Now we will open the forecast report and review the calculated metrics. 
+Open the forecast report and review the calculated metrics. 
 - From the codespace explorer pane find `./tmp/forecast_reports/forecast_report.md` and right-click, and select __Open Preview__.
   ![forecast_explorer](https://user-images.githubusercontent.com/18723510/185234641-948a551b-316f-4cce-9e7d-4c078ae11a04.png)
 - The file should be similar to this.
@@ -104,7 +104,7 @@ Now we will open the forecast report and review the calculated metrics.
    
   </details>
   
-### Metrics
+### Metric Definitions
 |  Name | Description |
 | ----- | ----------- |
 | Median | The __middle__ value |
@@ -112,9 +112,38 @@ Now we will open the forecast report and review the calculated metrics.
 | Min | The lowest value |
 | Max | The highest value |
    
-### Sections
-- `Total` shows the metrics using all of the known runners. 
-- `gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
+### Total Section
+- This section shows the metrics for all of the jobs run in projects in the `valet` group during the time between today and 08/02/2022. 
+   ## Total
+
+   - Job count: **57**
+   - Pipeline count: **15**
+   ---
+  We can see we ran 15 pipelines that contained 57 jobs.  The number of jobs is expected to be larger than pipelines because a pipeline is typically a collection of jobs. For example `basic-pipeline-example` contains 6 jobs
+  ![basic-pipeline-jobs](https://user-images.githubusercontent.com/18723510/185423928-ec1b13b5-01fc-4e48-bbe5-0a77be7cecea.png)
+
+-  `Execution time` shows the metrics for the time a job took to ran. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quick job took less than a minute and was rounded down to 0.
+     - Execution time
+       - Total: **135 minutes**
+       - Median: **0 minutes**
+       - P90: **7 minutes**
+       - Min: **0 minutes**
+       - Max: **10 minutes**
+    
+- `Queue time` shows the metrics for how long jobs waited for a runner to be available.  
+     - Queue time
+       - Median: **0 minutes**
+       - P90: **5 minutes**
+       - Min: **0 minutes**
+       - Max: **42 minutes**
+- `Concurent jobs` show the metrics for how many jobs were run at the same time.
+     - Concurrent jobs
+       - Median: **0**
+       - P90: **0**
+       - Min: **0**
+       - Max: **9**
+### Runner Section
+- The data`gitlab-runner` shows the metrics for the runners in the gitlab-runner group, if there were other groups they would show here under their own group heading.
   
   
 ### TBD
