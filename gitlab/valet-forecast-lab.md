@@ -25,7 +25,7 @@ Before we can run the forecast we need to answer a few questions so we can const
 ## Perform a forecast
 - Using the answers above we get the following `forecast` command:
 ```
-gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 08-02-2022
+gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 2022-08-02
 ```
 - Run the command in the codespace terminal.
 - Verify that the command output is similar to this.
