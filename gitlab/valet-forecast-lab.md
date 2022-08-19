@@ -6,6 +6,8 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 - [Perform a forecast](#perform-a-forecast)
 - [Review forecast report](#review-forecast-report)
 - [Review additional files](#review-additional-files)
+- [Forecasting multiple providers](#forecasting-multiple-providers)
+- [Next steps](#next-steps)
 
 ## Prerequisites
 
@@ -170,7 +172,15 @@ Open the forecast report and review the calculated metrics.
      - Min: **0**
      - Max: **9**
 
-## Review additional files
-When Valet performs a `forecast` the main file of interest is the `forecast_report.md` but there are some additional files created in the results directory, that might help if troubleshooting is needed.  In the `jobs` directory a `.json` file was created.  This file is a simple JSON file containing the job objects retrieved from the GitLab instance.  This file is generally not something you would look at but if you thought you were missing a particular job or jobs in the metrics, you could look here and confirm.  Valet also generates logs and writes them to the `log` directory.  Again, this is not something you would typically look at but might be useful to know. 
+## Forecasting multiple providers
+If we examine the help for the `forecast` command by running `gh valet forecast --help` we can see a new option `--source-file-path`
 
+![forecast-help](https://user-images.githubusercontent.com/18723510/185643813-8a56710a-b5e6-4f62-a073-67d548cade1c.png)
 
+Using `--source-file-path` we can combine data from multiple forecast runs into a single report.  This becomes useful if we are using multiple CI/CD providers, such as GitLab and Jenkins, and wanted to get a holistic view of the runner usage across the providers.  The way this works is the forecast command creates a `.json` file in a `jobs` directory for each command execution.  The `--source-file-path` takes a glob pattern that will match all of the data files we want to include and combines them in a report. Most likely, the glob pattern will match `OUTPUT_DIR/**/jobs/*.json` where the `OUTPUT_DIR` is the value we used for `--output-dir`, which in this lab was `./tmp/forecast_reports`. We do not have multiple providers but we can still try it out because we have a data file at `tmp/forecast_reports/jobs/`!
+- run `gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast`
+- Now we have a new report that was generated from all the data files that matched the glob pattern. Note this command does not introspect the CI/CD provider it only operates the data files.  
+![combined-report](https://user-images.githubusercontent.com/18723510/185647504-ada354ed-4ac7-4d43-b2d5-e5f9cd1656dd.png)
+
+## Next steps
+This concludes the Valet labs for GitLab, if you are interested exploring the power of Valet more.  You can leverage the demo GitLab Instance and modify and add new projects that more closely match your needs and try out the commands again! 
