@@ -368,7 +368,7 @@ A `runner` method is used with the first parameter being the Jenkins agent label
   runner "TeamARunner", "ubuntu-latest"
   ```
 
-You can keep adding these transformer vales to your `transformer.rb` file. Your transformer file should look like the one below:
+You can keep adding these transformer methods to your `transformer.rb` file. Your transformer file should look like the one below:
 
 __Click to Expand__
 <details>
