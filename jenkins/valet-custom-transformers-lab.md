@@ -114,7 +114,7 @@ The ruby hash can be thought of as the JSON representation of the YAML we want. 
   end
   ```
 
-Let’s run the `dry-run` command again to see if our custom transformer worked.
+Let’s run the `dry-run` command again with `--custom-transformer transformers.rb` to see if our custom transformer worked.
 
 ```bash
 gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run --custom-transformers transformers.rb
