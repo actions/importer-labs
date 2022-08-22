@@ -436,7 +436,7 @@ runs-on:
 Thats it! Congratulations you have customized transforming:
 
 - unsupported steps
-- steps thata are supproted but don't meet your requirements
+- steps that are supported but don't meet your requirements
 - enviroment variables
 - runners
 
