@@ -360,7 +360,7 @@ env:
 
 Lastly, several of our pipelines will need to have the runner label updated from `TeamARunner` to `ubuntu-latest`.
 
-Valet offers the ability to provide customized mapping between build agents in the source CI instance and their equivalent GitHub Actions runner labels. The syntax for providing an agent label mapping is similar to an environment variable transformer.
+Valet offers the ability to provide customized mapping between build agents in the source CI instance and their equivalent GitHub Actions runner labels by using the `runner` method. The syntax for this is similar to the `env` method.  
 
 The `runner` methods first parameter is the Jenkins agent label and the second parameter is the GitHub Actions runner label(s) to map too. As an example, the following could be used:
 
