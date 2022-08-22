@@ -107,8 +107,8 @@ We can see in the center of the transformed workflow that the `sleep` step was n
 After some research we have decided that a simple bash script will meet our needs:
 
   ```yaml
-    - name: Sleep for 30 seconds
-      run: sleep 30s
+    - name: Sleep for 80 seconds
+      run: sleep 80s
       shell: bash
   ```
 
@@ -161,7 +161,7 @@ After some research we find that the following scripts will execute our J-unit t
 ```yaml
 - uses: actions/upload-artifact@v3
   with:
-    name: my-artifact
+    name: junit-artifact
     path: path/to/artifact/world.txt
 ```
 
@@ -194,28 +194,15 @@ transform "junit" do |item|
   test_results = item["arguments"].find{ |a| a["key"] == "testResults" }
   file_path = test_results.dig("value", "value")
 
-  [
-    {
-      "name": "Set up JDK 14",
-      "uses": "actions/setup-java@v1",
-      "with": {
-        "java-version": 14
+    [
+      {
+        "uses": "actions/upload-artifact@v3",
+        "with": {
+          "name": "junit-artifact",
+          "path": file_path
+        }
       }
-    },
-    {
-      "name": "Cache Maven packages",
-      "uses": "actions/cache@v2",
-      "with": {
-        "path": "~/.m2",
-        "key": "${{ runner.os }}-m2-${{ hashFiles('**/#{file_path}') }}",
-        "restore-keys": "${{ runner.os }}-m2"
-      }
-    },
-    {
-      "name": "Run tests with Maven",
-      "run": "mvn -B test --file #{file_path}"
-    }
-  ]
+    ]
 end
 ```
 
@@ -227,11 +214,13 @@ __Click to Expand__
 
 ```ruby
   transform "sleep" do |item|
-    {
-      "name": "Sleep for 30 seconds",
-      "run": "sleep 30s",
-      "shell": "bash"
-    }
+      wait_time = item["arguments"][0]["value"]["value"]
+
+      {
+        "name": "Sleep for #{wait_time} seconds",
+        "run": "sleep #{wait_time}s",
+        "shell": "bash"
+      }
   end
 
   transform "junit" do |item|
@@ -240,24 +229,11 @@ __Click to Expand__
 
     [
       {
-        "name": "Set up JDK 14",
-        "uses": "actions/setup-java@v1",
+        "uses": "actions/upload-artifact@v3",
         "with": {
-          "java-version": 14
+          "name": "junit-artifact",
+          "path": file_path
         }
-      },
-      {
-        "name": "Cache Maven packages",
-        "uses": "actions/cache@v2",
-        "with": {
-          "path": "~/.m2",
-          "key": "${{ runner.os }}-m2-${{ hashFiles('**/#{file_path}') }}",
-          "restore-keys": "${{ runner.os }}-m2"
-        }
-      },
-      {
-        "name": "Run tests with Maven",
-        "run": "mvn -B test --file #{file_path}"
       }
     ]
   end
@@ -279,18 +255,10 @@ When you open the file you should see the`EnricoMi/publish-unit-test-result-acti
 -      if: always()
 -      with:
 -        files: "**/target/*.xml"
-+    - name: Set up JDK 14
-+      uses: actions/setup-java@v1
++    - uses: actions/upload-artifact@v3
 +      with:
-+        java-version: 14
-+    - name: Cache Maven packages
-+      uses: actions/cache@v2
-+      with:
-+        path: "~/.m2"
-+        key: "${{ runner.os }}-m2-${{ hashFiles('**/**/target/*.xml') }}"
-+        restore-keys: "${{ runner.os }}-m2"
-+    - name: Run tests with Maven
-+      run: mvn -B test --file **/target/*.xml
++        name: junit-artifact
++        path: path/to/artifact/world.txt
 ```
 
 ## Custom transformers for environment variables
@@ -313,11 +281,13 @@ __Click to Expand__
   env "DB_ENGINE", "mongodb"
 
   transform "sleep" do |item|
-    {
-      "name": "Sleep for 30 seconds",
-      "run": "sleep 30s",
-      "shell": "bash"
-    }
+      wait_time = item["arguments"][0]["value"]["value"]
+
+      {
+        "name": "Sleep for #{wait_time} seconds",
+        "run": "sleep #{wait_time}s",
+        "shell": "bash"
+      }
   end
 
   transform "junit" do |item|
@@ -326,24 +296,11 @@ __Click to Expand__
 
     [
       {
-        "name": "Set up JDK 14",
-        "uses": "actions/setup-java@v1",
+        "uses": "actions/upload-artifact@v3",
         "with": {
-          "java-version": 14
+          "name": "my-artifact",
+          "path": file_path
         }
-      },
-      {
-        "name": "Cache Maven packages",
-        "uses": "actions/cache@v2",
-        "with": {
-          "path": "~/.m2",
-          "key": "${{ runner.os }}-m2-${{ hashFiles('**/#{file_path}') }}",
-          "restore-keys": "${{ runner.os }}-m2"
-        }
-      },
-      {
-        "name": "Run tests with Maven",
-        "run": "mvn -B test --file #{file_path}"
       }
     ]
   end
@@ -390,11 +347,13 @@ __Click to Expand__
   env "DB_ENGINE", "mongodb"
 
   transform "sleep" do |item|
-    {
-      "name": "Sleep for 30 seconds",
-      "run": "sleep 30s",
-      "shell": "bash"
-    }
+      wait_time = item["arguments"][0]["value"]["value"]
+
+      {
+        "name": "Sleep for #{wait_time} seconds",
+        "run": "sleep #{wait_time}s",
+        "shell": "bash"
+      }
   end
 
   transform "junit" do |item|
@@ -403,24 +362,11 @@ __Click to Expand__
 
     [
       {
-        "name": "Set up JDK 14",
-        "uses": "actions/setup-java@v1",
+        "uses": "actions/upload-artifact@v3",
         "with": {
-          "java-version": 14
+          "name": "my-artifact",
+          "path": file_path
         }
-      },
-      {
-        "name": "Cache Maven packages",
-        "uses": "actions/cache@v2",
-        "with": {
-          "path": "~/.m2",
-          "key": "${{ runner.os }}-m2-${{ hashFiles('**/#{file_path}') }}",
-          "restore-keys": "${{ runner.os }}-m2"
-        }
-      },
-      {
-        "name": "Run tests with Maven",
-        "run": "mvn -B test --file #{file_path}"
       }
     ]
   end
