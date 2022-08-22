@@ -48,7 +48,7 @@ env:
   DISABLE_AUTH: 'true'
   DB_ENGINE: sqlite
 jobs:
-  build:
+  check_env_variables:
     runs-on:
       - self-hosted
       - TeamARunner
@@ -65,6 +65,22 @@ jobs:
 #           value: 80
     - name: echo message
       run: echo "DISABLE_AUTH is ${{ env.DISABLE_AUTH }}"
+  build:
+    runs-on:
+      - self-hosted
+      - TeamARunner
+    needs: check_env_variables
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Set up JDK 1.11
+      uses: actions/setup-java@v1
+      with:
+        java-version: '1.11'
+        settings-path: "${{ github.workspace }}"
+    - name: sh
+      shell: bash
+      run: mvn clean package
   test:
     runs-on:
       - self-hosted
@@ -106,7 +122,7 @@ The ruby hash can be thought of as the JSON representation of the YAML we want. 
 
   ```ruby
   transform "sleep" do |item|
-    wait_time = item[0]["value"]["value"]
+    wait_time = item["arguments"][0]["value"]["value"]
 
     {
       "name": "Sleep for #{wait_time} seconds",
@@ -130,9 +146,9 @@ When you open the file you should see the following changes in the GitHub Action
 - #       - key: time
 - #         value:
 - #           isLiteral: true
-- #           value: 30
-+  - name: Sleep for 30 seconds
-+    run: sleep 30s
+- #           value: 80
++  - name: Sleep for 80 seconds
++    run: sleep 80s
 +    shell: bash
 ```
 
