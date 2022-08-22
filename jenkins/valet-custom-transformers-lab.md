@@ -130,7 +130,7 @@ When you open the file you should see the following changes in the GitHub Action
 - #       - key: time
 - #         value:
 - #           isLiteral: true
-- #           value: 80
+- #           value: 30
 +  - name: Sleep for 30 seconds
 +    run: sleep 30s
 +    shell: bash
