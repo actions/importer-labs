@@ -362,7 +362,7 @@ Lastly, several of our pipelines will need to have the runner label updated from
 
 Valet offers the ability to provide customized mapping between build agents in the source CI instance and their equivalent GitHub Actions runner labels. The syntax for providing an agent label mapping is similar to an environment variable transformer.
 
-A `runner` method is used with the first parameter being the Jenkins agent label and the second parameter being the GitHub Actions runner label(s) to map to. As an example, the following could be used:
+The `runner` methods first parameter is the Jenkins agent label and the second parameter is the GitHub Actions runner label(s) to map too. As an example, the following could be used:
 
   ```ruby
   runner "TeamARunner", "ubuntu-latest"
