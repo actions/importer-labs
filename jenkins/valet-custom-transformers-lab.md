@@ -1,6 +1,6 @@
 # Using Custom Transformers in a `dry-run`
 
-In this lab we want to do a `dry-run` of the `test_pipeline` pipeline, however, after a closer inspection, we have discovered that we will need to be customize the transformation of:
+In this lab we want to do a `dry-run` of the `test_pipeline` pipeline, however, after a closer inspection, we discovered that we will need to customize how Valet transforms:
 
 1. Steps that are unsupported by Valet, buts are essential to our devops process.
 2. Steps in which the GitHub action chosen by Valet does not meet our current needs.
