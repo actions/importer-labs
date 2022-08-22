@@ -102,7 +102,7 @@ Now that we know the final yaml needed for the transformer, we can start to writ
 
 In the custom transformers file we will add a `transform` method.  This is a special method that Valet exposes, that takes the identifier we determined earlier and returns a ruby hash of the final YAML for the pipeline.
 
-The ruby hash can be thought of as the JSON representation of the YAML we want. Valet will call that method when it encounters the identifier and pass in an `item`. The `item` is the values defined for that step in Jenkins. In this case the item is the path of the sleep command.
+The ruby hash can be thought of as the JSON representation of the YAML we want. Valet will call that method when it encounters the identifier and pass in an `item`. The `item` is the key of that key/value pair defined for that step in Jenkins. In this case the item is the settings of the sleep command.
 
   ```ruby
   transform "sleep" do |item|
