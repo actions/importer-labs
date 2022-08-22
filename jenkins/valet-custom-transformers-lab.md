@@ -261,7 +261,7 @@ Let’s run the `dry-run` command again to see if our custom transformer worked.
 gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run --custom-transformers transformers.rb
 ```
 
-When you open the file you should see the following workflow that has replaced the `EnricoMi/publish-unit-test-result-action@v1.7` action with the steps we have customized above.
+When you open the file you should see the`EnricoMi/publish-unit-test-result-action@v1.7` action has been replaced with the customized steps.
 
 ```diff
 -    - name: Publish test results
