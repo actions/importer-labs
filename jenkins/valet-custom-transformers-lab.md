@@ -82,7 +82,7 @@ jobs:
 
 </details>
 
-Go back to the previous lab [Dry-run Jenkins Pipeline](../jenkins/valet-migrate-lab.md) if you need a review of the details of the dry-run.
+Go back to the previous lab [Dry-run Jenkins Pipeline](../jenkins/valet-dry-run-lab.md) if you need a review of the details of the dry-run.
 
 ## Custom transformers for an unknown step
 
