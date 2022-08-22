@@ -143,18 +143,10 @@ Next lets address the third-party GitHub action `EnricoMi/publish-unit-test-resu
 After some research we find that the following scripts will execute our J-unit tests without needing to depend on `EnricoMi/publish-unit-test-result-action@v1.7`.
 
 ```yaml
-- name: Set up JDK 14
-  uses: actions/setup-java@v1
+- uses: actions/upload-artifact@v3
   with:
-    java-version: 14
-- name: Cache Maven packages
-  uses: actions/cache@v2
-  with:
-    path: ~/.m2
-    key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-    restore-keys: ${{ runner.os }}-m2
-- name: Run tests with Maven
-  run: mvn -B test --file pom.xml
+    name: my-artifact
+    path: path/to/artifact/world.txt
 ```
 
 We will build this custom transformation similar to how we built the previous custom transformer. This time, we need to add some additional logic. We would like to automate assigning each of the pipeline's file names to the run script.
