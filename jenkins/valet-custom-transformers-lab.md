@@ -2,7 +2,7 @@
 
 In this lab we want to do a `dry-run` of the `test_pipeline` pipeline, however, after a closer inspection, we discovered that we will need to customize how Valet transforms:
 
-1. Steps that are unsupported by Valet, buts are essential to our devops process.
+1. Steps that are unsupported by Valet, but are essential to our devops process.
 2. Steps in which the GitHub action chosen by Valet does not meet our current needs.
 3. All pipelines that have the environment variable `DB_ENGINE` must be changed to a different value: `mongodb`.
 4. The self-hosted runners before used the `TeamARunner` label in Jenkins but will run on the `ubuntu-latest` runner in Actions.
