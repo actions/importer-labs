@@ -106,9 +106,11 @@ The ruby hash can be thought of as the JSON representation of the YAML we want. 
 
   ```ruby
   transform "sleep" do |item|
+    wait_time = item[0]["value"]["value"]
+
     {
-      "name": "Sleep for 30 seconds",
-      "run": "sleep 30s",
+      "name": "Sleep for #{wait_time} seconds",
+      "run": "sleep #{wait_time}s",
       "shell": "bash"
     }
   end
