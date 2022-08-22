@@ -136,7 +136,7 @@ When you open the file you should see the following changes in the GitHub Action
 
 ## Custom transformers for a known step
 
-In our current scenario, the third-party GitHub action `EnricoMi/publish-unit-test-result-action@v1.7`, that Valet chose to transform for the `junit` step does not meet our needs because our CTO has dictated that our pipelines take no dependencies on third-party actions. We are able to customize the action that we would like Valet to use instead.
+Next lets address the third-party GitHub action `EnricoMi/publish-unit-test-result-action@v1.7`, that Valet chose for the `junit` step.  This action does not meet our needs because our CTO has dictated that our pipelines take no dependencies on third-party actions. We can customize the action that we would like Valet to use instead.
 
 After some research we find that the following scripts will execute our J-unit tests without needing to depend on `EnricoMi/publish-unit-test-result-action@v1.7`.
 
