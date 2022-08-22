@@ -285,7 +285,7 @@ When you open the file you should see the following workflow that has replaced t
 
 ## Custom transformers for environment variables
 
-But wait! There's more we need to customize to make these pipelines fit our needs. Several of our pipelines will need to have the value of our `DB_ENGINE` environment variable changed from `sqlite` to `mongodb`.
+But wait! There's more we need to customize to make these pipelines fit our needs. Several of our pipelines will need to have the value of the `DB_ENGINE` environment variable changed from `sqlite` to `mongodb`.
 
 Valet allows you to replace values of `variables` by using the `env` method. Let’s replace the value for `DB_ENGINE` by using the below line. The first value of the `env` method is the target variable name and the second is the new value to be used.
 
