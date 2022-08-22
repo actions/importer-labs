@@ -5,7 +5,7 @@ In this lab we want to do a `dry-run` of the `test_pipeline` pipeline, however, 
 1. Steps that are unsupported by Valet, buts are essential to our devops process.
 2. Steps in which the GitHub action chosen by Valet does not meet our current needs.
 3. All pipelines that have the environment variable `DB_ENGINE` must be changed to a different value: `mongodb`.
-4. The self-hosted runners before were called `TeamARunner` and with the GitHub Migration they will be called `ubuntu-latest`.
+4. The self-hosted runners before used the `TeamARunner` label in Jenkins but will run on the `ubuntu-latest` runner in Actions.
 
 These customizations will be present in many of our company's pipelines and an automated way to apply these changes would be ideal. In this lab, we will use the `--custom-transformers` flag to change the behavior of Valet using its DSL built on top of the Ruby language.
 
