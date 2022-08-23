@@ -40,10 +40,10 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - Run `gh valet configure`.
    - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, then hit enter to accept.
    - At the prompt enter your GitHub Username and press enter.
-   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 3 and press enter
-   - At the GitHub PAT prompt enter the GitHub PAT generated in step 3 and press enter.
+   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 2 and press enter
+   - At the GitHub PAT prompt enter the GitHub PAT generated in step 2 and press enter.
    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
-   - At the Jenkins token prompt enter the Jenkins access token from step 2 and press enter.
+   - At the Jenkins token prompt enter the Jenkins access token from step 1 and press enter.
    - At the Jenkins url prompt enter `http://localhost:8080/` and press enter.
    - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
 4. If all went well you should see a similar output in your terminal:
@@ -75,4 +75,4 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
 
 ### Next Lab
 
-TODO
+[Dry-run Jenkins Pipelines to a GitHub Action Workflow](../Jenkins/valet-dry-run-lab.md)

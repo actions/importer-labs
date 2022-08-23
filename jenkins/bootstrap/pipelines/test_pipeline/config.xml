@@ -23,14 +23,26 @@
   </properties>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2759.v87459c4eea_ca_">
     <script>pipeline {
-    agent any
+    agent {
+        label &apos;TeamARunner&apos;
+    }
+
+    environment {
+        DISABLE_AUTH = &apos;true&apos;
+        DB_ENGINE    = &apos;sqlite&apos;
+    }
 
     stages {
-        stage(&apos;Hello&apos;) {
+        stage(&apos;build&apos;) {
             steps {
-                echo &apos;Hello&apos;
+                echo &quot;Database engine is ${DB_ENGINE}&quot;
                 sleep 80
-                echo &apos;world&apos;
+                echo &quot;DISABLE_AUTH is ${DISABLE_AUTH}&quot;
+            }
+        }
+        stage(&apos;test&apos;) {
+            steps{
+                junit &apos;**/target/*.xml&apos; 
             }
         }
     }
