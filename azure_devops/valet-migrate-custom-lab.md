@@ -15,9 +15,9 @@ In this lab, you will create a custom plugin that transforms some of the existin
 4. Complete the [Valet migrate lab](valet-migrate-lab.md).
 
 ## Identify the Azure DevOps pipeline ID to use
-You will need the `valet-mapper-example` Azure DevOps pipeline ID to perform the migration
+You will need the `valet-custom-transformer-example` Azure DevOps pipeline ID to perform the migration
 1. Go to the `valet/ValetBootstrap/pipelines` folder
-2. Open the `valet/ValetBootstrap/pipelines/valet-mapper-example.config.json` file
+2. Open the `valet/ValetBootstrap/pipelines/valet-custom-transformer-example.config.json` file
 3. Look for the `web - href` link
 4. At the end of the link is the pipeline ID. Copy or note the ID.
 
