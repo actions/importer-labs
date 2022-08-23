@@ -156,7 +156,7 @@ When you open the file you should see the following changes in the GitHub Action
 
 Next lets address the third-party GitHub action `EnricoMi/publish-unit-test-result-action@v1.7` that Valet chose for the `junit` step.  This action does not meet our needs because our CTO has dictated that our pipelines take no dependencies on third-party actions. We can customize the action that we would like Valet to use instead.
 
-After some research we find that the following scripts will execute our J-unit tests without needing to depend on `EnricoMi/publish-unit-test-result-action@v1.7`.
+After some research we find that the following action will upload an artifact with the junit test results without depending on a third party action.
 
 ```yaml
 - uses: actions/upload-artifact@v3
