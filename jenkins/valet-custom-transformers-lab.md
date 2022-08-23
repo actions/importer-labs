@@ -165,7 +165,7 @@ After some research we find that the following action will upload an artifact wi
     path: path/to/artifact/world.txt
 ```
 
-We will build this custom transformation similar to how we built the previous custom transformer. This time, we need to add some additional logic. We would like to automate assigning each of the pipeline's file names to the run script.
+We will build this custom transformer similar to how we built the previous custom transformer. This time, we need to add some additional logic. We would like to automate assigning each of the pipeline's file names to the run script.
 
 The challenge is, that we are unsure what `item` represents (what the incoming JSON object looks like from Jenkins). In order to troubleshoot this, you could use some basic ruby to print `item` to the terminal. You can achieve this by adding the following line in the transform method: `puts "This is the item: #{item}"`.
 
