@@ -6,7 +6,6 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 - [Prepare for forecast](#prepare-for-forecast)
 - [Perform a forecast](#perform-a-forecast)
 - [Review forecast report](#review-forecast-report)
-- [Review additional files](#review-additional-files)
 - [Forecasting multiple providers](#forecasting-multiple-providers)
 - [Next steps](#next-steps)
 
