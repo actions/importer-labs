@@ -133,7 +133,7 @@ Open the forecast report and review the calculated metrics.
 - Pipeline count: __6__
 
    ---
-  We can see we ran 6 pipelines that contained 73 jobs. In the case of Jenkins, jobs refer to the concept of steps. The number of jobs(steps) is expected to be larger than the number of pipelines because a pipeline is typically a collection of jobs.
+We can see there were 73 completed jobs across 6 unique pipelines. A pipeline can have one or more jobs and a pipeline may be executed multiple times in the date range included in the forecast.
   
   For example `monas_freestyle` contains 3 jobs
   ![demo_pipeline](https://user-images.githubusercontent.com/19557880/186261368-d4dbbe8d-71e0-4084-bbbb-7557e9dbbb86.png)
