@@ -133,12 +133,19 @@ Open the forecast report and review the calculated metrics.
 - Pipeline count: __6__
 
    ---
+
 We can see there were 73 completed jobs across 6 unique pipelines. A pipeline can have one or more jobs and a pipeline may be executed multiple times in the date range included in the forecast.
   
   For example `monas_freestyle` contains 1 job.
   ![demo_pipeline](https://user-images.githubusercontent.com/19557880/186261368-d4dbbe8d-71e0-4084-bbbb-7557e9dbbb86.png)
 
-- `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
+Here are some key terms of items defined in the forecast report:
+
+- The `job count` is the total number of completed jobs.
+- The `pipeline count` is the number of unique pipelines used.
+- `Execution time` describe the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
+  - This metric is correlated to the amount of spend a customer should expect in GitHub Actions. This will vary greatly depending on the hardware the customer uses for these minutes and the Actions pricing calculator should be used to get an estimate of the approximate spend the customer should expect.
+  - Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
   - Execution time
     - Total: __27,057 minutes__
     - Median: __2 minutes__
@@ -146,19 +153,21 @@ We can see there were 73 completed jobs across 6 unique pipelines. A pipeline ca
     - Min: __0 minutes__
     - Max: __15,625 minutes__
 
-- `Queue time` shows the metrics for how long jobs __waited__ for a runner to be available.  
+- `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
   - Queue time
     - Median: __0 minutes__
     - P90: __0 minutes__
     - Min: __0 minutes__
     - Max: __0 minutes__
 
-- `Concurrent jobs` show the metrics for how many jobs were run at the __same time__.
+- `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
   - Concurrent jobs
     - Median: __0__
     - P90: __3__
     - Min: __0__
     - Max: __29__
+
+Additionally, these metrics are defined for each queue of runners that a customer has defined in the CI/CD platform. This is especially useful for customers that use a mix of hosted and self-hosted runners to see runner utilization metrics that are specific to different types of runners.
 
 ### Runner Group Sections
 
