@@ -135,7 +135,7 @@ Open the forecast report and review the calculated metrics.
    ---
 We can see there were 73 completed jobs across 6 unique pipelines. A pipeline can have one or more jobs and a pipeline may be executed multiple times in the date range included in the forecast.
   
-  For example `monas_freestyle` contains 3 jobs
+  For example `monas_freestyle` contains 1 job.
   ![demo_pipeline](https://user-images.githubusercontent.com/19557880/186261368-d4dbbe8d-71e0-4084-bbbb-7557e9dbbb86.png)
 
 - `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
