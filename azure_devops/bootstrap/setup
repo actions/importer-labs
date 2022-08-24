@@ -3,7 +3,6 @@ require "json"
 require "net/http"
 require "optparse"
 require "pathname"
-require "pry"
 
 options = {
   code_assets_dir: "code",
