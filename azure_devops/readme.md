@@ -3,11 +3,7 @@
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to create an Azure DevOps project against which to run the Valet CI/CD migration tool.
 
 - [Use this Repo as a template](#repo-template)
-- [Prerequisites](#prerequisites)
-- [Codespace secrets](#codespace-secrets)
-- [Action secrets](#action-secrets)
-- [Azure DevOps project creation](#azure-devops-project-creation)
-- [Use Valet with a codespace](#use-valet-with-a-codespace)
+- [Bootstrap an Azure DevOps organization](#bootstrap-your-azure-devops-organization)
 - [Labs for Azure DevOps](#labs-for-azure-devops)
 
 ## Repo template
@@ -30,7 +26,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 -----
 
-## Bootstrap your Azure DevOps environment
+## Bootstrap your Azure DevOps organization
 
 1. Create an Azure DevOps personal access token with the following scopes:
 
