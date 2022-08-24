@@ -167,7 +167,7 @@ We can see there were 73 completed jobs across 6 unique pipelines. A pipeline ca
 
 ## Forecasting multiple providers
 
-If we examine the help for the `forecast` command by running `gh valet forecast --help` we can see a new option `--source-file-path`
+If we examine the help for the `forecast` command by running `gh valet forecast --help` we can see the option: `--source-file-path`
 
 ![forecast-help](https://user-images.githubusercontent.com/19557880/186263140-f02c6cab-7979-417c-bdfe-b9590e9c5597.png)
 
