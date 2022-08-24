@@ -1,4 +1,4 @@
-# Forecast the usage of a Jenkins namespace
+# Forecast the runner usage of a Jenkins instance
 
 In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in our Jenkins instance. The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency. We will look at each of these metrics in more depth later in this lab.
 
