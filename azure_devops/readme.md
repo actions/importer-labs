@@ -17,7 +17,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 - Click the `Code` with button down arrow above repository on the repository's landing page.
 - Click the `Codespaces` tab
 - Click `Create codespaces on main` to create the codespace. If you are in another branch then the `main` branch, the codespace will button will have the current branch specified.
-- Wait a couple minutes, then verify that the codespace starts up. Once it is fully booted up, the termininal should be present.
+- Wait a couple minutes, then verify that the codespace starts up. Once it is fully booted up, the terminal should be present.
 
 2. Verify the [extension](https://github.com/github/gh-valet) to the official GitHub CLI for Valet is installed and working.
 
@@ -74,7 +74,7 @@ Manually installing the [extension](https://github.com/github/gh-valet) to the o
 - Run this command to install the GitHub Valet extension
 - `gh extension install github/gh-valet`
 - Verify the result of the install is: `✓ Installed extension github/gh-valet`
-- If you get a similiar error to the following, click the link to authorize the token
+- If you get a similar error to the following, click the link to authorize the token
       ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
   - Restart Codespace after clicking the link
 - Verify the Valet CLI is installed and working by running the `gh valet version` command
