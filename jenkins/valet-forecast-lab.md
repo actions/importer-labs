@@ -12,8 +12,8 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 ## Prerequisites
 
 1. Followed [steps](../jenkins#readme) to set up your codespace environment.
-2. Completed the [configure lab](../Jenkins/valet-configure-lab.md).
-3. Ran the setup script in the terminal to make sure the Jenkins instance is ready.
+2. Ran the setup script in the terminal to make sure the Jenkins instance is ready.
+3. Completed the [configure lab](../Jenkins/valet-configure-lab.md).
 
 ## Prepare for forecast
 
