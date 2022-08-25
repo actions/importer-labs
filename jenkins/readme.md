@@ -3,9 +3,11 @@
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to spin up a Jenkins instance against which to run the Valet CI/CD migration tool.
 
 - [Use this repo as a template](#repo-template)
-- [Prerequisites](#prerequisites)
 - [Use Valet with a codespace](#use-valet-with-a-codespace)
 - [Bootstrap Jenkins](#bootstrap-jenkins)
+- [Labs for Jenkins](#labs-for-jenkins)
+- [Troubleshoot GH Valet extension](#troubleshoot-gh-valet-extension)
+- [Troubleshooting Jenkins](#troubleshooting-jenkins)
 
 ## Repo template
 
