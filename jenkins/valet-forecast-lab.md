@@ -158,11 +158,6 @@ Here are some key terms of items defined in the forecast report:
 
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
-  - Concurrent jobs
-    - Median: __0__
-    - P90: __3__
-    - Min: __0__
-    - Max: __29__
 
 Additionally, these metrics are defined for each queue of runners that a customer has defined in the CI/CD platform. This is especially useful for customers that use a mix of hosted and self-hosted runners to see runner utilization metrics that are specific to different types of runners.
 
