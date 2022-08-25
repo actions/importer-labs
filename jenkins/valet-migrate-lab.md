@@ -13,10 +13,10 @@ The pull request will contain a checklist of `Manual Tasks` if required. These t
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md) to set up your codespace environment.
-2. Completed the [configure lab](../jenkins/valet-configure-lab.md)
-3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md)
-4. Completed the [dry-run lab with custom transformer](../jenkins/valet-custom-transformers-lab.md)
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instanace.
+2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
+3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions).
+4. Completed the [dry-run lab with custom transformer](../jenkins/valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run).
 
 ## Preparing for migration
 
@@ -31,9 +31,9 @@ Before running the command we need to collect some information:
 
 1. Run `migrate` command using the information collected above, make sure to update the `--target-url` value with the information from step 4.
 
-```bash
-gh valet migrate jenkins --target-url https://github.com/GITHUB-ORG-USERNAME-HERE/GITHUB-REPO-NAME-HERE --output-dir ./tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
-```
+    ```bash
+    gh valet migrate jenkins --target-url https://github.com/GITHUB-ORG-USERNAME-HERE/GITHUB-REPO-NAME-HERE --output-dir ./tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
+    ```
 
 2. Valet will create a pull request directly in the target GitHub repository.
 3. Open the pull request by clicking the green pull request link in the output of the migrate command, if you have trouble clicking it you can always copy and paste the url in your browser.
@@ -42,6 +42,8 @@ gh valet migrate jenkins --target-url https://github.com/GITHUB-ORG-USERNAME-HER
 ## Reviewing the pull request
 
 - Lets first look at the `Conversation` tab of the PR. It tells us we have a manual task to perform before the GitHub Actions workflow is functional.  We need to add a secret. We can use the GitHub [documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for secrets and add a `actions` secret for `EXPRESSION_FIRST_VAR` with any value.
+
+  ![Manual steps](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
 
 - Next, lets review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
 

@@ -19,9 +19,9 @@ These customizations will be present in many of our company's pipelines and an a
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins#readme) to set up your codespace environment.
-2. Completed the [configure lab](../jenkins/valet-configure-lab.md)
-3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md)
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instanace.
+2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
+3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions).
 
 ## Perform a dry-run
 
@@ -98,7 +98,7 @@ jobs:
 
 </details>
 
-Go back to the previous lab [Dry-run Jenkins Pipeline](../jenkins/valet-dry-run-lab.md) if you need a review of the details of the dry-run.
+Go back to the previous lab [dry-run Jenkins pipeline](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions) if you need a review of the details of the dry-run.
 
 ## Custom transformers for an unknown step
 
@@ -185,7 +185,7 @@ gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o
 
 You should see something like the following outputted into the terminal:
 
-<img width="1113" alt="Screen Shot 2022-08-17 at 10 25 53 AM" src="https://user-images.githubusercontent.com/19557880/185203572-38f08ffa-6028-4b54-8c46-017dc1fcf4de.png">
+<img width="1113" alt="Screen Shot 2022-08-17 at 10 25 53 AM" src="https://user-images.githubusercontent.com/19557880/186782050-65ece0c4-52a3-4f88-818f-0f860c50c2b7.png">
 
 Now that we know the structure of the incoming JSON blob for `item` we can access the file path programmatically.
 

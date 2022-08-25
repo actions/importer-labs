@@ -14,8 +14,8 @@ By the end of this lab you will have performed an audit on the demo Jenkins inst
 
 ## Prerequisites
 
-1. Follow all steps [here](../jenkins#readme) to set up your environment.
-2. Follow all steps [here](../jenkins#valet-configure-lab) to configure Valet.
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instanace.
+2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 
 ## Perform an audit
 
@@ -121,4 +121,4 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 ### Next Lab
 
-[Dry run the migration of a Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md)
+[Dry-run the migration of a Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md)
