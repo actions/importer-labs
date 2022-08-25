@@ -19,9 +19,12 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 
-1) Do we want to forecast the entire Jenkins instance, or just a single folder? __In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the forecast command__
-2) What is the date we want to start forecasting from?  __2022-08-02__. This date is before the time the data was populated in the Jenkins server running in these labs. This value defaults to the date one week ago, however, you should ensure a date is used that will capture enough data to get a representative view of typical usage.
-3) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__
+1. Do we want to forecast the entire Jenkins instance, or just a single folder?
+- In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the forecast command.
+2. What is the date we want to start forecasting from?
+- __2022-08-02__. This date is before the time the data was populated in the Jenkins server running in these labs. This value defaults to the date one week ago, however, you should ensure a date is used that will capture enough data to get a representative view of typical usage.
+3. Where do we want to store the results?
+- `./tmp/forecast_reports`. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the workspace.
 
 ## Perform a forecast
 
