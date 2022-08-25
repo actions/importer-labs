@@ -22,7 +22,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
     - Note and store the Azure DevOps project name for later.
 3. Create an Azure DevOps personal access token with the following scopes:
     -   To do so, navigate to Sign in to your organization `https://dev.azure.com/{yourorganization}`.
-    -   Click your `Account management` icon < ===================== I didn't see this
+    -   Click your `Account management` icon
     -   Click `User settings`.
     -   Click `Personal access tokens`.
     -   Select `+ New Token`.
