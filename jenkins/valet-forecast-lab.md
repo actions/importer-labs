@@ -157,12 +157,6 @@ Here are some key terms of items defined in the forecast report:
     - Max: __15,625 minutes__
 
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
-  - Queue time
-    - Median: __0 minutes__
-    - P90: __0 minutes__
-    - Min: __0 minutes__
-    - Max: __0 minutes__
-
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
   - Concurrent jobs
     - Median: __0__
