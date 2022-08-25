@@ -149,12 +149,6 @@ Here are some key terms of items defined in the forecast report:
 - `Execution time` describe the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
   - This metric is correlated to the amount of spend a customer should expect in GitHub Actions. This will vary greatly depending on the hardware the customer uses for these minutes and the Actions pricing calculator should be used to get an estimate of the approximate spend the customer should expect.
   - Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
-  - Execution time
-    - Total: __27,057 minutes__
-    - Median: __2 minutes__
-    - P90: __19 minutes__
-    - Min: __0 minutes__
-    - Max: __15,625 minutes__
 
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
