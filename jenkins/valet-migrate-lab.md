@@ -1,4 +1,4 @@
-# Migrate an Jenkins Project to GitHub Actions
+# Migrate a Jenkins Project to GitHub Actions
 
 In this lab, we will use the Valet `migrate` command to migrate a Jenkins pipeline to GitHub Actions.
 The previous commands used in the labs, such as `audit` and `dry-run` have prepared us to run a migration.
@@ -13,7 +13,7 @@ The pull request will contain a checklist of `Manual Tasks` if required. These t
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins#readme) to set up your codespace environment.
+1. Followed [steps](../jenkins/readme.md) to set up your codespace environment.
 2. Completed the [configure lab](../jenkins/valet-configure-lab.md)
 3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md)
 4. Completed the [dry-run lab with custom transformer](../jenkins/valet-custom-transformers-lab.md)
@@ -53,4 +53,4 @@ gh valet migrate jenkins --target-url https://github.com/GITHUB-ORG-USERNAME-HER
 
 ### Next Lab
 
-[Forecast Jenkins Usage](../Jenkins/valet-forecast-lab.md)
+[Forecast Jenkins Usage](../jenkins/valet-forecast-lab.md#forecast-the-runner-usage-of-a-jenkins-instance)

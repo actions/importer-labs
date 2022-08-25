@@ -2,7 +2,7 @@
 
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to spin up a Jenkins instance against which to run the Valet CI/CD migration tool.
 
-- [Use this Repo as a template](#repo-template)
+- [Use this repo as a template](#repo-template)
 - [Prerequisites](#prerequisites)
 - [Use Valet with a codespace](#use-valet-with-a-codespace)
 - [Bootstrap Jenkins](#bootstrap-jenkins)
@@ -10,7 +10,6 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 ## Repo template
 
 1. Verify you are in your own Repository created from the landing page [Valet Labs](https://github.com/valet-customers/labs).
-
 
 ## Use Valet with a codespace
 
@@ -23,7 +22,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
     - Verify Valet CLI is installed and working
     - Run `gh valet version` in the Visual Studio Code terminal and verify the output looks like the below image. Note the valet version will be different than below as the latest version gets pulled down.
        - If `gh valet version` did not produce a similar image with a version please follow these instructions [Troubleshoot GH Valet extension](#troubleshoot-gh-valet-extension)
-       
+
 <img width="836" alt="Screen Shot 2022-08-10 at 1 45 20 PM" src="https://user-images.githubusercontent.com/19557880/184017284-04233b97-d25e-48cf-be51-f7088c779fd5.png">
 
 ## Bootstrap Jenkins
@@ -45,7 +44,12 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 Perform the following labs to test-drive Valet
 
-- TBD
+- [Configure Valet to work with Jenkins](valet-configure-lab.md#configure-valet-to-work-with-jenkins)
+- [Audit Jenkins using the Valet audit command](valet-audit-lab.md#audit-jenkins-pipelines-using-the-valet-audit-command)
+- [Dry run the migration of an Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions)
+- [Using Custom Transformers in a dry-run](valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run)
+- [Migrate an Jenkins Project to GitHub Actions](valet-migrate-lab.md#migrate-a-jenkins-project-to-github-actions)
+- [Forecast the usage of a Jenkins namespace](valet-forecast-lab.md#forecast-the-runner-usage-of-a-jenkins-instance)
 
 ## Troubleshoot GH Valet extension
 

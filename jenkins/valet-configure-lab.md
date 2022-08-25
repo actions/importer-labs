@@ -9,7 +9,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
 
 ## Prerequisites
 
-1. Followed [steps](../Jenkins#readme) to set up your codespace environment and start your Jenkins instanace.
+1. Followed [steps](../jenkins/readme.md) to set up your codespace environment and start your Jenkins instanace.
 
 ## Configuring Valet
 
@@ -75,4 +75,4 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
 
 ### Next Lab
 
-[Dry-run Jenkins Pipelines to a GitHub Action Workflow](../Jenkins/valet-dry-run-lab.md)
+[Dry-run Jenkins Pipelines to a GitHub Action Workflow](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions)

@@ -1,4 +1,4 @@
-# Dry run the migration of an Jenkins pipeline to GitHub Actions
+# Dry run the migration of a Jenkins pipeline to GitHub Actions
 
 In this lab, you will use the Valet `dry-run` command to convert a Jenkins pipeline to its equivalent GitHub Actions workflow.
 The end result of this command will be the actions workflow written to your local filesystem.
@@ -180,4 +180,4 @@ Try constructing and running the `dry-run` command yourself. Hint, you should ju
 
 ## Next Lab
 
-TODO
+[Using Custom Transformers in a dry-run](valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run)
