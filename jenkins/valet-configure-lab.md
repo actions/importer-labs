@@ -9,7 +9,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instanace.
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
 
 ## Configuring Valet
 
@@ -21,7 +21,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
       - Click the `admin` button located within the top right menu.
       - Click on the `configure` gear located on the left hand panel.
       - Under the `API token` section, click `Add new Token`.
-      - Add a defaualt name to your token, then click `Generate`.
+      - Add a default name to your token, then click `Generate`.
       - Copy the token that was generated and record token for a later step.
 
       ![configure-result](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
@@ -36,7 +36,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Copy the token somewhere safe and temporary.
 3. Run Valet configure commands
    - In the codespace terminal window click back to the `TERMINAL` tab.
-   - Within the terminal, ensure you are in the root dirrectory.
+   - Within the terminal, ensure you are in the root directory.
    - Run `gh valet configure`.
    - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, then hit enter to accept.
    - At the prompt enter your GitHub Username and press enter.
@@ -45,7 +45,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
    - At the Jenkins token prompt enter the Jenkins access token from step 1 and press enter.
    - At the Jenkins url prompt enter `http://localhost:8080/` and press enter.
-   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
+   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have access to these files.
 4. If all went well you should see a similar output in your terminal:
    ![configure-result](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
 

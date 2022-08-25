@@ -11,7 +11,7 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instanace.
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
 2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 
 ## Prepare for forecast
@@ -150,7 +150,7 @@ Here are some key terms of items defined in the forecast report:
 
 - The `job count` is the total number of completed jobs.
 - The `pipeline count` is the number of unique pipelines used.
-- `Execution time` describe the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
+- `Execution time` describes the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
   - This metric is correlated to the amount of spend a customer should expect in GitHub Actions. This will vary greatly depending on the hardware the customer uses for these minutes and the Actions pricing calculator should be used to get an estimate of the approximate spend the customer should expect.
   - Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
 

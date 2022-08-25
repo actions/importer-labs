@@ -19,7 +19,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
     - Click the `Code` with button down arrow above repository on the repository's landing page.
     - Click the `Codespaces` tab
     - Click `Create codespaces on main` to create the codespace. If you are in another branch then the `main` branch, the codespace will button will have the current branch specified.
-    - Wait a couple minutes, then verify that the codespace starts up. Once it is fully booted up, the termininal should be present.
+    - Wait a couple minutes, then verify that the codespace starts up. Once it is fully booted up, the terminal should be present.
 2. Verify Valet CLI is installed and working. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
     - Verify Valet CLI is installed and working
     - Run the following command in the Visual Studio Code terminal:
@@ -51,7 +51,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
   - username: `admin`
   - password: `password`
 
-2. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populataed pipelines.
+2. Click the `Sign in` button and you should now see your new Jenkins instance with a few pre-populated pipelines.
 
 ## Labs for Jenkins
 
@@ -72,7 +72,7 @@ Manually Install the GitHub CLI Valet extension. More information on the [GitHub
 - Run this command to install the GitHub Valet extension
 - `gh extension install github/gh-valet`
 - Verify the result of the install is: `✓ Installed extension github/gh-valet`
-- If you get a similiar error to the following, click the link to authorize the token
+- If you get a similar error to the following, click the link to authorize the token
   - Restart Codespace after clicking the link
 - Verify Valet CLI is installed and working by running `gh valet version`
 
