@@ -10,7 +10,7 @@ The end result of this command will be the actions workflow written to your loca
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
+1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
 2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 3. Completed the [audit lab](../Jenkins/valet-audit-lab.md#audit-jenkins-pipelines-using-the-valet-audit-command).
 
