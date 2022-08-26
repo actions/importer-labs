@@ -13,7 +13,7 @@ The pull request will contain a checklist of `Manual Tasks` if required. These t
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
+1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
 2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions).
 4. Completed the [dry-run lab with custom transformer](../jenkins/valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run).
