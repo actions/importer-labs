@@ -9,7 +9,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
+1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
 
 ## Configuring Valet
 
