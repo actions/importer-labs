@@ -41,7 +41,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 - Run the following command to kick off the creation of your Jenkins instance:
 
     ```
-    source jenkins/bootstrap/setup.sh
+    ./jenkins/bootstrap/setup.sh
     ```
 
 - After a couple seconds, a pop-up box should appear with a link to the forwarded URL for your Jenkins instance.
