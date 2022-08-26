@@ -11,19 +11,23 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 
 ## Prerequisites
 
-1. Followed [steps](../jenkins#readme) to set up your codespace environment.
-2. Ran the setup script in the terminal to make sure the Jenkins instance is ready.
-3. Completed the [configure lab](../Jenkins/valet-configure-lab.md).
+1. Followed [steps](../jenkins/readme.md#valet-labs-for-jenkins) to set up your codespace environment and start your Jenkins instance.
+2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 
 ## Prepare for forecast
 
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 
 1. Do we want to forecast the entire Jenkins instance, or just a single folder?
+
 - In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the forecast command.
+
 2. What is the date we want to start forecasting from?
+
 - __2022-08-02__. This date is before the time the data was populated in the Jenkins server running in these labs. This value defaults to the date one week ago, however, you should ensure a date is used that will capture enough data to get a representative view of typical usage.
+
 3. Where do we want to store the results?
+
 - `./tmp/forecast_reports`. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the workspace.
 
 ## Perform a forecast
@@ -44,7 +48,7 @@ Open the forecast report and review the calculated metrics.
 
 - From the codespace explorer pane find `./tmp/forecast_reports/forecast_report.md` and right-click, and select __Open Preview__.
 
-![forecast_explorer](https://user-images.githubusercontent.com/18723510/185234641-948a551b-316f-4cce-9e7d-4c078ae11a04.png)
+  ![forecast_explorer](https://user-images.githubusercontent.com/18723510/185234641-948a551b-316f-4cce-9e7d-4c078ae11a04.png)
 
 - The file should be similar to this.
 
@@ -146,7 +150,7 @@ Here are some key terms of items defined in the forecast report:
 
 - The `job count` is the total number of completed jobs.
 - The `pipeline count` is the number of unique pipelines used.
-- `Execution time` describe the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
+- `Execution time` describes the amount of time a runner spent on a job. This metric can be used for a customer to help set expectations for the cost of GitHub hosted runners.
   - This metric is correlated to the amount of spend a customer should expect in GitHub Actions. This will vary greatly depending on the hardware the customer uses for these minutes and the Actions pricing calculator should be used to get an estimate of the approximate spend the customer should expect.
   - Looking closer we can see during our forecast timeframe the total job run time was 27,057 minutes with 90% of the jobs finishing under 20 minutes, and the longest job taking 15,625 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
 

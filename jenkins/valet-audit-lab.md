@@ -14,8 +14,8 @@ By the end of this lab you will have performed an audit on the demo Jenkins inst
 
 ## Prerequisites
 
-1. Follow all steps [here](../jenkins#readme) to set up your environment.
-2. Follow all steps [here](../jenkins#valet-configure-lab) to configure Valet.
+1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
+2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
 
 ## Perform an audit
 
@@ -60,7 +60,7 @@ The audit summary starts by giving a summary of the types of pipelines that were
 
 - It shows that there are a total of 7 pipelines extracted.
 
-- 42% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build pluggins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
+- 42% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build plugins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
 
 - 42% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
 
@@ -68,7 +68,7 @@ The audit summary starts by giving a summary of the types of pipelines that were
 
 - 0% of these fail altogether. If there were any pipelines that would fall under this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
 
-Under the `Job types` section, we can see that the `audit` command is able to support the conversion of project, freestyle (flow-defintion), and multibranch pipelines from Jenkins and convert them to a GitHub Actions workflow. Valet does not support converting [scripted pipelines](https://www.jenkins.io/doc/book/pipeline/syntax/#scripted-pipeline) (e.g. pure Groovy).
+Under the `Job types` section, we can see that the `audit` command is able to support the conversion of project, freestyle (flow-definition), and multibranch pipelines from Jenkins and convert them to a GitHub Actions workflow. Valet does not support converting [scripted pipelines](https://www.jenkins.io/doc/book/pipeline/syntax/#scripted-pipeline) (e.g. pure Groovy).
 
 #### Example
 
@@ -79,7 +79,7 @@ Under the `Job types` section, we can see that the `audit` command is able to su
 Under the `Build steps` section we can see a breakdown of the build steps that were used in these pipelines.
 
 - <b>Supported:</b> 12/16 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
-- <b>Unknown:</b> 3/16 discrete build steps are considered unknown by Valet. When Valet enounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
+- <b>Unknown:</b> 3/16 discrete build steps are considered unknown by Valet. When Valet encounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
 - <b>Unsupported:</b> 1/16 discrete build steps are considered unsupported by Valet. This could mean one of three things:
     1. The way that plugin was configured for a given job is unsupported.
     2. The plugin itself is fundamentally not supported in GitHub Actions.
@@ -95,7 +95,7 @@ For example, if you are doing things like setting up the allow list of third-par
 
 ### Trigger, Environment, Other
 
-Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `Other` section that breakdown each of their uses accross the audited pipelines.
+Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `Other` section that breakdown each of their uses across the audited pipelines.
 
 ### Example
 
@@ -121,4 +121,4 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 ### Next Lab
 
-[Dry run the migration of a Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md)
+[Dry-run the migration of a Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md)

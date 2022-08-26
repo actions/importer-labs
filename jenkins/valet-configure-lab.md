@@ -9,7 +9,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
 
 ## Prerequisites
 
-1. Followed [steps](../Jenkins#readme) to set up your codespace environment and start your Jenkins instanace.
+1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
 
 ## Configuring Valet
 
@@ -21,10 +21,10 @@ In this lab, you will use the Valet `configure` command to set up the required i
       - Click the `admin` button located within the top right menu.
       - Click on the `configure` gear located on the left hand panel.
       - Under the `API token` section, click `Add new Token`.
-      - Add a defaualt name to your token, then click `Generate`.
+      - Add a default name to your token, then click `Generate`.
       - Copy the token that was generated and record token for a later step.
 
-![configure-result](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
+      ![configure-result](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
 
 2. Create a GitHub personal access token (PAT).
     - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
@@ -36,7 +36,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Copy the token somewhere safe and temporary.
 3. Run Valet configure commands
    - In the codespace terminal window click back to the `TERMINAL` tab.
-   - Within the terminal, ensure you are in the root dirrectory.
+   - Within the terminal, ensure you are in the root directory.
    - Run `gh valet configure`.
    - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, then hit enter to accept.
    - At the prompt enter your GitHub Username and press enter.
@@ -45,9 +45,9 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
    - At the Jenkins token prompt enter the Jenkins access token from step 1 and press enter.
    - At the Jenkins url prompt enter `http://localhost:8080/` and press enter.
-   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
+   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have access to these files.
 4. If all went well you should see a similar output in your terminal:
-![configure-result](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
+   ![configure-result](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
 
 ## Verify Valet Works
 
@@ -56,23 +56,23 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
 1. In the codespace terminal update Valet by running `gh valet update`
 2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
 
-  ```
-  Login Succeeded
-  latest: Pulling from valet-customers/valet-cli
-  Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
-  Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
-  ghcr.io/valet-customers/valet-cli:latest
-  ```
+      ```
+      Login Succeeded
+      latest: Pulling from valet-customers/valet-cli
+      Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
+      Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
+      ghcr.io/valet-customers/valet-cli:latest
+      ```
 
- 3. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to Jenkins
+3. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to Jenkins
 
     ```
     gh valet dry-run jenkins --source-url https://localhost:8080/job/test_pipeline/ --output-dir ./tmp/dry-run-lab
     ```
 
- 4. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and were generated with the correct permissions.
+4. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and were generated with the correct permissions.
   ![configure-dry-run](https://user-images.githubusercontent.com/19557880/184255620-8e9b120e-5de0-41df-9cb6-c52028de3b0f.png)
 
 ### Next Lab
 
-[Dry-run Jenkins Pipelines to a GitHub Action Workflow](../Jenkins/valet-dry-run-lab.md)
+[Audit Jenkins using the Valet audit command](valet-audit-lab.md#audit-jenkins-pipelines-using-the-valet-audit-command)
