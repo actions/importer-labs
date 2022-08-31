@@ -33,7 +33,110 @@ gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devop
 ![sample-report](https://user-images.githubusercontent.com/18723510/187694590-9121b997-0c89-4984-bbf2-84f3df2ed882.png)
 
 ## Review forecast report
-  
+Open the forecast report and review the calculated metrics. 
+- From the codespace explorer pane find `./tmp/sample_report/forecast_report.md` and right-click, and select __Open Preview__.
+![explorer-report](https://user-images.githubusercontent.com/18723510/187696893-6d503d8d-b512-427a-af42-bbf053fa4df4.png)
+- The file should be similar to this.
+  <details>
+  <summary>example forecast_report.md</summary>
+ 
+  # Forecast report for [Azure DevOps](https://dev.azure.com/jd-testing-org/ValetBootstrap/_build)
+
+  - Valet version: **0.1.0.13529(efcc91120eaf5ecb40df6af034c64580cbcfd2e8)**
+  - Performed at: **8/31/22 at 13:46**
+  - Date range: **4/5/22 - 8/19/22**
+
+  ## Total
+
+  - Job count: **186**
+  - Pipeline count: **60**
+
+  - Execution time
+
+    - Total: **153 minutes**
+    - Median: **0 minutes**
+    - P90: **1 minutes**
+    - Min: **0 minutes**
+    - Max: **4 minutes**
+
+  - Queue time
+
+    - Median: **0 minutes**
+    - P90: **1 minutes**
+    - Min: **0 minutes**
+    - Max: **5 minutes**
+
+  - Concurrent jobs
+
+    - Median: **0**
+    - P90: **0**
+    - Min: **0**
+    - Max: **4**
+
+  ---
+
+  ## Azure Pipelines
+
+  - Job count: **183**
+  - Pipeline count: **58**
+  - Total consumption: **99%**
+
+  - Execution time
+
+    - Total: **151 minutes**
+    - Median: **0 minutes**
+    - P90: **1 minutes**
+    - Min: **0 minutes**
+    - Max: **4 minutes**
+
+  - Queue time
+
+    - Median: **0 minutes**
+    - P90: **1 minutes**
+    - Min: **0 minutes**
+    - Max: **5 minutes**
+
+  - Concurrent jobs
+
+    - Median: **0**
+    - P90: **0**
+    - Min: **0**
+    - Max: **4**
+
+  ---
+
+  ## Default
+
+  - Job count: **3**
+  - Pipeline count: **2**
+  - Total consumption: **1%**
+
+  - Execution time
+
+    - Total: **1 minutes**
+    - Median: **0 minutes**
+    - P90: **0 minutes**
+    - Min: **0 minutes**
+    - Max: **0 minutes**
+
+  - Queue time
+
+    - Median: **0 minutes**
+    - P90: **0 minutes**
+    - Min: **0 minutes**
+    - Max: **0 minutes**
+
+  - Concurrent jobs
+
+    - Median: **0**
+    - P90: **0**
+    - Min: **0**
+    - Max: **1**
+
+  > Note: Concurrent jobs are calculated by using a sliding window of 1m 0s.
+ 
+</details>
+
 ### Metric Definitions
 |  Name | Description |
 | ----- | ----------- |
@@ -43,7 +146,34 @@ gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devop
 | Max | The highest value |
    
 ### Total Section
+- This section shows the metrics for all of the jobs run in our sample data. 
+   ## Total
 
+   - Job count: **186**
+   - Pipeline count: **60**
+   ---
+  We can see there were 60 pipelines that ran and they contained 186 jobs.  The number of jobs is expected to be equal or larger than pipelines because a pipeline is typically a collection of jobs.
+
+-  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 153 minutes, with 90% of the jobs finishing under 1 minute, and the longest job taking 4 minutes.  The `Min` and `Median` are 0 because they were less than a minute and was rounded down to 0.
+     - Execution time
+       - Total: **153 minutes**
+       - Median: **0 minutes**
+       - P90: **1 minutes**
+       - Min: **0 minutes**
+       - Max: **4 minutes**
+    
+- `Queue time` shows the metrics for how long jobs __waited__ for a runner to be available.  
+     - Queue time
+       - Median: **0 minutes**
+       - P90: **1 minutes**
+       - Min: **0 minutes**
+       - Max: **5 minutes**
+- `Concurrent jobs` show the metrics for how many jobs were run at the __same time__.
+     - Concurrent jobs
+       - Median: **0**
+       - P90: **0**
+       - Min: **0**
+       - Max: **4**
 
 ### Runner Group Sections
 - The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping of one or more runners.
