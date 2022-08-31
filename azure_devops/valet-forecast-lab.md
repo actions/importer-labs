@@ -1,5 +1,5 @@
 # Forecast Azure DevOps usage using Valet's forecast command
-In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in Azure DevOps.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
+In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in Azure DevOps. The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency. We will look at each of these metrics in more depth later in this lab.
 
 - [Prerequisites](#prerequisites)
 - [Prepare for forecast](#prepare-for-forecast)
