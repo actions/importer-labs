@@ -5,7 +5,6 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 - [Prepare for forecast](#prepare-for-forecast)
 - [Perform a forecast](#perform-a-forecast)
 - [Review forecast report](#review-forecast-report)
-- [Forecasting multiple providers](#forecasting-multiple-providers)
 - [Next steps](#next-steps)
 
 ## Prerequisites
@@ -177,9 +176,7 @@ Open the forecast report and review the calculated metrics.
        - Max: **4**
 
 ### Runner Group Sections
-- The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping of one or more runners.
-
-
-## Forecasting multiple providers
+- The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping of one or more runners. In our case we have `Azure Pipelines` and `Default`.  These sections can be used to identify runner types that needed to be increased or decreased when moving to GitHub Actions.  Looking at the report the `Default` group was only used for 3 jobs and a ran for a total of 1 minute.  This might be a group of runners we do not need to migrate to Actions.
 
 ## Next steps
+This concludes the Valet labs for Azure Devops, if you are interested exploring the power of Valet more. You can leverage the lab setup and modify and add new pipelines that more closely match your needs and try out the commands again!
