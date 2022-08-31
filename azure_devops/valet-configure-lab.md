@@ -14,7 +14,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Go to `Developer Settings`
     - Go to `Personal Access Tokens` -> `Legacy tokens (if present)`
     - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
+    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide text in the **Note** field and change the expiration.
     - Click `Generate token`
     - Copy the token somewhere safe and temporary.
 2. Skip this step if you still have the Azure DevOp personal access token created during step 1 in the lab setup [steps](../azure_devops#bootstrap-your-azure-devops-organization), if not create another and save to a temporary location.
