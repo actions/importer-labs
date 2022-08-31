@@ -12,10 +12,19 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 2. Create or start a codespace in this repository (if not started)
 
 ## Prepare for forecast
-Before we can run the forecast we need to answer a few questions so we can construct the correct command.
-1) What is the date we want to start forecasting from?  __2022-03-02. This should be a date that will give enough data to get a good understanding of the typical usage.__
-2) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__ 
-3) What project do we want to run the forecast for? __ValetBootStrap. This is the default project name for the labs, if you choose a different name when setting up the lab environment you should use that.__
+Before we can run the forecast we need to answer a few questions so we can construct the correct command:
+
+1. What is the date we want to start forecasting from? 
+
+-  __2022-03-02__. This should be a date that will give enough data to get a good understanding of the typical usage.
+
+2. Where do we want to store the results? 
+
+- __./tmp/forecast_reports__. This can be any valid path on the system but for simplicity it is recommend to use a directory in the root of the Codespace workspace. 
+
+3. What project do we want to run the forecast for? 
+
+- __ValetBootstrap__. This is the default project name for the labs, however, if you chose a different name when setting up the lab environment you should use that.
 
 Using these answers our command becomes:
 ```
