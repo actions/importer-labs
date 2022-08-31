@@ -9,7 +9,8 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 - [Next steps](#next-steps)
 
 ## Prerequisites
-TBD
+1. Follow all steps [here](../azure_devops#readme) to set up your environment
+2. Create or start a codespace in this repository (if not started)
 
 ## Prepare for forecast
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
