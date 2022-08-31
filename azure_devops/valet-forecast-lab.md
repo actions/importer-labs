@@ -15,7 +15,7 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 Before we can run the forecast we need to answer a few questions so we can construct the correct command.
 1) What is the date we want to start forecasting from?  __2022-03-02. This should be a date that will give enough data to get a good understanding of the typical usage.__
 2) Where do we want to store the results? __./tmp/forecast_reports. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.__ 
-3) What project do we want to run the forecast for? __ValetBootStrap.  This is the default project name for the labs, if you choose a different name then use that instead.__
+3) What project do we want to run the forecast for? __ValetBootStrap.  This is the default project name for the labs, if you choose a different name when setting up the lab environment you should use that.__
 
 Using these answers our command becomes:
 ```
@@ -24,11 +24,14 @@ gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devop
 
 ## Perform a forecast
 - Run the command generated in the previous step in the terminal.
-- It will likely return "No Jobs" because we have no pipelines that ran during the timeframe we picked. Actually our demo project has never had any pipelines run so any date we pick will return no jobs.
+- You should get "No jobs found" because we have no pipelines that ran during the timeframe we picked. Actually, our demo project has never had any pipelines run so any date we pick will return no jobs.
 ![no-jobs](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
-- lets use the `--source-file` option of the forecast command to generate a report that we can review. This option is normally used to create reports using data from multiple CI/CD providers, but in this case we can use it to create a report from sample Azure DevOps data.  We can view the `forecast` command options by using the help flag `gh valet forecast --help`
+- lets use the `--source-file` option of the forecast command to generate a report that we can review. This option is normally used to create reports using data from multiple CI/CD providers, but in this case we can use it to create a report from sample Azure DevOps data.  We can view the `forecast` command options by using the help flag `gh valet forecast --help`.
 ![help-menu](https://user-images.githubusercontent.com/18723510/187692843-623d4bdc-8970-4348-a632-73c8b00a40f8.png)
-- Run `gh valet forecast azure-devops -o ./tmp/sample_report --source-file-path azure_devops/jobs_data.json`
+- Run the `forecast` command using the sample data.
+  ```
+  gh valet forecast azure-devops -o ./tmp/sample_report --source-file-path azure_devops/jobs_data.json
+  ```
 - A report should be generated from the sample data!
 ![sample-report](https://user-images.githubusercontent.com/18723510/187694590-9121b997-0c89-4984-bbf2-84f3df2ed882.png)
 
@@ -141,7 +144,7 @@ Open the forecast report and review the calculated metrics.
 |  Name | Description |
 | ----- | ----------- |
 | Median | The __middle__ value |
-| P90 | 90% of the values are less than or equal to |
+| P90 | 90% of the values are less than or equal to this |
 | Min | The lowest value |
 | Max | The highest value |
    
@@ -154,7 +157,7 @@ Open the forecast report and review the calculated metrics.
    ---
   We can see there were 60 pipelines that ran and they contained 186 jobs.  The number of jobs is expected to be equal or larger than pipelines because a pipeline is typically a collection of jobs.
 
--  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 153 minutes, with 90% of the jobs finishing under 1 minute, and the longest job taking 4 minutes.  The `Min` and `Median` are 0 because they were less than a minute and was rounded down to 0.
+-  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 153 minutes, with 90% of the jobs finishing in or under 1 minute, and the longest job taking 4 minutes.  The `Min` and `Median` are 0 because they were less than a minute and were rounded down to 0.
      - Execution time
        - Total: **153 minutes**
        - Median: **0 minutes**
@@ -176,7 +179,7 @@ Open the forecast report and review the calculated metrics.
        - Max: **4**
 
 ### Runner Group Sections
-- The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping of one or more runners. In our case we have `Azure Pipelines` and `Default`.  These sections can be used to identify runner types that needed to be increased or decreased when moving to GitHub Actions.  Looking at the report the `Default` group was only used for 3 jobs and a ran for a total of 1 minute.  This might be a group of runners we do not need to migrate to Actions.
+- The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping in Azure DevOps of one or more runners. In our case we have groups named `Azure Pipelines` and `Default`.  These sections can be used to identify runner types that needed to be increased or decreased when moving to GitHub Actions.  Looking at the report the `Default` group was only used for 3 jobs and a ran for a total of 1 minute.  This might be a group of runners we do not need to migrate to Actions.
 
 ## Next steps
-This concludes the Valet labs for Azure Devops, if you are interested exploring the power of Valet more. You can leverage the lab setup and modify and add new pipelines that more closely match your needs and try out the commands again!
+This concludes the Valet labs for Azure Devops, if you are interested exploring the power of Valet more. You can leverage the lab environment and modify and add new pipelines that more closely match your needs and try out the commands again!
