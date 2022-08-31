@@ -30,7 +30,9 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - At the prompt enter your Azure Devops organization name.
    - At the prompt enter your Azure Devops project name.
 4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project.
-  ADD_SCREEN_SHOT
+
+   ![configure-result](https://user-images.githubusercontent.com/18723510/187771230-27c97889-d98a-48f7-af01-c1a9f8df6423.png)
+
   
 ## Verify Valet Works
 To verify Valet works we are going to run a `update`, `version` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
@@ -38,13 +40,17 @@ To verify Valet works we are going to run a `update`, `version` and `dry-run` co
 1. In the codespace terminal update Valet by running `gh valet update`
 2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
 3. To verify Valet is updated and installed correctly run `gh valet version` and confirm the command outputs a similar response
-  ADD_SCREEN_SHOT
+  
+   ![valet-version](https://user-images.githubusercontent.com/18723510/187771571-83c0ede3-0b5d-49d5-9cf8-9ff2774ef114.png)
+
 4. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to Azure DevOps
     ```
-    gh valet dry-run azure-devops pipeline -o tmp/configure_test --pipeline-id 1
+    gh valet dry-run azure-devops pipeline -o tmp/configure_test --pipeline-id 7
     ```
 5. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and generated with the correct permissions.
-  ADD_SCREEN_SHOT
+  
+   ![dry-run](https://user-images.githubusercontent.com/18723510/187773568-5b4ef731-958f-4e5a-8f50-ea4e8a9e75d4.png)
+
 
 ### Next Lab
 [Audit Azure DevOps using the Valet audit command](../azure_devops/valet-audit-lab.md)
