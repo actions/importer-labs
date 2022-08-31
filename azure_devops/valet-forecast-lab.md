@@ -38,7 +38,9 @@ gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devop
 ## Review forecast report
 Open the forecast report and review the calculated metrics. 
 - From the codespace explorer pane find `./tmp/sample_report/forecast_report.md` and right-click, and select __Open Preview__.
-![explorer-report](https://user-images.githubusercontent.com/18723510/187696893-6d503d8d-b512-427a-af42-bbf053fa4df4.png)
+
+  ![explorer-report](https://user-images.githubusercontent.com/18723510/187696893-6d503d8d-b512-427a-af42-bbf053fa4df4.png)
+
 - The file should be similar to this.
 <details>
   <summary>example forecast_report.md</summary>
@@ -171,7 +173,7 @@ Open the forecast report and review the calculated metrics.
        - P90: **1 minutes**
        - Min: **0 minutes**
        - Max: **5 minutes**
-- `Concurrent jobs` show the metrics for how many jobs were run at the __same time__.
+- `Concurrent jobs` show the metrics for how many jobs started or ended within the same 60 second time slice. The time slice window can be changed using the `--time-slice` option.
      - Concurrent jobs
        - Median: **0**
        - P90: **0**
