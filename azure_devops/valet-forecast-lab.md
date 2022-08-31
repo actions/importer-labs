@@ -40,7 +40,7 @@ Open the forecast report and review the calculated metrics.
 - From the codespace explorer pane find `./tmp/sample_report/forecast_report.md` and right-click, and select __Open Preview__.
 ![explorer-report](https://user-images.githubusercontent.com/18723510/187696893-6d503d8d-b512-427a-af42-bbf053fa4df4.png)
 - The file should be similar to this.
-  <details>
+<details>
   <summary>example forecast_report.md</summary>
  
   # Forecast report for [Azure DevOps](https://dev.azure.com/jd-testing-org/ValetBootstrap/_build)
