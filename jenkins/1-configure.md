@@ -5,7 +5,7 @@ In this lab, you will use the `configure` CLI command to set the required creden
 You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
 
 - [Configuring credentials](#configuring-credentials)
-- [Verify Valet Works](#verify-valet-works)
+- [Verify your environment](#verify-your-environment)
 - [Next Lab](#next-lab)
 
 ## Configuring credentials
