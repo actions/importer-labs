@@ -38,12 +38,12 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 
 ## Labs for GitLab
 Perform the following labs to test-drive Valet
-- [Configure Valet to work with GitLab](valet-configure-lab.md)
-- [Audit GitLab using the Valet audit command](valet-audit-lab.md)
-- [Dry run the migration of an GitLab pipeline to GitHub Actions](valet-dry-run-lab.md)
-- [Using Custom Transformers in a dry-run](valet-custom-transformers-lab.md)
-- [Migrate an GitLab Project to GitHub Actions](valet-migrate-lab.md)
-- [Forecast the usage of a GitLab namespace](valet-forecast-lab.md)
+1. [Configure credentials for Valet](1-configure.md)
+2. [Perform an audit on GitLab pipelines](2-audit.md)
+3. [Perform a dry-run of a GitLab pipeline](3-dry-run.md)
+4. [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
+5. [Forecast potential build runner usage](5-forecast.md)
+6. [Perform a production migration of a GitLab pipeline](6-migrate.md)
 
 ## Troubleshooting
 -  **GitHub CLI Valet extension is not installed**. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
