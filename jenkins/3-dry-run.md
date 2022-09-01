@@ -180,4 +180,4 @@ Try constructing and running the `dry-run` command yourself. Hint, you should ju
 
 ## Next Lab
 
-[Using Custom Transformers in a dry-run](valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run)
+[Using Custom Transformers in a dry-run](4-custom-transformers.md#using-custom-transformers-in-a-dry-run)
