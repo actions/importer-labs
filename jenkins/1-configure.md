@@ -1,55 +1,51 @@
-# Configure Valet to work with Jenkins
+# Configure credentials for Valet
 
-In this lab, you will use the Valet `configure` command to set up the required information to communicate with the Jenkins and GitHub instances. The `configure` command can be used for all of the supported providers, in this lab we will be focusing on Jenkins.
+In this lab, you will use the `configure` CLI command to set the required credentials and information for Valet to use when working with Jenkins and GitHub.
 
-- [Prerequisites](#prerequisites)
-- [Configuring Valet](#configuring-valet)
+You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
+
+- [Configuring credentials](#configuring-credentials)
 - [Verify Valet Works](#verify-valet-works)
 - [Next Lab](#next-lab)
 
-## Prerequisites
+## Configuring credentials
 
-1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
-
-## Configuring Valet
-
-1. Login to the Jenkins instance to generate a personal access token:
+1. Open the Jenkins server in a new browser tab:
    1. Click the `PORTS` tab in the codespace terminal window.
    2. In the `PORTS` tab find the row for port 8080.
-   3. Hover over the address under the `Local Address` column, and click the globe to "open in browser".
-   4. Login to the Jenkins server and generate a Jenkins API token.
-      - Click the `admin` button located within the top right menu.
-      - Click on the `configure` gear located on the left hand panel.
-      - Under the `API token` section, click `Add new Token`.
-      - Add a default name to your token, then click `Generate`.
-      - Copy the token that was generated and record token for a later step.
+   3. Hover over the address under the `Local Address` column and click the globe to "open in browser".
 
-      ![configure-result](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
+2. Create a Jenkins API token:
+   1. Click the `admin` button in the top right menu bar.
+   2. Click on the `Configure` gear located on the left hand panel.
+   3. Click the `Add new Token` button in the `API token` section and click `Generate`.
+   4. Copy the generated API token and save in a safe location.
 
-2. Create a GitHub personal access token (PAT).
-    - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
-    - Go to `Developer Settings`
-    - Go to `Personal Access Tokens` -> `Legacy tokens (if present)`
-    - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
-    - Click `Generate token`
-    - Copy the token somewhere safe and temporary.
-3. Run Valet configure commands
-   - In the codespace terminal window click back to the `TERMINAL` tab.
-   - Within the terminal, ensure you are in the root directory.
-   - Run `gh valet configure`.
-   - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, then hit enter to accept.
+   ![img](https://user-images.githubusercontent.com/19557880/184041667-d06cb7f2-a885-474e-b728-7567314aeaf3.png)
+
+3. Create a GitHub Personal Access Token (PAT):
+    1. Open github.com in a new browser tab.
+    2. Click your profile photo in the top right of the UI and click `Settings`.
+    3. Click on `Developer Settings` in the left hand panel.
+    4. Click `Personal Access Tokens` and then `Legacy tokens` (if present).
+    5. Click `Generate new token` and then `Legacy tokens`. You may be required to authenticate with GitHub during this step.
+    6. Select the following scopes: `read:packages` and `workflow`.
+    7. Click `Generate token`.
+    8. Copy the generated PAT and save in a safe location.
+4. Run the `configure` CLI command:
+   - Select the `TERMINAL` tab from within the codespace terminal window.
+   - Run the following command: `gh valet configure`.
+   - Using the down arrow key to highlight `Jenkins`, press the spacebar to select, and then hit enter to continue.
    - At the prompt enter your GitHub Username and press enter.
-   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 2 and press enter
-   - At the GitHub PAT prompt enter the GitHub PAT generated in step 2 and press enter.
-   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
-   - At the Jenkins token prompt enter the Jenkins access token from step 1 and press enter.
+   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 3 and press enter.
+   - At the GitHub PAT prompt enter the GitHub PAT generated in step 3 and press enter.
+   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
+   - At the Jenkins token prompt enter the Jenkins access token from step 2 and press enter.
    - At the Jenkins url prompt enter `http://localhost:8080/` and press enter.
-   - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have access to these files.
-4. If all went well you should see a similar output in your terminal:
-   ![configure-result](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
+   - At the Personal access token to fetch source code in GitHub prompt hit enter to accept the default value.
+   ![img](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
 
-## Verify Valet Works
+## Verify your environment
 
 To verify Valet works we are going to run a `update` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
 
