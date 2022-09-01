@@ -14,21 +14,17 @@ In this lab we will use the `forecast` command to forecast potential GitHub Acti
 ## Prepare for forecast
 Before we can run the forecast we need to answer a few questions so we can construct the correct command:
 
-1. What is the date we want to start forecasting from? 
-
--  __2022-03-02__. This should be a date that will give enough data to get a good understanding of the typical usage.
-
-2. Where do we want to store the results? 
+1. Where do we want to store the results? 
 
 - __./tmp/forecast_reports__. This can be any valid path on the system but for simplicity it is recommend to use a directory in the root of the Codespace workspace. 
 
-3. What project do we want to run the forecast for? 
+2. What project do we want to run the forecast for? 
 
-- __ValetBootstrap__. This is the default project name for the labs, however, if you chose a different name when setting up the lab environment you should use that.
+- __YOUR_PROJECT_NAME__. This is the project name you chose during the lab setup [here](../azure_devops/readme.md#bootstrap-your-azure-devops-organization).
 
 Using these answers our command becomes:
 ```
-gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devops-project YOUR_PROJECT_NAME_HERE --start-date "2022-03-02" 
+gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devops-project YOUR_PROJECT_NAME_HERE
 ```
 
 ## Perform a forecast
@@ -50,26 +46,26 @@ Open the forecast report and review the calculated metrics.
 
   ![explorer-report](https://user-images.githubusercontent.com/18723510/187696893-6d503d8d-b512-427a-af42-bbf053fa4df4.png)
 
-- The file should be similar to this.
-<details>
-  <summary>example forecast_report.md</summary>
- 
+- Verify your report looks similar.
+  <details>
+  <summary><em>click to expand example forecast_report.md</em></summary>
+  
   # Forecast report for [Azure DevOps](https://dev.azure.com/jd-testing-org/ValetBootstrap/_build)
 
   - Valet version: **0.1.0.13529(efcc91120eaf5ecb40df6af034c64580cbcfd2e8)**
-  - Performed at: **8/31/22 at 13:46**
-  - Date range: **4/5/22 - 8/19/22**
+  - Performed at: **9/1/22 at 19:10**
+  - Date range: **9/1/22 - 9/1/22**
 
   ## Total
 
-  - Job count: **186**
-  - Pipeline count: **60**
+  - Job count: **84**
+  - Pipeline count: **32**
 
   - Execution time
 
-    - Total: **153 minutes**
+    - Total: **82 minutes**
     - Median: **0 minutes**
-    - P90: **1 minutes**
+    - P90: **2 minutes**
     - Min: **0 minutes**
     - Max: **4 minutes**
 
@@ -85,28 +81,28 @@ Open the forecast report and review the calculated metrics.
     - Median: **0**
     - P90: **0**
     - Min: **0**
-    - Max: **4**
+    - Max: **5**
 
   ---
 
   ## Azure Pipelines
 
-  - Job count: **183**
-  - Pipeline count: **58**
-  - Total consumption: **99%**
+  - Job count: **81**
+  - Pipeline count: **30**
+  - Total consumption: **98%**
 
   - Execution time
 
-    - Total: **151 minutes**
+    - Total: **80 minutes**
     - Median: **0 minutes**
-    - P90: **1 minutes**
+    - P90: **2 minutes**
     - Min: **0 minutes**
     - Max: **4 minutes**
 
   - Queue time
 
     - Median: **0 minutes**
-    - P90: **1 minutes**
+    - P90: **2 minutes**
     - Min: **0 minutes**
     - Max: **5 minutes**
 
@@ -115,7 +111,7 @@ Open the forecast report and review the calculated metrics.
     - Median: **0**
     - P90: **0**
     - Min: **0**
-    - Max: **4**
+    - Max: **5**
 
   ---
 
@@ -148,8 +144,8 @@ Open the forecast report and review the calculated metrics.
     - Max: **1**
 
   > Note: Concurrent jobs are calculated by using a sliding window of 1m 0s.
- 
-</details>
+
+  </details>
 
 ### Metric Definitions
 |  Name | Description |
@@ -162,19 +158,18 @@ Open the forecast report and review the calculated metrics.
 ### Total Section
 - This section shows the metrics for all of the jobs run in our sample data. 
    ## Total
-
-   - Job count: **186**
-   - Pipeline count: **60**
+    - Job count: **84**
+    - Pipeline count: **32**
    ---
-  We can see there were 60 pipelines that ran and they contained 186 jobs.  The number of jobs is expected to be equal or larger than pipelines because a pipeline is typically a collection of jobs.
+  We can see there were 32 pipelines that ran and they contained 84 jobs.  The number of jobs is expected to be equal or larger than pipelines because a pipeline is typically a collection of jobs.
 
--  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 153 minutes, with 90% of the jobs finishing in or under 1 minute, and the longest job taking 4 minutes.  The `Min` and `Median` are 0 because they were less than a minute and were rounded down to 0.
+-  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 82 minutes, with 90% of the jobs finishing in or under 2 minute, and the longest job took 4 minutes.  The `Min` and `Median` are 0 because they were less than a minute and were rounded down to 0.
      - Execution time
-       - Total: **153 minutes**
-       - Median: **0 minutes**
-       - P90: **1 minutes**
-       - Min: **0 minutes**
-       - Max: **4 minutes**
+        - Total: **82 minutes**
+        - Median: **0 minutes**
+        - P90: **2 minutes**
+        - Min: **0 minutes**
+        - Max: **4 minutes**
     
 - `Queue time` shows the metrics for how long jobs __waited__ for a runner to be available.  
      - Queue time
@@ -187,7 +182,7 @@ Open the forecast report and review the calculated metrics.
        - Median: **0**
        - P90: **0**
        - Min: **0**
-       - Max: **4**
+       - Max: **5**
 
 ### Runner Group Sections
 - The preceding sections shows the same metrics as the `Total` section, but are broken out into runner groups. A runner group is a logical grouping in Azure DevOps of one or more runners. In our case we have groups named `Azure Pipelines` and `Default`.  These sections can be used to identify runner types that needed to be increased or decreased when moving to GitHub Actions.  Looking at the report the `Default` group was only used for 3 jobs and a ran for a total of 1 minute.  This might be a group of runners we do not need to migrate to Actions.
