@@ -54,12 +54,12 @@ These steps **must** be completed prior to starting other labs.
 
 Perform the following labs to test-drive Valet
 
-- [Configure credentials for Valet](1-configure.md)
-- [Perform an audit of a Jenkins server](2-audit.md)
-- [Perform a dry-run of a Jenkins pipeline](3-dry-run.md)
-- [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
-- [Perform a production migration of a Jenkins pipeline](5-migrate.md)
-- [Forecast potential build runner usage](6-forecast.md)
+1. [Configure credentials for Valet](1-configure.md)
+2. [Perform an audit of a Jenkins server](2-audit.md)
+3. [Perform a dry-run of a Jenkins pipeline](3-dry-run.md)
+4. [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
+5. [Perform a production migration of a Jenkins pipeline](5-migrate.md)
+6.[Forecast potential build runner usage](6-forecast.md)
 
 ## Troubleshoot the Valet CLI
 
