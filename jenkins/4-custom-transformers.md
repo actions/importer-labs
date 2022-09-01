@@ -397,5 +397,4 @@ Thats it! Congratulations you have customized transforming:
 - runners
 
 ## Next Lab
-
-[Migrating a Jenkins Pipeline](../jenkins/valet-migrate-lab.md#migrate-a-jenkins-project-to-github-actions)
+[Forecast Jenkins Usage](../jenkins/5-forecast.md#forecast-the-runner-usage-of-a-jenkins-instance)
