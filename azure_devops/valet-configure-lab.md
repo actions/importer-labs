@@ -1,4 +1,4 @@
-# Configure Valet to work with Azure DevOps
+# Configure credentials for Valet
 In this lab, we will use the Valet `configure` command to set up the required information to communicate with Azure DevOps and GitHub. The `configure` command can be used for all of the supported providers, but in this lab we will be focusing on Azure DevOps.
 - [Prerequisites](#prerequisites)
 - [Configuring Valet](#configuring-valet)
