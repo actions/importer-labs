@@ -42,4 +42,4 @@ gh valet migrate gitlab --target-url https://github.com/GITHUB-ORG-USERNAME-HERE
 - The migration is complete and we have successfully transformed a pipeline from GitLab into a GitHub Actions workflow, added it to a GitHub Repository, and run the workflow in Actions.
 
 ### Next Lab
-[Forecast GitLab Usage](../gitlab/valet-forecast-lab.md)
+This concludes the Valet labs for GitLab, if you are interested exploring the power of Valet more. You can leverage the demo GitLab Instance and modify and add new projects that more closely match your needs and try out the commands again!
