@@ -1,5 +1,5 @@
 # Configure Valet to work with GitLab
-In this lab, you will use the Valet `configure` command to set up the required information to communicate with the Azure DevOps and GitHub instances. The `configure` command can be used for all of the supported providers, in this lab we will be focusing on Azure DevOps.
+In this lab, we will use the Valet `configure` command to set up the required information to communicate with Azure DevOps and GitHub. The `configure` command can be used for all of the supported providers, but in this lab we will be focusing on Azure DevOps.
 - [Prerequisites](#prerequisites)
 - [Configuring Valet](#configuring-valet)
 - [Verify Valet Works](#verify-valet-works)
@@ -17,19 +17,19 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Select at least these scopes: `read packages` and `workflow`. Optionally, provide text in the **Note** field and change the expiration.
     - Click `Generate token`
     - Copy the token somewhere safe and temporary.
-2. Skip this step if you still have the Azure DevOp personal access token created during step 1 in the lab setup [steps](../azure_devops#bootstrap-your-azure-devops-organization), if not create another and save to a temporary location.
+2. Skip this step if you still have the Azure DevOp personal access token created during step 1 in the lab setup [steps](../azure_devops#bootstrap-your-azure-devops-organization), if not create another and save to a save and temporary location.
 3. Run Valet configure command.
    - In the codespace terminal run `gh valet configure`
    - Use the down arrow key to highlight `Azure DevOps`, press the spacebar to select, then hit enter to accept.
-   - At the prompt enter your GitHub Username and press enter.
-   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter
+   - At the prompt enter your GitHub username and press enter.
+   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter.
    - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
-   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default, if you are using github.com then the default is the right choice.
-   - At the Azure DevOps token prompt enter the access token from step 2.
+   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default.
+   - At the Azure DevOps token prompt enter the access token from step 2 and press enter.
    - At the Azure DevOps url prompt enter your Azure DevOps url or hit enter to accept the default.
-   - At the prompt enter your Azure Devops organization name.
-   - At the prompt enter your Azure Devops project name.
-4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project.
+   - At the prompt enter your Azure Devops Organization name.
+   - At the prompt enter your Azure Devops Project name.
+4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project. The .env.local file contains the tokens used during the configure command and should be keep secret. 
 
    ![configure-result](https://user-images.githubusercontent.com/18723510/187771230-27c97889-d98a-48f7-af01-c1a9f8df6423.png)
 
