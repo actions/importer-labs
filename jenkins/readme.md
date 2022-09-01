@@ -1,4 +1,4 @@
-# Migrating from Jenkins to Actions with Valet
+# Jenkins to Actions migrations powered by Valet
 
 The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use Valet to migrate Jenkins pipelines to GitHub Actions.
 
