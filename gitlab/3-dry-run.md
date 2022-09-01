@@ -261,6 +261,6 @@ jobs:
 Try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
 
 ## Next Lab
-[Audit GitLab Pipelines to GitHub Actions](../gitlab/valet-audit-lab.md)
+[Using Custom Transformers in a dry-runs](../gitlab/4-custom-transformers.md)
 
 
