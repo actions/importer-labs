@@ -47,28 +47,24 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 ## Verify your environment
 
-To verify Valet works we are going to run a `update` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
+To verify our environment is configured correctly, we are going to run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.
 
-1. In the codespace terminal update Valet by running `gh valet update`
-2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
+1. In the codespace terminal run the following command:
 
-      ```
-      Login Succeeded
-      latest: Pulling from valet-customers/valet-cli
-      Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
-      Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
-      ghcr.io/valet-customers/valet-cli:latest
-      ```
+   ```bash
+   gh valet update
+   ```
 
-3. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to Jenkins
+2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
 
-    ```
-    gh valet dry-run jenkins --source-url https://localhost:8080/job/test_pipeline/ --output-dir ./tmp/dry-run-lab
-    ```
-
-4. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and were generated with the correct permissions.
-  ![configure-dry-run](https://user-images.githubusercontent.com/19557880/184255620-8e9b120e-5de0-41df-9cb6-c52028de3b0f.png)
+   ```bash
+   Login Succeeded
+   latest: Pulling from valet-customers/valet-cli
+   Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
+   Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
+   ghcr.io/valet-customers/valet-cli:latest
+   ```
 
 ### Next Lab
 
-[Audit Jenkins using the Valet audit command](2-audit.md#audit-jenkins-pipelines-using-the-valet-audit-command)
+[Perform an audit of a Jenkins server](2-audit.md#perform-an-audit-of-a-jenkins-server)
