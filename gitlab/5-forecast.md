@@ -183,4 +183,4 @@ Using `--source-file-path` we can combine data from multiple forecast runs into 
 ![combined-report](https://user-images.githubusercontent.com/18723510/185647504-ada354ed-4ac7-4d43-b2d5-e5f9cd1656dd.png)
 
 ## Next steps
-This concludes the Valet labs for GitLab, if you are interested exploring the power of Valet more.  You can leverage the demo GitLab Instance and modify and add new projects that more closely match your needs and try out the commands again! 
+[Migrating a GitLab Pipeline](../jenkins/6-migrate.md)
