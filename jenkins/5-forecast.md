@@ -177,5 +177,4 @@ Using `--source-file-path` we can combine data from multiple forecast runs into 
 ![combined-report](https://user-images.githubusercontent.com/19557880/186264213-b3201710-8093-4ae5-9aef-5c7f95cc3951.png)
 
 ## Next steps
-
-This concludes the Valet labs for Jenkins! If you are interested exploring the power of Valet more, you can leverage the demo Jenkins Instance and modify and add new projects that more closely match your needs and try out the commands again!
+[Migrating a Jenkins Pipeline](../jenkins/6-migrate.md#migrate-a-jenkins-project-to-github-actions)
