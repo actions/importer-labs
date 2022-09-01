@@ -75,4 +75,4 @@ To verify Valet works we are going to run a `update` and `dry-run` command.  We 
 
 ### Next Lab
 
-[Audit Jenkins using the Valet audit command](valet-audit-lab.md#audit-jenkins-pipelines-using-the-valet-audit-command)
+[Audit Jenkins using the Valet audit command](2-audit.md#audit-jenkins-pipelines-using-the-valet-audit-command)
