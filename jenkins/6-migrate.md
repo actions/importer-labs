@@ -54,5 +54,4 @@ Before running the command we need to collect some information:
 - The migration is complete and we have successfully transformed a pipeline from Jenkins into a GitHub Actions workflow, added it to a GitHub Repository, and run the workflow in Actions.
 
 ### Next Lab
-
-[Forecast Jenkins Usage](../jenkins/valet-forecast-lab.md#forecast-the-runner-usage-of-a-jenkins-instance)
+This concludes the Valet labs for Jenkins! If you are interested exploring the power of Valet more, you can leverage the demo Jenkins Instance and modify and add new projects that more closely match your needs and try out the commands again!
