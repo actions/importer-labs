@@ -3,11 +3,13 @@ require "json"
 require "net/http"
 require "optparse"
 require "pathname"
+require "date"
 
 options = {
   code_assets_dir: "code",
   pipeline_assets_dir: "pipelines",
-  root_dir: File.join(ENV["CODESPACE_VSCODE_FOLDER"], "azure_devops/bootstrap")
+  root_dir: File.join(ENV["CODESPACE_VSCODE_FOLDER"], "azure_devops/bootstrap"),
+  forecast_source_file: File.join(".", "azure_devops/jobs_data.json")
 }
 
 OptionParser.new do |opt|
@@ -168,10 +170,18 @@ def create_classic_pipelines(options, repository)
   end
 end
 
+def update_forecast_source_file(options) 
+  puts "Updating forecast data"
+  jobs_data = File.read(options[:forecast_source_file])
+  today = Date.today.strftime("%Y-%m-%d")
+  jobs_data.gsub!(/20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]/, today)
+  File.write(options[:forecast_source_file], jobs_data)
+end
 
 create_project(options)
 repository = create_repository(options)
 create_yaml_pipelines(options, repository)
 create_classic_pipelines(options, repository)
+update_forecast_source_file(options)
 
 puts "Success!"
