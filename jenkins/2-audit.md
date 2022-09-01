@@ -121,4 +121,4 @@ In addition, you’ll see a file that shows the raw JSON data that we pull from 
 
 ### Next Lab
 
-[Dry-run the migration of a Jenkins pipeline to GitHub Actions](valet-dry-run-lab.md)
+[Dry-run the migration of a Jenkins pipeline to GitHub Actions](3-dry-run.md)
