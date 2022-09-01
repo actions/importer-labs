@@ -108,4 +108,4 @@ Now that we have this custom transformers file we can add additional `transform`
 Note: The custom transformers will only affect the pipeline being transformed if they contain the matching identifiers. If you believe a custom transformer should have altered the output, double check that the identifier is correct.  
 
 ## Next Lab
-[Migrating a GitLab Pipeline](../gitlab/valet-migrate-lab.md)
+[Forecast GitLab Usage](../gitlab/5-forecast.md)
