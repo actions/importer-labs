@@ -183,4 +183,4 @@ Using `--source-file-path` we can combine data from multiple forecast runs into 
 ![combined-report](https://user-images.githubusercontent.com/18723510/185647504-ada354ed-4ac7-4d43-b2d5-e5f9cd1656dd.png)
 
 ## Next steps
-[Migrating a GitLab Pipeline](../jenkins/6-migrate.md)
+[Migrating a GitLab Pipeline](../gitlab/6-migrate.md)
