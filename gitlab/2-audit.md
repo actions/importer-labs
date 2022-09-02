@@ -346,4 +346,4 @@ The remaining sections `Successful` and `Failed` are groupings of the generated 
 Note: this has files under the `.github` directory. This tells us that this pipeline generated reusable workflows from the `include` statements used in the source pipeline.  
 
 ### Next Lab
-[Dry run the migration of a GitLab pipeline to GitHub Actions](3-dry-run.md)
+[Perform a dry-run of a GitLab pipeline](3-dry-run.md)
