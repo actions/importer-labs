@@ -19,17 +19,18 @@ These steps **must** be completed prior to starting other labs.
 
 - Run the following command in the codespace's terminal:
 
-```bash
-gh valet version
-```
+  ```bash
+  gh valet version
+  ```
 
-- Verify the output is similar to below, if not try manually installing the valet extension, using the [troubleshooting](#troubleshooting) section.
-
-```bash
-gh version 2.14.3 (2022-07-26)
-gh valet        github/gh-valet v0.1.12
-valet-cli       unknown
-```
+- Verify the output is similar to below.
+  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli). 
+  
+  ```bash
+  gh version 2.14.3 (2022-07-26)
+  gh valet        github/gh-valet v0.1.12
+  valet-cli       unknown
+  ```
 
 3. Run the GitLab setup script.  This script will set up GitLab and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
 
@@ -44,7 +45,9 @@ valet-cli       unknown
 - Verify that you can see the auto populated projects in GitLab, under the `valet` namespace by clicking the `Menu` icon in GitLab, then `Your projects`.
 
 ## Labs for GitLab
+
 Perform the following labs to test-drive Valet
+
 1. [Configure credentials for Valet](1-configure.md)
 2. [Perform an audit on GitLab pipelines](2-audit.md)
 3. [Perform a dry-run of a GitLab pipeline](3-dry-run.md)
@@ -52,15 +55,28 @@ Perform the following labs to test-drive Valet
 5. [Forecast potential build runner usage](5-forecast.md)
 6. [Perform a production migration of a GitLab pipeline](6-migrate.md)
 
-## Troubleshooting
--  **GitHub CLI Valet extension is not installed**. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
-   -  Verify you are in the codespace terminal
-   -  Run `gh extension install github/gh-valet`
-   -  Verify the result of the command is: `✓ Installed extension github/gh-valet`
-   -  If you get a similar error to the following, click the link to authorize the token
-      ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
-   - Restart the codespace after clicking the link
-- **Port 80 is not being forwarded for GitLab server**. This should be auto detected by codespaces, but can be manually setup by:
-  - In the codespace terminal click the PORTS tab
-  - Click the "Add Port" button
-  - Enter 80 and hit enter
+## Troubleshoot the Valet CLI
+
+The CLI extension for Valet can be manually installed by following these steps:
+
+- Verify you are in the codespace terminal
+- Run this command from within the codespace's terminal:
+
+  ```bash
+  gh extension install github/gh-valet
+  ```
+
+- Verify the result of the install contains:
+
+  ```bash
+  ✓ Installed extension github/gh-valet
+  ```
+
+- If you get an error similar to the image below, then click the link in the terminal output to authorize the token.
+  - Restart the codespace after clicking the link.
+  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
+- Verify Valet CLI extension is installed and working by running the following command from the codespace's terminal:
+
+  ```bash
+  gh valet version
+  ```
