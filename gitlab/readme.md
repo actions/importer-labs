@@ -24,13 +24,14 @@ These steps **must** be completed prior to starting other labs.
   ```
 
 - Verify the output is similar to below.
-  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli). 
   
   ```bash
   gh version 2.14.3 (2022-07-26)
   gh valet        github/gh-valet v0.1.12
   valet-cli       unknown
   ```
+
+  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
 ## Bootstrap a GitLab Server
 
