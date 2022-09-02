@@ -1,4 +1,4 @@
-# Audit GitLab using the Valet audit command
+# Perform an audit on GitLab pipelines
 
 In this lab, you will use Valet to `audit` a GitLab namespace. The `audit` command will scan the GitLab namespace for all projects with pipelines that have run at least once, perform a `dry-run` on each of those pipelines, and finally perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
 The goal of this lab is to performed an audit on the demo GitLab instance, and gain a good understanding of the components that make up an audit output.
@@ -16,24 +16,27 @@ The goal of this lab is to performed an audit on the demo GitLab instance, and g
 2. Follow all steps [here](../gitlab#valet-configure-lab) to configure Valet.
 
 ## Perform an audit
-Before running the command we need to collect some information:
 
-  1. What namespace or group do we want to audit? __valet__
-  2. Where do we want to store the result? __tmp/audit__
+1. Collect information for constructing `audit` command:
+- What namespace or group do we want to audit? __valet__
+- Where do we want to store the result? __tmp/audit__
 
-### Steps
+2. Navigate to the codespace terminal.
 
-1. Navigate to the codespace terminal.
-2. Run the following Valet audit command with the provided answers above:
+3. Run the Valet audit command using the answers from step 1:
   
 ```
 gh valet audit gitlab --output-dir tmp/audit --namespace valet
 ```
 
-3. Valet will print the locations of the audit results in the terminal when complete
-  <img width="360" alt="Screen Shot 2022-08-16 at 9 57 36 AM" src="https://user-images.githubusercontent.com/18723510/184898037-1212493b-25e2-44b8-a3dc-2b6ef703daf3.png">
+4. Valet will print the locations of the audit results in the terminal when complete.
+
+5. Verify the audit results are present in the explorer.
+  
+<img width="360" alt="Screen Shot 2022-08-16 at 9 57 36 AM" src="https://user-images.githubusercontent.com/18723510/184898037-1212493b-25e2-44b8-a3dc-2b6ef703daf3.png">
 
 ## Audit Files
+
 The `audit` command outputs the following files:
 
 | File Type  |  Naming Convention |  Description |
@@ -44,12 +47,17 @@ The `audit` command outputs the following files:
 | GitHub Actions workflows | valet/PROJECT_NAME.yml | GitHub Actions workflow that would be migrated to GitHub |
 | Error file | valet/PROJECT_NAME.error.txt | Created when there is a error transforming the pipeline |
 | Audit summary | audit_summary.md | Contains a summary of audit results and the main file of interest to understand the how complete of a migration can be done with Valet |
-| GitHub Actions Reusable Workflows & Composite Actions | .github/workflows/NAME_HERE.yml | These files will only appear if Valet encountered a pipeline that would generated them. These files would be part of the migration to GitHub if they existed |
+| GitHub Actions Reusable Workflows | .github/workflows/NAME_HERE.yml | Will only appear if Valet encountered a pipeline that would generated them. |
+| GitHub Composite Actions | .github/actions/NAME_HERE.yml | Will only appear if Valet encountered a pipeline that would generated them. |
 
 ## Review audit summary
+
 1. Under the `audit` folder find the `audit_summary.md`.
+
 2. Right-click the `audit_summary.md` file and select `Open Preview`.
+
 3. This file contains details about what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
+
 4. Review the file, it should match the `audit_summary` below:
 <details>
 <summary> Click to expand <code>audit_summary.md</code></summary>
@@ -240,7 +248,9 @@ Secrets: **1**
 </details>
    
 ## Review the Pipelines Section
+
 The audit summary starts by giving a summary of the types of pipelines that were extracted.
+
 ```yaml
 ## Pipelines
 
@@ -271,7 +281,7 @@ Unsupported: **1 (9%)**
 - Auto DevOps: **1**
 ```
 
-Under the `Build steps` section we can see a breakdown of the build steps that are used in the pipelines and what was `Known` and `Unsupported` by Valet.  In a later lab we will address the unsupported step `artifacts.terraform`.
+- Under the `Build steps` section we can see a breakdown of the build steps that are used in the pipelines and what was `Known` and `Unsupported` by Valet.  In a later lab we will address the unsupported step `artifacts.terraform`.
 
 ```yaml
 ### Build steps
