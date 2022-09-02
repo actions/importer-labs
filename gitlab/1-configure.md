@@ -2,15 +2,15 @@
 In this lab, you will use the Valet `configure` command to set up the required information to communicate with the GitLab and GitHub instances. The `configure` command can be used for all of the supported providers, in this lab we will be focusing on GitLab.
 
 - [Prerequisites](#prerequisites)
-- [Configuring Valet](#configuring-valet)
-- [Verify Valet Works](#verify-valet-works)
+- [Configuring credentials](#configuring-credentials)
+- [Verify your environment](#verify-your-environment)
 - [Next Lab](#next-lab)
 
 ## Prerequisites
 
 1. Followed [steps](../gitlab#readme) to set up your codespace environment.
 
-## Configuring Valet
+## Configuring credentials
 1. Run the setup script in the codespace terminal `source ./gitlab/bootstrap/setup.sh` to ensure the GitLab instance is ready.
 2. Login to the GitLab instance to generate a personal access token:
     - Click the `PORTS` tab in the codespace terminal window.
@@ -27,7 +27,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
     - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
     - Click `Generate token`
     - Copy the token somewhere safe and temporary.
-3. Run Valet configure commands
+4. Run Valet configure commands
    - In the codespace terminal window click back to the `TERMINAL` tab.
    - Run `gh valet configure`
    - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, then hit enter to accept.
@@ -38,12 +38,12 @@ In this lab, you will use the Valet `configure` command to set up the required i
    - At the GitLab CI token prompt enter the GitLab CI access token from step 2 and press enter.
    - At the GitLab CI url prompt enter `http://localhost` and press enter.
    - At the Personal access token to fetch source code in GitHub prompt, if any of your Jenkins pipelines have source code in a GitHub repository enter the GitHub PAT that would have acess to these files.
-4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project.
+5. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project.
 
     ![configure-result](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
 
-## Verify Valet Works
-To verify Valet works we are going to run a `update` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
+## Verify your environment
+To verify our environment is configured correctly, we are going to run a `update` and `dry-run` command. The `update` commnad will download the latest version of Valet to your codespace. We will go further into details about the `dry-run` command in a later lab, but for now we will just verify it finishes with no errors.
 
 1. In the codespace terminal update Valet by running `gh valet update`
 2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
