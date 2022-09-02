@@ -32,16 +32,24 @@ These steps **must** be completed prior to starting other labs.
   valet-cli       unknown
   ```
 
-3. Run the GitLab setup script.  This script will set up GitLab and ensure it is ready to use.  In general, this script should be run first if you are starting a new codespace or restarting an existing one.  
+## Bootstrap a GitLab Server
 
--  from the codespace terminal run `source gitlab/bootstrap/setup.sh`.
+1. Execute the GitLab setup script that will start a container with a GitLab server running inside of it. The script should be executed when starting a new Codespace or restarting an existing one.
 
-4. Verify you can login to the GitLab Server.
+- Run the following command from the codespace's terminal
+  
+  ```bash
+  source gitlab/bootstrap/setup.sh
+  ```
+  
+2. Wait for the script to finish and then verify you can login to the GitLab Server.
 
 - Click the `PORTS` tab in the codespace terminal window.
 - In the row that starts with `80` mouse over the address under the column heading `Local Address`, and click the globe icon.
 - Verify a new browser tab opened to the GitLab login screen.
-- Login with the username: `root` and password: `valet-labs!`.
+- Login using the following credentials:
+  - Username: `root` 
+  - Password: `valet-labs!`
 - Verify that you can see the auto populated projects in GitLab, under the `valet` namespace by clicking the `Menu` icon in GitLab, then `Your projects`.
 
 ## Labs for GitLab
