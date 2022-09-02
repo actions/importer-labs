@@ -268,6 +268,6 @@ jobs:
 Try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
 
 ## Next Lab
-[Using Custom Transformers in a dry-runs](../gitlab/4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](../gitlab/4-custom-transformers.md)
 
 
