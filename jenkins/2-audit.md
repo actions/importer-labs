@@ -1,124 +1,116 @@
-# Audit Jenkins pipelines using the Valet audit command
+# Perform an audit of a Jenkins server
 
-In this lab, you will use Valet to `audit` a Jenkins organization. The `audit` command can be used to scan a CI server and output a summary of the current pipelines.
+In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Jenkins server.
 
-What happens behind the scenes is that Valet will perform a `dry-run` on each of the Jenkins pipelines.  Once that is complete, Valet will perform an aggregation of all of the transformed workflows. This aggregate summary can be used as a planning tool and help understand how complete of a migration is possible with Valet.
+This `audit` command operates by fetching all of the pipelines defined in a Jenkins server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
-By the end of this lab you will have performed an audit on the demo Jenkins instance, and have a good understanding of the components that make up an audit.
-
-- [Prerequisites](#prerequisites)
-- [Perform an audit](#perform-an-audit)
-- [View audit output](#view-audit-output)
-- [Review the pipelines](#review-the-pipelines)
-- [Next Lab](#next-lab)
+1. [Prerequisites](#prerequisites)
+1. [Perform an audit](#perform-an-audit)
+1. [Inspect the output files](#inspect-the-output-files)
+1. [Next lab](#next-lab)
 
 ## Prerequisites
 
-1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
-2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials) to configure credentials for Valet to use.
 
 ## Perform an audit
 
-We will be performing an audit against a preconfigured Jenkins instance. Before running the command we need to collect some information:
+We will be performing an audit against a preconfigured Jenkins instance. We will need to answer the following questions before running this command:
 
-  1. Do we want to audit the entire Jenkins instance, or just a single folder? __In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command__
-  2. Where do we want to store the result? __./tmp/audit.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer__
+1. Do we want to audit the entire Jenkins instance or just a single folder?
+    - In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command.
+
+2. Where do we want to store the result?
+    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
 1. Navigate to the codespace terminal.
-2. Now, from root directory, run the following Valet audit command:
+2. Run the following command from the root directory:
   
-```
-gh valet audit jenkins --output-dir tmp/audit
-```
+    ```bash
+    gh valet audit jenkins --output-dir tmp/audit
+    ```
 
-3. Valet will log the output files in green when the audit is successful
+3. The command will list all the files written to disk in green when the command succeeds.
 
-### Example
+    ![img](https://user-images.githubusercontent.com/19557880/184682347-b19760fa-36a6-423e-a445-bb30eda5ac59.png)
 
-<img src="https://user-images.githubusercontent.com/19557880/184682347-b19760fa-36a6-423e-a445-bb30eda5ac59.png" alt="valet-audit-1"/>
+## Inspect the output files
 
-## View audit output
+The audit summary, logs, config files, jenkinsfiles, and transformed workflows will be located within the `tmp/audit` folder.
 
-The audit summary, logs, config files, jenkinsfiles, and transformed Actions Workflows should all be located within the `tmp/audit` folder.
+1. Find the `audit_summary.md` file in the file explorer.
+2. Right-click the `audit_summary.md` file and select `Open Preview`.
+3. This file contains details that summarizes what percentage of your pipelines were converted automatically.
 
-1. Under the `audit` folder find the `audit_summary.md`
-2. Right-click the `audit_summary.md` file and select `Open Preview`
-3. The file contains details about your current pipelines and what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
-4. Review the file, it should look like the image below:
+### Review the audit summary
 
-### Example
+#### Pipelines
 
-<img src="https://user-images.githubusercontent.com/19557880/184682836-3b8155ae-f302-491e-8ce6-27cc57f96468.png" alt="valet-audit-2"/>
+The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
 
-## Review the pipelines
+  ![img](https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png)
 
-### Pipelines
+Here are some key terms in the “Pipelines” section in the above example:
 
-The audit summary starts by giving a summary of the types of pipelines that were extracted from Jenkins.
+- __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
+- __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
+- __Unsupported__ pipelines are definition types that are not supported by Valet. The following Jenkins pipeline types are supported:
+  - Flow Definition
+  - Project (declarative Jenkinsfile pipelines)
+  - Multibranch Project
+- __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
+  - The pipeline was misconfigured and not valid in Jenkins.
+  - Valet encountered an internal error when converting it.
+  - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-- It shows that there are a total of 7 pipelines extracted.
+The “Job types” section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
 
-- 42% pipelines were successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline to a GitHub Actions equivalent. All of the build plugins and triggers that are referenced were all successfully converted into a GitHub Actions equivalent.
+#### Build steps
 
-- 42% pipelines were partially successful. This means that Valet knew how to map all the constructs of the Jenkins pipeline but there may be a plugin that was referenced that Valet wasn't able to automatically map to a Github Actions equivalent.
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
 
-- 1% of these pipelines were unsupported. This means that the pipeline type is fundamentally unsupported by Valet. This is most likely a Jenkins scripted pipeline.
+  ![img](https://user-images.githubusercontent.com/19557880/184684062-69ab0bde-5e32-45f8-a7dd-ed4655872975.png)
 
-- 0% of these fail altogether. If there were any pipelines that would fall under this category, that would mean that those pipelines were misconfigured or there was an issue with Valet.
+Here are some key terms in the “Build steps” section in the above example:
 
-Under the `Job types` section, we can see that the `audit` command is able to support the conversion of project, freestyle (flow-definition), and multibranch pipelines from Jenkins and convert them to a GitHub Actions workflow. Valet does not support converting [scripted pipelines](https://www.jenkins.io/doc/book/pipeline/syntax/#scripted-pipeline) (e.g. pure Groovy).
+- A __known__ build step is a step that was automatically converted to an equivalent action.
+- An __unknown__ build step is a step that was not automatically converted to an equivalent action.
+- An __unsupported__ build step is a step that is either:
+  - A step that is fundamentally not supported by GitHub Actions.
+  - A step that is configured in a way that is incompatible with GitHub Actions.
+- An __action__ is a list of the actions that were used in the converted workflows. This is important for the following scenarios:
+  - Gathering the list of actions to sync to your appliance if you use GitHub Enterprise Server.
+  - Defining an organization-level allowlist of actions that can be used. This list of actions is a comprehensive list of which actions their security and/or compliance teams will need to review.
 
-#### Example
+There is an equivalent breakdown of build triggers, environment variables, and other uncategorized items displayed in the audit summary file.
 
-<img src="https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png" alt="valet-audit-3" height="400"/>
+#### Manual Tasks
 
-### Build steps
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
 
-Under the `Build steps` section we can see a breakdown of the build steps that were used in these pipelines.
+  ![img](https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png)
 
-- <b>Supported:</b> 12/16 discrete build steps are considered known by Valet. When Valet encounters a build step of this type, it knows exactly how to map that into a GitHub Actions equivalent.
-- <b>Unknown:</b> 3/16 discrete build steps are considered unknown by Valet. When Valet encounters a build step of this type, it does not yet know to map this automatically to a GitHub Action equivalent.
-- <b>Unsupported:</b> 1/16 discrete build steps are considered unsupported by Valet. This could mean one of three things:
-    1. The way that plugin was configured for a given job is unsupported.
-    2. The plugin itself is fundamentally not supported in GitHub Actions.
-    3. It's supported by default in GitHub Actions.
+Here are some key terms in the “Manual tasks” section in the above example:
 
-Under the `Actions` section we have the list of the Actions that were used in order to implement the transformation of all of these build steps. Valet is a planning tool that can help in facilitating the migration into GitHub Actions and this list of Actions is a great place to understand what dependencies you would be taking on third-party Actions after this migration.
+- A __secret__ refers to a repository or organization level secret that is used by the converted pipelines. These secrets will need to be created manually in Actions in order for these pipelines to function properly.
+- A __self-hosted runner__ refers to a label of a runner that is referenced by a converted pipeline that is not a GitHub-hosted runner. You will need to manually define these runners in order for these pipelines to function properly.
 
-For example, if you are doing things like setting up the allow list of third-party Actions in a GitHub Enterprise server instance this list of Actions is a fantastic place to begin security reviews and audits of what third-party actions to depend on.
+#### Files
 
-#### Example
+The final section of the audit report provides a manifest of all of the files that are written to disk during the audit. These files include:
 
-<img src="https://user-images.githubusercontent.com/19557880/184684062-69ab0bde-5e32-45f8-a7dd-ed4655872975.png" alt="valet-audit-4"/>
+  ![img](https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png)
 
-### Trigger, Environment, Other
+Each pipeline will have a variety of files written that include:
 
-Similar to `Build steps`, there are `Trigger`, `Environment`, and a catch all `Other` section that breakdown each of their uses across the audited pipelines.
+- The original pipeline as it was defined in Jenkins.
+- Any network responses used to convert a pipeline.
+- The converted workflow.
+- Stack traces that can used to troubleshoot a failed pipeline conversion
 
-### Example
+## Next lab
 
-<img src="https://user-images.githubusercontent.com/19557880/184684174-43caff58-6083-45e1-a36e-6899d99c136b.png" alt="valet-audit-5" height="600"/>
-
-### Manual Tasks
-
-Under the Manual task section you will find a list of all the manual tasks that the pipelines would surface in a migration. Manual tasks are Valet's way of indicating tasks a user needs to do in order for a pipeline to be functional, such as adding `secrets`, or setting up a `self-hosted` runner. We will see how these manual tasks appear on a pull request when we do a migration in a lab later on.
-
-### Example
-
-<img src="https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png" alt="valet-audit-5" height="200"/>
-
-### Files
-
-At the end of the Audit Summary page you will find a list of all of the files that were written to disk. Generally, for any given pipeline, you’ll find 2 or 3 associated files. In these files are the actual converted GitHub Actions workflows.
-
-In addition, you’ll see a file that shows the raw JSON data that we pull from Jenkins as well as any associated Jenkinsfiles for a given job. These files are really useful for engineering teams to help debug any issues and to understand what may have gone on in a transformation.
-
-#### Example
-
-<img src="https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png" alt="valet-audit-6" height="700"/>
-
-### Next Lab
-
-[Dry-run the migration of a Jenkins pipeline to GitHub Actions](3-dry-run.md)
+[Perform a dry-run of a Jenkins pipeline](3-dry-run.md)
