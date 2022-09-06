@@ -1,54 +1,50 @@
-# Perform a Dry-run of a GitLab pipeline
+# Perform a dry-run of a GitLab pipeline
 
-In this lab, you will use the Valet `dry-run` command to convert a GitLab pipeline to its equivalent GitHub Actions workflow. 
-The end result of this command will be the actions workflow written to your local filesystem.
-
-- [Prerequisites](#prerequisites)
-- [Perform a dry run](#perform-a-dry-run)
-- [Review dry-run output](#review-dry-run-output)
-- [Includes Dry-Run](#includes-dry-run)
-- [Next Lab](#next-lab)
+In this lab you will use the `dry-run` command to convert a GitLab pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
-1. Followed [steps](../gitlab#readme) to set up your codespace environment.
-2. Completed the [configure lab](../gitlab/valet-configure-lab.md)
-
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
 
-1) Collect information to construct the `dry-run` command:
-- What is the project we want to convert? 
-  - basic-pipeline-example
-- What is the namespace for that project? 
-  - Valet.  In this case the namespace is the same as the group the project is in.
-- Where do we want to store the result? 
-  - ./tmp/dry-run-lab.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer.
+We will be performing a dry-run against a pipeline in your preconfigured Jenkins server. We will need to answer the following questions before running this command:
 
-2. Run the dry-run command in the terminal using the values from step 1.
+1. What is the project we want to convert?
+    - __basic-pipeline-example__
+
+2. What is the namespace for that project?
+    - __Valet__
+
+3. Where do we want to store the result?
+    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+
+### Steps
+
+1. Navigate to the codespace terminal
+2. Run the following command from the root directory:
+
+    ```bash
+    gh valet dry-run gitlab --output-dir ./tmp/dry-run-lab --namespace valet --project basic-pipeline-example
+    ```
+
+3. The command will list all the files written to disk when the command succeeds.
+
+    ![img](https://user-images.githubusercontent.com/18723510/184173635-aec28d1c-8c61-4dcf-a743-f86cbdc836c5.png)
+
+4. View the converted workflow:
+    - Find `./tmp/dry-run/valet` in the file explorer pane in codespaces.
+    - Click `basic-pipeline-example.yml` to open.
    
-   ```
-   gh valet dry-run gitlab --output-dir ./tmp/dry-run-lab --namespace valet --project basic-pipeline-example
-   ```
+## Inspect the output files
 
-3. Verify the command printed the result files to the terminal. 
+The files generated from the `dry-run` command represent the equivalent Actions workflow for the given GitLab pipeline. The GitLab pipeline and converted workflow can be seen below:
 
-   <img width="1112" alt="dry-run-terminal" src="https://user-images.githubusercontent.com/18723510/184173635-aec28d1c-8c61-4dcf-a743-f86cbdc836c5.png">
-
-4. Open generated actions workflow
-
-   - Find `./tmp/dry-run-lab/valet` in the file explorer pane in codespaces.
-   - Click `basic-pipeline-example.yml` to open.
-   
-    <img width="231" alt="dry-run-explorer" src="https://user-images.githubusercontent.com/18723510/184177477-747905a8-32f3-4c15-8955-32079844a509.png">
-
-## Review dry-run output
-The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated.
-
-__Click to Expand__
 <details>
-  <summary><em>GitLab Pipeline</em> </summary>
- 
+  <summary><em>GitLab pipeline 👇</em></summary>
+
 ```yaml
 stages:
   - build
@@ -101,7 +97,7 @@ deploy_b:
 </details>
 
 <details>
-  <summary><em>Actions Workflow</em></summary>
+  <summary><em>Converted workflow 👇</em></summary>
   
 ```yaml
 name: valet/basic-pipeline-example
@@ -202,37 +198,20 @@ jobs:
 ```
 </details>
 
-In the GitLab pipeline we had 3 stages and 6 jobs that run on a alpine image
+Despite these 2 pipelines using different syntax they will function equivantly.
 
-In the Actions workflow we have the same jobs (`build_a`, `build_b`, `test_a`, `test_b`, `deploy_a`, `deploy_b`) and the stages are now being enforced using the `needs` keyword.  We can see this if we examine the `needs` for `test_a` and `test_b`, which make the test jobs depend on the build jobs.
-```diff
-- stages: test
-+ needs:
-+ - build_a
-+ - build_b
-```
+## Perform a dry-run of a pipeline using `include`'d files
 
-The `image` in the GitLab pipeline has be transformed to `container` on each of the jobs.  
-```diff
-- image: alpine
-+ container:
-+   image: alpine
-```
-And `script` has been transformed to `run`
-```diff
-- script:
--  - echo "This job builds something."
-+ run: echo "This job builds something."
-```
+The previous example demonstrated a basic pipeline that mapped exactly to concepts in GitHub Actions. In this section, we will perform a dry-run of the `included-files-example` pipeline that uses the `include` statement in GitLab:
 
-## Includes Dry-Run
-In the previous dry-run we migrated a basic pipeline that mapped very nicely to concepts in GitHub Actions.  In this section we will examine the results of a dry-run that does not map directly to Actions using the `included-files-example` pipeline, which looks like
 ```yaml
 include:
   - local: /config/build.gitlab-ci.yml
   - local: /config/test.gitlab-ci.yml
 ```
-and results in the below yaml.  The difference to note here is that Valet transformed the pipeline into a single workflow, it did not create reusable workflows for the `include` files `/config/build.gitlab-ci.yml` and `/config/test.gitlab-ci.yml`.  The reason for this is that the dependency graph of how the jobs run could not be guaranteed using reusable workflows.  This is an example of how concepts in GitLab don't always map directly to Actions and Valet has to make a decision on the safest path forward.  It is likely this could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date with a deeper understanding of the pipeline. 
+
+The output of the `dry-run` command can be seen below:
+
 ```yaml
 name: valet/included-files-example
 on:
@@ -266,9 +245,12 @@ jobs:
     - run: echo "this is from a local file"
 ```
 
-Try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
+It's important to note that Valet converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of Valet could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
 
-## Next Lab
-[Use custom transformers to customize Valet's behavior](../gitlab/4-custom-transformers.md)
+As an added challenge, try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
+
+## Next lab
+
+[Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
 
 
