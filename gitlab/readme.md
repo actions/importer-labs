@@ -1,9 +1,11 @@
 # GitLab to Actions migrations powered by Valet
+
 The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use Valet to migrate GitLab pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
 ## Create your own repository for these labs
+
 1. Ensure that you have created a repository using the [valet-customers/labs](https://github.com/valet-customers/labs) as a template.
 
 ## Configure your Codespace
@@ -33,36 +35,36 @@ These steps **must** be completed prior to starting other labs.
 
   - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
-## Bootstrap a GitLab Server
+## Bootstrap a GitLab server
 
-1. Execute the GitLab setup script that will start a container with a GitLab server running inside of it. The script should be executed when starting a new Codespace or restarting an existing one.
+1. Execute the GitLab setup script that will start a container with GitLab running inside of it. The script should be executed when starting a new Codespace or restarting an existing one.
 
-- Run the following command from the codespace's terminal
+- Run the following command from the codespace's terminal:
   
   ```bash
-  source gitlab/bootstrap/setup.sh
+  ./gitlab/bootstrap/setup.sh
   ```
-  
-2. Wait for the script to finish and then verify you can login to the GitLab Server.
 
-- Click the `PORTS` tab in the codespace terminal window.
-- In the row that starts with `80` mouse over the address under the column heading `Local Address`, and click the globe icon.
-- Verify a new browser tab opened to the GitLab login screen.
-- Login using the following credentials:
-  - Username: `root` 
+- After some time, a pop-up box should appear with a link to the URL for your GitLab server.
+  - You can also access the URL by going to the `Ports` tab in your terminal. Right click on the URL listed under the `Local Address` and click the `Open in Browser` tab.
+
+2. Open the GitLab server in your browser and use the following credentials to authenticate:
+
+  - Username: `root`
   - Password: `valet-labs!`
-- Verify that you can see the auto populated projects in GitLab, under the `valet` namespace by clicking the `Menu` icon in GitLab, then `Your projects`.
+
+- Once authenticated, you should see a GitLab server with a few predefined pipelines in the `valet` group.
 
 ## Labs for GitLab
 
-Perform the following labs to test-drive Valet
+Perform the following labs to learn more about Actions migrations with Valet:
 
 1. [Configure credentials for Valet](1-configure.md)
 2. [Perform an audit on GitLab pipelines](2-audit.md)
 3. [Perform a dry-run of a GitLab pipeline](3-dry-run.md)
 4. [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
-5. [Forecast potential build runner usage](5-forecast.md)
-6. [Perform a production migration of a GitLab pipeline](6-migrate.md)
+5. [Perform a production migration of a GitLab pipeline](5-migrate.md)
+6. [Forecast potential build runner usage](6-forecast.md)
 
 ## Troubleshoot the Valet CLI
 
