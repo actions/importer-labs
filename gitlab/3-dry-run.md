@@ -1,4 +1,5 @@
 # Perform a Dry-run of a GitLab pipeline
+
 In this lab, you will use the Valet `dry-run` command to convert a GitLab pipeline to its equivalent GitHub Actions workflow. 
 The end result of this command will be the actions workflow written to your local filesystem.
 
