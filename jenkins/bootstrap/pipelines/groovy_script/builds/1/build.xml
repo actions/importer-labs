@@ -1,0 +1,77 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-build plugin="workflow-job@1207.ve6191ff089f8">
+  <actions>
+    <hudson.model.CauseAction>
+      <causeBag class="linked-hash-map">
+        <entry>
+          <hudson.model.Cause_-UserIdCause>
+            <userId>admin</userId>
+          </hudson.model.Cause_-UserIdCause>
+          <int>1</int>
+        </entry>
+      </causeBag>
+    </hudson.model.CauseAction>
+    <org.jenkinsci.plugins.workflow.libs.LibrariesAction plugin="pipeline-groovy-lib@612.v84da_9c54906d">
+      <libraries/>
+    </org.jenkinsci.plugins.workflow.libs.LibrariesAction>
+  </actions>
+  <queueId>95</queueId>
+  <timestamp>1660335185200</timestamp>
+  <startTime>1660335185215</startTime>
+  <result>SUCCESS</result>
+  <duration>1489</duration>
+  <charset>UTF-8</charset>
+  <keepLog>false</keepLog>
+  <execution class="org.jenkinsci.plugins.workflow.cps.CpsFlowExecution">
+    <result>SUCCESS</result>
+    <script>// This shows a simple example of how to archive the build output artifacts.
+node {
+    stage &quot;Create build output&quot;
+    
+    // Make the output directory.
+    sh &quot;mkdir -p output&quot;
+
+    // Write an useful file, which is needed to be archived.
+    writeFile file: &quot;output/usefulfile.txt&quot;, text: &quot;This file is useful, need to archive it.&quot;
+
+    // Write an useless file, which is not needed to be archived.
+    writeFile file: &quot;output/uselessfile.md&quot;, text: &quot;This file is useless, no need to archive it.&quot;
+
+    stage &quot;Archive build output&quot;
+    
+    // Archive the build output artifacts.
+    archiveArtifacts artifacts: &apos;output/*.txt&apos;, excludes: &apos;output/*.md&apos;
+}</script>
+    <loadedScripts class="map"/>
+    <durabilityHint>MAX_SURVIVABILITY</durabilityHint>
+    <timings class="concurrent-hash-map">
+      <entry>
+        <string>flowNode</string>
+        <long>425166743</long>
+      </entry>
+      <entry>
+        <string>classLoad</string>
+        <long>77622684</long>
+      </entry>
+      <entry>
+        <string>run</string>
+        <long>1046424982</long>
+      </entry>
+      <entry>
+        <string>parse</string>
+        <long>74212894</long>
+      </entry>
+      <entry>
+        <string>saveProgram</string>
+        <long>273846770</long>
+      </entry>
+    </timings>
+    <sandbox>true</sandbox>
+    <iota>13</iota>
+    <head>1:13</head>
+    <done>true</done>
+    <resumeBlocked>false</resumeBlocked>
+  </execution>
+  <completed>true</completed>
+  <checkouts class="hudson.util.PersistedList"/>
+</flow-build>

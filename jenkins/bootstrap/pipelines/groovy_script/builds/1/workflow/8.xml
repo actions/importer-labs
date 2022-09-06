@@ -1,0 +1,30 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Tag plugin="workflow-support@838.va_3a_087b_4055b">
+  <node class="cps.n.StepAtomNode" plugin="workflow-cps@2759.v87459c4eea_ca_">
+    <parentIds>
+      <string>7</string>
+    </parentIds>
+    <id>8</id>
+    <descriptorId>org.jenkinsci.plugins.workflow.steps.WriteFileStep</descriptorId>
+  </node>
+  <actions>
+    <cps.a.ArgumentsActionImpl plugin="workflow-cps@2759.v87459c4eea_ca_">
+      <arguments>
+        <entry>
+          <string>file</string>
+          <string>output/uselessfile.md</string>
+        </entry>
+        <entry>
+          <string>text</string>
+          <string>This file is useless, no need to archive it.</string>
+        </entry>
+      </arguments>
+      <sensitiveVariables/>
+      <isUnmodifiedBySanitization>true</isUnmodifiedBySanitization>
+    </cps.a.ArgumentsActionImpl>
+    <wf.a.TimingAction plugin="workflow-api@1188.v0016b_4f29881">
+      <startTime>1660335186310</startTime>
+    </wf.a.TimingAction>
+    <s.a.LogStorageAction/>
+  </actions>
+</Tag>
