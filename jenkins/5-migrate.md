@@ -9,7 +9,7 @@ In this lab, you will use the `migrate` command to convert a Jenkins pipeline an
 3. Completed the [dry-run lab](./3-dry-run.md).
 4. Completed the [custom transformers lab](./4-custom-transformers.md).
 
-## Preparing for migration
+## Performing a migration
 
 We need to answer the following questions before running a `migrate` command:
 
@@ -20,7 +20,7 @@ We need to answer the following questions before running a `migrate` command:
 3. What is the URL for the GitHub repository to add the workflow to?
     - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
-## Performing a migration
+### Steps
 
 1. Run the following `migrate` command in the codespace terminal:
 
@@ -29,6 +29,7 @@ We need to answer the following questions before running a `migrate` command:
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
+
     ![img](https://user-images.githubusercontent.com/19557880/185509412-ab64d92d-2a56-4d5a-bbb4-35a41a2ca48c.png)
 
 3. Open the generated pull request in a new browser tab.
