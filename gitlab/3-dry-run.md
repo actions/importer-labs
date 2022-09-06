@@ -252,5 +252,3 @@ As an added challenge, try constructing and running the `dry-run` command yourse
 ## Next lab
 
 [Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
-
-
