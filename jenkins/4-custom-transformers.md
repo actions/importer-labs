@@ -7,21 +7,11 @@ In this lab we will build upon the `dry-run` command to override Valet's default
 3. Convert environment variable values differently.
 4. Convert references to runners to use a different runner name in Actions.
 
-In this lab, we will use the `--custom-transformers` flag to change the behavior of Valet using its DSL built on top of the Ruby language.
-
-- [Prerequisites](#prerequisites)
-- [Perform a dry-run](#perform-a-dry-run)
-- [Custom transformers for an unknown step](#custom-transformers-for-an-unknown-step)
-- [Custom transformers for an known step](#custom-transformers-for-a-known-step)
-- [Custom transformers for environment variables](#custom-transformers-for-environment-variables)
-- [Custom transformers for runners](#custom-transformers-for-runners)
-- [Next Lab](#next-lab)
-
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
-3. Completed the [dry-run lab](./1-dry-run.md).
+3. Completed the [dry-run lab](./3-dry-run.md).
 
 ## Perform a dry-run
 

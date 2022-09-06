@@ -1,57 +1,54 @@
-# Migrate a Jenkins Project to GitHub Actions
+# Perform a production migration of a Jenkins pipeline
 
-In this lab, we will use the Valet `migrate` command to migrate a Jenkins pipeline to GitHub Actions.
-The previous commands used in the labs, such as `audit` and `dry-run` have prepared us to run a migration.
-The `migrate` command will transform the Jenkins pipeline into a GitHub Actions workflow like the `dry-run` command did, but instead of writing these files locally, it will open a pull request with the files.
-The pull request will contain a checklist of `Manual Tasks` if required. These tasks are changes that Valet could not do on our behalf, like creating a runner or adding a secret to a repository.
-
-- [Prerequisites](#prerequisites)
-- [Preparing for migration](#preparing-for-migration)
-- [Performing the migration](#performing-a-migration)
-- [Reviewing the pull request](#reviewing-the-pull-request)
-- [Next Lab](#next-lab)
+In this lab, you will use the `migrate` command to convert a Jenkins pipeline and open a pull request with the equivalent Actions workflow.
 
 ## Prerequisites
 
-1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
-2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
-3. Completed the [dry-run lab](../jenkins/valet-dry-run-lab.md#dry-run-the-migration-of-a-jenkins-pipeline-to-github-actions).
-4. Completed the [dry-run lab with custom transformer](../jenkins/valet-custom-transformers-lab.md#using-custom-transformers-in-a-dry-run).
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+3. Completed the [dry-run lab](./3-dry-run.md).
+4. Completed the [custom transformers lab](./4-custom-transformers.md).
 
 ## Preparing for migration
 
-Before running the command we need to collect some information:
+We need to answer the following questions before running a `migrate` command:
 
-  1. What is the name of the pipeline we want to convert? __monas_dev_work/job/monas_freestyle__
-  2. What is the source URL of the pipeline we want to convert? __<http://localhost:8080/monas_dev_work/job/monas_freestyle>__
-  3. Where do we want to store the result? __./tmp/migrate__.
-  4. What is the URL for the GitHub repository we want to add the workflow too? __this repo!__. *When constructing the value for the migrate command it should match this url <https://github.com/GITHUB-ORG-USERNAME-HERE/GITHUB-REPO-NAME-HERE> with `GITHUB-ORG-USERNAME` and `GITHUB-REPO-NAME` substitued with your values*  
+1. What is the source URL of the pipeline we want to convert?
+    - __<http://localhost:8080/monas_dev_work/job/monas_freestyle>__
+2. Where do we want to store the result?
+    - __./tmp/migrate__
+3. What is the URL for the GitHub repository to add the workflow to?
+    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ## Performing a migration
 
-1. Run `migrate` command using the information collected above, make sure to update the `--target-url` value with the information from step 4.
+1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh valet migrate jenkins --target-url https://github.com/GITHUB-ORG-USERNAME-HERE/GITHUB-REPO-NAME-HERE --output-dir ./tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
+    gh valet migrate jenkins --target-urlhttps://github.com/:owner/:repo --output-dir ./tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
     ```
 
-2. Valet will create a pull request directly in the target GitHub repository.
-3. Open the pull request by clicking the green pull request link in the output of the migrate command, if you have trouble clicking it you can always copy and paste the url in your browser.
-  ![pr-screen-shot](https://user-images.githubusercontent.com/19557880/185509412-ab64d92d-2a56-4d5a-bbb4-35a41a2ca48c.png)
+2. The command will write the URL to the pull request that was created when the command succeeds.
+    ![img](https://user-images.githubusercontent.com/19557880/185509412-ab64d92d-2a56-4d5a-bbb4-35a41a2ca48c.png)
 
-## Reviewing the pull request
+3. Open the generated pull request in a new browser tab.
 
-- Let's first look at the `Conversation` tab of the PR. It tells us we have a manual task to perform before the GitHub Actions workflow is functional.  We need to add a secret. We can use the GitHub [documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) for secrets and add a `actions` secret for `EXPRESSION_FIRST_VAR` with any value.
+### Inspect the pull request
 
-  ![Manual steps](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
+The first thing we should notice about the PR is that there is a list of manual steps for us to complete:
 
-- Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
+![img](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
 
-- Now our review is completed we want to go back to the `Conversation` tab and click `Merge pull request`
+Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
 
-- Once the PR is merged the new workflow should start and we can view it by clicking `Actions` in the top navigation
-  <img width="1119" alt="actions-screen-shot" src="https://user-images.githubusercontent.com/19557880/185509704-90243ec5-e77f-4baf-a9b2-d9a4d9fda199.png">
-- The migration is complete and we have successfully transformed a pipeline from Jenkins into a GitHub Actions workflow, added it to a GitHub Repository, and run the workflow in Actions.
+Next, you can inspect the "Files changed" in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
 
-### Next Lab
-This concludes the Valet labs for Jenkins! If you are interested exploring the power of Valet more, you can leverage the demo Jenkins Instance and modify and add new projects that more closely match your needs and try out the commands again!
+Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
+
+![img](https://user-images.githubusercontent.com/19557880/185509704-90243ec5-e77f-4baf-a9b2-d9a4d9fda199.png)
+
+At this point, the migration has completed and you have successfully migrated a Jenkins pipeline to Actions!
+
+### Next lab
+
+[Forecast potential build runner usage](6-forecast.md)

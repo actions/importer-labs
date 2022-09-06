@@ -1,18 +1,12 @@
 # Perform a dry-run of a Jenkins pipeline
 
-In this lab, you will use the Valet `dry-run` command to convert a Jenkins pipeline to its equivalent GitHub Actions workflow.
-The end result of this command will be the actions workflow written to your local filesystem.
-
-- [Prerequisites](#prerequisites)
-- [Perform a dry-run](#perform-a-dry-run)
-- [Inspect the output files](#inspect-the-output-files)
-- [Next lab](#next-lab)
+In this lab you will use the `dry-run` command to convert a Jenkins pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
-3. Completed the [audit lab](./1-audit.md).
+3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry-run
 

@@ -4,11 +4,6 @@ In this lab, you will use the `audit` command to get a high-level view of all pi
 
 This `audit` command operates by fetching all of the pipelines defined in a Jenkins server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
-1. [Prerequisites](#prerequisites)
-1. [Perform an audit](#perform-an-audit)
-1. [Inspect the output files](#inspect-the-output-files)
-1. [Next lab](#next-lab)
-
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.

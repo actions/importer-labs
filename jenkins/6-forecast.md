@@ -178,3 +178,5 @@ Using `--source-file-path` we can combine data from multiple forecast runs into 
 
 ## Next steps
 [Migrating a Jenkins Pipeline](../jenkins/6-migrate.md#migrate-a-jenkins-project-to-github-actions)
+
+This concludes the Valet labs for Jenkins! If you are interested exploring the power of Valet more, you can leverage the demo Jenkins Instance and modify and add new projects that more closely match your needs and try out the commands again!
