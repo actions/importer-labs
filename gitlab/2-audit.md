@@ -304,7 +304,7 @@ Unsupported: **1 (0%)**
 - artifacts.terraform: **1**
 ```
 
-Under the `Actions` section in `Build Steps` we have the list of the Actions that were used in order to implement the transformation of all of these build steps. 
+Under the `Actions` section in `Build Steps` we have the list of the Actions that were used in order to implement the transformation of the of the `known` build steps. 
 
 ```yaml
 Actions: **135**
@@ -322,8 +322,8 @@ Actions: **135**
 Valet is a planning tool that can help in facilitating the migration into GitHub Actions and this list of Actions is a great place to understand what dependencies you would be taking on third-party Actions after this migration.  For example, if you are doing things like setting up the allow list of third-party Actions in a GitHub Enterprise server instance this list of Actions is a fantastic place to begin security reviews and audits of what third-party actions to depend on.
 
 Valet breaks down the pipeline components further into `Triggers`, `Environment`, `Other`, and `Manual tasks`. 
-- Triggers are a list of pipeline trigger found
-- Environment are a list of project variables found
+- Triggers are a list of pipeline trigger found.
+- Environment are a list of project variables found.
 - Manual tasks are a list of user tasks that needs to be done in order for a pipeline to be functional when migrating to GitHub, such as adding `secrets` for a masked project variable, like we see here for the variable `PASSWORD`.  In a later lab we will see how these manual tasks appear on a pull request when we do a migration.
   ```
   Secrets: **1**
