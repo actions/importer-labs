@@ -1,22 +1,15 @@
-# Welcome to Valet labs!
-These Valet labs let you test drive Valet by bootstrapping the environment of your choosing. To get started:
-1. Get access to Valet and create your own GitHub repository. See the [Prerequisites](#prerequisites) below.
-2. Bootstrap your environment. The default page of the lab of your choosing will detail how to configure and run the action to bootstrap the environment. Currently these labs support [Azure DevOps](azure_devops).
-3. Run Valet via Codespaces. The codespace has docker running and will update to the latest Valet environment.
-4. Proceed with running the labs!
+# GitHub Actions migrations powered by Valet
 
-# Prerequisites
-1. Valet is currently private and customers must be onboarded prior to using it. Please reach out to [GitHub Sales](https://github.com/enterprise/contact) to inquire about being granted access.
-2. Create your own GitHub repository in your own GitHub organization or under your user with Codespaces enabled using this repository as a template. To do so: 
-   - Navigate to the top of this repository and click `Use this template`.
-   - Select the owner of the new repository. It could be your personal username or an organization you belong to.
-   - Name the repository.
-   - Click `Create repository from template`.
-   - Proceed to the labs inside your new repository.
+Valet helps facilitate the migration of Azure DevOps, CircleCI, GitLab CI, Jenkins, and Travis CI pipelines to GitHub Actions. This repository contains learning paths that teach you how to use Valet and approach migrations to Actions.
 
-![createtemplate](https://user-images.githubusercontent.com/26442605/174847176-0e515fd3-8107-43e0-af33-70b1ece36d3b.png)
+> Valet is currently private and you must be onboarded prior to using it. Please reach out to [GitHub Sales](https://github.com/enterprise/contact) to inquire about being granted access.
 
-## Environments to bootstrap
-- [Azure DevOps](azure_devops)
-- [Jenkins](jenkins)
+To get started:
 
+1. Use the `valet-customers/labs` repository as a template to [generate](https://github.com/valet-customers/labs/generate) a new GitHub repository.
+2. Select which learning path to begin. There are currently learning paths for:
+   - [Azure DevOps to GitHub Actions migrations](/azure_devops/readme.md)
+   - [GitLab CI to GitHub Actions migrations](/gitlab/readme.md)
+   - [Jenkins to GitHub Actions migrations](/jenkins/readme.md)
+3. Follow the instructions in each learning path to bootstrap a CI/CD environment.
+4. Follow the instructions to complete each learning path.
