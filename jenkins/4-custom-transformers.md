@@ -37,7 +37,7 @@ env:
   DISABLE_AUTH: 'true'
   DB_ENGINE: sqlite
 jobs:
-  check_env_variables:
+  build:
     runs-on:
       - self-hosted
       - TeamARunner
@@ -54,22 +54,6 @@ jobs:
 #           value: 80
     - name: echo message
       run: echo "DISABLE_AUTH is ${{ env.DISABLE_AUTH }}"
-  build:
-    runs-on:
-      - self-hosted
-      - TeamARunner
-    needs: check_env_variables
-    steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: Set up JDK 1.11
-      uses: actions/setup-java@v1
-      with:
-        java-version: '1.11'
-        settings-path: "${{ github.workspace }}"
-    - name: sh
-      shell: bash
-      run: mvn clean package
   test:
     runs-on:
       - self-hosted
@@ -86,8 +70,6 @@ jobs:
 ```
 
 </details>
-
-<!-- TODO: Is the above output correct or is it what is contained in the previous lab -->
 
 _Note_: You can refer to the previous [lab](./3-dry-run.md) to learn about the fundamentals of the `dry-run` command.
 
