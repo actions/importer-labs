@@ -43,7 +43,7 @@ In this lab, you will use the Valet `configure` command to set up the required i
     ![configure-result](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
 
 ## Verify your environment
-To verify our environment is configured correctly, we are going to run a `update` and `dry-run` command. The `update` commnad will download the latest version of Valet to your codespace. We will go further into details about the `dry-run` command in a later lab, but for now we will just verify it finishes with no errors.
+To verify our environment is configured correctly, we are going to run a `update` and `dry-run` command. The `update` command will download the latest version of Valet to your codespace. We will go further into details about the `dry-run` command in a later lab, but for now we will just verify it finishes with no errors.
 
 1. In the codespace terminal update Valet by running `gh valet update`
 2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
@@ -54,7 +54,7 @@ To verify our environment is configured correctly, we are going to run a `update
   Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
   ghcr.io/valet-customers/valet-cli:latest
   ```
- 3. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to GitLab
+ 3. Run the dry-run command in the codespaces terminal to verify Valet can communicate with the GitLab server
     ```
     gh valet dry-run gitlab --output-dir ./tmp/dry-run-lab --namespace valet --project basic-pipeline-example
     ```
