@@ -1,0 +1,29 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1207.ve6191ff089f8">
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2759.v87459c4eea_ca_">
+    <script>// This shows a simple example of how to archive the build output artifacts.
+node {
+    stage &quot;Create build output&quot;
+    
+    // Make the output directory.
+    sh &quot;mkdir -p output&quot;
+
+    // Write an useful file, which is needed to be archived.
+    writeFile file: &quot;output/usefulfile.txt&quot;, text: &quot;This file is useful, need to archive it.&quot;
+
+    // Write an useless file, which is not needed to be archived.
+    writeFile file: &quot;output/uselessfile.md&quot;, text: &quot;This file is useless, no need to archive it.&quot;
+
+    stage &quot;Archive build output&quot;
+    
+    // Archive the build output artifacts.
+    archiveArtifacts artifacts: &apos;output/*.txt&apos;, excludes: &apos;output/*.md&apos;
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

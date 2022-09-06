@@ -1,0 +1,57 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@1207.ve6191ff089f8">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2114.v2654ca_721309"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2114.v2654ca_721309">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2759.v87459c4eea_ca_">
+    <script>pipeline {
+    agent {
+        label &apos;TeamARunner&apos;
+    }
+
+    environment {
+        DISABLE_AUTH = &apos;true&apos;
+        DB_ENGINE    = &apos;sqlite&apos;
+    }
+
+    stages {
+        stage(&apos;Check Variables&apos;) {
+            steps {
+                echo &quot;Database engine is ${DB_ENGINE}&quot;
+                echo &quot;DISABLE_AUTH is ${DISABLE_AUTH}&quot;
+            }
+        }
+        stage(&apos;Build&apos;) {
+            steps {
+                archiveArtifacts artifacts: &apos;**/target/*.jar&apos;, fingerprint: true
+            }
+        }
+        
+        stage(&apos;Test&apos;) {
+            steps {
+                junit &apos;**/target/*.xml&apos; 
+            }
+        }
+        stage(&apos;Deploy&apos;) {
+            steps {
+                sh &apos;make publish&apos;
+            }
+        }
+    }
+}
+
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
