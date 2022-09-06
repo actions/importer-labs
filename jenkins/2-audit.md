@@ -12,11 +12,11 @@ This `audit` command operates by fetching all of the pipelines defined in a Jenk
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials) to configure credentials for Valet to use.
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
 
-We will be performing an audit against a preconfigured Jenkins instance. We will need to answer the following questions before running this command:
+We will be performing an audit against a preconfigured Jenkins server. We will need to answer the following questions before running this command:
 
 1. Do we want to audit the entire Jenkins instance or just a single folder?
     - In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command.
@@ -28,7 +28,7 @@ We will be performing an audit against a preconfigured Jenkins instance. We will
 
 1. Navigate to the codespace terminal.
 2. Run the following command from the root directory:
-  
+
     ```bash
     gh valet audit jenkins --output-dir tmp/audit
     ```

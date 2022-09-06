@@ -1,53 +1,57 @@
-# Dry-run the migration of a Jenkins pipeline to GitHub Actions
+# Perform a dry-run of a Jenkins pipeline
 
 In this lab, you will use the Valet `dry-run` command to convert a Jenkins pipeline to its equivalent GitHub Actions workflow.
 The end result of this command will be the actions workflow written to your local filesystem.
 
 - [Prerequisites](#prerequisites)
 - [Perform a dry-run](#perform-a-dry-run)
-- [Review dry-run output](#review-dry-run-output)
-- [Next Lab](#next-lab)
+- [Inspect the output files](#inspect-the-output-files)
+- [Next lab](#next-lab)
 
 ## Prerequisites
 
-1. Followed the steps [here](../jenkins/readme.md#valet-labs-for-jenkins) to set up your Codespace environment and start a Jenkins server.
-2. Completed the [configure lab](../jenkins/valet-configure-lab.md#configure-valet-to-work-with-jenkins) to configure the Valet CLI.
-3. Completed the [audit lab](../Jenkins/valet-audit-lab.md#audit-jenkins-pipelines-using-the-valet-audit-command).
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+3. Completed the [audit lab](./1-audit.md).
 
 ## Perform a dry-run
 
-We will be performing a dry-run against a preconfigured pipeline in the Jenkins instance. Before running the command we need to collect some information:
+We will be performing a dry-run against a pipeline in the preconfigured Jenkins server. We will need to answer the following questions before running this command:
 
-  1. What is the name of the pipeline we want to convert? __test_pipeline__
-  2. What is the source URL of the pipeline we want to convert? __<http://localhost:8080/job/test_pipeline>__
-  3. Where do we want to store the result? __./tmp/dry-run-lab.  This can be any valid path on the system.  In the case of codespaces it is generally best to use `./tmp/SOME_DIRECTORY_HERE` so the files show in explorer__
+1. What is the name of the pipeline we want to convert?
+    - __test_pipeline__
+
+2. What is the URL of the pipeline we want to convert?
+    - __<http://localhost:8080/job/test_pipeline>__
+
+3. Where do we want to store the result?
+    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
 1. Navigate to the codespace terminal
-2. Run the dry-run command using the values determined above
+2. Run the following command from the root directory:
 
-   ```
-   gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run
-   ```
+    ```bash
+    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run
+    ```
 
-3. When the command finishes the output files should be printed to the terminal.
-    <img width="915" alt="Screen Shot 2022-08-16 at 9 54 26 AM" src="https://user-images.githubusercontent.com/19557880/184935603-5c2d4dfe-66ef-4cb1-9398-e96954ca72e3.png">
-4. Open generated actions workflow
-   - Find `./tmp/dry-run-lab/valet` in the file explorer pane in codespaces.
-   - Click `test_pipeline.yml` to open
+3. The command will list all the files written to disk when the command succeeds.
 
-  <img width="234" alt="Screen Shot 2022-08-16 at 9 55 44 AM" src="https://user-images.githubusercontent.com/19557880/184935840-d4bdcbc9-75e5-4918-a055-28b765eac50c.png">
+    ![img](https://user-images.githubusercontent.com/19557880/184935603-5c2d4dfe-66ef-4cb1-9398-e96954ca72e3.png)
 
-## Review dry-run output
+4. View the converted workflow:
+    - Find `./tmp/dry-run` in the file explorer pane in codespaces.
+    - Click `test_pipeline.yml` to open
 
-The dry-run output will show you the GitHub Actions yaml that would be migrated to GitHub with the `migrate` command. We will now take a quick look at what was generated.
+## Inspect the output files
 
-__Click to Expand__
+The files generated from the `dry-run` command represent the equivalent Actions workflow for the given Jenkins pipeline. The Jenkins pipeline and converted workflow can be seen below:
+
 <details>
-  <summary><em>Jenkins Pipeline</em> </summary>
+  <summary><em>Jenkins Pipeline 👇</em></summary>
 
-```yaml
+```groovy
 pipeline {
     agent {
         label 'TeamARunner'
@@ -78,7 +82,7 @@ pipeline {
 </details>
 
 <details>
-  <summary><em>Actions Workflow</em></summary>
+  <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
 name: test_pipeline
@@ -125,35 +129,7 @@ jobs:
 
 </details>
 
-In the Jenkins pipeline we have 2 stages and 4 steps that run on the self-hosted runner labeled `TeamARunner`.
-
-In the Actions workflow we have the same steps and the stages are now being enforced using the `needs` keyword.  We can see this if we examine the `test` job, it has `needs: build`, which makes it depend on the `build` job.
-
-```diff
-- stages: test
-+ needs: build
-```
-
-The `agent` in the Jenkins pipeline has been transformed to `runs-on` on each of the jobs.  
-
-```diff
-- agent {
--   label 'TeamARunner'
-- }
-+ runs-on:
-+   - self-hosted
-+   - TeamARunner
-```
-
-And the `echo` commands remain mostly the same
-
-```diff
-- echo "Database engine is ${DB_ENGINE}"
-+ - name: echo message
-+   run: echo "DISABLE_AUTH is ${{ env.DISABLE_AUTH }}"
-```
-
-Note how Valet was not able to find a suitable conversion for the `sleep` command, and it added a comment to the yaml so this information was not lost, and it could be addressed manually later if needed.
+These 2 pipelines function equivantly despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
 
 ```diff
 - sleep 80
@@ -165,19 +141,10 @@ Note how Valet was not able to find a suitable conversion for the `sleep` comman
 + #           value: 80
 ```
 
-Lastly, the `junit` command was transformed using a third party action `EnricoMi/publish-unit-test-result-action@v1.7`
+In the next lab, we'll learn how to override Valet's default behavior and customize the converted workflow that is generate.
 
-```diff
-- junit '**/target/*.xml' 
-+ - name: Publish test results
-+   uses: EnricoMi/publish-unit-test-result-action@v1.7
-+   if: always()
-+   with:
-+     files: "**/target/*.xml"
-```
+Try running the `dry-run` command for different pipelines in the Jenkins server. As a hint, you just have to change the `--source-url` CLI option.
 
-Try constructing and running the `dry-run` command yourself. Hint, you should just have to change the project name.
+## Next lab
 
-## Next Lab
-
-[Using Custom Transformers in a dry-run](4-custom-transformers.md#using-custom-transformers-in-a-dry-run)
+[Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
