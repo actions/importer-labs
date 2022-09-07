@@ -2,7 +2,7 @@
 
 In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Jenkins server.
 
-This `audit` command operates by fetching all of the pipelines defined in a Jenkins server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command operates by fetching all of the pipelines defined in a Jenkins server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This `audit` command operates by fetching all of the pipelines defined in a Jenk
 
 ## Perform an audit
 
-We will be performing an audit against a preconfigured Jenkins server. We will need to answer the following questions before running this command:
+We will be performing an audit against your preconfigured Jenkins server. We will need to answer the following questions before running this command:
 
 1. Do we want to audit the entire Jenkins instance or just a single folder?
     - In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command.
@@ -61,7 +61,7 @@ Here are some key terms in the “Pipelines” section in the above example:
   - Valet encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-The “Job types” section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
 
 #### Build steps
 
@@ -69,7 +69,7 @@ The build steps summary section presents an overview of the individual build ste
 
   ![img](https://user-images.githubusercontent.com/19557880/184684062-69ab0bde-5e32-45f8-a7dd-ed4655872975.png)
 
-Here are some key terms in the “Build steps” section in the above example:
+Here are some key terms in the "Build steps" section in the above example:
 
 - A __known__ build step is a step that was automatically converted to an equivalent action.
 - An __unknown__ build step is a step that was not automatically converted to an equivalent action.

@@ -10,7 +10,7 @@ In this lab you will use the `dry-run` command to convert a Jenkins pipeline to 
 
 ## Perform a dry-run
 
-We will be performing a dry-run against a pipeline in the preconfigured Jenkins server. We will need to answer the following questions before running this command:
+We will be performing a dry-run against a pipeline in your preconfigured Jenkins server. We will need to answer the following questions before running this command:
 
 1. What is the name of the pipeline we want to convert?
     - __test_pipeline__
@@ -43,7 +43,7 @@ We will be performing a dry-run against a pipeline in the preconfigured Jenkins 
 The files generated from the `dry-run` command represent the equivalent Actions workflow for the given Jenkins pipeline. The Jenkins pipeline and converted workflow can be seen below:
 
 <details>
-  <summary><em>Jenkins Pipeline 👇</em></summary>
+  <summary><em>Jenkins pipeline 👇</em></summary>
 
 ```groovy
 pipeline {

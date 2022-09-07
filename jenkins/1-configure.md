@@ -4,10 +4,6 @@ In this lab, you will use the `configure` CLI command to set the required creden
 
 You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
 
-- [Configuring credentials](#configuring-credentials)
-- [Verify your environment](#verify-your-environment)
-- [Next Lab](#next-lab)
-
 ## Configuring credentials
 
 1. Open the Jenkins server in a new browser tab:
@@ -43,6 +39,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - At the Jenkins token prompt enter the Jenkins access token from step 2 and press enter.
    - At the Jenkins url prompt enter `http://localhost:8080/` and press enter.
    - At the Personal access token to fetch source code in GitHub prompt hit enter to accept the default value.
+
    ![img](https://user-images.githubusercontent.com/19557880/184041328-ce54ea22-b0cd-4c84-b02c-10ad7b09ad89.png)
 
 ## Verify your environment
@@ -65,6 +62,6 @@ To verify our environment is configured correctly, we are going to run the `upda
    ghcr.io/valet-customers/valet-cli:latest
    ```
 
-### Next Lab
+### Next lab
 
 [Perform an audit of a Jenkins server](2-audit.md#perform-an-audit-of-a-jenkins-server)
