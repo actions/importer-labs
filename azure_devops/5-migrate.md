@@ -16,7 +16,7 @@ We need to answer the following questions before running a `migrate` command:
 1. What is the id of the pipeline to convert?
     - __:pipeline_id__. This id can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
-      - Selecting the pipeline with the name "valet-custom-transformer-example"
+      - Selecting the pipeline with the name "valet-pipeline2"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 2. Where do we want to store the logs?
     - __./tmp/migrate__
@@ -34,7 +34,7 @@ We need to answer the following questions before running a `migrate` command:
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
    ```bash
-   ➜ gh valet migrate azure-devops pipeline --pipeline-id 7 --target-url https://github.com/ethanis/labs --output-dir ./tmp/migrate
+   ➜ gh valet migrate azure-devops pipeline --pipeline-id 8 --target-url https://github.com/ethanis/labs --output-dir ./tmp/migrate
    [2022-09-07 20:25:08] Logs: 'tmp/dry-run-lab/log/valet-20220907-202508.log'
    [2022-09-07 20:25:13] Pull request: 'https://github.com/ethanis/labs/pull/42'
    ```
@@ -45,9 +45,7 @@ We need to answer the following questions before running a `migrate` command:
 
 The first thing we should notice about the PR is that there is a list of manual steps for us to complete:
 
-<!-- TODO: Update pipeline to include manual tasks -->
-
-![img](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
+![img](https://user-images.githubusercontent.com/8703324/189002125-45561312-dd26-42fd-bd38-a596614ee871.png)
 
 Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
 

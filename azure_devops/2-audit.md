@@ -129,9 +129,9 @@ The manual tasks summary section presents an overview of the manual tasks that y
 
 Total: **1**
 
-Secrets: **1**
+Self hosted runners: **1**
 
-- `${{ secrets.PASSWORD }}`: **1**
+- `mechamachine`: **1**
 ```
 
 Here are some key terms in the "Manual tasks" section in the above example:

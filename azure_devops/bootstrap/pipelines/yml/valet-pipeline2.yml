@@ -4,16 +4,15 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  - main
 
-pool:
-  vmImage: windows-latest
+pool: mechamachine
 
 steps:
-- script: echo Hello, I am pipeline 2!
-  displayName: 'Run a one-line script'
+  - script: echo Hello, I am pipeline 2!
+    displayName: "Run a one-line script"
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: "Run a multi-line script"
