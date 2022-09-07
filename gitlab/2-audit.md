@@ -66,7 +66,8 @@ Unsupported: **1 (9%)**
 Here are some key terms in the “Pipelines” section in the above example:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
-- __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some "Auto DevOps" pipelines.
+- __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
+- __Unsupported__ pipelines are definition types that are not supported by Valet. Auto DevOps pipelines are not supported.
 - __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in GitLab.
   - Valet encountered an internal error when converting it.

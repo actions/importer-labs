@@ -1,53 +1,175 @@
 # Perform an audit of an Azure DevOps project
 
-In this lab, you will use Valet to `audit` an Azure DevOps organization. The `audit` command can be used to scan a CI server and output a summary of the current pipelines. This summary can then be used to plan the timeline and effort required to migrate to GitHub Actions.
+In this lab, you will use the `audit` command to get a high-level view of all pipelines in an Azure DevOps organization or project.
 
-- [Prerequisites](#prerequisites)
-- [Perform an audit](#perform-an-audit)
-- [View audit output](#view-audit-output)
-- [Review the pipelines](#review-the-pipelines)
-- [Next Lab](#next-lab)
+The `audit` command operates by fetching all of the pipelines defined in an Azure DevOps organization or project, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
-1. Follow all steps [here](../azure_devops#readme) to set up your environment
-2. Create or start a codespace in this repository (if not started)
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
-You will use the codespace preconfigured in this repository to perform the audit.
 
-1. Navigate to the codespace Visual Studio Code terminal 
-2. Verify you are in the `valet` directory
-3. Now, from the `valet` folder in your repository, run Valet to verify your Azure DevOps configuration:
-  
+We will be performing an audit against the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
+
+1. What is the Azure DevOps organization name that we want to audit?
+    - __:organization__. This should be the same organization used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
+
+2. What is the Azure DevOps project name that we want to audit?
+    - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
+
+3. Where do we want to store the result?
+    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+
+### Steps
+
+1. Navigate to the codespace terminal.
+2. Run the following command from the root directory:
+
+    ```bash
+    gh valet audit azure-devops --output-dir tmp/audit --namespace valet
+    ```
+
+    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command as they were persited in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
+
+3. The command will list all the files written to disk in green when the command succeeds.
+
+## Inspect the output files
+
+1. Find the `audit_summary.md` file in the file explorer.
+2. Right-click the `audit_summary.md` file and select `Open Preview`.
+3. This file contains details that summarizes what percentage of your pipelines were converted automatically.
+
+### Review audit summary
+
+#### Pipelines
+
+The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
+
+```md
+## Pipelines
+
+Total: **5**
+
+- Successful: **5 (100%)**
+- Partially successful: **0 (0%)**
+- Unsupported: **0 (0%)**
+- Failed: **0 (0%)**
+
+### Job types
+
+Supported: **5 (100%)**
+
+- designer: **2**
+- YAML: **3**
 ```
-gh valet audit azure-devops --output-dir audit
+
+Here are some key terms in the "Pipelines" section in the above example:
+
+- __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
+- __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
+- __Unsupported__ pipelines are definition types that are not supported by Valet. The following Azure DevOps pipeline types are supported:
+  - Classic (designer)
+  - YAML
+  - Release
+- __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
+  - The pipeline was misconfigured and not valid in Azure DevOps.
+  - Valet encountered an internal error when converting it.
+  - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
+
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+
+#### Build steps
+
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
+
+```md
+### Build steps
+
+Total: **14**
+
+Known: **14 (100%)**
+
+- script: **4**
+- DotNetCoreCLI@2: **2**
+- 2c65196a-54fd-4a02-9be8-d9d1837b7c5d@0: **2**
+- 333b11bd-d341-40d9-afcf-b32d5ce6f23b@2: **2**
+- e213ff0f-5d5c-4791-802d-52ea3e7be1f1@2: **2**
+- NodeTool@0: **1**
+- checkout: **1**
+
+Actions: **19**
+
+- run: **10**
+- actions/checkout@v2: **6**
+- nuget/setup-nuget@v1: **2**
+- actions/setup-node@v2: **1**
 ```
-### Example
-![valet-audit-1](https://user-images.githubusercontent.com/26442605/169615028-696dad13-ff83-41a7-b475-0ab8c0bbcd65.png)
 
-4. Valet displays green log files to indicate a successful audit  
+Here are some key terms in the "Build steps" section in the above example:
 
-### Example
-![valet-audit-2](https://user-images.githubusercontent.com/26442605/169615218-a8a3199d-a436-4d70-8c1e-17a61b089eb6.png)
+- A __known__ build step is a step that was automatically converted to an equivalent action.
+- An __unknown__ build step is a step that was not automatically converted to an equivalent action.
+- An __unsupported__ build step is a step that is either:
+  - A step that is fundamentally not supported by GitHub Actions.
+  - A step that is configured in a way that is incompatible with GitHub Actions.
+- An __action__ is a list of the actions that were used in the converted workflows. This is important for the following scenarios:
+  - Gathering the list of actions to sync to your appliance if you use GitHub Enterprise Server.
+  - Defining an organization-level allowlist of actions that can be used. This list of actions is a comprehensive list of which actions their security and/or compliance teams will need to review.
 
-## View audit output
-The audit summary, logs, Azure DevOps yml, and GitHub yml should all be located in the `valet` folder.
+There is an equivalent breakdown of build triggers, environment variables, and other uncategorized items displayed in the audit summary file.
 
-1. Under the `valet` folder find the `audit_summary.md`
-2. Right-click the `audit_summary.md` file and select `Open Preview`
-3. The file contains details about your current pipelines and what can be migrated 100% automatically vs. what will need some manual intervention or aren't supported by GitHub Actions.
-4. Review the file.
+#### Manual Tasks
 
-### Example
-![valet-audit-3](https://user-images.githubusercontent.com/26442605/169615428-26f7a962-2064-46d0-8206-ea930109b252.png)
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
 
-## Review the pipelines
-The `audit` command grabs the yml, classic, and release pipelines from Azure DevOps and converts them to GitHub Actions.
+```md
+### Manual tasks
 
-### Example
-View the source yml and the proposed GitHub yml
-![valet-audit-4](https://user-images.githubusercontent.com/26442605/169615630-8d700081-c631-4b2a-ab1c-e52503f7838f.png)
+Total: **1**
 
-### Next Lab
-[Dry run the migration of an Azure DevOps pipeline to GitHub Actions](valet-dry-run-lab.md)
+Secrets: **1**
+
+- `${{ secrets.PASSWORD }}`: **1**
+```
+
+Here are some key terms in the "Manual tasks" section in the above example:
+
+- A __secret__ refers to a repository or organization level secret that is used by the converted pipelines. These secrets will need to be created manually in Actions in order for these pipelines to function properly.
+- A __self-hosted runner__ refers to a label of a runner that is referenced by a converted pipeline that is not a GitHub-hosted runner. You will need to manually define these runners in order for these pipelines to function properly.
+
+#### Files
+
+The final section of the audit report provides a manifest of all of the files that are written to disk during the audit. These files include:
+
+```md
+### Successful
+
+#### valet-bootstrap/valet-classic-test-import1
+
+- [valet-bootstrap/valet-classic-test-import1.yml](valet-bootstrap/valet-classic-test-import1.yml)
+- [valet-bootstrap/valet-classic-test-import1.config.json](valet-bootstrap/valet-classic-test-import1.config.json)
+
+#### valet-bootstrap/valet-classic-test-import2
+
+- [valet-bootstrap/valet-classic-test-import2.yml](valet-bootstrap/valet-classic-test-import2.yml)
+- [valet-bootstrap/valet-classic-test-import2.config.json](valet-bootstrap/valet-classic-test-import2.config.json)
+
+#### valet-bootstrap/pipelines/valet-pipeline1
+
+- [valet-bootstrap/pipelines/valet-pipeline1.yml](valet-bootstrap/pipelines/valet-pipeline1.yml)
+- [valet-bootstrap/pipelines/valet-pipeline1.config.json](valet-bootstrap/pipelines/valet-pipeline1.config.json)
+- [valet-bootstrap/pipelines/valet-pipeline1.source.yml](valet-bootstrap/pipelines/valet-pipeline1.source.yml)
+```
+
+Each pipeline will have a variety of files written that include:
+
+- The original pipeline as it was defined in Azure DevOps.
+- Any network responses used to convert a pipeline.
+- The converted workflow.
+- Stack traces that can used to troubleshoot a failed pipeline conversion
+
+### Next lab
+
+[Perform a dry-run of an Azure DevOps pipeline](3-dry-run.md)
