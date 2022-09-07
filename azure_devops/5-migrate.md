@@ -1,59 +1,64 @@
-# Migrate an Azure DevOps pipeline to GitHub Actions 
-In this lab, you will use the Valet `migrate` command to migrate an Azure DevOps pipeline to GitHub Actions. The `migrate` subcommand can be used to convert a pipeline to its GitHub Actions equivalent and then create a pull request with the contents.
+# Perform a production migration of an Azure DevOps pipeline
 
-- [Prerequisites](#prerequisites)
-- [Identify the Azure DevOps pipeline ID to use](#identify-the-azure-devops-pipeline-id-to-use)
-- [Perform a migration](#perform-a-migration)
-- [View the pull request](#view-the-pull-request)
-- [Next Lab](#next-lab)
+In this lab, you will use the `migrate` command to convert an Azure DevOps pipeline and open a pull request with the equivalent Actions workflow.
 
 ## Prerequisites
 
-1. Follow all steps [here](../azure_devops#readme) to set up your environment
-2. Create or start a codespace in this repository (if not started)
-3. Completed the [Valet audit lab](valet-audit-lab.md).
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+3. Completed the [dry-run lab](./3-dry-run.md).
+4. Completed the [custom transformers lab](./4-custom-transformers.md).
 
-## Identify the Azure DevOps pipeline ID to use
-You will need a pipeline ID to perform the migration
-1. Go to the `valet/ValetBootstrap/pipelines` folder
-2. Open the `valet/ValetBootstrap/pipelines/valet-pipeline1.config.json` file
-3. Look for the `web - href` link
-4. At the end of the link is the pipeline ID. Copy or note the ID.
+## Performing a migration
 
-### Example
-![Screen Shot 2022-05-10 at 8 50 06 AM](https://user-images.githubusercontent.com/26442605/167670536-b46aa383-74bd-4e22-a782-0de5d0ce64a5.png)
+We need to answer the following questions before running a `migrate` command:
 
+1. What is the id of the pipeline to convert?
+    - __:pipeline_id__. This id can be found by:
+      - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
+      - Selecting the pipeline with the name "valet-custom-transformer-example"
+      - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
+2. Where do we want to store the logs?
+    - __./tmp/migrate__
+3. What is the URL for the GitHub repository to add the workflow to?
+    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
-## Perform a migration
-You will use the codespace preconfigured in this repository to perform the migration.
+### Steps
 
-1. Navigate to the codespace Visual Studio Code terminal 
-2. Verify you are in the valet directory
-3. Copy the following command and replace:
-   - `GITHUB-ORG` with the name of your organization. 
-   - `GITHUB-REPO` with the name of your repository. 
-   - `PIPELINE-ID` with your pipeline ID.
-4. Run `gh valet migrate` from the `valet` directory to migrate the pipeline to GitHub Actions..
-```
-gh valet migrate azure-devops pipeline --target-url https://github.com/GITHUB-ORG/GITHUB-REPO --pipeline-id PIPELINE-ID --output-dir migrate
-```
+1. Run the following `migrate` command in the codespace terminal:
 
-### Example
-![valet-migrate-1](https://user-images.githubusercontent.com/26442605/169617557-289cee54-0116-4d13-8e6f-a9d0508259e1.png)
+    ```bash
+    gh valet migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate
+    ```
 
+2. The command will write the URL to the pull request that was created when the command succeeds.
 
-5. Valet will create a pull request directly to your GitHub repository.
-6. Click the green pull request link in the output of the migrate command. See below.
+   ```bash
+   ➜ gh valet migrate azure-devops pipeline --pipeline-id 7 --target-url https://github.com/ethanis/labs --output-dir ./tmp/migrate
+   [2022-09-07 20:25:08] Logs: 'tmp/dry-run-lab/log/valet-20220907-202508.log'
+   [2022-09-07 20:25:13] Pull request: 'https://github.com/ethanis/labs/pull/42'
+   ```
 
-### Example
-![valet-migrate-5](https://user-images.githubusercontent.com/26442605/169617699-ce0c0720-8830-46ed-811d-c2fe1ccf06ea.png)
+3. Open the generated pull request in a new browser tab.
 
+### Inspect the pull request
 
-## View the pull request
-The migrate output will show you the pull request on GitHub.
+The first thing we should notice about the PR is that there is a list of manual steps for us to complete:
 
-### Example
-![migrate-pr](https://user-images.githubusercontent.com/26442605/161110724-f39d9cb9-1992-44c5-bea5-da2fcebb074c.png)
+<!-- TODO: Update pipeline to include manual tasks -->
 
-### Next Lab
-[Migrate an Azure DevOps pipeline to GitHub Actions with a custom transformer](valet-migrate-custom-lab.md)
+![img](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
+
+Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
+
+Next, you can inspect the "Files changed" in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
+
+Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
+
+![img](https://user-images.githubusercontent.com/19557880/185509704-90243ec5-e77f-4baf-a9b2-d9a4d9fda199.png)
+
+At this point, the migration has completed and you have successfully migrated an Azure DevOps pipeline to Actions!
+
+### Next lab
+
+[Forecast potential build runner usage](6-forecast.md)
