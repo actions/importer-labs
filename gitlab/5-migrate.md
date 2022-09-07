@@ -40,8 +40,6 @@ We need to answer the following questions before running a `migrate` command:
 
 The first thing we should notice about the PR is that there is a list of manual steps for us to complete.
 
-Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
-
 Next, you can inspect the "Files changed" in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
 
 Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
