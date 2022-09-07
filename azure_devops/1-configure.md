@@ -1,57 +1,74 @@
 # Configure credentials for Valet
-In this lab, we will use the Valet `configure` command to set up the required information to communicate with Azure DevOps and GitHub. The `configure` command can be used for all of the supported providers, but in this lab we will be focusing on Azure DevOps.
-- [Prerequisites](#prerequisites)
-- [Configuring Valet](#configuring-valet)
-- [Verify Valet Works](#verify-valet-works)
-- [Next Lab](#next-lab)
 
-## Prerequisites
-1. Followed [steps](../azure_devops#readme) to set up your codespace environment.
+In this lab, you will use the `configure` CLI command to set the required credentials and information for Valet to use when working with Azure DevOps and GitHub.
 
-## Configuring Valet
-1. Create a GitHub personal access token (PAT). 
-    - Navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
-    - Go to `Developer Settings`
-    - Go to `Personal Access Tokens` -> `Legacy tokens (if present)`
-    - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide text in the **Note** field and change the expiration.
-    - Click `Generate token`
-    - Copy the token somewhere safe and temporary.
-2. Skip this step if you still have the Azure DevOp personal access token created during step 1 in the lab setup [steps](../azure_devops#bootstrap-your-azure-devops-organization), if not create another and save to a save and temporary location.
-3. Run Valet configure command.
-   - In the codespace terminal run `gh valet configure`
-   - Use the down arrow key to highlight `Azure DevOps`, press the spacebar to select, then hit enter to accept.
-   - At the prompt enter your GitHub username and press enter.
-   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter.
-   - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
-   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default.
-   - At the Azure DevOps token prompt enter the access token from step 2 and press enter.
-   - At the Azure DevOps url prompt enter your Azure DevOps url or hit enter to accept the default.
-   - At the prompt enter your Azure Devops Organization name.
-   - At the prompt enter your Azure Devops Project name.
-4. If all went well you should see a similar output in your terminal and a new file (.env.local) should have been created in the root of the project. The .env.local file contains the tokens used during the configure command and should be keep secret. 
+You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
 
-   ![configure-result](https://user-images.githubusercontent.com/18723510/187771230-27c97889-d98a-48f7-af01-c1a9f8df6423.png)
+## Configuring credentials
 
-  
-## Verify Valet Works
-To verify Valet works we are going to run a `update`, `version` and `dry-run` command.  We will go further into details about the `dry-run` command in a later lab, but for now we want to get the latest version of Valet and confirm that Valet can perform a dry-run with no errors.
+1. Create an Azure DevOps Personal Access Token (PAT).
+    1. __Note__: you may skip this step if you still have the PAT created during the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization).
+    2. Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browswer.
+    3. Click `User settings` in the top right corner of the screen.
+    4. Click `Personal access tokens`.
+    5. Select `+ New Token`
+    6. Name your token, select the organization where you want to use the token, and set your token to automatically expire after a set number of days.
+    7. Select the following scopes (you may need to `Show more scopes` to reveal all scopes):
+      - Agents Pool: `Read`
+      - Build: `Read & Execute`
+      - Code: `Read & Write`
+      - Project and Team: `Read, Write, & Manage`
+      - Release: `Read`
+      - Service Connections: `Read`
+      - Task Groups: `Read`
+      - Variable Groups: `Read`
+    8. Click `Create`.
+    9. Copy the generated API token and save in a safe location.
 
-1. In the codespace terminal update Valet by running `gh valet update`
-2. In the terminal you should see a confirmation that it logged into the GitHub Container Registry and pulled the latest version.
-3. To verify Valet is updated and installed correctly run `gh valet version` and confirm the command outputs a similar response
-  
-   ![valet-version](https://user-images.githubusercontent.com/18723510/187771571-83c0ede3-0b5d-49d5-9cf8-9ff2774ef114.png)
+2. Create a GitHub Personal Access Token (PAT):
+    1. Open github.com in a new browser tab.
+    2. Click your profile photo in the top right of the UI and click `Settings`.
+    3. Click on `Developer Settings` in the left hand panel.
+    4. Click `Personal Access Tokens` and then `Legacy tokens` (if present).
+    5. Click `Generate new token` and then `Legacy tokens`. You may be required to authenticate with GitHub during this step.
+    6. Select the following scopes: `read:packages` and `workflow`.
+    7. Click `Generate token`.
+    8. Copy the generated PAT and save in a safe location.
 
-4. Next, lets run the dry-run command in the codespaces terminal, to verify we can talk to Azure DevOps
-    ```
-    gh valet dry-run azure-devops pipeline -o tmp/configure_test --pipeline-id 7
-    ```
-5. In the terminal you should see the command was successful, if not it is a good time to practice the configure command again and make sure the access tokens values are correct and generated with the correct permissions.
-  
-   ![dry-run](https://user-images.githubusercontent.com/18723510/187773568-5b4ef731-958f-4e5a-8f50-ea4e8a9e75d4.png)
+3. Run the `configure` CLI command:
+   - Select the `TERMINAL` tab from within the codespace terminal window.
+   - Run the following command: `gh valet configure`.
+   - Using the down arrow key to highlight `Azure DevOps`, press the spacebar to select, and then hit enter to continue.
+   - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 2 and press enter.
+   - At the GitHub PAT prompt enter the GitHub PAT generated in step 2 and press enter.
+   - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
+   - At the Azure DevOps token prompt enter the access token from step 1 and press enter.
+   - At the Azure DevOps url prompt enter your Azure DevOps url or hit enter to accept the default value (`https://dev.azure.com`).
+   - At the prompt enter your Azure Devops organization name. This should be the same organization used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization).
+   - At the prompt enter your Azure Devops project name. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization).
 
+   ![img](https://user-images.githubusercontent.com/18723510/187771230-27c97889-d98a-48f7-af01-c1a9f8df6423.png)
 
-### Next Lab
-[Audit Azure DevOps using the Valet audit command](../azure_devops/valet-audit-lab.md)
+## Verify your environment
 
+To verify our environment is configured correctly, we are going to run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.
+
+1. In the codespace terminal run the following command:
+
+   ```bash
+   gh valet update
+   ```
+
+2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
+
+   ```bash
+   Login Succeeded
+   latest: Pulling from valet-customers/valet-cli
+   Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
+   Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
+   ghcr.io/valet-customers/valet-cli:latest
+   ```
+
+### Next lab
+
+[Perform an audit of an Azure DevOps project](2-audit.md)

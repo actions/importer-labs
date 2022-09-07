@@ -39,7 +39,7 @@ These steps **must** be completed prior to starting other labs.
 
 1. Create an Azure DevOps personal access token:
 
-    - To do so, navigate to your existing organization (<https://dev.azure.com/:organization>).
+    - Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browswer.
     - Click `User settings` in the top right corner of the screen.
     - Click `Personal access tokens`.
     - Select `+ New Token`
