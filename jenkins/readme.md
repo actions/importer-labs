@@ -25,10 +25,15 @@ These steps **must** be completed prior to starting other labs.
   gh valet version
   ```
 
-- Verify the output is similar to the image below. The version information may differ than what is shown below.
-  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
+- Verify the output is similar to below.
+  
+  ```bash
+  gh version 2.14.3 (2022-07-26)
+  gh valet        github/gh-valet v0.1.12
+  valet-cli       unknown
+  ```
 
-  ![img](https://user-images.githubusercontent.com/19557880/186771327-631e8839-3614-4ab7-8108-818b5a0c6e93.png)
+  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
 ## Bootstrap a Jenkins server
 
@@ -52,7 +57,7 @@ These steps **must** be completed prior to starting other labs.
 
 ## Labs for Jenkins
 
-Perform the following labs to test-drive Valet
+Perform the following labs to learn more about Actions migrations with Valet:
 
 1. [Configure credentials for Valet](1-configure.md)
 2. [Perform an audit of a Jenkins server](2-audit.md)
