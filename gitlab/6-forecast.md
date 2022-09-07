@@ -2,8 +2,6 @@
 
 In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in your GitLab server.
 
-In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in our GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
-
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
