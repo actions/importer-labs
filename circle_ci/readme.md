@@ -35,8 +35,6 @@ These steps **must** be completed prior to starting other labs.
 
   - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
-
-
 ## Labs for CircleCI
 
 Perform the following labs to test-drive Valet
