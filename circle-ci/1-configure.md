@@ -19,9 +19,20 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 3. Create a CircleCI personal API token using CircleCI's [documentation](https://circleci.com/docs/managing-api-tokens#creating-a-personal-api-token)
 
 2. Run the `configure` CLI command:
-    ADD-DETAILS-HERE
+    - Select the `TERMINAL` tab from within the codespace terminal window.
+    - Run the following command: `gh valet configure`.
+    - Using the down arrow key to highlight `CircleCI`, press the spacebar to select, and then hit enter to continue.
+    - At the prompt enter your GitHub Username and press enter.
+    - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
+    - At the CircleCI token prompt enter the CircleCI access token from step 2 and press enter.
+    - At the CircleCI base url prompt hit enter to accept the default value (`https://circleci.com`).
+    - At the access token to fetch source code in GitHub prompt enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub instance url containing source code prompt press enter to accept the default value (`https://github.com`).
 
-    ADD-IMAGE-HERE
+    ![configure-screenshot](https://user-images.githubusercontent.com/18723510/188935436-308fa6d3-6eb7-48b9-bbf0-20ab0cdae411.png)
+
 
 ## Verify your environment
 
