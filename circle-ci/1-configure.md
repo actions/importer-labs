@@ -16,7 +16,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - Click `Generate token`.
     - Copy the generated PAT and save in a safe location.
 
-3. Create a CircleCI personal API token using CircleCI's [documentation](https://circleci.com/docs/managing-api-tokens#creating-a-personal-api-token)
+3. Create a CircleCI personal API token using CircleCI's [documentation](https://circleci.com/docs/managing-api-tokens#creating-a-personal-api-token) and store the token in a safe location.
 
 2. Run the `configure` CLI command:
     - Select the `TERMINAL` tab from within the codespace terminal window.
