@@ -1,212 +1,104 @@
 # Forecast potential build runner usage
 
-In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in our GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
+In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in your GitLab server.
 
-- [Prerequisites](#prerequisites)
-- [Prepare for forecast](#prepare-for-forecast)
-- [Perform a forecast](#perform-a-forecast)
-- [Review forecast report](#review-forecast-report)
-- [Forecasting multiple providers](#forecasting-multiple-providers)
-- [Next steps](#next-steps)
+In this lab we will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from the historical pipeline data in our GitLab instance.  The metrics will be stored on disk in a markdown file and include job metrics for execution time, queue time, and concurrency.  We will look at each of these metrics in more depth later in this lab.
 
 ## Prerequisites
 
-1. Followed [steps](../gitlab#readme) to set up your codespace environment.
-2. Completed the [configure lab](../gitlab/valet-configure-lab.md).
-3. Ran the setup script in the terminal to make sure the GitLab instance is ready.
-
-```
-source gitlab/bootstrap/setup.sh
-```
-
-## Prepare for forecast
-Before we can run the forecast we need to answer a few questions so we can construct the correct command.
-
-1) What namespace do we want to run the forecast for? 
-- **valet**. This is the only group in the demo GitLab instance.
-2) What is the date we want to start forecasting from? 
-- **2022-08-02**. This date is before the time the data was populated on our demo GitLab instance. In practice, this should be a date that will give you enough data to get a good understanding of the typical usage.  Too little data and the metrics might not give an accurate picture
-3) Where do we want to store the results?
-- **./tmp/forecast_reports**. This can be any valid path on the system, but for simplicity it is recommend to use a directory in the root of the codespace workspace.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 
 ## Perform a forecast
 
-1. Run `forecast` command in the terminal using the answers above.
+We will need to answer the following questions before running the `forecast` command:
 
+1. What namespace do we want to run the forecast for?
+    - **valet**
+2. What is the date we want to start forecasting from?
+    - **2022-08-02**. This date is needed as it is prior to when the data was seeded in GitLab for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
+3. Where do we want to store the results?
+    - **./tmp/forecast_reports**
+
+### Steps
+
+1. Navigate to the codespace terminal
+2. Run the following command from the root directory:
+
+    ```bash
+    gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 2022-08-02
+    ```
+
+3. The command will list all the files written to disk when the command succeeds.
+
+    ![img](https://user-images.githubusercontent.com/18723510/185232893-1ed46bca-f310-47dc-804c-40c13737f231.png)
+
+## Review the forecast report
+
+The forecast report, logs, and completed job data will be located within the `tmp/forecast_reports` folder.
+
+1. Find the `forecast_report.md` file in the file explorer.
+2. Right-click the `forecast_report.md` file and select `Open Preview`.
+3. This file contains metrics used to forecast potential GitHub Actions usage.
+
+### Total
+
+The "Total" section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
+
+```md
+- Job count: **57**
+- Pipeline count: **15**
+
+- Execution time
+
+  - Total: **135 minutes**
+  - Median: **0 minutes**
+  - P90: **7 minutes**
+  - Min: **0 minutes**
+  - Max: **10 minutes**
+
+- Queue time
+
+  - Median: **0 minutes**
+  - P90: **5 minutes**
+  - Min: **0 minutes**
+  - Max: **42 minutes**
+
+- Concurrent jobs
+
+  - Median: **0**
+  - P90: **0**
+  - Min: **0**
+  - Max: **9**
 ```
-gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 2022-08-02
-```
 
-2. Verify that the command output is similar to this.
+Here are some key terms of items defined in the forecast report:
 
-![forecast_output](https://user-images.githubusercontent.com/18723510/185232893-1ed46bca-f310-47dc-804c-40c13737f231.png)
+- The `job count` is the total number of completed jobs.
+- The `pipeline count` is the number of unique pipelines used.
+- `Execution time` describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of GitHub hosted runners.
+  - This metric is correlated to how much you should expect to spend in GitHub Actions. This will vary depending on the hardware used for these minutes and the [Actions pricing calculator](https://github.com/pricing/calculator) should be used to estimate a dollar amount.
+- `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
+- `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
 
-## Review forecast report
-Open the forecast report and review the calculated metrics. 
-
-- From the codespace explorer pane find `./tmp/forecast_reports/forecast_report.md` and right-click, and select __Open Preview__.
-
-  ![forecast_explorer](https://user-images.githubusercontent.com/18723510/185234641-948a551b-316f-4cce-9e7d-4c078ae11a04.png)
-  
-- The file should be similar to this.
-  <details>
-  <summary>example forecast_report.md</summary>
-  
-  # Forecast report for [GitLab](http://localhost/valet)
-
-  - Valet version: **0.1.0.13432(03b5bc9370a8f0073c0cc1a4b25f6b81d0005c0f)**
-  - Performed at: **8/17/22 at 20:00**
-  - Date range: **2/8/22 - 8/17/22**
-
-  ## Total
-
-  - Job count: **57**
-  - Pipeline count: **15**
-
-  - Execution time
-
-    - Total: **135 minutes**
-    - Median: **0 minutes**
-    - P90: **7 minutes**
-    - Min: **0 minutes**
-    - Max: **10 minutes**
-
-  - Queue time
-
-    - Median: **0 minutes**
-    - P90: **5 minutes**
-    - Min: **0 minutes**
-    - Max: **42 minutes**
-
-  - Concurrent jobs
-
-    - Median: **0**
-    - P90: **0**
-    - Min: **0**
-    - Max: **9**
-
-  ---
-
-  ## gitlab-runner
-
-  - Job count: **57**
-  - Pipeline count: **15**
-
-  - Execution time
-
-    - Total: **135 minutes**
-    - Median: **0 minutes**
-    - P90: **7 minutes**
-    - Min: **0 minutes**
-    - Max: **10 minutes**
-
-  - Queue time
-
-    - Median: **0 minutes**
-    - P90: **5 minutes**
-    - Min: **0 minutes**
-    - Max: **42 minutes**
-
-  - Concurrent jobs
-
-    - Median: **0**
-    - P90: **0**
-    - Min: **0**
-    - Max: **9**
-
-  > Note: Concurrent jobs are calculated by using a sliding window of 1m 0s.
-   
-  </details>
-  
-### Metric Definitions
-|  Name | Description |
-| ----- | ----------- |
-| Median | The __middle__ value |
-| P90 | 90% of the values are less than or equal to |
-| Min | The lowest value |
-| Max | The highest value |
-   
-### Total Section
-
-- This section shows the metrics for all of the jobs that ran for projects contained in the `valet` namespace, from 08/02/2022 to the time the command was executed. 
-
-   ## Total
-
-   - Job count: **57**
-   - Pipeline count: **15**
-   ---
-   
-  We can see we ran 15 pipelines that contained 57 jobs.  The number of jobs is expected to be larger than pipelines because a pipeline is typically a collection of jobs. For example `basic-pipeline-example` contains 6 jobs
-  ![basic-pipeline-jobs](https://user-images.githubusercontent.com/18723510/185423928-ec1b13b5-01fc-4e48-bbe5-0a77be7cecea.png)
-
--  `Execution time` shows the metrics for the time a job __took to run__. Looking closer we can see during our forecast timeframe the total job run time was 135 minutes with 90% of the jobs finishing under 7 minutes, and the longest job taking 10 minutes.  The `min` is 0 because the quickest job took less than a minute and was rounded down to 0.
-
-     - Execution time
-       - Total: **135 minutes**
-       - Median: **0 minutes**
-       - P90: **7 minutes**
-       - Min: **0 minutes**
-       - Max: **10 minutes**
-    
-- `Queue time` shows the metrics for how long jobs __waited__ for a runner to be available.  
-
-     - Queue time
-       - Median: **0 minutes**
-       - P90: **5 minutes**
-       - Min: **0 minutes**
-       - Max: **42 minutes**
-       
-- `Concurrent jobs` show the metrics for how many jobs started or ended within the same 60 second time slice. The time slice window can be changed using the `--time-slice` option.
-
-     - Concurrent jobs
-       - Median: **0**
-       - P90: **0**
-       - Min: **0**
-       - Max: **9**
-
-### Runner Group Sections
-
-- The preceding section shows the same metrics as the `Total` section, but are grouped by runner group. A runner group is a machine (or group of machines) that jobs can run on
-
-- In this case we only have one runner group `gitlab-runner` so the metrics match the `Total` section. If there were different groups we could possibly identify runner types that needed to be increased or decreased when moving to GitHub Actions
-
-  ## gitlab-runner
-
-   - Job count: **57**
-   - Pipeline count: **15**
-
-   - Execution time
-     - Total: **135 minutes**
-     - Median: **0 minutes**
-     - P90: **7 minutes**
-     - Min: **0 minutes**
-     - Max: **10 minutes**
-
-   - Queue time
-     - Median: **0 minutes**
-     - P90: **5 minutes**
-     - Min: **0 minutes**
-     - Max: **42 minutes**
-
-   - Concurrent jobs
-     - Median: **0**
-     - P90: **0**
-     - Min: **0**
-     - Max: **9**
+Additionally, these metrics are defined for each queue of runners defined in GitLab. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
 
 ## Forecasting multiple providers
 
-If we examine the help for the `forecast` command by running `gh valet forecast --help` we can see a new option `--source-file-path`
+We can examine the available options for the `forecast` command by running `gh valet forecast --help`. When you do this you will see the `--source-file-path` option:
 
-![forecast-help](https://user-images.githubusercontent.com/18723510/185643813-8a56710a-b5e6-4f62-a073-67d548cade1c.png)
+![img](https://user-images.githubusercontent.com/19557880/186263140-f02c6cab-7979-417c-bdfe-b9590e9c5597.png)
 
-Using `--source-file-path` we can combine data from multiple forecast runs into a single report.  This becomes useful if we are using multiple CI/CD providers, such as GitLab and Jenkins, and wanted to get a holistic view of the runner usage across the providers.  The way this works is the forecast command creates a `.json` file in a `jobs` directory for each command execution.  The `--source-file-path` takes a space-delimited list of data file paths or a glob pattern that will match all of the data files we want to include and combine into a single report. We will use a glob pattern, which in general should match `OUTPUT_DIR/**/jobs/*.json` where the `OUTPUT_DIR` is the previous value used for `--output-dir`, which in this lab was `./tmp/forecast_reports`. We do not have multiple providers but we can still try it out because we have a data file at `tmp/forecast_reports/jobs/`!
+The `--source-file-path` CLI option can be used to combine data from multiple reports into a single report. This becomes useful if you use multiple CI/CD providers and wanted to get a holistic view of the runner usage. This works by using the `.json` files generated by `forecast` commands as space-delimited values for the `--source-file-path` CLI option. Optionally, this value could be a glob pattern to dynamically specify the list of files (e.g. `**/*.json`).
 
-- run `gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast`
+Run the following command from within the codespace terminal:
 
-- Now we have a new report that was generated from all the data files that matched the glob pattern. Note this command does not introspect the CI/CD provider, it only operates on the data files it finds.
+```bash
+gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast
+```
 
-![combined-report](https://user-images.githubusercontent.com/18723510/185647504-ada354ed-4ac7-4d43-b2d5-e5f9cd1656dd.png)
+You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
 
 ## Next steps
-[Perform a production migration of a GitLab pipeline](../gitlab/6-migrate.md)
+
+This concludes all labs for migrating Jenkins pipelines to Actions with Valet!

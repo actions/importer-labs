@@ -1,4 +1,4 @@
-# Forecast the runner usage of a Jenkins instance
+# Forecast potential build runner usage
 
 In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in your Jenkins server.
 
