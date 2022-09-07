@@ -3,7 +3,9 @@
   "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
   "remoteUser": "codespace",
 	"overrideCommand": false,
-	"mounts": ["source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"],
+	"mounts": [
+		"source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"
+	],
 	"runArgs": [
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
@@ -11,7 +13,6 @@
 		"--privileged",
 		"--init"
 	],
-	
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-azuretools.vscode-docker"
