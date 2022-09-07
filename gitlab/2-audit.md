@@ -6,7 +6,7 @@ The `audit` command operates by fetching all of the pipelines defined in a GitLa
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
@@ -172,7 +172,7 @@ The final section of the audit report provides a manifest of all of the files th
 
 Each pipeline will have a variety of files written that include:
 
-- The original pipeline as it was defined in Jenkins.
+- The original pipeline as it was defined in GitLab.
 - Any network responses used to convert a pipeline.
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion

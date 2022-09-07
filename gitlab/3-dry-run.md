@@ -10,7 +10,7 @@ In this lab you will use the `dry-run` command to convert a GitLab pipeline to i
 
 ## Perform a dry run
 
-We will be performing a dry-run against a pipeline in your preconfigured Jenkins server. We will need to answer the following questions before running this command:
+We will be performing a dry-run against a pipeline in your preconfigured GitLab server. We will need to answer the following questions before running this command:
 
 1. What is the project we want to convert?
     - __basic-pipeline-example__

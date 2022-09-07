@@ -101,4 +101,4 @@ You can now inspect the output of the command to see a forecast report using all
 
 ## Next steps
 
-This concludes all labs for migrating Jenkins pipelines to Actions with Valet!
+This concludes all labs for migrating GitLab pipelines to Actions with Valet!
