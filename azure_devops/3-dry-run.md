@@ -1,52 +1,95 @@
-# Dry run the migration of an Azure DevOps pipeline to GitHub Actions
-In this lab, you will use the `valet dry-run` command to convert an Azure DevOps pipeline to it's equivalent GitHub Actions workflow and write the workflow to your local filesystem.
+# Perform a dry-run of an Azure DevOps pipeline
 
-- [Prerequisites](#prerequisites)
-- [Identify the Azure DevOps pipeline ID to use](#identify-the-azure-devops-pipeline-id-to-use)
-- [Perform a dry run](#perform-a-dry-run)
-- [View dry-run output](#view-dry-run-output)
-- [Next Lab](#next-lab)
+In this lab you will use the `dry-run` command to convert an Azure DevOps pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
-1. Follow all steps [here](../azure_devops#readme) to set up your environment
-2. Create or start a codespace in this repository (if not started)
-3. You have completed the [Valet audit lab](valet-audit-lab.md).
-
-## Identify the Azure DevOps pipeline ID to use
-You will need a pipeline ID to perform the dry run
-1. Go to the `valet/ValetBootstrap/pipelines` folder
-2. Open the `valet/ValetBootstrap/pipelines/valet-pipeline1.config.json` file
-3. Look for the `$.web.href` link
-4. At the end of the link is the pipeline ID. Copy or note the ID.
-
-### Example
-![valet-dr-5](https://user-images.githubusercontent.com/26442605/169616920-7c407adc-0c4e-4104-9046-d1d2ecdd6edf.png)
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
-You will use the codespace preconfigured in this repository to perform the dry run.
 
-1. Navigate to the codespace Visual Studio Code terminal 
-2. Verify you are in the `valet` directory
+We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
+
+1. What is the id of the pipeline to convert?
+    - __:id__. This id can be found by:
+      - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
+      - Selecting the pipeline with the name "valet-pipeline1"
+      - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
+
+2. Where do we want to store the result?
+    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+
+### Steps
+
+1. Navigate to the codespace terminal
+2. Run the following command from the root directory:
+
+    ```bash
+    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id -o tmp/dry-run-lab
+    ```
+
+3. The command will list all the files written to disk when the command succeeds.
+4. View the converted workflow:
+    - Find `./tmp/dry-run-lab` in the file explorer pane in codespaces.
+    - Click `valet-pipeline1.yml` to open.
   
+## Inspect the output files
+
+The files generated from the `dry-run` command represent the equivalent Actions workflow for the given Azure DevOps pipeline. The Azure DevOps pipeline and converted workflow can be seen below:
+
+<details>
+  <summary><em>Azure DevOps pipeline 👇</em></summary>
+
+```yaml
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- script: echo Hello, I am pipeline 1!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
 ```
-gh valet dry-run azure-devops pipeline --pipeline-id PIPELINE-ID --output-dir dry-run
+
+</details>
+
+<details>
+  <summary><em>Converted workflow 👇</em></summary>
+  
+```yaml
+name: valet-bootstrap/pipelines/valet-pipeline1
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, I am pipeline 1!
+    - name: Run a multi-line script
+      run: |-
+        echo Add other tasks to build, test, and deploy your project.
+        echo See https://aka.ms/yaml
 ```
-3. Now, from the `valet` folder in your repository, run `gh valet dry-run` to see the output: 
 
-### Example
-![valet-dr-1](https://user-images.githubusercontent.com/26442605/169616149-46c2d743-47fe-4061-a48a-7f21442624cb.png)
+</details>
 
-4. Valet will create a folder called `dry-runs` under the `valet` folder that shows what will be migrated.  
+Despite these 2 pipelines using different syntax they will function equivantly.
 
-### Example
-![valet-dr-2](https://user-images.githubusercontent.com/26442605/169616265-176a19fd-3071-44fc-bff7-866a172afc57.png)
+<!-- TODO: Add section for templated pipelines -->
 
-## View dry-run output
-The dry-run output will show you the GitHub Actions yml that will be migrated to GitHub.
+## Next lab
 
-### Example
-![valet-dr-3](https://user-images.githubusercontent.com/26442605/169616486-fd5512fa-0761-45fe-a252-5b2ef0926a04.png)
-
-### Next Lab
-[Migrate an Azure DevOps pipeline to GitHub Actions](valet-migrate-lab.md)
+[Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
