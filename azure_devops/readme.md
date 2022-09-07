@@ -1,4 +1,4 @@
-# Valet labs for Azure DevOps
+# Azure Pipelines to Actions migrations powered by Valet
 
 This lab bootstraps a Valet environment using GitHub Codespaces and enables you to create an Azure DevOps project against which to run the Valet CI/CD migration tool.
 
@@ -59,6 +59,7 @@ This lab bootstraps a Valet environment using GitHub Codespaces and enables you 
 ## Labs for Azure DevOps
 
 Perform the following labs to learn how to migrate Azure DevOps pipelines to GitHub Actions using Valet:
+
 - [Configure credentials for Valet](valet-configure-lab.md)
 - [Audit Azure DevOps pipelines using the Valet audit command](valet-audit-lab.md)
 - [Dry run the migration of an Azure DevOps pipeline to GitHub Actions](valet-dry-run-lab.md)
