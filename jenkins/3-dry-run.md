@@ -123,7 +123,7 @@ jobs:
 
 </details>
 
-These 2 pipelines function equivantly despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
+These 2 pipelines function equivalently despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
 
 ```diff
 - sleep 80

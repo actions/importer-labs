@@ -58,7 +58,9 @@ env:
 jobs:
   Job_1:
     name: Agent job 1
-    runs-on: windows-latest
+    runs-on:
+      - self-hosted
+      - mechamachine
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -169,7 +171,7 @@ env:
 Finally, we can use custom transformers to dictate which runners converted workflows should use. To do this we will need to answer the following questions:
 
 1. What is label of the runner in Azure DevOps to update?
-    - __windows-latest__
+    - __mechamachine__
 
 2. What is the label of the runner in Actions to use instead?
     - __ubuntu-latest__
@@ -177,7 +179,7 @@ Finally, we can use custom transformers to dictate which runners converted workf
 With these questions answered, we can add the following code to the `transformers.rb` file:
 
 ```ruby
-runner "windows-latest", "ubuntu-latest"
+runner "mechamachine", "ubuntu-latest"
 ```
 
 In this example, the first parameter to the `runner` method is the Azure DevOps label and the second is the Actions runner label.
@@ -185,9 +187,10 @@ In this example, the first parameter to the `runner` method is the Azure DevOps 
 Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` statement will use the customized runner label:
 
 ```diff
-runs-on:
--  - windows-latest
-+  - ubuntu-latest
+-    runs-on:
+-      - self-hosted
+-      - mechamachine
++    runs-on: ubuntu-latest
 ```
 
 At this point of the lab the file contents of `transformers.rb` should match this:
@@ -216,7 +219,7 @@ end
 
 env "BUILDCONFIGURATION", "Debug"
 
-runner "windows-latest", "ubuntu-latest"
+runner "mechamachine", "ubuntu-latest"
 ```
 
 </details>

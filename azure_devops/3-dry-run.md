@@ -86,9 +86,7 @@ jobs:
 
 </details>
 
-Despite these 2 pipelines using different syntax they will function equivantly.
-
-<!-- TODO: Add section for templated pipelines -->
+Despite these 2 pipelines using different syntax they will function equivalently.
 
 ## Next lab
 
