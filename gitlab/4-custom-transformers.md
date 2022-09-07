@@ -77,7 +77,7 @@ Now we can begin to write the custom transformer. Customer transformers use a DS
 code transformers.rb
 ```
 
-Next, we will define a `transform` method for the `sleep` identifier by adding the following code to `transformers.rb`:
+Next, we will define a `transform` method for the `artifacts.terraform` identifier by adding the following code to `transformers.rb`:
 
 ```ruby
 transform "artifacts.terraform" do |item|
