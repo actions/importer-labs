@@ -1,8 +1,8 @@
 # Perform an audit of CircleCI
 
-In this lab, you will use the `audit` command to get a high-level view of all projects in CircleCI.
+In this lab, you will use the `audit` command to get a high-level view of all projects in a CircleCI organization.
 
-The `audit` command operates by fetching all of the projects defined in CircleCI , converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command operates by fetching all of the projects defined in CircleCI organization, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ The `audit` command operates by fetching all of the projects defined in CircleCI
 
 ## Perform an audit
 
-We will be performing an audit against a organization in CircleCI created for the purpose of this lab. The name of this organization was already set during the configure lab.  The only question that remains to be answered is:
+We will be performing an audit against a organization in CircleCI that was created for the purposes of this lab *labs-data*. Valet was already set to use this organization during the configure lab.  The only remaining information needed for the `audit` command is:
 
 1. Where do we want to store the result?
     - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
@@ -40,7 +40,21 @@ We will be performing an audit against a organization in CircleCI created for th
 The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
 
 ```md
-UPDATE_ME
+## Pipelines
+
+Total: **6**
+
+- Successful: **6 (100%)**
+- Partially successful: **0 (0%)**
+- Unsupported: **0 (0%)**
+- Failed: **0 (0%)**
+
+### Job types
+
+Supported: **6 (100%)**
+
+- 2.1: **5**
+- 2: **1**
 ```
 
 Here are some key terms in the “Pipelines” section in the above example:
@@ -59,7 +73,35 @@ The "Job types" section will summarize which types of pipelines are being used a
 The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
 
 ```md
-UPDATE_ME
+### Build steps
+
+Total: **42**
+
+Known: **42 (100%)**
+
+- run: **10**
+- checkout: **6**
+- circleci_node_install_packages: **6**
+- circleci_node_job_test: **5**
+- store_artifacts: **3**
+- circleci_python_install_packages: **3**
+- circleci_ruby_install_deps: **2**
+- restore_cache: **2**
+- attach_workspace: **1**
+- persist_to_workspace: **1**
+- store_test_results: **1**
+- circleci_ruby_rspec_test: **1**
+- circleci_ruby_rubocop_check: **1**
+
+Actions: **45**
+
+- run: **23**
+- actions/checkout@v2: **7**
+- actions/cache@v2: **6**
+- actions/upload-artifact@v2: **5**
+- ruby/setup-ruby@v1: **2**
+- actions/download-artifact@v2: **1**
+- ./.github/actions/greeting: **1**
 ```
 
 Here are some key terms in the "Build steps" section in the above example:
@@ -80,7 +122,13 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
 
 ```md
-UPDATE_ME and update pipeline to add this section
+### Manual tasks
+
+Total: **1**
+
+Self hosted runners: **1**
+
+- `medium+`: **1**
 ```
 
 Here are some key terms in the “Manual tasks” section in the above example:
@@ -93,7 +141,44 @@ Here are some key terms in the “Manual tasks” section in the above example:
 The final section of the audit report provides a manifest of all of the files that are written to disk during the audit. These files include:
 
 ```md
-UPDATE_ME
+### Successful
+
+#### labs-data/circleci-hello-world
+
+- [labs-data/circleci-hello-world/say-hello-workflow.yml](labs-data/circleci-hello-world/say-hello-workflow.yml)
+- [labs-data/circleci-hello-world.config.json](labs-data/circleci-hello-world.config.json)
+- [labs-data/circleci-hello-world.source.yml](labs-data/circleci-hello-world.source.yml)
+
+#### labs-data/circleci-command-example
+
+- [labs-data/circleci-command-example/my-workflow.yml](labs-data/circleci-command-example/my-workflow.yml)
+- [.github/actions/greeting/action.yml](.github/actions/greeting/action.yml)
+- [labs-data/circleci-command-example.config.json](labs-data/circleci-command-example.config.json)
+- [labs-data/circleci-command-example.source.yml](labs-data/circleci-command-example.source.yml)
+
+#### labs-data/circleci-node-example
+
+- [labs-data/circleci-node-example/sample.yml](labs-data/circleci-node-example/sample.yml)
+- [labs-data/circleci-node-example.config.json](labs-data/circleci-node-example.config.json)
+- [labs-data/circleci-node-example.source.yml](labs-data/circleci-node-example.source.yml)
+
+#### labs-data/circleci-python-example
+
+- [labs-data/circleci-python-example/sample.yml](labs-data/circleci-python-example/sample.yml)
+- [labs-data/circleci-python-example.config.json](labs-data/circleci-python-example.config.json)
+- [labs-data/circleci-python-example.source.yml](labs-data/circleci-python-example.source.yml)
+
+#### labs-data/circleci-demo-java-spring
+
+- [labs-data/circleci-demo-java-spring/workflow.yml](labs-data/circleci-demo-java-spring/workflow.yml)
+- [labs-data/circleci-demo-java-spring.config.json](labs-data/circleci-demo-java-spring.config.json)
+- [labs-data/circleci-demo-java-spring.source.yml](labs-data/circleci-demo-java-spring.source.yml)
+
+#### labs-data/circleci-demo-ruby-rails
+
+- [labs-data/circleci-demo-ruby-rails/build_and_test.yml](labs-data/circleci-demo-ruby-rails/build_and_test.yml)
+- [labs-data/circleci-demo-ruby-rails.config.json](labs-data/circleci-demo-ruby-rails.config.json)
+- [labs-data/circleci-demo-ruby-rails.source.yml](labs-data/circleci-demo-ruby-rails.source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
