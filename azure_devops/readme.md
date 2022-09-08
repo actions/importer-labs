@@ -1,6 +1,6 @@
 # Azure Pipelines to Actions migrations powered by Valet
 
-The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use Valet to migrate Jenkins pipelines to GitHub Actions.
+The instructions below will guide you through configuring a Codespace that will be used in these labs to demonstrate how Valet can be used to migrate Azure DevOps pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
