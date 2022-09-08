@@ -28,6 +28,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
     - At the CircleCI token prompt enter the CircleCI access token from step 2 and press enter.
     - At the CircleCI base url prompt hit enter to accept the default value (`https://circleci.com`).
+    - At the CircleCI organization name prompt enter `labs-data`. This is a preconfigured organization created just for the purpose of these labs.
     - At the access token to fetch source code in GitHub prompt enter the GitHub PAT generated in step 1 and press enter.
     - At the GitHub instance url containing source code prompt press enter to accept the default value (`https://github.com`).
 
