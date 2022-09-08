@@ -2,7 +2,7 @@
 
 In this lab, you will use the `audit` command to get a high-level view of all projects in a CircleCI organization.
 
-The `audit` command operates by fetching all of the projects defined in CircleCI organization, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command operates by fetching all of the projects defined in a CircleCI organization, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ The `audit` command operates by fetching all of the projects defined in CircleCI
 
 ## Perform an audit
 
-We will be performing an audit against a organization in CircleCI that was created for the purposes of this lab *labs-data*. Valet was already set to use this organization during the configure lab.  The only remaining information needed for the `audit` command is:
+We will be performing an audit against the **labs-data** organization in CircleCI, which was created for the purposes of this lab. Valet was already been set to use this organization during the configure lab. The only remaining information needed for the `audit` command is:
 
 1. Where do we want to store the result?
     - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
@@ -57,7 +57,7 @@ Supported: **6 (100%)**
 - 2: **1**
 ```
 
-Here are some key terms in the “Pipelines” section in the above example:
+Here are some key terms that can appear in the “Pipelines” section:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their GitHub Actions equivalent.
@@ -104,7 +104,7 @@ Actions: **45**
 - ./.github/actions/greeting: **1**
 ```
 
-Here are some key terms in the "Build steps" section in the above example:
+Here are some key terms that can appear in "Build steps" section:
 
 - A __known__ build step is a step that was automatically converted to an equivalent action.
 - An __unknown__ build step is a step that was not automatically converted to an equivalent action.
@@ -131,7 +131,7 @@ Self hosted runners: **1**
 - `medium+`: **1**
 ```
 
-Here are some key terms in the “Manual tasks” section in the above example:
+Here are some key terms that can appear in “Manual tasks” section:
 
 - A __secret__ refers to a repository or organization level secret that is used by the converted pipelines. These secrets will need to be created manually in Actions in order for these pipelines to function properly.
 - A __self-hosted runner__ refers to a label of a runner that is referenced by a converted pipeline that is not a GitHub-hosted runner. You will need to manually define these runners in order for these pipelines to function properly.
