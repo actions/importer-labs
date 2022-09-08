@@ -12,7 +12,7 @@ These steps **must** be completed prior to starting other labs.
 
 1. Start the codespace
 
-- Click the `Code` button down arrow above the repository on the repository's landing page.
+- Click the `Code` button on your repository's landing page.
 - Click the `Codespaces` tab.
 - Click `Create codespaces on main` to create the codespace.
 - After the Codespace has initialized there will be a terminal present.
