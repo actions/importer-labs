@@ -21,7 +21,7 @@ We need to answer the following questions before running a `migrate` command:
 2. Where do we want to store the logs?
     - __./tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+    - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ### Steps
 
@@ -47,11 +47,9 @@ The first thing we should notice about the PR is that there is a list of manual 
 
 ![img](https://user-images.githubusercontent.com/8703324/189002125-45561312-dd26-42fd-bd38-a596614ee871.png)
 
-Next, let's review the workflow we are adding by clicking on `Files changed` tab. This is where you would double check everything looks good. If it didn't you could push commits with the required changes, prior to merging.
+Next, you can inspect the `Files changed` in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
 
-Next, you can inspect the "Files changed" in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
-
-Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
+Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the `Actions` menu in the top navigation bar in GitHub.
 
 ![img](https://user-images.githubusercontent.com/19557880/185509704-90243ec5-e77f-4baf-a9b2-d9a4d9fda199.png)
 

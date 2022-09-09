@@ -22,14 +22,14 @@ We will need to answer the following questions before running the `forecast` com
 
 ### Steps
 
-1. Navigate to the codespace terminal
+1. Navigate to the codespace terminal.
 2. Run the following command from the root directory:
 
     ```bash
     gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devops-project :project
     ```
 
-3. The command will output a message stating that "No jobs found" because no jobs have been executed in your bootstrapped project.
+3. The command will output a message that says "No jobs found" because no jobs have been executed in your bootstrapped project.
 
     ![img](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
 
@@ -57,7 +57,7 @@ The forecast report, logs, and completed job data will be located within the `tm
 
 ### Total
 
-The "Total" section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
+The `Total` section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
 
 ```md
 - Job count: **84**
@@ -88,8 +88,8 @@ The "Total" section of the forecast report contains high level statistics relate
 
 Here are some key terms of items defined in the forecast report:
 
-- The `job count` is the total number of completed jobs.
-- The `pipeline count` is the number of unique pipelines used.
+- The `Job count` is the total number of completed jobs.
+- The `Pipeline count` is the number of unique pipelines used.
 - `Execution time` describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of GitHub hosted runners.
   - This metric is correlated to how much you should expect to spend in GitHub Actions. This will vary depending on the hardware used for these minutes and the [Actions pricing calculator](https://github.com/pricing/calculator) should be used to estimate a dollar amount.
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.

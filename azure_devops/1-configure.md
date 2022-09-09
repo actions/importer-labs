@@ -8,7 +8,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 1. Create an Azure DevOps Personal Access Token (PAT).
     1. __Note__: you may skip this step if you still have the PAT created during the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization).
-    2. Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browswer.
+    2. Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browser.
     3. Click `User settings` in the top right corner of the screen.
     4. Click `Personal access tokens`.
     5. Select `+ New Token`

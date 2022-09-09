@@ -23,7 +23,7 @@ We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps 
 
 ### Steps
 
-1. Navigate to the codespace terminal
+1. Navigate to the codespace terminal.
 2. Run the following command from the root directory:
 
     ```bash

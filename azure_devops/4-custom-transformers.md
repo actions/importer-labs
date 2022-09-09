@@ -81,7 +81,7 @@ _Note_: You can refer to the previous [lab](./3-dry-run.md) to learn about the f
 
 ## Custom transformers for build steps
 
-We can use custom transformers override Valet's default behavior. In this scenario, we may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. We will need to answer the following questions before writing a custom transformer:
+We can use custom transformers to override Valet's default behavior. In this scenario, we may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. We will need to answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __DotnetCoreCLI@2__
@@ -170,7 +170,7 @@ env:
 
 Finally, we can use custom transformers to dictate which runners converted workflows should use. To do this we will need to answer the following questions:
 
-1. What is label of the runner in Azure DevOps to update?
+1. What is the label of the runner in Azure DevOps to update?
     - __mechamachine__
 
 2. What is the label of the runner in Actions to use instead?

@@ -31,7 +31,7 @@ We will be performing an audit against the bootstrapped Azure DevOps project. We
     gh valet audit azure-devops --output-dir tmp/audit --namespace valet
     ```
 
-    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command as they were persited in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
+    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command as they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
