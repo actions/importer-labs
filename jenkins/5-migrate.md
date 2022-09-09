@@ -18,7 +18,7 @@ We need to answer the following questions before running a `migrate` command:
 2. Where do we want to store the logs?
     - __./tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+    - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ### Steps
 
