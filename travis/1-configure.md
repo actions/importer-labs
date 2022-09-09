@@ -31,7 +31,8 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
     - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
     - At the Travis CI token prompt enter the Travis CI access token from step 2 and press enter.
-    - At the Travis CI base url prompt hit enter to accept the default value (`https://Travis CI.com`).
+    - At the Travis CI base url prompt hit enter to accept the default value (`https://travis-ci.com`).
+    - At the Travis CI organization name enter `valet-travis-labs`.
     - At the access token to fetch source code in GitHub prompt enter the GitHub PAT generated in step 1 and press enter.
     - At the GitHub instance url containing source code prompt press enter to accept the default value (`https://github.com`).
    
