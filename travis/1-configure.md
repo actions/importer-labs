@@ -17,7 +17,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - Copy the generated PAT and save in a safe location.
 
 3. Create a Travis CI PAT:
-    - Log into your Traivs Instance. 
+    - Log into your Travis CI Instance. 
     - Click on your profile icon in the top right hand corner. You should see a dropdown menu.
     - Click on the 'Settings' tab.
     - Click on the 'COPY TOKEN' button under the API authentication header and save in a safe location.
