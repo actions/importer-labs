@@ -198,7 +198,7 @@ jobs:
 ```
 </details>
 
-Despite these 2 pipelines using different syntax they will function equivantly.
+Despite these 2 pipelines using different syntax they will function equivalently.
 
 ## Perform a dry-run of a pipeline using `include`'d files
 

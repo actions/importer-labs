@@ -139,7 +139,7 @@ We can also override Valet's default behavior. In this scenario, we may not desi
     - __junit__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, we have determined that the uploading test results as an artifact will be suitable:
+    - After some research, we have determined that uploading test results as an artifact will be suitable:
 
       ```yaml
       - uses: actions/upload-artifact@v3

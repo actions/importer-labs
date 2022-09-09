@@ -1,22 +1,25 @@
-# Perform an audit of a GitLab server
+# Perform an audit of an Azure DevOps project
 
-In this lab, you will use the `audit` command to get a high-level view of all pipelines in a GitLab server.
+In this lab, you will use the `audit` command to get a high-level view of all pipelines in an Azure DevOps organization or project.
 
-The `audit` command operates by fetching all of the pipelines defined in a GitLab server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command operates by fetching all of the pipelines defined in an Azure DevOps organization or project, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
 
-We will be performing an audit against your preconfigured GitLab server. We will need to answer the following questions before running this command:
+We will be performing an audit against the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
 
-1. What namespace (e.g. group) do we want to audit?
-    - __valet__. In this example we will be auditing the `valet` group. In the future, you could add additional groups and subgroups to the audit command.
+1. What is the Azure DevOps organization name that we want to audit?
+    - __:organization__. This should be the same organization used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
-2. Where do we want to store the result?
+2. What is the Azure DevOps project name that we want to audit?
+    - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
+
+3. Where do we want to store the result?
     - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
@@ -25,8 +28,10 @@ We will be performing an audit against your preconfigured GitLab server. We will
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit gitlab --output-dir tmp/audit --namespace valet
+    gh valet audit azure-devops --output-dir tmp/audit --namespace valet
     ```
+
+    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command as they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
@@ -45,31 +50,31 @@ The pipeline summary section contains high level statistics regarding the conver
 ```md
 ## Pipelines
 
-Total: **11**
+Total: **5**
 
-- Successful: **10 (90%)**
+- Successful: **5 (100%)**
 - Partially successful: **0 (0%)**
-- Unsupported: **1 (9%)**
+- Unsupported: **0 (0%)**
 - Failed: **0 (0%)**
 
 ### Job types
 
-Supported: **10 (90%)**
+Supported: **5 (100%)**
 
-- YAML: **10**
-
-Unsupported: **1 (9%)**
-
-- Auto DevOps: **1**
+- designer: **2**
+- YAML: **3**
 ```
 
-Here are some key terms in the “Pipelines” section in the above example:
+Here are some key terms in the "Pipelines" section in the above example:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
-- __Unsupported__ pipelines are definition types that are not supported by Valet. Auto DevOps pipelines are not supported.
+- __Unsupported__ pipelines are definition types that are not supported by Valet. The following Azure DevOps pipeline types are supported:
+  - Classic (designer)
+  - YAML
+  - Release
 - __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
-  - The pipeline was misconfigured and not valid in GitLab.
+  - The pipeline was misconfigured and not valid in Azure DevOps.
   - Valet encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
@@ -82,33 +87,24 @@ The build steps summary section presents an overview of the individual build ste
 ```md
 ### Build steps
 
-Total: **134**
+Total: **14**
 
-Known: **133 (99%)**
+Known: **14 (100%)**
 
-- script: **62**
-- checkout: **35**
-- before_script: **19**
-- artifacts: **5**
-- after_script: **4**
-- dependencies: **4**
-- cache: **3**
-- pages: **1**
+- script: **4**
+- DotNetCoreCLI@2: **2**
+- 2c65196a-54fd-4a02-9be8-d9d1837b7c5d@0: **2**
+- 333b11bd-d341-40d9-afcf-b32d5ce6f23b@2: **2**
+- e213ff0f-5d5c-4791-802d-52ea3e7be1f1@2: **2**
+- NodeTool@0: **1**
+- checkout: **1**
 
-Unsupported: **1 (0%)**
+Actions: **19**
 
-- artifacts.terraform: **1**
-
-Actions: **135**
-
-- run: **85**
-- actions/checkout@v2: **35**
-- actions/upload-artifact@v2: **5**
-- actions/download-artifact@v2: **4**
-- actions/cache@v2: **3**
-- ./.github/workflows/a-.gitlab-ci.yml: **1**
-- ./.github/workflows/b-.gitlab-ci.yml: **1**
-- JamesIves/github-pages-deploy-action@4.1.5: **1**
+- run: **10**
+- actions/checkout@v2: **6**
+- nuget/setup-nuget@v1: **2**
+- actions/setup-node@v2: **1**
 ```
 
 Here are some key terms in the "Build steps" section in the above example:
@@ -133,12 +129,12 @@ The manual tasks summary section presents an overview of the manual tasks that y
 
 Total: **1**
 
-Secrets: **1**
+Self hosted runners: **1**
 
-- `${{ secrets.PASSWORD }}`: **1**
+- `mechamachine`: **1**
 ```
 
-Here are some key terms in the “Manual tasks” section in the above example:
+Here are some key terms in the "Manual tasks" section in the above example:
 
 - A __secret__ refers to a repository or organization level secret that is used by the converted pipelines. These secrets will need to be created manually in Actions in order for these pipelines to function properly.
 - A __self-hosted runner__ refers to a label of a runner that is referenced by a converted pipeline that is not a GitHub-hosted runner. You will need to manually define these runners in order for these pipelines to function properly.
@@ -150,34 +146,30 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Successful
 
-#### valet/included-files-example
+#### valet-bootstrap/valet-classic-test-import1
 
-- [valet/included-files-example.yml](valet/included-files-example.yml)
-- [valet/included-files-example.config.json](valet/included-files-example.config.json)
-- [valet/included-files-example.source.yml](valet/included-files-example.source.yml)
+- [valet-bootstrap/valet-classic-test-import1.yml](valet-bootstrap/valet-classic-test-import1.yml)
+- [valet-bootstrap/valet-classic-test-import1.config.json](valet-bootstrap/valet-classic-test-import1.config.json)
 
-#### valet/terraform-example
+#### valet-bootstrap/valet-classic-test-import2
 
-- [valet/terraform-example.yml](valet/terraform-example.yml)
-- [valet/terraform-example.config.json](valet/terraform-example.config.json)
-- [valet/terraform-example.source.yml](valet/terraform-example.source.yml)
+- [valet-bootstrap/valet-classic-test-import2.yml](valet-bootstrap/valet-classic-test-import2.yml)
+- [valet-bootstrap/valet-classic-test-import2.config.json](valet-bootstrap/valet-classic-test-import2.config.json)
 
-#### valet/child-parent-example
+#### valet-bootstrap/pipelines/valet-pipeline1
 
-- [valet/child-parent-example.yml](valet/child-parent-example.yml)
-- [.github/workflows/a-.gitlab-ci.yml](.github/workflows/a-.gitlab-ci.yml)
-- [.github/workflows/b-.gitlab-ci.yml](.github/workflows/b-.gitlab-ci.yml)
-- [valet/child-parent-example.config.json](valet/child-parent-example.config.json)
-- [valet/child-parent-example.source.yml](valet/child-parent-example.source.yml)
+- [valet-bootstrap/pipelines/valet-pipeline1.yml](valet-bootstrap/pipelines/valet-pipeline1.yml)
+- [valet-bootstrap/pipelines/valet-pipeline1.config.json](valet-bootstrap/pipelines/valet-pipeline1.config.json)
+- [valet-bootstrap/pipelines/valet-pipeline1.source.yml](valet-bootstrap/pipelines/valet-pipeline1.source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
 
-- The original pipeline as it was defined in GitLab.
+- The original pipeline as it was defined in Azure DevOps.
 - Any network responses used to convert a pipeline.
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
 
 ### Next lab
 
-[Perform a dry-run of a GitLab pipeline](3-dry-run.md)
+[Perform a dry-run of an Azure DevOps pipeline](3-dry-run.md)
