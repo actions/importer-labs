@@ -5,7 +5,7 @@ In this lab you will use the `dry-run` command to convert a CircleCI pipeline to
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
