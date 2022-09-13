@@ -18,7 +18,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 3. Create a Travis CI PAT:
     - Open Travis CI in a new browser tab.
-    - Click on your profile icon in the top right hand corner. You should see a dropdown menu.
+    - Click on your profile icon in the top right hand corner to reveal a dropdown menu.
     - Click on the 'Settings' tab.
     - Click on the 'COPY TOKEN' button under the API authentication header and save in a safe location.
 
