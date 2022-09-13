@@ -20,7 +20,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - Open Travis CI in a new browser tab.
     - Click on your profile icon in the top right hand corner to reveal a dropdown menu.
     - Click on the 'Settings' tab.
-    - Click on the 'COPY TOKEN' button under the API authentication header and save in a safe location.
+    - Click on the 'COPY TOKEN' button under "API authentication header" and save in a safe location.
 
 2. Run the `configure` CLI command:
     - Select the `TERMINAL` tab from within the codespace terminal window.
