@@ -155,7 +155,7 @@ To do this, add the following code to the `transformers.rb` file.
 runner "large", "some-large-runner"
 ```
 
-In this example, the first parameter to the `runner` method is the resource class and the second is the runner labels to use in Actions.
+In this example, the first parameter to the `runner` method is the resource class value and the second is the label(s) of the runner to use in Actions.
 
 Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` will be set to `some-large-runner`:
 
