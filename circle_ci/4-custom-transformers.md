@@ -128,7 +128,7 @@ end
 
 ## Custom transformers for environment variables
 
-You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `tmp/cov`.
+You can use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `tmp/cov`.
 
 To do this, add the following code to the `transformers.rb` file.
 
@@ -147,12 +147,50 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 ```
 
 ## Custom transformers for resource class:
-ADD_CONTENT_HERE
+You can use custom transformers to change the runner associated with a `resource_class`.  In the example pipeline the setup job is using a `large` resource class runner.  You want to change that to the correct runner in GitHub Actions with label 'some-large-runner'.  
 
+To do this, add the following code to the `transformers.rb` file.
+
+```ruby
+runner "large", "some-large-runner"
+```
+
+In this example, the first parameter to the `runner` method is the resource class and the second is the runner labels to use in Actions.
+
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` will be set to `some-large-runner`:
+
+```diff
+  setup:
+    runs-on:
+ -    - self-hosted
+ -    - large
+ +    - some-large-runner
+```
+
+At this point, the file contents of `transformers.rb` should match this:
+
+<details>
+  <summary><em>Custom transformers 👇</em></summary>
+
+```ruby
+env "COVERAGE_DIR", "$RUNNER_TEMP/cov"
+runner "large", "some-large-runner"
+
+transform "codecov_codecov_upload" do |_item|
+  {
+    name: "Upload coverage to Codecov",
+    uses: "codecov/codecov-action@v3",
+    with: { token: "${{ secrets.CODECOV_TOKEN }}" }
+  }
+end
+```
+
+</details>
 That's it! Congratulations, you have overridden Valet's default behavior by customizing the conversion of:
 
-- UPDATE_LIST_HERE
+- Unknown steps
 - Environment variables
+- Runner
 
 ## Next lab
 
