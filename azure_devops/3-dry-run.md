@@ -1,16 +1,16 @@
-# Perform a dry-run of an Azure DevOps pipeline
+# Perform a dry-run migration of an Azure DevOps pipeline
 
 In this lab you will use the `dry-run` command to convert an Azure DevOps pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
 
-We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
+You will perform a dry run for a pipeline in the bootstrapped Azure DevOps project. Answer the following questions before running this command:
 
 1. What is the id of the pipeline to convert?
     - __:id__. This id can be found by:
@@ -18,12 +18,12 @@ We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps 
       - Selecting the pipeline with the name "valet-pipeline1"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
-2. Where do we want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+2. Where do you want to store the result?
+    - __./tmp/dry-run-lab__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
-1. Navigate to the codespace terminal.
+1. Navigate to your codespace terminal.
 2. Run the following command from the root directory:
 
     ```bash
@@ -32,7 +32,7 @@ We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps 
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab` in the file explorer pane in codespaces.
+    - Find `./tmp/dry-run-lab` in the file explorer pane in your codespace.
     - Click `valet-pipeline1.yml` to open.
   
 ## Inspect the output files
@@ -86,7 +86,7 @@ jobs:
 
 </details>
 
-Despite these 2 pipelines using different syntax they will function equivalently.
+Despite these two pipelines using different syntax they will function equivalently.
 
 ## Next lab
 

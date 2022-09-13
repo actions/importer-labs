@@ -4,20 +4,20 @@ In this lab, you will use the `migrate` command to convert a GitLab pipeline and
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a GitLab server.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 3. Completed the [dry-run lab](./3-dry-run.md).
 4. Completed the [custom transformers lab](./4-custom-transformers.md).
 
 ## Performing a migration
 
-We need to answer the following questions before running a `migrate` command:
+Answer the following questions before running a `migrate` command:
 
-1. What is the project we want to migrate?
+1. What project do you want to migrate?
     - __rails-example__
 2. What is the namespace for that project?
     - __Valet__
-3. Where do we want to store the logs?
+3. Where do you want to store the logs?
     - __./tmp/migrate__
 4. What is the URL for the GitHub repository to add the workflow to?
     - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
@@ -38,11 +38,11 @@ We need to answer the following questions before running a `migrate` command:
 
 ### Inspect the pull request
 
-The first thing we should notice about the PR is that there is a list of manual steps for us to complete.
+The first thing to notice about the pull request is that there is a list of manual steps to complete.
 
-Next, you can inspect the "Files changed" in this PR and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this PR.
+Next, you can inspect the "Files changed" in this pull request and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this pull request.
 
-Finally, you can merge the PR once your review has completed. We can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
+Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
   
 ![img](https://user-images.githubusercontent.com/18723510/184960870-590b1a28-422f-4350-9ec0-0423bf7ad445.png)
 

@@ -9,14 +9,14 @@ In this lab we will build upon the `dry-run` command to override Valet's default
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 4. Completed the [dry-run lab](./3-dry-run.md).
 
 ## Perform a dry run
 
-We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
+You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps project. Answer the following questions before running this command:
 
 1. What is the id of the pipeline to convert?
     - __:pipeline_id__. This id can be found by:
@@ -24,8 +24,8 @@ We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps 
       - Selecting the pipeline with the name "valet-custom-transformer-example"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
-2. Where do we want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+2. Where do you want to store the result?
+    - __./tmp/dry-run-lab__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -38,7 +38,7 @@ We will be performing a dry-run for a pipeline in the bootstrapped Azure DevOps 
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab` in the file explorer pane in codespaces.
+    - Find `./tmp/dry-run-lab` in the file explorer pane in your codespace.
     - Click `valet-custom-transformer-example.yml` to open.
 
 The converted workflow that is generated can be seen below:
@@ -81,26 +81,26 @@ _Note_: You can refer to the previous [lab](./3-dry-run.md) to learn about the f
 
 ## Custom transformers for build steps
 
-We can use custom transformers to override Valet's default behavior. In this scenario, we may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. We will need to answer the following questions before writing a custom transformer:
+You can use custom transformers to override Valet's default behavior. In this scenario, you may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. Answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __DotnetCoreCLI@2__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, we have determined that the uploading test results as an artifact will be suitable:
+    - After some research, you have determined that the uploading test results as an artifact will be suitable:
 
       ```yaml
         - run: shopt -s globstar; for f in ./**/*.csproj; do dotnet build $f --configuration ${{ env.BUILDCONFIGURATION }} ; done
           shell: bash
       ```
 
-Now we can begin to write the custom transformer. Customer transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
+Now you can begin to write the custom transformer. Customer transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
 
 ```bash
 code transformers.rb
 ```
 
-Next, we will define a `transform` method for the `DotnetCoreCLI@2` identifier by adding the following code to `transformers.rb`:
+Next, you will define a `transform` method for the `DotnetCoreCLI@2` identifier by adding the following code to `transformers.rb`:
 
 ```ruby
 transform "DotNetCoreCLI@2" do |item|
@@ -124,13 +124,13 @@ end
 
 This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
 
-Now, we can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
+Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
 ```bash
 gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id -o tmp/dry-run-lab --custom-transformers transformers.rb
 ```
 
-Open the workflow that is generated and inspect the contents. Now, the `DotnetCoreCLI@2` steps are converted using the customized behavior!
+Open the workflow that is generated and inspect the contents. Now the `DotnetCoreCLI@2` steps are converted using the customized behavior!
 
 ```diff
 -    - name: Restore
@@ -147,7 +147,7 @@ Open the workflow that is generated and inspect the contents. Now, the `DotnetCo
 
 ## Custom transformers for environment variables
 
-We can also use custom transformers to edit the values of environment variables in converted workflows. In our example, we will be updating the `BUILDCONFIGURATION` environment variable to be `Debug` instead of `Release`.
+You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will be updating the `BUILDCONFIGURATION` environment variable to be `Debug` instead of `Release`.
 
 To do this, add the following code to the `transformers.rb` file.
 
@@ -157,7 +157,7 @@ env "BUILDCONFIGURATION", "Debug"
 
 In this example, the first parameter to the `env` method is the environment variable name and the second is the updated value.
 
-Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `DB_ENGINE` environment variable will be set to `mongodb`:
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow, the `DB_ENGINE` environment variable will be set to `mongodb`:
 
 ```diff
 env:
@@ -168,7 +168,7 @@ env:
 
 ## Custom transformers for runners
 
-Finally, we can use custom transformers to dictate which runners converted workflows should use. To do this we will need to answer the following questions:
+Finally, you can use custom transformers to dictate which runners converted workflows should use. First, answer the following questions:
 
 1. What is the label of the runner in Azure DevOps to update?
     - __mechamachine__
@@ -176,7 +176,7 @@ Finally, we can use custom transformers to dictate which runners converted workf
 2. What is the label of the runner in Actions to use instead?
     - __ubuntu-latest__
 
-With these questions answered, we can add the following code to the `transformers.rb` file:
+With these questions answered, you can add the following code to the `transformers.rb` file:
 
 ```ruby
 runner "mechamachine", "ubuntu-latest"
@@ -184,7 +184,7 @@ runner "mechamachine", "ubuntu-latest"
 
 In this example, the first parameter to the `runner` method is the Azure DevOps label and the second is the Actions runner label.
 
-Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` statement will use the customized runner label:
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow, the `runs-on` statement will use the customized runner label:
 
 ```diff
 -    runs-on:
@@ -193,7 +193,7 @@ Now, we can perform another `dry-run` command with the `--custom-transformers` C
 +    runs-on: ubuntu-latest
 ```
 
-At this point of the lab the file contents of `transformers.rb` should match this:
+At this point, the file contents of `transformers.rb` should match this:
 
 <details>
   <summary><em>Custom transformers 👇</em></summary>
@@ -224,7 +224,7 @@ runner "mechamachine", "ubuntu-latest"
 
 </details>
 
-Thats it! At this point you have overridden Valet's default behavior by customizing the conversion of:
+That's it! At this point you have overridden Valet's default behavior by customizing the conversion of:
 
 - Build steps
 - Environment variables

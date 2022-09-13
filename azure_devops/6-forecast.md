@@ -4,20 +4,20 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 
 ## Perform a forecast
 
-We will need to answer the following questions before running the `forecast` command:
+Answer the following questions before running the `forecast` command:
 
-1. What is the Azure DevOps organization name that we want to audit?
+1. What is the Azure DevOps organization name that you want to audit?
     - __:organization__. This should be the same organization used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
-2. What is the Azure DevOps project name that we want to audit?
+2. What is the Azure DevOps project name that you want to audit?
     - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
-3. Where do we want to store the results?
+3. Where do you want to store the results?
     - `./tmp/forecast_reports`
 
 ### Steps
@@ -33,7 +33,7 @@ We will need to answer the following questions before running the `forecast` com
 
     ![img](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
 
-4. If you inspect the help menu using the `gh valet forecast --help` command then you will see a `--source-file-path` option. This option can be used to perform a `forecast` command using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
+4. If you inspect the help menu using the `gh valet forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` command using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
 
     ![img](https://user-images.githubusercontent.com/18723510/187692843-623d4bdc-8970-4348-a632-73c8b00a40f8.png)
 
@@ -91,7 +91,7 @@ Here are some key terms of items defined in the forecast report:
 - The `Job count` is the total number of completed jobs.
 - The `Pipeline count` is the number of unique pipelines used.
 - `Execution time` describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of GitHub hosted runners.
-  - This metric is correlated to how much you should expect to spend in GitHub Actions. This will vary depending on the hardware used for these minutes and the [Actions pricing calculator](https://github.com/pricing/calculator) should be used to estimate a dollar amount.
+  - This metric is correlated to how much you should expect to spend in GitHub Actions. This will vary depending on the hardware used for these minutes. You can use the [Actions pricing calculator](https://github.com/pricing/calculator) to estimate a dollar amount.
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
 

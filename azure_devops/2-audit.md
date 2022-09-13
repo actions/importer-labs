@@ -6,21 +6,21 @@ The `audit` command operates by fetching all of the pipelines defined in an Azur
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and bootstrap an Azure DevOps project.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
 
-We will be performing an audit against the bootstrapped Azure DevOps project. We will need to answer the following questions before running this command:
+You will now perform an audit against the bootstrapped Azure DevOps project. Answer the following questions before running this command:
 
-1. What is the Azure DevOps organization name that we want to audit?
+1. What is the Azure DevOps organization name that you want to audit?
     - __:organization__. This should be the same organization used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
-2. What is the Azure DevOps project name that we want to audit?
+2. What is the Azure DevOps project name that you want to audit?
     - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
-3. Where do we want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+3. Where do you want to store the result?
+    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -31,7 +31,7 @@ We will be performing an audit against the bootstrapped Azure DevOps project. We
     gh valet audit azure-devops --output-dir tmp/audit --namespace valet
     ```
 
-    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command as they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
+    __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
@@ -39,7 +39,7 @@ We will be performing an audit against the bootstrapped Azure DevOps project. We
 
 1. Find the `audit_summary.md` file in the file explorer.
 2. Right-click the `audit_summary.md` file and select `Open Preview`.
-3. This file contains details that summarizes what percentage of your pipelines were converted automatically.
+3. This file contains details that summarize what percentage of your pipelines were converted automatically.
 
 ### Review audit summary
 
@@ -73,7 +73,7 @@ Here are some key terms in the "Pipelines" section in the above example:
   - Classic (designer)
   - YAML
   - Release
-- __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
+- __Failed__ pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Azure DevOps.
   - Valet encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
@@ -172,4 +172,4 @@ Each pipeline will have a variety of files written that include:
 
 ### Next lab
 
-[Perform a dry-run of an Azure DevOps pipeline](3-dry-run.md)
+[Perform a dry-run migration of an Azure DevOps pipeline](3-dry-run.md)
