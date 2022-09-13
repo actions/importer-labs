@@ -6,18 +6,18 @@ The `audit` command operates by fetching all of the pipelines defined in a GitLa
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a GitLab server.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
 
-We will be performing an audit against your preconfigured GitLab server. We will need to answer the following questions before running this command:
+You will be performing an audit against your preconfigured GitLab server. Answer the following questions before running this command:
 
-1. What namespace (e.g. group) do we want to audit?
-    - __valet__. In this example we will be auditing the `valet` group. In the future, you could add additional groups and subgroups to the audit command.
+1. What namespace (e.g. group) do you want to audit?
+    - __valet__. In this example you will be auditing the `valet` group. In the future, you could add additional groups and subgroups to the audit command.
 
-2. Where do we want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+2. Where do you want to store the result?
+    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -34,7 +34,7 @@ We will be performing an audit against your preconfigured GitLab server. We will
 
 1. Find the `audit_summary.md` file in the file explorer.
 2. Right-click the `audit_summary.md` file and select `Open Preview`.
-3. This file contains details that summarizes what percentage of your pipelines were converted automatically.
+3. This file contains details that summarize what percentage of your pipelines were converted automatically.
 
 ### Review audit summary
 
@@ -68,7 +68,7 @@ Here are some key terms in the “Pipelines” section in the above example:
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
 - __Unsupported__ pipelines are definition types that are not supported by Valet. Auto DevOps pipelines are not supported.
-- __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
+- __Failed__ pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in GitLab.
   - Valet encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
@@ -176,8 +176,8 @@ Each pipeline will have a variety of files written that include:
 - The original pipeline as it was defined in GitLab.
 - Any network responses used to convert a pipeline.
 - The converted workflow.
-- Stack traces that can used to troubleshoot a failed pipeline conversion
+- Stack traces that can be used to troubleshoot a failed pipeline conversion
 
 ### Next lab
 
-[Perform a dry-run of a GitLab pipeline](3-dry-run.md)
+[Perform a dry-run migration of a GitLab pipeline](3-dry-run.md)

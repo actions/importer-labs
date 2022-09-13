@@ -1,6 +1,6 @@
 # Use custom transformers to customize Valet's behavior
 
-In this lab we will build upon the `dry-run` command to override Valet's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
+In this lab you will build upon the `dry-run` command to override Valet's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
 
 1. Convert items that are not automatically converted.
 2. Convert items that were automatically converted using different actions.
@@ -9,13 +9,13 @@ In this lab we will build upon the `dry-run` command to override Valet's default
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 3. Completed the [dry-run lab](./3-dry-run.md).
 
 ## Perform a dry-run
 
-We will be performing a `dry-run` command to inspect the workflow that is converted by default. Run the following command within the codespace terminal:
+You will be performing a `dry-run` command to inspect the workflow that is converted by default. Run the following command within the codespace terminal:
 
 ```bash
 gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o tmp/jenkins/dry-run
@@ -75,13 +75,13 @@ _Note_: You can refer to the previous [lab](./3-dry-run.md) to learn about the f
 
 ## Custom transformers for an unknown step
 
-The converted workflow above contains a `sleep` step was not automatically converted. We will need to answer the following questions before writing a custom transformer:
+The converted workflow above contains a `sleep` step was not automatically converted. Answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __sleep__. The identifier will be the key of a key value pair within the step of a Jenkinsfile.
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, we have determined that the following bash script will provide similar functionality:
+    - After some research, you have determined that the following bash script will provide similar functionality:
 
       ```yaml
       - name: Sleep for 80 seconds
@@ -89,13 +89,13 @@ The converted workflow above contains a `sleep` step was not automatically conve
         shell: bash
       ```
 
-Now we can begin to write the custom transformer. Customer transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
+Now you can begin to write the custom transformer. Custom transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
 
 ```bash
 code transformers.rb
 ```
 
-Next, we will define a `transform` method for the `sleep` identifier by adding the following code to `transformers.rb`:
+Next, you will define a `transform` method for the `sleep` identifier by adding the following code to `transformers.rb`:
 
 ```ruby
 transform "sleep" do |item|
@@ -111,13 +111,13 @@ end
 
 This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Jenkins.
 
-Now, we can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
+Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
 ```bash
 gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o tmp/jenkins/dry-run --custom-transformers transformers.rb
 ```
 
-Open the workflow that is generated and inspect the contents. Now, the `sleep` step is converted and uses the customized behavior!
+Open the workflow that is generated and inspect the contents. Now the `sleep` step is converted and uses the customized behavior!
 
 ```diff
 - #     # This item has no matching transformer
@@ -133,13 +133,13 @@ Open the workflow that is generated and inspect the contents. Now, the `sleep` s
 
 ## Custom transformers for a known step
 
-We can also override Valet's default behavior. In this scenario, we may not desire to use the third-party action for publishing junit test results that is used by default. Again, we will need to answer the following questions before writing a custom transformer:
+You can also override Valet's default behavior. In this scenario, you may not want to use the third-party action for publishing junit test results that is used by default. Again, answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __junit__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, we have determined that uploading test results as an artifact will be suitable:
+    - After some research, you have determined that uploading test results as an artifact will be suitable:
 
       ```yaml
       - uses: actions/upload-artifact@v3
@@ -148,9 +148,9 @@ We can also override Valet's default behavior. In this scenario, we may not desi
           path: path/to/artifact/world.txt
       ```
 
-We will build this custom transformer similar to the previous custom transformer, however, we first need to inspect the `item` keyword to programmatically use the file path to junit's test results in the `actions/upload-artifact@v3` step.
+You will build this custom transformer similar to the previous custom transformer, however, you first need to inspect the `item` keyword to programmatically use the file path to junit's test results in the `actions/upload-artifact@v3` step.
 
-To do this, we will print `item` to the console. You can achieve this by adding the following custom transformer to `transformers.rb`:
+To do this, you will print `item` to the console. You can achieve this by adding the following custom transformer to `transformers.rb`:
 
 ```ruby
 transform "junit" do |item|
@@ -162,7 +162,7 @@ Now, we can perform another `dry-run` command with the `--custom-transformers` C
 
 ![img](https://user-images.githubusercontent.com/19557880/186782050-65ece0c4-52a3-4f88-818f-0f860c50c2b7.png)
 
-Now that we know the data structure of `item` we can access the file path programmatically by editing the custom transformer to following:
+Now that you know the data structure of `item`, you can access the file path programmatically by editing the custom transformer to the following:
 
 ```ruby
 transform "junit" do |item|
@@ -181,7 +181,7 @@ end
 
 _Note_: `transformers.rb` should contain a `transform` method for both `sleep` and `junit`.
 
-Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option. When you open the converted workflow the `EnricoMi/publish-unit-test-result-action@v1.7` action will have been replaced with the customized steps.
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option. When you open the converted workflow the `EnricoMi/publish-unit-test-result-action@v1.7` action will have been replaced with the customized steps.
 
 ```diff
 -    - name: Publish test results
@@ -197,7 +197,7 @@ Now, we can perform another `dry-run` command with the `--custom-transformers` C
 
 ## Custom transformers for environment variables
 
-We can also use custom transformers to edit the values of environment variables in converted workflows. In our example, we will be updating the `DB_ENGINE` environment variable to be `mongodb` instead of `sqlite`.
+You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will be updating the `DB_ENGINE` environment variable to be `mongodb` instead of `sqlite`.
 
 To do this, add the following code to the `transformers.rb` file.
 
@@ -207,7 +207,7 @@ env "DB_ENGINE", "mongodb"
 
 In this example, the first parameter to the `env` method is the environment variable name and the second is the updated value.
 
-Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `DB_ENGINE` environment variable will be set to `mongodb`:
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `DB_ENGINE` environment variable will be set to `mongodb`:
 
 ```diff
 env:
@@ -218,7 +218,7 @@ env:
 
 ## Custom transformers for runners
 
-Finally, we can use custom transformers to dictate which runners converted workflows should use. To do this we will need to answer the following questions:
+Finally, you can use custom transformers to dictate which runners the converted workflows should use. To do this, answer the following questions:
 
 1. What is label of the runner in Jenkins to update?
     - __TeamARunner__
@@ -226,7 +226,7 @@ Finally, we can use custom transformers to dictate which runners converted workf
 2. What is the label of the runner in Actions to use instead?
     - __ubuntu-latest__
 
-With these questions answered, we can add the following code to the `transformers.rb` file:
+With these questions answered, you can add the following code to the `transformers.rb` file:
 
 ```ruby
 runner "TeamARunner", "ubuntu-latest"
@@ -234,7 +234,7 @@ runner "TeamARunner", "ubuntu-latest"
 
 In this example, the first parameter to the `runner` method is the Jenkins label and the second is the Actions runner label.
 
-Now, we can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` statement will use the customized runner label:
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `runs-on` statement will use the customized runner label:
 
 ```diff
 runs-on:
@@ -243,7 +243,7 @@ runs-on:
 +  - ubuntu-latest
 ```
 
-At this point of the lab the file contents of `transformers.rb` should match this:
+At this point the file contents of `transformers.rb` should match this:
 
 <details>
   <summary><em>Custom transformers 👇</em></summary>
@@ -281,7 +281,7 @@ At this point of the lab the file contents of `transformers.rb` should match thi
 
 </details>
 
-Thats it! Congratulations you have overridden Valet's default behavior by customizing the conversion of:
+That's it! Congratulations, you have overridden Valet's default behavior by customizing the conversion of:
 
 - Unknown steps
 - Known steps

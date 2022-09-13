@@ -6,18 +6,18 @@ The `audit` command operates by fetching all of the pipelines defined in a Jenki
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
 
-We will be performing an audit against your preconfigured Jenkins server. We will need to answer the following questions before running this command:
+You will be performing an audit against your preconfigured Jenkins server. Answer the following questions before running this command:
 
-1. Do we want to audit the entire Jenkins instance or just a single folder?
-    - In this example we will be auditing the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the audit command.
+1. Do you want to audit the entire Jenkins instance or just a single folder?
+    - In this example you will audit the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the `audit` command.
 
-2. Where do we want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+2. Where do you want to store the result?
+    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -56,7 +56,7 @@ Here are some key terms in the “Pipelines” section in the above example:
   - Flow Definition
   - Project (declarative Jenkinsfile pipelines)
   - Multibranch Project
-- __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
+- __Failed__ pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Jenkins.
   - Valet encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
@@ -108,4 +108,4 @@ Each pipeline will have a variety of files written that include:
 
 ## Next lab
 
-[Perform a dry-run of a Jenkins pipeline](3-dry-run.md)
+[Perform a dry-run migration of a Jenkins pipeline](3-dry-run.md)

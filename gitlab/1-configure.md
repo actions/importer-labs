@@ -6,7 +6,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 ## Configuring credentials
 
-1. Run the setup script in the codespace's terminal to ensure the GitLab server is ready:
+1. Run the setup script in the codespace terminal to ensure the GitLab server is ready:
     ```bash
     ./gitlab/bootstrap/setup.sh
     ```
@@ -16,40 +16,40 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - In the `PORTS` tab find the row for port 80.
     - Hover over the address under the `Local Address` column and click the globe to "open in browser".
 
-3. Create a GitLab personal access token:
+3. Create a GitLab personal access token (PAT):
     - Authenticate with the GitLab server using the following credentials:
       - Username: `root`
       - Password: `valet-labs!`
-    - Follow the GitLab [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a personal access token.
+    - Follow the GitLab [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a PAT.
       - Ensure the token has the `read_api` scope.
-    - Copy the generated token and save in a safe location.
+    - Copy the generated token and save it in a safe location.
 
-4. Create a GitHub Personal Access Token (PAT):
+4. Create a GitHub personal access token (PAT):
     - Open github.com in a new browser tab.
-    - Click your profile photo in the top right of the UI and click `Settings`.
-    - Click on `Developer Settings` in the left hand panel.
-    - Click `Personal Access Tokens` and then `Legacy tokens` (if present).
-    - Click `Generate new token` and then `Legacy tokens`. You may be required to authenticate with GitHub during this step.
-    - Select the following scopes: `read:packages` and `workflow`.
+    - In the top right corner of the UI, click your profile photo and click `Settings`.
+    - In the left panel, click `Developer Settings`.
+    - Click `Personal access tokens` and then `Legacy tokens` (if present).
+    - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+    - Select the following scopes: `workflow` and `read:packages`.
     - Click `Generate token`.
-    - Copy the generated PAT and save in a safe location.
+    - Copy the generated PAT and save it in a safe location.
 
-4. Run the `configure` CLI command:
+5. Run the `configure` CLI command:
     - Select the `TERMINAL` tab from within the codespace terminal window.
     - Run the following command: `gh valet configure`.
-    - Using the down arrow key to highlight `GitLab CI`, press the spacebar to select, and then hit enter to continue.
-    - At the prompt enter your GitHub Username and press enter.
-    - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 4 and press enter.
-    - At the GitHub PAT prompt enter the GitHub PAT generated in step 4 and press enter.
-    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
-    - At the GitLab CI token prompt enter the GitLab CI access token from step 3 and press enter.
-    - At the GitLab CI url prompt enter `http://localhost` and press enter.
+    - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, and then press enter to continue.
+    - At the prompt, enter your GitHub username and press enter.
+    - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 4 and press enter.
+    - At the GitHub PAT prompt, enter the GitHub PAT generated in step 4 and press enter.
+    - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
+    - At the GitLab CI token prompt, enter the GitLab CI access token from step 3 and press enter.
+    - At the GitLab CI URL prompt, enter `http://localhost` and press enter.
 
     ![img](https://user-images.githubusercontent.com/18723510/183990474-d0b2559c-d2bf-40d9-ac43-19af53e45329.png)
 
 ## Verify your environment
 
-To verify our environment is configured correctly, we are going to run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.
+To verify your environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.
 
 1. In the codespace terminal run the following command:
 
