@@ -9,7 +9,7 @@ options = {
   code_assets_dir: "code",
   pipeline_assets_dir: "pipelines",
   root_dir: File.join(ENV["CODESPACE_VSCODE_FOLDER"], "azure_devops/bootstrap"),
-  forecast_source_file: File.join(".", "azure_devops/jobs_data.json")
+  forecast_source_file: File.join(".", "azure_devops/bootstrap/jobs.json")
 }
 
 OptionParser.new do |opt|
