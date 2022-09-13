@@ -12,7 +12,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - Hover over the address under the `Local Address` column and click the globe to "open in browser".
 
 2. Create a Jenkins API token:
-   - In the top right menue bar, click the `admin` button.
+   - In the top right menu bar, click the `admin` button.
    - In the left panel, click the `Configure` gear.
    - In the `API token` section, click the `Add new Token` button and click `Generate`.
    - Copy the generated API token and save it in a safe location.
