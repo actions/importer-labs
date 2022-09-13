@@ -70,7 +70,7 @@ The converted workflow above contains an `codecov_codecov_upload` step that was 
     - __codecov_codecov_upload__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, you have determined that the [codecov action](https://github.com/marketplace/actions/codecov) in the marketplace will provide similar functionality:
+    - After some research, you have determined that the [Codecov action](https://github.com/marketplace/actions/codecov) in the marketplace will provide similar functionality:
 
       ```yaml
       - uses: codecov/codecov-action@v3
@@ -147,7 +147,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 ```
 
 ## Custom transformers for resource class:
-You can use custom transformers to change the runner associated with a `resource_class`.  In the example pipeline the setup job is using a `large` resource class runner.  You want to change that to the correct runner in GitHub Actions with label 'some-large-runner'.  
+You can use custom transformers to change the runner associated with a `resource_class`.  In the example pipeline the setup job is using a `large` resource class runner.  You want to change that to the correct runner name in GitHub Actions, which is some-large-runner.  
 
 To do this, add the following code to the `transformers.rb` file.
 
