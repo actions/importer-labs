@@ -146,7 +146,8 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 ```
 
 ## Custom transformers for resource class:
-You can use custom transformers to change the runner associated with a `resource_class`.  In the example pipeline the setup job is using a `large` resource class runner.  You want to change that to the correct runner name in GitHub Actions, which is some-large-runner.  
+
+You can also use custom transformers to change the runner for a job that defines a `resource_class` attribute.  In the example pipeline, the `setup` job uses a `resource_class` of `large` to dictate the machine used to execute the job.  In this scenario, you may want to use this value to perform the `setup` job on a runner with the label of `some-large-runner` in Actions.
 
 To do this, add the following code to the `transformers.rb` file.
 
