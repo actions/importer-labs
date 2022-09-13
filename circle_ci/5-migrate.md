@@ -18,14 +18,14 @@ Answer the following questions before running a `migrate` command:
 2. Where do you want to store the logs?
     - __./tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+    - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ### Steps
 
-1. Run the following `migrate` command in the codespace terminal:
+1. Run the following `migrate` command in the codespace terminal. Ensure the values in `--target-url` for `:owner` and `:repo` are replaced with your values:
 
     ```bash
-    gh valet migrate gitlab --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --circle-ci-project circleci-hello-world
+    gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --circle-ci-project circleci-hello-world
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
@@ -43,9 +43,6 @@ Next, you can inspect the "Files changed" in this pull request and see the conve
 ![action-run](https://user-images.githubusercontent.com/18723510/189924238-9f6799c7-e029-4695-a1de-a23666171992.png)
 
 Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
-
-
-
 
 At this point, the migration has completed and you have successfully migrated a CircleCI pipeline to Actions!
 
