@@ -186,6 +186,7 @@ end
 ```
 
 </details>
+
 That's it! Congratulations, you have overridden Valet's default behavior by customizing the conversion of:
 
 - Unknown steps
