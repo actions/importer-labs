@@ -128,7 +128,26 @@ end
 
 ## Custom transformers for environment variables
 
-ADD_CONTENT
+You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `tmp/cov`.
+
+To do this, add the following code to the `transformers.rb` file.
+
+```ruby
+env "COVERAGE_DIR", "$RUNNER_TEMP/cov"
+```
+
+In this example, the first parameter to the `env` method is the environment variable name and the second is the updated value.
+
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow the `COVERAGE_DIR` environment variable will be set to `$RUNNER_TEMP/cov`:
+
+```diff
+ env:
+-  COVERAGE_DIR: "./tmp/cov"
++. COVERAGE_DIR: "$RUNNER_TEMP/cov"
+```
+
+## Custom transformers for resource class:
+ADD_CONTENT_HERE
 
 That's it! Congratulations, you have overridden Valet's default behavior by customizing the conversion of:
 
