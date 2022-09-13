@@ -125,7 +125,6 @@ transform "codecov_codecov_upload" do |item|
 end
 ```
 
-
 ## Custom transformers for environment variables
 
 You can use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `tmp/cov`.
