@@ -26,7 +26,7 @@ Answer the following questions before running the `forecast` command:
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ADD_SCREENSHOT_HERE
+    ![command-output](https://user-images.githubusercontent.com/18723510/189935161-dfd66c9c-e4f8-4833-ae7d-445c83cf75ba.png)
 
 ## Review the forecast report
 
@@ -76,7 +76,7 @@ Here are some key terms of items defined in the forecast report:
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
 
-Additionally, these metrics are defined for each queue of runners defined in GitLab. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
+Additionally, these metrics are defined for each queue of runners defined in CircleCI. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
 
 ## Forecasting multiple providers
 
@@ -96,4 +96,4 @@ You can now inspect the output of the command to see a forecast report using all
 
 ## Next steps
 
-This concludes all labs for migrating GitLab pipelines to Actions with Valet!
+This concludes all labs for migrating CircleCI pipelines to Actions with Valet!
