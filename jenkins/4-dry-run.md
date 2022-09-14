@@ -141,4 +141,4 @@ Try running the `dry-run` command for different pipelines in the Jenkins server.
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
