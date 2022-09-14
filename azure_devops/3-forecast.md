@@ -101,4 +101,4 @@ Additionally, these metrics are defined for each queue of runners defined in Azu
 
 ## Next steps
 
-This concludes all labs for migrating Azure DevOps pipelines to Actions with Valet!
+[Perform a dry-run migration of an Azure DevOps pipeline](4-dry-run.md)

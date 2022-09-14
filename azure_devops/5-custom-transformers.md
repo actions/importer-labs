@@ -232,4 +232,4 @@ That's it! At this point you have overridden Valet's default behavior by customi
 
 ## Next lab
 
-[Perform a production migration of an Azure DevOps pipeline](5-migrate.md)
+[Perform a production migration of an Azure DevOps pipeline](6-migrate.md)
