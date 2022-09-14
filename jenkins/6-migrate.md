@@ -52,4 +52,4 @@ At this point, the migration has completed and you have successfully migrated a 
 
 ### Next lab
 
-[Forecast potential build runner usage](6-forecast.md)
+This concludes all labs for migrating Jenkins pipelines to Actions with Valet!

@@ -33,7 +33,7 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id -o tmp/dry-run-lab
+    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -127,7 +127,7 @@ This method can use any valid ruby syntax and should return a `Hash` that repres
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
 ```bash
-gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id -o tmp/dry-run-lab --custom-transformers transformers.rb
+gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab --custom-transformers transformers.rb
 ```
 
 Open the workflow that is generated and inspect the contents. Now the `DotnetCoreCLI@2` steps are converted using the customized behavior!
@@ -232,4 +232,4 @@ That's it! At this point you have overridden Valet's default behavior by customi
 
 ## Next lab
 
-[Perform a production migration of an Azure DevOps pipeline](5-migrate.md)
+[Perform a production migration of an Azure DevOps pipeline](6-migrate.md)

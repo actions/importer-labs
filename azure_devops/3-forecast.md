@@ -26,8 +26,10 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devops-project :project
+    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports
     ```
+
+    __Note__: The Azure DevOps organization and project name can be omitted from the `forecast` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
 
 3. The command will output a message that says "No jobs found" because no jobs have been executed in your bootstrapped project.
 
@@ -40,7 +42,7 @@ Answer the following questions before running the `forecast` command:
 5. Run the following `forecast` command while specifying the path to the sample json files:
 
     ```bash
-    gh valet forecast azure-devops -o ./tmp/forecast_reports --source-file-path azure_devops/bootstrap/jobs.json
+    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --source-file-path azure_devops/bootstrap/jobs.json
     ```
 
 6. The command will list all the files written to disk when the command succeeds.
@@ -99,4 +101,4 @@ Additionally, these metrics are defined for each queue of runners defined in Azu
 
 ## Next steps
 
-This concludes all labs for migrating Azure DevOps pipelines to Actions with Valet!
+[Perform a dry-run migration of an Azure DevOps pipeline](4-dry-run.md)

@@ -28,7 +28,7 @@ You will now perform an audit against the bootstrapped Azure DevOps project. Ans
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit azure-devops --output-dir tmp/audit --namespace valet
+    gh valet audit azure-devops --output-dir tmp/audit
     ```
 
     __Note__: The Azure DevOps organization and project name can be omitted from the `audit` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
@@ -172,4 +172,4 @@ Each pipeline will have a variety of files written that include:
 
 ### Next lab
 
-[Perform a dry-run migration of an Azure DevOps pipeline](3-dry-run.md)
+[Forecast potential build runner usage](3-forecast.md)

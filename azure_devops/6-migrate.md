@@ -57,4 +57,4 @@ At this point, the migration has completed and you have successfully migrated an
 
 ### Next lab
 
-[Forecast potential build runner usage](6-forecast.md)
+This concludes all labs for migrating Azure DevOps pipelines to Actions with Valet!

@@ -1,22 +1,24 @@
 # Forecast potential build runner usage
 
-In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in your GitLab server.
+In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in your Jenkins server.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a GitLab server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
 
 ## Perform a forecast
 
 Answer the following questions before running the `forecast` command:
 
-1. What namespace do you want to run the forecast for?
-    - **valet**
+1. Do you want to forecast the entire Jenkins server or a single folder?
+    - You will be forecasting the entire Jenkins server but you could optionally limit this by using the `-f <folder_path>` CLI option.
+
 2. What is the date you want to start forecasting from?
-    - **2022-08-02**. This date is needed as it is prior to when the data was seeded in GitLab for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
+    - __2022-08-02__. This date is needed as it is prior to when the data was seeded in Jenkins for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
+
 3. Where do you want to store the results?
-    - **./tmp/forecast_reports**
+    - `./tmp/forecast_reports`
 
 ### Steps
 
@@ -24,12 +26,12 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 2022-08-02
+    gh valet forecast jenkins --output-dir ./tmp/forecast_reports --start-date 2022-08-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![img](https://user-images.githubusercontent.com/18723510/185232893-1ed46bca-f310-47dc-804c-40c13737f231.png)
+    ![img](https://user-images.githubusercontent.com/19557880/186223037-18556c82-5a29-4434-bc17-4b906d704967.png)
 
 ## Review the forecast report
 
@@ -44,30 +46,30 @@ The forecast report, logs, and completed job data will be located within the `tm
 The "Total" section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
 
 ```md
-- Job count: **57**
-- Pipeline count: **15**
+- Job count: __73__
+- Pipeline count: __6__
 
 - Execution time
 
-  - Total: **135 minutes**
-  - Median: **0 minutes**
-  - P90: **7 minutes**
-  - Min: **0 minutes**
-  - Max: **10 minutes**
+  - Total: __27,057 minutes__
+  - Median: __2 minutes__
+  - P90: __19 minutes__
+  - Min: __0 minutes__
+  - Max: __15,625 minutes__
 
 - Queue time
 
-  - Median: **0 minutes**
-  - P90: **5 minutes**
-  - Min: **0 minutes**
-  - Max: **42 minutes**
+  - Median: __0 minutes__
+  - P90: __0 minutes__
+  - Min: __0 minutes__
+  - Max: __0 minutes__
 
 - Concurrent jobs
 
-  - Median: **0**
-  - P90: **0**
-  - Min: **0**
-  - Max: **9**
+  - Median: __1__
+  - P90: __3__
+  - Min: __0__
+  - Max: __29__
 ```
 
 Here are some key terms of items defined in the forecast report:
@@ -79,7 +81,7 @@ Here are some key terms of items defined in the forecast report:
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
 
-Additionally, these metrics are defined for each queue of runners defined in GitLab. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
+Additionally, these metrics are defined for each queue of runners defined in Jenkins. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
 
 ## Forecasting multiple providers
 
@@ -87,16 +89,16 @@ You can examine the available options for the `forecast` command by running `gh 
 
 ![img](https://user-images.githubusercontent.com/19557880/186263140-f02c6cab-7979-417c-bdfe-b9590e9c5597.png)
 
-You can use the `--source-file-path` CLI option to combine data from multiple reports into a single report. This becomes useful if you use multiple CI/CD providers and want to get a holistic view of the runner usage. This works by using the `.json` files generated by `forecast` commands as space-delimited values for the `--source-file-path` CLI option. Optionally, this value could be a glob pattern to dynamically specify the list of files (e.g. `**/*.json`).
+You can use the `--source-file-path` CLI option to combine data from multiple reports into a single report. This becomes useful if you use multiple CI/CD providers and wanted to get a holistic view of the runner usage. This works by using the `.json` files generated by `forecast` commands as space-delimited values for the `--source-file-path` CLI option. Optionally, this value could be a glob pattern to dynamically specify the list of files (e.g. `**/*.json`).
 
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast
+gh valet forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/combined-forecast
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
 
 ## Next steps
 
-This concludes all labs for migrating GitLab pipelines to Actions with Valet!
+[Perform a dry-run migration of a Jenkins pipeline](4-dry-run.md)

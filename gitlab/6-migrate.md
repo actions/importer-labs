@@ -50,4 +50,4 @@ At this point, the migration has completed and you have successfully migrated a 
 
 ### Next Lab
 
-[Forecast potential build runner usage](6-forecast.md)
+This concludes all labs for migrating GitLab pipelines to Actions with Valet!

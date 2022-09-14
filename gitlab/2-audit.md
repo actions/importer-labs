@@ -180,4 +180,4 @@ Each pipeline will have a variety of files written that include:
 
 ### Next lab
 
-[Perform a dry-run migration of a GitLab pipeline](3-dry-run.md)
+[Forecast potential build runner usage](3-forecast.md)
