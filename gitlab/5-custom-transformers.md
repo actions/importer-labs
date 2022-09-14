@@ -163,4 +163,4 @@ That's it! Congratulations, you have overridden Valet's default behavior by cust
 
 ## Next lab
 
-[Perform a production migration of a GitLab pipeline](5-migrate.md)
+[Perform a production migration of a GitLab pipeline](6-migrate.md)
