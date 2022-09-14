@@ -27,7 +27,7 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run
+    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir .tmp/jenkins/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.

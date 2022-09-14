@@ -92,7 +92,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast
+gh valet forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/combined-forecast
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.

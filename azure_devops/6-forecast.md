@@ -40,7 +40,7 @@ Answer the following questions before running the `forecast` command:
 5. Run the following `forecast` command while specifying the path to the sample json files:
 
     ```bash
-    gh valet forecast azure-devops -o ./tmp/forecast_reports --source-file-path azure_devops/bootstrap/jobs.json
+    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --source-file-path azure_devops/bootstrap/jobs.json
     ```
 
 6. The command will list all the files written to disk when the command succeeds.

@@ -13,7 +13,7 @@ In this lab you will use the `dry-run` command to convert an Azure DevOps pipeli
 You will perform a dry run for a pipeline in the bootstrapped Azure DevOps project. Answer the following questions before running this command:
 
 1. What is the id of the pipeline to convert?
-    - __:id__. This id can be found by:
+    - __:pipeline_id__. This id can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
       - Selecting the pipeline with the name "valet-pipeline1"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
@@ -27,7 +27,7 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id -o tmp/dry-run-lab
+    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
