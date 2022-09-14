@@ -26,8 +26,10 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --azure-devops-project :project
+    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports
     ```
+
+    __Note__: The Azure DevOps organization and project name can be omitted from the `forecast` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
 
 3. The command will output a message that says "No jobs found" because no jobs have been executed in your bootstrapped project.
 
