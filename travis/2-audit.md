@@ -3,6 +3,7 @@
 In this lab, you will use the `audit` command to get a high-level view of all projects in a Travis CI organization.
 
 The `audit` command operates by performing the following:
+
 - Fetching all of the projects defined in a Travis CI organization.
 - Converting each to their equivalent GitHub Actions workflow.
 - Generating a report that summarizes how complete and complex of a migration is possible with Valet.
@@ -45,83 +46,79 @@ The pipeline summary section contains high level statistics regarding the conver
 ```md
 # Audit summary
 
-Summary for [Travis CI instance](https://travis-ci.com/valet-travis-labs)
+Summary for [Travis CI instance](https://travis-ci.com/valet-labs)
 
 - Valet version: **0.1.0.13539 (5bb6c723d6db3688ea0653e14bbf3c63df445bfc)**
-- Performed at: **9/15/22 at 22:24**
+- Performed at: **9/16/22 at 20:01**
 
 ## Pipelines
 
-Total: **6**
+Total: **5**
 
 - Successful: **0 (0%)**
-- Partially successful: **6 (100%)**
+- Partially successful: **5 (100%)**
 - Unsupported: **0 (0%)**
 - Failed: **0 (0%)**
 
 ### Job types
 
-Supported: **6 (100%)**
+Supported: **5 (100%)**
 
-- ruby: **2**
-- c: **1**
-- nodejs: **1**
 - php: **1**
+- nodejs: **1**
+- ruby: **2**
 - python: **1**
 
 ### Build steps
 
-Total: **29**
+Total: **25**
 
-Known: **26 (89%)**
+Known: **22 (88%)**
 
-- script: **7**
 - install: **6**
+- script: **5**
 - before_script: **3**
 - rvm: **2**
 - after_deploy: **2**
-- ccache: **1**
 - pushover: **1**
-- dependencies: **1**
+- irc: **1**
 - before_deploy: **1**
 - php: **1**
-- irc: **1**
 
-Unknown: **1 (3%)**
+Unknown: **1 (4%)**
 
 - codedeploy: **1**
 
-Unsupported: **2 (6%)**
+Unsupported: **2 (8%)**
 
 - sudo: **2**
 
-Actions: **32**
+Actions: **28**
 
-- run: **19**
-- actions/checkout@v2: **7**
+- run: **17**
+- actions/checkout@v2: **6**
 - ruby/setup-ruby@v1: **2**
-- actions/cache@v2: **1**
-- desiderati/github-action-pushover@v1: **1**
-- shivammathur/setup-php@v2: **1**
 - rectalogic/notify-irc@v1: **1**
+- shivammathur/setup-php@v2: **1**
+- desiderati/github-action-pushover@v1: **1**
 
 ### Triggers
 
-Total: **36**
+Total: **30**
 
-Known: **36 (100%)**
+Known: **30 (100%)**
 
-- crons: **6**
-- branches: **6**
-- config_validation: **6**
-- build_pull_requests: **6**
-- build_pushes: **6**
-- builds_only_with_travis_yml: **6**
+- crons: **5**
+- branches: **5**
+- config_validation: **5**
+- build_pull_requests: **5**
+- build_pushes: **5**
+- builds_only_with_travis_yml: **5**
 
-Actions: **12**
+Actions: **10**
 
-- pull_request: **6**
-- push: **6**
+- pull_request: **5**
+- push: **5**
 
 ### Environment
 
@@ -137,16 +134,16 @@ Actions: **1**
 
 ### Other
 
-Total: **18**
+Total: **15**
 
-Known: **12 (66%)**
+Known: **10 (66%)**
 
-- auto_cancel_pull_requests: **6**
-- auto_cancel_pushes: **6**
+- auto_cancel_pull_requests: **5**
+- auto_cancel_pushes: **5**
 
-Unknown: **6 (33%)**
+Unknown: **5 (33%)**
 
-- maximum_number_of_builds: **6**
+- maximum_number_of_builds: **5**
 
 Actions: **3**
 
@@ -163,42 +160,35 @@ Secrets: **1**
 
 ### Partially successful
 
-#### valet-travis-labs/deploy-example
+#### valet-labs/travisci-php-example
 
-- [valet-travis-labs/deploy-example.yml](valet-travis-labs/deploy-example.yml)
-- [valet-travis-labs/deploy-example.config.json](valet-travis-labs/deploy-example.config.json)
-- [valet-travis-labs/deploy-example.source.yml](valet-travis-labs/deploy-example.source.yml)
+- [valet-labs/travisci-php-example.yml](valet-labs/travisci-php-example.yml)
+- [valet-labs/travisci-php-example.config.json](valet-labs/travisci-php-example.config.json)
+- [valet-labs/travisci-php-example.source.yml](valet-labs/travisci-php-example.source.yml)
 
-#### valet-travis-labs/c-sharp-example
+#### valet-labs/travisci-nodejs-example
 
-- [valet-travis-labs/c-sharp-example.yml](valet-travis-labs/c-sharp-example.yml)
-- [valet-travis-labs/c-sharp-example.config.json](valet-travis-labs/c-sharp-example.config.json)
-- [valet-travis-labs/c-sharp-example.source.yml](valet-travis-labs/c-sharp-example.source.yml)
+- [valet-labs/travisci-nodejs-example.yml](valet-labs/travisci-nodejs-example.yml)
+- [valet-labs/travisci-nodejs-example.config.json](valet-labs/travisci-nodejs-example.config.json)
+- [valet-labs/travisci-nodejs-example.source.yml](valet-labs/travisci-nodejs-example.source.yml)
 
-#### valet-travis-labs/ruby-example
+#### valet-labs/travisci-ruby-example
 
-- [valet-travis-labs/ruby-example.yml](valet-travis-labs/ruby-example.yml)
-- [valet-travis-labs/ruby-example.config.json](valet-travis-labs/ruby-example.config.json)
-- [valet-travis-labs/ruby-example.source.yml](valet-travis-labs/ruby-example.source.yml)
+- [valet-labs/travisci-ruby-example.yml](valet-labs/travisci-ruby-example.yml)
+- [valet-labs/travisci-ruby-example.config.json](valet-labs/travisci-ruby-example.config.json)
+- [valet-labs/travisci-ruby-example.source.yml](valet-labs/travisci-ruby-example.source.yml)
 
-#### valet-travis-labs/nodejs-example
+#### valet-labs/travisci-python-example
 
-- [valet-travis-labs/nodejs-example.yml](valet-travis-labs/nodejs-example.yml)
-- [valet-travis-labs/nodejs-example.config.json](valet-travis-labs/nodejs-example.config.json)
-- [valet-travis-labs/nodejs-example.source.yml](valet-travis-labs/nodejs-example.source.yml)
+- [valet-labs/travisci-python-example.yml](valet-labs/travisci-python-example.yml)
+- [valet-labs/travisci-python-example.config.json](valet-labs/travisci-python-example.config.json)
+- [valet-labs/travisci-python-example.source.yml](valet-labs/travisci-python-example.source.yml)
 
-#### valet-travis-labs/php-example
+#### valet-labs/travisci-deploy-example
 
-- [valet-travis-labs/php-example.yml](valet-travis-labs/php-example.yml)
-- [valet-travis-labs/php-example.config.json](valet-travis-labs/php-example.config.json)
-- [valet-travis-labs/php-example.source.yml](valet-travis-labs/php-example.source.yml)
-
-#### valet-travis-labs/python
-
-- [valet-travis-labs/python.yml](valet-travis-labs/python.yml)
-- [valet-travis-labs/python.config.json](valet-travis-labs/python.config.json)
-- [valet-travis-labs/python.source.yml](valet-travis-labs/python.source.yml)
-
+- [valet-labs/travisci-deploy-example.yml](valet-labs/travisci-deploy-example.yml)
+- [valet-labs/travisci-deploy-example.config.json](valet-labs/travisci-deploy-example.config.json)
+- [valet-labs/travisci-deploy-example.source.yml](valet-labs/travisci-deploy-example.source.yml)
 ```
 
 Here are some key terms that can appear in the “Pipelines” section:
@@ -217,39 +207,36 @@ The "Job types" section will summarize which types of pipelines are being used a
 The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
 
 ```md
-Total: **29**
+Total: **25**
 
-Known: **26 (89%)**
+Known: **22 (88%)**
 
-- script: **7**
 - install: **6**
+- script: **5**
 - before_script: **3**
 - rvm: **2**
 - after_deploy: **2**
-- ccache: **1**
 - pushover: **1**
-- dependencies: **1**
+- irc: **1**
 - before_deploy: **1**
 - php: **1**
-- irc: **1**
 
-Unknown: **1 (3%)**
+Unknown: **1 (4%)**
 
 - codedeploy: **1**
 
-Unsupported: **2 (6%)**
+Unsupported: **2 (8%)**
 
 - sudo: **2**
 
-Actions: **32**
+Actions: **28**
 
-- run: **19**
-- actions/checkout@v2: **7**
+- run: **17**
+- actions/checkout@v2: **6**
 - ruby/setup-ruby@v1: **2**
-- actions/cache@v2: **1**
-- desiderati/github-action-pushover@v1: **1**
-- shivammathur/setup-php@v2: **1**
 - rectalogic/notify-irc@v1: **1**
+- shivammathur/setup-php@v2: **1**
+- desiderati/github-action-pushover@v1: **1**
 ```
 
 Here are some key terms that can appear in "Build steps" section:
@@ -291,42 +278,35 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Partially successful
 
-#### valet-travis-labs/deploy-example
+#### valet-labs/travisci-php-example
 
-- [valet-travis-labs/deploy-example.yml](valet-travis-labs/deploy-example.yml)
-- [valet-travis-labs/deploy-example.config.json](valet-travis-labs/deploy-example.config.json)
-- [valet-travis-labs/deploy-example.source.yml](valet-travis-labs/deploy-example.source.yml)
+- [valet-labs/travisci-php-example.yml](valet-labs/travisci-php-example.yml)
+- [valet-labs/travisci-php-example.config.json](valet-labs/travisci-php-example.config.json)
+- [valet-labs/travisci-php-example.source.yml](valet-labs/travisci-php-example.source.yml)
 
-#### valet-travis-labs/c-sharp-example
+#### valet-labs/travisci-nodejs-example
 
-- [valet-travis-labs/c-sharp-example.yml](valet-travis-labs/c-sharp-example.yml)
-- [valet-travis-labs/c-sharp-example.config.json](valet-travis-labs/c-sharp-example.config.json)
-- [valet-travis-labs/c-sharp-example.source.yml](valet-travis-labs/c-sharp-example.source.yml)
+- [valet-labs/travisci-nodejs-example.yml](valet-labs/travisci-nodejs-example.yml)
+- [valet-labs/travisci-nodejs-example.config.json](valet-labs/travisci-nodejs-example.config.json)
+- [valet-labs/travisci-nodejs-example.source.yml](valet-labs/travisci-nodejs-example.source.yml)
 
-#### valet-travis-labs/ruby-example
+#### valet-labs/travisci-ruby-example
 
-- [valet-travis-labs/ruby-example.yml](valet-travis-labs/ruby-example.yml)
-- [valet-travis-labs/ruby-example.config.json](valet-travis-labs/ruby-example.config.json)
-- [valet-travis-labs/ruby-example.source.yml](valet-travis-labs/ruby-example.source.yml)
+- [valet-labs/travisci-ruby-example.yml](valet-labs/travisci-ruby-example.yml)
+- [valet-labs/travisci-ruby-example.config.json](valet-labs/travisci-ruby-example.config.json)
+- [valet-labs/travisci-ruby-example.source.yml](valet-labs/travisci-ruby-example.source.yml)
 
-#### valet-travis-labs/nodejs-example
+#### valet-labs/travisci-python-example
 
-- [valet-travis-labs/nodejs-example.yml](valet-travis-labs/nodejs-example.yml)
-- [valet-travis-labs/nodejs-example.config.json](valet-travis-labs/nodejs-example.config.json)
-- [valet-travis-labs/nodejs-example.source.yml](valet-travis-labs/nodejs-example.source.yml)
+- [valet-labs/travisci-python-example.yml](valet-labs/travisci-python-example.yml)
+- [valet-labs/travisci-python-example.config.json](valet-labs/travisci-python-example.config.json)
+- [valet-labs/travisci-python-example.source.yml](valet-labs/travisci-python-example.source.yml)
 
-#### valet-travis-labs/php-example
+#### valet-labs/travisci-deploy-example
 
-- [valet-travis-labs/php-example.yml](valet-travis-labs/php-example.yml)
-- [valet-travis-labs/php-example.config.json](valet-travis-labs/php-example.config.json)
-- [valet-travis-labs/php-example.source.yml](valet-travis-labs/php-example.source.yml)
-
-#### valet-travis-labs/python
-
-- [valet-travis-labs/python.yml](valet-travis-labs/python.yml)
-- [valet-travis-labs/python.config.json](valet-travis-labs/python.config.json)
-- [valet-travis-labs/python.source.yml](valet-travis-labs/python.source.yml)
-
+- [valet-labs/travisci-deploy-example.yml](valet-labs/travisci-deploy-example.yml)
+- [valet-labs/travisci-deploy-example.config.json](valet-labs/travisci-deploy-example.config.json)
+- [valet-labs/travisci-deploy-example.source.yml](valet-labs/travisci-deploy-example.source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -338,4 +318,4 @@ Each pipeline will have a variety of files written that include:
 
 ### Next lab
 
-[Perform a dry-run of a Travis CI pipeline](3-dry-run.md)
+[Forecast potential build runner usage](3-forecast.md)

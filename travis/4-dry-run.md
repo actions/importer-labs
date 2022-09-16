@@ -13,7 +13,7 @@ In this lab you will use the `dry-run` command to convert a TravisCI pipeline to
 You will be performing a dry-run against a TravisCI project. Answer the following questions before running this command:
 
 1. What pipeline do you want to convert?
-    - __ruby-example__.  This is one of the sample projects avaiable in the TravisCI labs-data organization.
+    - __travisci-ruby-example__.  This is one of the sample projects avaiable in the TravisCI labs-data organization.
 
 2. Where do you want to store the result?
     - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
@@ -24,16 +24,16 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run travis-ci --travis-ci-repository "ruby-example" --output-dir tmp/travis/dry-run-lab
+    gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/travis/dry-run-lab
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![command-result](https://user-images.githubusercontent.com/19557880/190260513-87bae04f-2ff2-4539-b4e5-1e68eba3cf2c.png)
+    ![command-result](https://user-images.githubusercontent.com/19557880/190724470-2936443e-d2f2-41f8-8470-28e313111036.png)
 
 4. View the converted workflow:
     - Find `./tmp/travis/dry-run-lab` in the file explorer pane in your codespace.
-    - Click `ruby-example.yml` to open.
+    - Click `travisci-ruby-example.yml` to open.
 
 ## Inspect the output files
 
@@ -68,47 +68,46 @@ The files generated from the `dry-run` command represent the equivalent Actions 
   <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
-  name: valet-travis-labs/ruby-example
-  on:
-    push:
-      branches:
-      - "**/*"
-    pull_request:
-  concurrency:
-  #   # This item has no matching transformer
-  #   maximum_number_of_builds: 0
-  jobs:
-    test:
-      runs-on: # this agent type is not supported: [[{"dist"=>"trusty"}]]
-              ubuntu-latest
-      steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "${{ matrix.rvm }}"
-  #     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
-      - run: gem install bundler
-      - run: echo "hello!"
-      strategy:
-        matrix:
-          rvm:
-          - 1.9.3
-          - 2.0.0
-          - 2.1.0
-    test_2:
-      runs-on: # this agent type is not supported: [[{"dist"=>"trusty"}]]
-              ubuntu-latest
-      steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 1.9.3
-  #     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
-      - run: gem install bundler
-      - run: echo "child"
-
+name: valet-labs/travisci-ruby-example
+on:
+  push:
+    branches:
+    - "**/*"
+  pull_request:
+concurrency:
+#   # This item has no matching transformer
+#   maximum_number_of_builds: 0
+jobs:
+  test:
+    runs-on: # this agent type is not supported: [[{"dist"=>"trusty"}]]
+             ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "${{ matrix.rvm }}"
+#     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
+    - run: gem install bundler
+    - run: echo "hello!"
+    strategy:
+      matrix:
+        rvm:
+        - 1.9.3
+        - 2.0.0
+        - 2.1.0
+  test_2:
+    runs-on: # this agent type is not supported: [[{"dist"=>"trusty"}]]
+             ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 1.9.3
+#     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
+    - run: gem install bundler
+    - run: echo "child"
 ```
 
 </details>
@@ -117,4 +116,4 @@ Despite these two pipelines using different syntax they will function equivalent
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)
