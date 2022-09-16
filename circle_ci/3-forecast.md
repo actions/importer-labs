@@ -96,4 +96,4 @@ You can now inspect the output of the command to see a forecast report using all
 
 ## Next steps
 
-This concludes all labs for migrating CircleCI pipelines to Actions with Valet!
+[Perform a dry-run of a CircleCI pipeline](4-dry-run.md)

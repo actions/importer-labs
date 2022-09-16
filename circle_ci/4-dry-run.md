@@ -184,10 +184,11 @@ jobs:
     - run: bundle exec rspec spec --profile 10 --format RspecJunitFormatter --out /tmp/test-results/rspec/results.xml --format progress
     - run: bundle exec rubocop --format progress
 ```
+
 </details>
 
 Despite these two pipelines using different syntax they will function equivalently.
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)
