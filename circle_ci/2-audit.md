@@ -2,7 +2,10 @@
 
 In this lab, you will use the `audit` command to get a high-level view of all projects in a CircleCI organization.
 
-The `audit` command operates by fetching all of the projects defined in a CircleCI organization, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command will perform the following steps:
+1. Fetch all of the projects defined in an CircleCI organization.
+2. Convert each pipeline to their equivalent GitHub Actions workflow.
+3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
