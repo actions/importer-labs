@@ -41,10 +41,10 @@ Perform the following labs to test-drive Valet
 
 1. [Configure credentials for Valet](1-configure.md)
 2. [Perform an audit of Travis CI](2-audit.md)
-3. [Perform a dry-run of a Travis CI pipeline](3-dry-run.md)
-4. [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
-5. [Perform a production migration of a Travis CI pipeline](5-migrate.md)
-6. [Forecast potential build runner usage](6-forecast.md)
+3. [Forecast potential build runner usage](3-forecast.md)
+4. [Perform a dry-run of a Travis CI pipeline](4-dry-run.md)
+5. [Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
+6. [Perform a production migration of a Travis CI pipeline](6-migrate.md)
 
 ## Troubleshoot the Valet CLI
 
