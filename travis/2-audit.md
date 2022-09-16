@@ -2,7 +2,10 @@
 
 In this lab, you will use the `audit` command to get a high-level view of all projects in a Travis CI organization.
 
-The `audit` command operates by fetching all of the projects defined in a Travis CI organization, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command operates by performing the following:
+- Fetching all of the projects defined in a Travis CI organization.
+- Converting each to their equivalent GitHub Actions workflow.
+- Generating a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
