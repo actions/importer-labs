@@ -6,8 +6,8 @@ In this lab, you will use the `migrate` command to convert an Azure DevOps pipel
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
 2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
-3. Completed the [dry-run lab](./3-dry-run.md).
-4. Completed the [custom transformers lab](./4-custom-transformers.md).
+3. Completed the [dry-run lab](./4-dry-run.md).
+4. Completed the [custom transformers lab](./5-custom-transformers.md).
 
 ## Performing a migration
 

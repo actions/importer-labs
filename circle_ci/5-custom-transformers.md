@@ -11,7 +11,7 @@ In this lab you will build upon the `dry-run` command to override Valet's defaul
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
-3. Completed the [dry-run lab](./3-dry-run.md).
+3. Completed the [dry-run lab](./4-dry-run.md).
 
 ## Perform a dry-run
 
@@ -60,7 +60,7 @@ jobs:
 
 </details>
 
-_Note_: You can refer to the previous [lab](./3-dry-run.md) to learn about the fundamentals of the `dry-run` command.
+_Note_: You can refer to the previous [lab](./4-dry-run.md) to learn about the fundamentals of the `dry-run` command.
 
 ## Custom transformers for an unknown step
 
@@ -145,7 +145,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 +. COVERAGE_DIR: "$RUNNER_TEMP/cov"
 ```
 
-## Custom transformers for resource class:
+## Custom transformers for resource class
 
 You can also use custom transformers to change the runner for a job that defines a `resource_class` attribute.  In the example pipeline, the `setup` job uses a `resource_class` of `large` to dictate the machine used to execute the job.  In this scenario, you may want to use this value to perform the `setup` job on a runner with the label of `some-large-runner` in Actions.
 

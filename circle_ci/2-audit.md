@@ -11,7 +11,7 @@ The `audit` command operates by fetching all of the projects defined in a Circle
 
 ## Perform an audit
 
-We will be performing an audit against the **labs-data** organization in CircleCI, which was created for the purposes of this lab. Valet was already been set to use this organization during the configure lab. The only remaining information needed for the `audit` command is:
+You will be performing an `audit` for the __labs-data__ CircleCI organization that was created for the purposes of these labs. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
     - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.

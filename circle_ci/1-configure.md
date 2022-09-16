@@ -34,7 +34,6 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
     ![configure-screenshot](https://user-images.githubusercontent.com/18723510/188935436-308fa6d3-6eb7-48b9-bbf0-20ab0cdae411.png)
 
-
 ## Verify your environment
 
 To verify our environment is configured correctly, we are going to run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.

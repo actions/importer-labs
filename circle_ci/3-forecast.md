@@ -10,6 +10,7 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 ## Perform a forecast
 
 Answer the following questions before running the `forecast` command:
+
 1. What is the date you want to start forecasting from?
     - **2022-09-02**. This date is needed as it is prior to when the bulk of builds were trigger in the demo CircleCI organization for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
 2. Where do you want to store the results?

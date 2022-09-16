@@ -1,4 +1,4 @@
-# Perform a dry-run of a CircleCI pipeline
+# Perform a dry-run migration of a CircleCI pipeline
 
 In this lab you will use the `dry-run` command to convert a CircleCI pipeline to its equivalent GitHub Actions workflow.
 
@@ -10,7 +10,7 @@ In this lab you will use the `dry-run` command to convert a CircleCI pipeline to
 
 ## Perform a dry run
 
-You will be performing a dry-run against a CircleCI project. Answer the following questions before running this command:
+You will be performing a dry run migration against a CircleCI project. Answer the following questions before running this command:
 
 1. What project do you want to convert?
     - __circleci-demo-ruby-rails__.  This is one of the sample projects avaiable in the CircleCI labs-data organization.
@@ -31,12 +31,10 @@ You will be performing a dry-run against a CircleCI project. Answer the followin
 
     ![command-result](https://user-images.githubusercontent.com/18723510/189911131-bf6bfd6f-2b5e-4e49-8d14-95ef9c312117.png)
 
-    
-
 4. View the converted workflow:
     - Find `./tmp/dry-run-lab/labs-data/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
     - Click `build_and_test.yml` to open.
-   
+
 ## Inspect the output files
 
 The files generated from the `dry-run` command represent the equivalent Actions workflow for the CircleCI project. The CircleCI configuration and converted workflow can be seen below:
