@@ -17,7 +17,7 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
     - In this example you will audit the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the `audit` command.
 
 2. Where do you want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/audit__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -30,7 +30,30 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
-    ![img](https://user-images.githubusercontent.com/19557880/184682347-b19760fa-36a6-423e-a445-bb30eda5ac59.png)
+    ```console
+    $ gh valet audit jenkins --output-dir tmp/audit
+    [2022-08-20 22:08:20] Logs: 'tmp/audit/log/valet-20220916-015817.log'
+    [2022-08-20 22:08:20] Auditing 'http://localhost:8080/'
+    [2022-08-20 22:08:20] Output file(s):==========================================|
+    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.yml
+    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.config.json
+    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.jenkinsfile
+    [2022-08-20 22:08:20]   tmp/audit/groovy_script.error.txt
+    [2022-08-20 22:08:20]   tmp/audit/groovy_script.config.json
+    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_freestyle.yml
+    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_freestyle.config.json
+    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.yml
+    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.config.json
+    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.jenkinsfile
+    [2022-08-20 22:08:20]   tmp/audit/test_freestyle_project.yml
+    [2022-08-20 22:08:20]   tmp/audit/test_freestyle_project.config.json
+    [2022-08-20 22:08:20]   tmp/audit/test_mutlibranch_pipeline.config.json
+    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.yml
+    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.config.json
+    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.jenkinsfile
+    [2022-08-20 22:08:20]   tmp/audit/workflow_usage.csv
+    [2022-08-20 22:08:20]   tmp/audit/audit_summary.md
+    ```
 
 ## Inspect the output files
 
@@ -46,7 +69,24 @@ The audit summary, logs, config files, jenkinsfiles, and transformed workflows w
 
 The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
 
-  ![img](https://user-images.githubusercontent.com/19557880/184683664-81985baf-5c03-4765-a067-f4023416e3ea.png)
+> Total: __7__
+>
+> - Successful: __3 (42%)__
+> - Partially successful: __3 (42%)__
+> - Unsupported: __1 (14%)__
+> - Failed: __0 (0%)__
+>
+> ### Job types
+>
+> Supported: __6 (85%)__
+>
+> - flow-definition: __3__
+> - project: __2__
+> - org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject: __1__
+>
+> Unsupported: __1 (14%)__
+>
+> - scripted: __1__
 
 Here are some key terms in the “Pipelines” section in the above example:
 
@@ -67,7 +107,31 @@ The "Job types" section will summarize which types of pipelines are being used a
 
 The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
 
-  ![img](https://user-images.githubusercontent.com/19557880/184684062-69ab0bde-5e32-45f8-a7dd-ed4655872975.png)
+> Total: __17__
+>
+> Known: __13 (76%)__
+>
+> - echo: __6__
+> - hudson.tasks.Shell: __3__
+> - junit: __2__
+> - archiveArtifacts: __1__
+> - sh: __1__
+>
+> Unknown: __3 (17%)__
+>
+> - sleep: __2__
+> - hudson.plugins.git.GitPublisher: __1__
+>
+> Unsupported: __1 (5%)__
+>
+> - hudson.tasks.Mailer: __1__
+>
+> Actions: __22__
+>
+> - run: __10__
+> - actions/checkout@v2: __9__
+> - EnricoMi/publish-unit-test-result-action@v1.7: __2__
+> - actions/upload-artifact@v2: __1__
 
 Here are some key terms in the "Build steps" section in the above example:
 
@@ -86,7 +150,17 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
 
-  ![img](https://user-images.githubusercontent.com/19557880/184684249-9accfd94-c2df-4891-af56-dcff66beb557.png)
+> Total: __9__
+>
+> Secrets: __2__
+>
+> - `${{ secrets.SECRET_TEST_EXPRESSION_VAR }}`: __1__
+> - `${{ secrets.EXPRESSION_FIRST_VAR }}`: __1__
+>
+> Self hosted runners: __7__
+>
+> - `TeamARunner`: __6__
+> - `DemoRunner`: __1__
 
 Here are some key terms in the “Manual tasks” section in the above example:
 
@@ -97,7 +171,48 @@ Here are some key terms in the “Manual tasks” section in the above example:
 
 The final section of the audit report provides a manifest of all of the files that are written to disk during the audit. These files include:
 
-  ![img](https://user-images.githubusercontent.com/19557880/184684416-b3db774e-4ab8-46e0-91ad-e503632df5cb.png)
+> ### Successful
+>
+> #### demo_pipeline
+>
+> - [demo_pipeline.yml](demo_pipeline.yml)
+> - [demo_pipeline.config.json](demo_pipeline.config.json)
+> - [demo_pipeline.jenkinsfile](demo_pipeline.jenkinsfile)
+>
+> #### monas_dev_work/monas_freestyle
+>
+> - [monas_dev_work/monas_freestyle.yml](monas_dev_work/monas_freestyle.yml)
+> - [monas_dev_work/monas_freestyle.config.json](monas_dev_work/monas_freestyle.config.json)
+>
+> #### test_mutlibranch_pipeline
+>
+> - [test_mutlibranch_pipeline.config.json](test_mutlibranch_pipeline.config.json)
+>
+> ### Partially successful
+>
+> #### monas_dev_work/monas_pipeline
+>
+> - [monas_dev_work/monas_pipeline.yml](monas_dev_work/monas_pipeline.yml)
+> - [monas_dev_work/monas_pipeline.config.json](monas_dev_work/monas_pipeline.config.json)
+> - [monas_dev_work/monas_pipeline.jenkinsfile](monas_dev_work/monas_pipeline.jenkinsfile)
+>
+> #### test_freestyle_project
+>
+> - [test_freestyle_project.yml](test_freestyle_project.yml)
+> - [test_freestyle_project.config.json](test_freestyle_project.config.json)
+>
+> #### test_pipeline
+>
+> - [test_pipeline.yml](test_pipeline.yml)
+> - [test_pipeline.config.json](test_pipeline.config.json)
+> - [test_pipeline.jenkinsfile](test_pipeline.jenkinsfile)
+>
+> ### Failed
+>
+> #### groovy_script
+>
+> - [groovy_script.error.txt](groovy_script.error.txt)
+> - [groovy_script.config.json](groovy_script.config.json)
 
 Each pipeline will have a variety of files written that include:
 
