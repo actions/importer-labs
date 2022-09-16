@@ -3,7 +3,7 @@
 In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Jenkins server.
 
 The `audit` command will perform the following steps:
-1. Fetch all of the projects defined in a Jenkins organization.
+1. Fetch all of the projects defined in a Jenkins server.
 2. Convert each pipeline to their equivalent GitHub Actions workflow.
 3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
 
