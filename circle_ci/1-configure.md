@@ -22,7 +22,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - Select the `TERMINAL` tab from within the codespace terminal window.
     - Run the following command: `gh valet configure`.
     - Using the down arrow key to highlight `CircleCI`, press the spacebar to select, and then hit enter to continue.
-    - At the prompt enter your GitHub Username and press enter.
+    - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 2 and press enter.
     - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter.
     - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
     - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
