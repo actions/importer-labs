@@ -197,7 +197,7 @@ With these questions answered, you can add the following code to the `transforme
 runner "linux", ["new-runner", "self-hosted"]
 ```
 
-In this example, the first parameter to the `runner` method is the Azure DevOps label and the second is the Actions runner label.
+In this example, the first parameter to the `runner` method is the Azure DevOps label and the second is the Actions runner labels.
 
 Now you can perform another `dry-run` command with the `--custom-transformers` CLI option.  When you open the converted workflow, the `runs-on` statement will use the customized runner label:
 
