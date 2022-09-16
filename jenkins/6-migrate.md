@@ -42,15 +42,7 @@ Answer the following questions before running a `migrate` command:
 
 The first thing we should notice about the pull request is that there is a list of manual steps to complete:
 
-> Pipeline migrated from [Jenkins](http://localhost:8080/job/monas_dev_work/job/monas_freestyle) 🎉
->
-> ## Manual steps
->
-> Perform the follow steps to complete the migration:
->
-> ### monas_dev_work/monas_freestyle
->
-> - [ ] Ensure secret is available: `${{ secrets.SECRET_TEST_EXPRESSION_VAR }}`
+![img](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
 
 Next, review the workflow you are adding by clicking on the `Files changed` tab. This is where you double check that everything looks good. If it didn't, you could push commits with the required changes, prior to merging.
 
