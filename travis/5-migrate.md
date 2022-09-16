@@ -14,7 +14,7 @@ In this lab, you will use the `migrate` command to convert a Travis CI pipeline 
 Answer the following questions before running a `migrate` command:
 
 1. What project do you want to migrate?
-    - __deploy-example__
+    - __travisci-deploy-example__
 2. Where do you want to store the logs?
     - __./tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
@@ -25,12 +25,12 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal. Ensure the values in `--target-url` for `:owner` and `:repo` are replaced with your values:
 
     ```bash
-    gh valet migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --travis-ci-repository "deploy-example"
+    gh valet migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --travis-ci-repository "travisci-deploy-example"
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
-    ![pr](https://user-images.githubusercontent.com/19557880/190689859-d16a678b-f08f-44c1-a819-780ea967ecaf.png)
+    ![pr](https://user-images.githubusercontent.com/19557880/190726057-f90d31ed-69cc-457b-aab7-3ca21e16df68.png)
 
 3. Open the generated pull request in a new browser tab.
 
@@ -40,7 +40,7 @@ The first thing to notice about the pull request is that there is a list of manu
 
 Next, you can inspect the "Files changed" in this pull request and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this pull request.
 
-![action-run](https://user-images.githubusercontent.com/19557880/190496147-2f8af72d-51d9-426b-94cf-5d0d7fe02eb3.png)
+![action-run](https://user-images.githubusercontent.com/19557880/190726209-dd9ddc54-5ac7-4951-b525-24d76d4378ab.png)
 
 Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
 
