@@ -116,4 +116,4 @@ Despite these two pipelines using different syntax they will function equivalent
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)

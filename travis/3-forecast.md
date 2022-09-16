@@ -95,6 +95,6 @@ gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
 
-## Next steps
+### Next Lab
 
-This concludes all labs for migrating Travis CI pipelines to Actions with Valet!
+[Perform a dry-run of a Travis CI pipeline](4-dry-run.md)

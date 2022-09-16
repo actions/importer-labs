@@ -46,6 +46,6 @@ Finally, you can merge the pull request once your review has completed. You can 
 
 At this point, the migration has completed and you have successfully migrated a Travis CI pipeline to Actions!
 
-### Next Lab
+## Next steps
 
-[Forecast potential build runner usage](6-forecast.md)
+This concludes all labs for migrating Travis CI pipelines to Actions with Valet!
