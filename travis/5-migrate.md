@@ -30,7 +30,7 @@ Answer the following questions before running a `migrate` command:
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
-    ![pr](https://user-images.githubusercontent.com/19557880/190496147-2f8af72d-51d9-426b-94cf-5d0d7fe02eb3.png)
+    ![pr](https://user-images.githubusercontent.com/19557880/190689859-d16a678b-f08f-44c1-a819-780ea967ecaf.png)
 
 3. Open the generated pull request in a new browser tab.
 
