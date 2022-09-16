@@ -121,7 +121,7 @@ transform "codedeploy" do |_item|
 end
 ```
 
-This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Travis CI.
+This method can use any valid ruby syntax and should return a `Hash`, or an array of `Hashes` that represent the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Travis CI.
 
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
