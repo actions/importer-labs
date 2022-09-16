@@ -69,24 +69,28 @@ The audit summary, logs, config files, jenkinsfiles, and transformed workflows w
 
 The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
 
-> Total: __7__
->
-> - Successful: __3 (42%)__
-> - Partially successful: __3 (42%)__
-> - Unsupported: __1 (14%)__
-> - Failed: __0 (0%)__
->
-> ### Job types
->
-> Supported: __6 (85%)__
->
-> - flow-definition: __3__
-> - project: __2__
-> - org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject: __1__
->
-> Unsupported: __1 (14%)__
->
-> - scripted: __1__
+```md
+## Pipelines
+
+Total: **7**
+
+- Successful: **3 (42%)**
+- Partially successful: **3 (42%)**
+- Unsupported: **1 (14%)**
+- Failed: **0 (0%)**
+
+### Job types
+
+Supported: **6 (85%)**
+
+- flow-definition: **3**
+- project: **2**
+- org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject: **1**
+
+Unsupported: **1 (14%)**
+
+- scripted: **1**
+```
 
 Here are some key terms in the “Pipelines” section in the above example:
 
@@ -107,31 +111,35 @@ The "Job types" section will summarize which types of pipelines are being used a
 
 The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
 
-> Total: __17__
->
-> Known: __13 (76%)__
->
-> - echo: __6__
-> - hudson.tasks.Shell: __3__
-> - junit: __2__
-> - archiveArtifacts: __1__
-> - sh: __1__
->
-> Unknown: __3 (17%)__
->
-> - sleep: __2__
-> - hudson.plugins.git.GitPublisher: __1__
->
-> Unsupported: __1 (5%)__
->
-> - hudson.tasks.Mailer: __1__
->
-> Actions: __22__
->
-> - run: __10__
-> - actions/checkout@v2: __9__
-> - EnricoMi/publish-unit-test-result-action@v1.7: __2__
-> - actions/upload-artifact@v2: __1__
+```md
+### Build steps
+
+Total: **17**
+
+Known: **13 (76%)**
+
+- echo: **6**
+- hudson.tasks.Shell: **3**
+- junit: **2**
+- archiveArtifacts: **1**
+- sh: **1**
+
+Unknown: **3 (17%)**
+
+- sleep: **2**
+- hudson.plugins.git.GitPublisher: **1**
+
+Unsupported: **1 (5%)**
+
+- hudson.tasks.Mailer: **1**
+
+Actions: **22**
+
+- run: **10**
+- actions/checkout@v2: **9**
+- EnricoMi/publish-unit-test-result-action@v1.7: **2**
+- actions/upload-artifact@v2: **1**
+```
 
 Here are some key terms in the "Build steps" section in the above example:
 
@@ -150,17 +158,21 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
 
-> Total: __9__
->
-> Secrets: __2__
->
-> - `${{ secrets.SECRET_TEST_EXPRESSION_VAR }}`: __1__
-> - `${{ secrets.EXPRESSION_FIRST_VAR }}`: __1__
->
-> Self hosted runners: __7__
->
-> - `TeamARunner`: __6__
-> - `DemoRunner`: __1__
+```md
+### Manual tasks
+
+Total: **9**
+
+Secrets: **2**
+
+- `${{ secrets.SECRET_TEST_EXPRESSION_VAR }}`: **1**
+- `${{ secrets.EXPRESSION_FIRST_VAR }}`: **1**
+
+Self hosted runners: **7**
+
+- `TeamARunner`: **6**
+- `DemoRunner`: **1**
+```
 
 Here are some key terms in the “Manual tasks” section in the above example:
 
@@ -171,48 +183,50 @@ Here are some key terms in the “Manual tasks” section in the above example:
 
 The final section of the audit report provides a manifest of all of the files that are written to disk during the audit. These files include:
 
-> ### Successful
->
-> #### demo_pipeline
->
-> - [demo_pipeline.yml](demo_pipeline.yml)
-> - [demo_pipeline.config.json](demo_pipeline.config.json)
-> - [demo_pipeline.jenkinsfile](demo_pipeline.jenkinsfile)
->
-> #### monas_dev_work/monas_freestyle
->
-> - [monas_dev_work/monas_freestyle.yml](monas_dev_work/monas_freestyle.yml)
-> - [monas_dev_work/monas_freestyle.config.json](monas_dev_work/monas_freestyle.config.json)
->
-> #### test_mutlibranch_pipeline
->
-> - [test_mutlibranch_pipeline.config.json](test_mutlibranch_pipeline.config.json)
->
-> ### Partially successful
->
-> #### monas_dev_work/monas_pipeline
->
-> - [monas_dev_work/monas_pipeline.yml](monas_dev_work/monas_pipeline.yml)
-> - [monas_dev_work/monas_pipeline.config.json](monas_dev_work/monas_pipeline.config.json)
-> - [monas_dev_work/monas_pipeline.jenkinsfile](monas_dev_work/monas_pipeline.jenkinsfile)
->
-> #### test_freestyle_project
->
-> - [test_freestyle_project.yml](test_freestyle_project.yml)
-> - [test_freestyle_project.config.json](test_freestyle_project.config.json)
->
-> #### test_pipeline
->
-> - [test_pipeline.yml](test_pipeline.yml)
-> - [test_pipeline.config.json](test_pipeline.config.json)
-> - [test_pipeline.jenkinsfile](test_pipeline.jenkinsfile)
->
-> ### Failed
->
-> #### groovy_script
->
-> - [groovy_script.error.txt](groovy_script.error.txt)
-> - [groovy_script.config.json](groovy_script.config.json)
+```md
+### Successful
+
+#### demo_pipeline
+
+- [demo_pipeline.yml](demo_pipeline.yml)
+- [demo_pipeline.config.json](demo_pipeline.config.json)
+- [demo_pipeline.jenkinsfile](demo_pipeline.jenkinsfile)
+
+#### monas_dev_work/monas_freestyle
+
+- [monas_dev_work/monas_freestyle.yml](monas_dev_work/monas_freestyle.yml)
+- [monas_dev_work/monas_freestyle.config.json](monas_dev_work/monas_freestyle.config.json)
+
+#### test_mutlibranch_pipeline
+
+- [test_mutlibranch_pipeline.config.json](test_mutlibranch_pipeline.config.json)
+
+### Partially successful
+
+#### monas_dev_work/monas_pipeline
+
+- [monas_dev_work/monas_pipeline.yml](monas_dev_work/monas_pipeline.yml)
+- [monas_dev_work/monas_pipeline.config.json](monas_dev_work/monas_pipeline.config.json)
+- [monas_dev_work/monas_pipeline.jenkinsfile](monas_dev_work/monas_pipeline.jenkinsfile)
+
+#### test_freestyle_project
+
+- [test_freestyle_project.yml](test_freestyle_project.yml)
+- [test_freestyle_project.config.json](test_freestyle_project.config.json)
+
+#### test_pipeline
+
+- [test_pipeline.yml](test_pipeline.yml)
+- [test_pipeline.config.json](test_pipeline.config.json)
+- [test_pipeline.jenkinsfile](test_pipeline.jenkinsfile)
+
+### Failed
+
+#### groovy_script
+
+- [groovy_script.error.txt](groovy_script.error.txt)
+- [groovy_script.config.json](groovy_script.config.json)
+```
 
 Each pipeline will have a variety of files written that include:
 
