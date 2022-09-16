@@ -52,30 +52,32 @@ The forecast report, logs, and completed job data will be located within the `tm
 
 The "Total" section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
 
-> - Job count: __73__
-> - Pipeline count: __6__
->
-> - Execution time
->
->   - Total: __27,057 minutes__
->   - Median: __2 minutes__
->   - P90: __19 minutes__
->   - Min: __0 minutes__
->   - Max: __15,625 minutes__
->
-> - Queue time
->
->   - Median: __0 minutes__
->   - P90: __0 minutes__
->   - Min: __0 minutes__
->   - Max: __0 minutes__
->
-> - Concurrent jobs
->
->   - Median: __1__
->   - P90: __3__
->   - Min: __0__
->   - Max: __29__
+```md
+- Job count: **73**
+- Pipeline count: **6**
+
+- Execution time
+
+  - Total: **27,057 minutes**
+  - Median: **2 minutes**
+  - P90: **19 minutes**
+  - Min: **0 minutes**
+  - Max: **15,625 minutes**
+
+- Queue time
+
+  - Median: **0 minutes**
+  - P90: **0 minutes**
+  - Min: **0 minutes**
+  - Max: **0 minutes**
+
+- Concurrent jobs
+
+  - Median: **1**
+  - P90: **3**
+  - Min: **0**
+  - Max: **29**
+```
 
 Here are some key terms of items defined in the forecast report:
 
