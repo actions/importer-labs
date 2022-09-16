@@ -5,7 +5,7 @@ In this lab you will use the `dry-run` command to convert a GitLab pipeline to i
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a GitLab server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
@@ -19,7 +19,7 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
     - __Valet__
 
 3. Where do you want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -27,7 +27,7 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run gitlab --output-dir ./tmp/dry-run-lab --namespace valet --project basic-pipeline-example
+    gh valet dry-run gitlab --output-dir tmp/dry-run --namespace valet --project basic-pipeline-example
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -35,9 +35,9 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
     ![img](https://user-images.githubusercontent.com/18723510/184173635-aec28d1c-8c61-4dcf-a743-f86cbdc836c5.png)
 
 4. View the converted workflow:
-    - Find `./tmp/dry-run/valet` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/valet` in the file explorer pane in your codespace.
     - Click `basic-pipeline-example.yml` to open.
-   
+
 ## Inspect the output files
 
 The files generated from the `dry-run` command represent the equivalent Actions workflow for the given GitLab pipeline. The GitLab pipeline and converted workflow can be seen below:
@@ -98,7 +98,7 @@ deploy_b:
 
 <details>
   <summary><em>Converted workflow 👇</em></summary>
-  
+
 ```yaml
 name: valet/basic-pipeline-example
 on:
@@ -196,6 +196,7 @@ jobs:
     - run: echo "test stage complete. It will start at about the same time as deploy_a."
     - run: sleep 400
 ```
+
 </details>
 
 Despite these two pipelines using different syntax they will function equivalently.
