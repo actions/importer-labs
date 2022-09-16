@@ -14,7 +14,7 @@ In this lab, you will use the `migrate` command to convert a Travis CI pipeline 
 Answer the following questions before running a `migrate` command:
 
 1. What project do you want to migrate?
-    - __circleci-hello-world__
+    - __deploy-example__
 2. Where do you want to store the logs?
     - __./tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
