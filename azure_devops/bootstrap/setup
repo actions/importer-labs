@@ -1,0 +1,195 @@
+#!/usr/bin/env ruby
+require "date"
+require "json"
+require "net/http"
+require "open3"
+require "optparse"
+require "pathname"
+require "tmpdir"
+
+options = {
+  assets_file: "azure_devops.tgz",
+  pipeline_assets_dir: "pipelines",
+  root_dir: File.join(ENV["CODESPACE_VSCODE_FOLDER"], "azure_devops/bootstrap"),
+  forecast_source_file: "jobs.json"
+}
+
+OptionParser.new do |opt|
+  opt.on('--organization ORGANIZATION') { |o| options[:organization] = o }
+  opt.on('--project PROJECT') { |o| options[:project] = o }
+  opt.on('--access-token ACCESS_TOKEN') { |o| options[:access_token] = o }
+end.parse!
+
+[:organization, :project, :access_token].each do |key|
+  raise OptionParser::MissingArgument, key if options[key].nil?
+end
+
+def post_request(uri, body, access_token)
+  Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+    request = Net::HTTP::Post.new(uri)
+    request.basic_auth "", access_token
+    request.body = body.to_json
+    request.content_type = 'application/json'
+  
+    response = http.request request
+
+    yield(response) if block_given?
+
+    sleep(5)
+
+    JSON.parse(response.body)
+  end
+end
+
+def create_project(options)
+  organization = options[:organization]
+  project = options[:project]
+  access_token = options[:access_token]
+
+  puts "Creating project #{project} in organization #{organization}..."
+  uri = URI("https://dev.azure.com/#{organization}/_apis/projects?api-version=6.0")
+  
+  project_to_create = {
+    name: project,
+    description: "Project to be used for Valet Labs",
+    capabilities: {
+      versioncontrol: {
+        sourceControlType: "Git"
+      },
+      processTemplate: {
+        templateTypeId: "6b724908-ef14-45cf-84f8-768b5384da45"
+      }
+    }
+  }
+
+  post_request(uri, project_to_create, access_token) do |response|
+    raise "Error creating project (#{response.code}:#{response.message})" unless response.code.start_with?("20")
+  end
+end
+
+def create_repository(options)
+  organization = options[:organization]
+  project = options[:project]
+  # use the default repository created when the project is created
+  repository = options[:project]
+  access_token = options[:access_token]
+  root_dir = options[:root_dir]
+  assets_file = options[:assets_file]
+
+  tmp_dir = Dir.mktmpdir
+  puts "Extracting assets..."
+  _, _, st = Open3.capture3("tar", "-xzf", File.join(root_dir, assets_file), "-C", tmp_dir)
+  abort unless st.exitstatus == 0
+  
+  uri = URI("https://dev.azure.com/#{organization}/#{project}/_apis/git/repositories/#{repository}/pushes?api-version=7.1-preview.2")
+  puts "Creating repository #{repository}..."
+  
+  root = Pathname.new(root_dir)
+  repository_to_create = {
+    refUpdates: [{
+      name: "refs/heads/main",
+      oldObjectId: "0000000000000000000000000000000000000000"
+    }],
+    commits: [{
+      comment: "Initial commit.",
+      changes: Dir[File.join(tmp_dir, "**/*")].reject {|f| File.directory?(f) }.map do |entry|
+        {
+          changeType: "add",
+          item: {
+            path: File.join("/", Pathname.new(entry).relative_path_from(tmp_dir).to_s)
+          },
+          newContent: {
+            content: File.read(entry),
+            contentType: "rawText"
+          }
+        }
+      end.flatten
+    }]
+  }
+
+  result = post_request(uri, repository_to_create, access_token) do |response|
+    raise "Error creating repository (#{response.code}:#{response.message})" unless response.code.start_with?("20")
+  end
+
+  [result, tmp_dir]
+end
+
+def create_yaml_pipelines(options, repository, tmp_dir)
+  organization = options[:organization]
+  project = options[:project]
+  repository_name = repository.dig("repository", "name")
+  repository_id = repository.dig("repository", "id")
+  access_token = options[:access_token]
+  pipeline_assets_dir = options[:pipeline_assets_dir]
+
+  puts "Creating yaml pipelines..."
+ 
+  uri = URI("https://dev.azure.com/#{organization}/#{project}/_apis/pipelines?api-version=6.0-preview.1")
+  root = Pathname.new(tmp_dir)
+  Dir[File.join(tmp_dir, pipeline_assets_dir, "yml", "*")].each do |entry|
+    puts "Creating pipeline #{entry}..."
+
+    pipeline_to_create = {
+      folder: "pipelines",
+      name: File.basename(entry, ".yml"),
+      configuration: {
+        type: "yaml",
+        path: File.join("/", Pathname.new(entry).relative_path_from(root).to_s),
+        repository: {
+          id: repository_id,
+          name: repository_name,
+          type: "azureReposGit"
+        }
+      }
+    }
+
+    post_request(uri, pipeline_to_create, access_token) do |response|
+      raise "Error creating pipeline (#{response.code}:#{response.message})" unless response.code.start_with?("20")
+    end
+  end
+end
+
+def create_classic_pipelines(options, repository)
+  organization = options[:organization]
+  project = options[:project]
+  repository_name = repository.dig("repository", "name")
+  repository_id = repository.dig("repository", "id")
+  access_token = options[:access_token]
+  root_dir = options[:root_dir]
+  pipeline_assets_dir = options[:pipeline_assets_dir]
+
+  puts "Creating classic pipelines..."
+ 
+  uri = URI("https://dev.azure.com/#{organization}/#{project}/_apis/build/definitions?api-version=7.1-preview.7")
+  root = Pathname.new(root_dir)
+  Dir[File.join(root_dir, pipeline_assets_dir, "classic", "*")].each do |entry|
+    puts "Creating pipeline #{entry}..."
+
+    pipeline_to_create = JSON.parse(File.read(entry))
+
+    pipeline_to_create["repository"]["name"] = repository_name
+    pipeline_to_create["repository"]["id"] = repository_id
+
+    post_request(uri, pipeline_to_create, access_token) do |response|
+      raise "Error creating pipeline (#{response.code}:#{response.message})" unless response.code.start_with?("20")
+    end
+  end
+end
+
+def update_forecast_source_file(options, tmp_dir) 
+  puts "Updating forecast data"
+  root_dir = options[:root_dir]
+  jobs_data_file = options[:forecast_source_file]
+  jobs_data = File.read(File.join(tmp_dir, jobs_data_file))
+  today = Date.today.strftime("%Y-%m-%d")
+  jobs_data.gsub!(/20[0-2][0-9]-[0-1][0-9]-[0-3][0-9]/, today)
+  File.write(File.join(root_dir, jobs_data_file), jobs_data)
+end
+
+create_project(options)
+repository, tmp_dir = create_repository(options)
+create_yaml_pipelines(options, repository, tmp_dir)
+create_classic_pipelines(options, repository)
+update_forecast_source_file(options, tmp_dir)
+
+puts "Success!"
