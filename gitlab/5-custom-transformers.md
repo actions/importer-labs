@@ -10,7 +10,7 @@ In this lab you will build upon the `dry-run` command to override Valet's defaul
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start you GitLab server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./4-dry-run.md).
 
 ## Perform a dry-run

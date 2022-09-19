@@ -7,7 +7,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 ## Configuring credentials
 
 1. Create an Azure DevOps personal access token (PAT).
-   
+
    __Note__: you can skip this step if you still have the PAT created during the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization).
     - Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browser.
     - In the top right corner of your screen, click `User settings`.
@@ -62,7 +62,8 @@ To verify our environment is configured correctly, run the `update` CLI command.
 
 2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
 
-   ```bash
+   ```console
+   $ gh valet update
    Login Succeeded
    latest: Pulling from valet-customers/valet-cli
    Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb

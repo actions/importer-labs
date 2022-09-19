@@ -10,7 +10,7 @@ In this lab we will build upon the `dry-run` command to override Valet's default
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 4. Completed the [dry-run lab](./4-dry-run.md).
 
@@ -25,7 +25,7 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
 2. Where do you want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -33,12 +33,12 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab
+    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run` in the file explorer pane in your codespace.
     - Click `valet-custom-transformer-example.yml` to open.
 
 The converted workflow that is generated can be seen below:
@@ -127,7 +127,7 @@ This method can use any valid ruby syntax and should return a `Hash` that repres
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
 ```bash
-gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab --custom-transformers transformers.rb
+gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run --custom-transformers transformers.rb
 ```
 
 Open the workflow that is generated and inspect the contents. Now the `DotnetCoreCLI@2` steps are converted using the customized behavior!

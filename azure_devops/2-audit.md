@@ -23,7 +23,7 @@ You will now perform an audit against the bootstrapped Azure DevOps project. Ans
     - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
 3. Where do you want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 

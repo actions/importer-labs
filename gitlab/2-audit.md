@@ -20,7 +20,7 @@ You will be performing an audit against your preconfigured GitLab server. Answer
     - __valet__. In this example you will be auditing the `valet` group. In the future, you could add additional groups and subgroups to the audit command.
 
 2. Where do you want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 

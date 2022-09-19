@@ -5,7 +5,7 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform a forecast
 
@@ -18,7 +18,7 @@ Answer the following questions before running the `forecast` command:
     - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
 3. Where do you want to store the results?
-    - `./tmp/forecast_reports`
+    - `tmp/forecast`
 
 ### Steps
 
@@ -26,7 +26,7 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports
+    gh valet forecast azure-devops --output-dir tmp/forecast
     ```
 
     __Note__: The Azure DevOps organization and project name can be omitted from the `forecast` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
@@ -42,7 +42,7 @@ Answer the following questions before running the `forecast` command:
 5. Run the following `forecast` command while specifying the path to the sample json files:
 
     ```bash
-    gh valet forecast azure-devops --output-dir ./tmp/forecast_reports --source-file-path azure_devops/bootstrap/jobs.json
+    gh valet forecast azure-devops --output-dir tmp/forecast --source-file-path azure_devops/bootstrap/jobs.json
     ```
 
 6. The command will list all the files written to disk when the command succeeds.
@@ -51,7 +51,7 @@ Answer the following questions before running the `forecast` command:
 
 ## Review the forecast report
 
-The forecast report, logs, and completed job data will be located within the `tmp/forecast_reports` folder.
+The forecast report, logs, and completed job data will be located within the `tmp/forecast` folder.
 
 1. Find the `forecast_report.md` file in the file explorer.
 2. Right-click the `forecast_report.md` file and select `Open Preview`.
