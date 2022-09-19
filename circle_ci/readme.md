@@ -12,28 +12,29 @@ These steps **must** be completed prior to starting other labs.
 
 1. Start a new Codespace.
 
-- Click the `Code` with button down arrow above repository on the repository's landing page.
-- Click the `Codespaces` tab
-- Click `Create codespaces on main` to create the codespace.
-- After the Codespace has initialized there will be a terminal present.
+    - Click the `Code` with button down arrow above repository on the repository's landing page.
+    - Click the `Codespaces` tab
+    - Click `Create codespaces on main` to create the codespace.
+    - After the Codespace has initialized there will be a terminal present.
 
 2. Verify the Valet CLI is installed and working. More information on the Valet extension for the official GitHub CLI can be found [here](https://github.com/github/gh-valet).
 
-- Run the following command in the codespace's terminal:
+    - Run the following command in the codespace's terminal:
 
-  ```bash
-  gh valet version
-  ```
+      ```bash
+      gh valet version
+      ```
 
-- Verify the output is similar to below. The version information may differ than what is shown below, it is expected that the `valet-cli` version is unknown. This will be corrected in the [configure credentials for Valet](1-configure.md) lab.
+    - Verify the output is similar to below.
 
-  ```bash
-  gh version 2.14.3 (2022-07-26)
-  gh valet        github/gh-valet v0.1.12
-  valet-cli       unknown
-  ```
+      ```console
+      $ gh valet version
+      gh version 2.14.3 (2022-07-26)
+      gh valet        github/gh-valet v0.1.12
+      valet-cli       unknown
+      ```
 
-  - If `gh valet version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-valet-cli).
+    - If `gh valet version` did not produce similar output, refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
 ## Labs for CircleCI
 
@@ -59,7 +60,8 @@ The CLI extension for Valet can be manually installed by following these steps:
 
 - Verify the result of the install contains:
 
-  ```bash
+  ```console
+  $ gh extension install github/gh-valet
   ✓ Installed extension github/gh-valet
   ```
 
