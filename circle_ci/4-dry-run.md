@@ -13,7 +13,7 @@ In this lab you will use the `dry-run` command to convert a CircleCI pipeline to
 You will be performing a dry run migration against a CircleCI project. Answer the following questions before running this command:
 
 1. What project do you want to convert?
-    - __circleci-demo-ruby-rails__.  This is one of the sample projects avaiable in the CircleCI labs-data organization.
+    - __circleci-demo-ruby-rails__.  This is one of the sample projects avaiable in the CircleCI valet-labs organization.
 
 2. Where do you want to store the result?
     - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
@@ -32,7 +32,7 @@ You will be performing a dry run migration against a CircleCI project. Answer th
     ![command-result](https://user-images.githubusercontent.com/18723510/189911131-bf6bfd6f-2b5e-4e49-8d14-95ef9c312117.png)
 
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab/labs-data/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
+    - Find `./tmp/dry-run-lab/valet-labs/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
     - Click `build_and_test.yml` to open.
 
 ## Inspect the output files
@@ -109,7 +109,7 @@ workflows:
   <summary><em>Converted workflow 👇</em></summary>
   
 ```yaml
-name: labs-data/circleci-demo-ruby-rails/build_and_test
+name: valet-labs/circleci-demo-ruby-rails/build_and_test
 on:
   push:
     branches:

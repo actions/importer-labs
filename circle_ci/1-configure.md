@@ -23,14 +23,14 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - Run the following command: `gh valet configure`.
     - Using the down arrow key to highlight `CircleCI`, press the spacebar to select, and then hit enter to continue.
     - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 2 and press enter.
-    - At the GitHub Container Registry prompt enter the GitHub PAT generated in step 1 and press enter.
-    - At the GitHub PAT prompt enter the GitHub PAT generated in step 1 and press enter.
-    - At the GitHub url prompt enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
-    - At the CircleCI token prompt enter the CircleCI access token from step 2 and press enter.
-    - At the CircleCI base url prompt hit enter to accept the default value (`https://circleci.com`).
-    - At the CircleCI organization name prompt enter `labs-data`. This is the organization we'll be using throughout these labs.
-    - At the access token to fetch source code in GitHub prompt enter the GitHub PAT generated in step 1 and press enter.
-    - At the GitHub instance url containing source code prompt press enter to accept the default value (`https://github.com`).
+    - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub PAT prompt, enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub url prompt, enter the GitHub instance url or hit enter to accept the default value (`https://github.com`).
+    - At the CircleCI token prompt, enter the CircleCI access token from step 2 and press enter.
+    - At the CircleCI base url prompt, hit enter to accept the default value (`https://circleci.com`).
+    - At the CircleCI organization name prompt, enter `valet-labs`. This is the organization we'll be using throughout these labs.
+    - At the access token to fetch source code in GitHub prompt, enter the GitHub PAT generated in step 1 and press enter.
+    - At the GitHub instance url containing source code prompt, press enter to accept the default value (`https://github.com`).
 
     ![configure-screenshot](https://user-images.githubusercontent.com/18723510/188935436-308fa6d3-6eb7-48b9-bbf0-20ab0cdae411.png)
 
@@ -46,7 +46,8 @@ To verify our environment is configured correctly, we are going to run the `upda
 
 2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
 
-   ```bash
+   ```console
+   $ gh valet version
    Login Succeeded
    latest: Pulling from valet-customers/valet-cli
    Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb

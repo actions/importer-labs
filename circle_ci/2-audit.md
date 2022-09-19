@@ -9,15 +9,15 @@ The `audit` command will perform the following steps:
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
 2. Completed the [configure lab](./1-configure.md#configure-credentials-for-valet).
 
 ## Perform an audit
 
-You will be performing an `audit` for the __labs-data__ CircleCI organization that was created for the purposes of these labs. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
+You will be performing an `audit` for the __valet-labs__ CircleCI organization that was created for the purposes of these labs. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
-    - __./tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+    - __tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
@@ -146,42 +146,42 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Successful
 
-#### labs-data/circleci-hello-world
+#### valet-labs/circleci-hello-world
 
-- [labs-data/circleci-hello-world/say-hello-workflow.yml](labs-data/circleci-hello-world/say-hello-workflow.yml)
-- [labs-data/circleci-hello-world.config.json](labs-data/circleci-hello-world.config.json)
-- [labs-data/circleci-hello-world.source.yml](labs-data/circleci-hello-world.source.yml)
+- [valet-valet-labs/circleci-hello-world/say-hello-workflow.yml](valet-labs/circleci-hello-world/say-hello-workflow.yml)
+- [valet-labs/circleci-hello-world.config.json](valet-labs/circleci-hello-world.config.json)
+- [valet-labs/circleci-hello-world.source.yml](valet-labs/circleci-hello-world.source.yml)
 
-#### labs-data/circleci-command-example
+#### valet-labs/circleci-command-example
 
-- [labs-data/circleci-command-example/my-workflow.yml](labs-data/circleci-command-example/my-workflow.yml)
+- [valet-labs/circleci-command-example/my-workflow.yml](valet-labs/circleci-command-example/my-workflow.yml)
 - [.github/actions/greeting/action.yml](.github/actions/greeting/action.yml)
-- [labs-data/circleci-command-example.config.json](labs-data/circleci-command-example.config.json)
-- [labs-data/circleci-command-example.source.yml](labs-data/circleci-command-example.source.yml)
+- [valet-labs/circleci-command-example.config.json](valet-labs/circleci-command-example.config.json)
+- [valet-labs/circleci-command-example.source.yml](valet-labs/circleci-command-example.source.yml)
 
-#### labs-data/circleci-node-example
+#### valet-labs/circleci-node-example
 
-- [labs-data/circleci-node-example/sample.yml](labs-data/circleci-node-example/sample.yml)
-- [labs-data/circleci-node-example.config.json](labs-data/circleci-node-example.config.json)
-- [labs-data/circleci-node-example.source.yml](labs-data/circleci-node-example.source.yml)
+- [valet-labs/circleci-node-example/sample.yml](valet-labs/circleci-node-example/sample.yml)
+- [valet-labs/circleci-node-example.config.json](valet-labs/circleci-node-example.config.json)
+- [valet-labs/circleci-node-example.source.yml](valet-labs/circleci-node-example.source.yml)
 
-#### labs-data/circleci-python-example
+#### valet-labs/circleci-python-example
 
-- [labs-data/circleci-python-example/sample.yml](labs-data/circleci-python-example/sample.yml)
-- [labs-data/circleci-python-example.config.json](labs-data/circleci-python-example.config.json)
-- [labs-data/circleci-python-example.source.yml](labs-data/circleci-python-example.source.yml)
+- [valet-labs/circleci-python-example/sample.yml](valet-labs/circleci-python-example/sample.yml)
+- [valet-labs/circleci-python-example.config.json](valet-labs/circleci-python-example.config.json)
+- [valet-labs/circleci-python-example.source.yml](valet-labs/circleci-python-example.source.yml)
 
-#### labs-data/circleci-demo-java-spring
+#### valet-labs/circleci-demo-java-spring
 
-- [labs-data/circleci-demo-java-spring/workflow.yml](labs-data/circleci-demo-java-spring/workflow.yml)
-- [labs-data/circleci-demo-java-spring.config.json](labs-data/circleci-demo-java-spring.config.json)
-- [labs-data/circleci-demo-java-spring.source.yml](labs-data/circleci-demo-java-spring.source.yml)
+- [valet-labs/circleci-demo-java-spring/workflow.yml](valet-labs/circleci-demo-java-spring/workflow.yml)
+- [valet-labs/circleci-demo-java-spring.config.json](valet-labs/circleci-demo-java-spring.config.json)
+- [valet-labs/circleci-demo-java-spring.source.yml](valet-labs/circleci-demo-java-spring.source.yml)
 
-#### labs-data/circleci-demo-ruby-rails
+#### valet-labs/circleci-demo-ruby-rails
 
-- [labs-data/circleci-demo-ruby-rails/build_and_test.yml](labs-data/circleci-demo-ruby-rails/build_and_test.yml)
-- [labs-data/circleci-demo-ruby-rails.config.json](labs-data/circleci-demo-ruby-rails.config.json)
-- [labs-data/circleci-demo-ruby-rails.source.yml](labs-data/circleci-demo-ruby-rails.source.yml)
+- [valet-labs/circleci-demo-ruby-rails/build_and_test.yml](valet-labs/circleci-demo-ruby-rails/build_and_test.yml)
+- [valet-labs/circleci-demo-ruby-rails.config.json](valet-labs/circleci-demo-ruby-rails.config.json)
+- [valet-labs/circleci-demo-ruby-rails.source.yml](valet-labs/circleci-demo-ruby-rails.source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
