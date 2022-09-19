@@ -20,7 +20,8 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "files.autoSave": "onFocusChange"
+        "files.autoSave": "onFocusChange",
+        "editor.tabSize": 2
       },
       "extensions": [
         "ms-azuretools.vscode-docker"
