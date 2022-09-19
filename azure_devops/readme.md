@@ -12,28 +12,29 @@ These steps **must** be completed prior to starting other labs.
 
 1. Start a new codespace.
 
-- Click the `Code` button on your repository's landing page.
-- Click the `Codespaces` tab.
-- Click `Create codespaces on main` to create the codespace.
-- After the codespace has initialized there will be a terminal present.
+    - Click the `Code` button on your repository's landing page.
+    - Click the `Codespaces` tab.
+    - Click `Create codespaces on main` to create the codespace.
+    - After the codespace has initialized there will be a terminal present.
 
 2. Verify the Valet CLI is installed and working. More information on the Valet extension for the official GitHub CLI can be found [here](https://github.com/github/gh-valet).
 
-- Run the following command in the codespace terminal:
+    - Run the following command in the codespace terminal:
 
-  ```bash
-  gh valet version
-  ```
+      ```bash
+      gh valet version
+      ```
 
-- Verify the output is similar to below.
-  
-  ```bash
-  gh version 2.14.3 (2022-07-26)
-  gh valet        github/gh-valet v0.1.12
-  valet-cli       unknown
-  ```
+    - Verify the output is similar to below.
 
-  - If `gh valet version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
+      ```console
+      $ gh valet version
+      gh version 2.14.3 (2022-07-26)
+      gh valet        github/gh-valet v0.1.12
+      valet-cli       unknown
+      ```
+
+    - If `gh valet version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
 ## Bootstrap your Azure DevOps organization
 
@@ -77,10 +78,10 @@ Perform the following labs to learn how to migrate Azure DevOps pipelines to Git
 
 1. [Configure credentials for Valet](1-configure.md)
 2. [Perform an audit of an Azure DevOps project](2-audit.md)
-3. [Perform a dry-run migration of an Azure DevOps pipeline](3-dry-run.md)
-4. [Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
-5. [Perform a production migration of a Azure DevOps pipeline](5-migrate.md)
-6. [Forecast potential build runner usage](6-forecast.md)
+3. [Forecast potential build runner usage](3-forecast.md)
+4. [Perform a dry-run migration of an Azure DevOps pipeline](4-dry-run.md)
+5. [Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
+6. [Perform a production migration of a Azure DevOps pipeline](6-migrate.md)
 
 ## Troubleshoot the Valet CLI
 
@@ -95,7 +96,8 @@ The CLI extension for Valet can be manually installed by following these steps:
 
 - Verify the result of the install contains:
 
-  ```bash
+  ```console
+  $ gh extension install github/gh-valet
   ✓ Installed extension github/gh-valet
   ```
 

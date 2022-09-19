@@ -5,7 +5,7 @@ In this lab you will use the `dry-run` command to convert an Azure DevOps pipeli
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Azure DevOps project.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
@@ -19,7 +19,7 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
 2. Where do you want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
@@ -27,14 +27,14 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run-lab
+    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run` in the file explorer pane in your codespace.
     - Click `valet-pipeline1.yml` to open.
-  
+
 ## Inspect the output files
 
 The files generated from the `dry-run` command represent the equivalent Actions workflow for the given Azure DevOps pipeline. The Azure DevOps pipeline and converted workflow can be seen below:
@@ -63,7 +63,7 @@ steps:
 
 <details>
   <summary><em>Converted workflow 👇</em></summary>
-  
+
 ```yaml
 name: valet-bootstrap/pipelines/valet-pipeline1
 on:

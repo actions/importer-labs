@@ -5,7 +5,7 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a GitLab server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform a forecast
 
@@ -16,7 +16,7 @@ Answer the following questions before running the `forecast` command:
 2. What is the date you want to start forecasting from?
     - **2022-08-02**. This date is needed as it is prior to when the data was seeded in GitLab for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
 3. Where do you want to store the results?
-    - **./tmp/forecast_reports**
+    - **tmp/forecast**
 
 ### Steps
 
@@ -24,7 +24,7 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast gitlab --output-dir ./tmp/forecast_reports --namespace valet --start-date 2022-08-02
+    gh valet forecast gitlab --output-dir tmp/forecast --namespace valet --start-date 2022-08-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -33,7 +33,7 @@ Answer the following questions before running the `forecast` command:
 
 ## Review the forecast report
 
-The forecast report, logs, and completed job data will be located within the `tmp/forecast_reports` folder.
+The forecast report, logs, and completed job data will be located within the `tmp/forecast` folder.
 
 1. Find the `forecast_report.md` file in the file explorer.
 2. Right-click the `forecast_report.md` file and select `Open Preview`.
@@ -92,7 +92,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/combined-forecast
+gh valet forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
