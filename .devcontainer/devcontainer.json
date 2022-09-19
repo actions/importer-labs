@@ -14,7 +14,8 @@
     "--init"
   ],
   "remoteEnv": {
-    "DOCKER_ARGS": "--network=host"
+    "DOCKER_ARGS": "--network=host",
+    "INSTALLATION_TYPE": "labs"
   },
   "customizations": {
     "vscode": {
