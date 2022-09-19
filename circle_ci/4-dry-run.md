@@ -16,7 +16,7 @@ You will be performing a dry run migration against a CircleCI project. Answer th
     - __circleci-demo-ruby-rails__.  This is one of the sample projects avaiable in the CircleCI valet-labs organization.
 
 2. Where do you want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+    - __tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
@@ -24,15 +24,20 @@ You will be performing a dry run migration against a CircleCI project. Answer th
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run circle-ci --output-dir ./tmp/dry-run-lab --circle-ci-project circleci-demo-ruby-rails
+    gh valet dry-run circle-ci --output-dir tmp/dry-run-lab --circle-ci-project circleci-demo-ruby-rails
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![command-result](https://user-images.githubusercontent.com/18723510/189911131-bf6bfd6f-2b5e-4e49-8d14-95ef9c312117.png)
+    ```console
+    $ gh valet dry-run circle-ci --output-dir tmp/dry-run-lab --circle-ci-project circleci-demo-ruby-rails --circle-ci-organization valet-labs
+    [2022-09-19 19:46:03] Logs: 'tmp/dry-run-lab/log/valet-20220919-194603.log'     
+    [2022-09-19 19:46:05] Output file(s):                                           
+    [2022-09-19 19:46:05]   tmp/dry-run-lab/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+    ```
 
 4. View the converted workflow:
-    - Find `./tmp/dry-run-lab/valet-labs/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run-lab/valet-labs/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
     - Click `build_and_test.yml` to open.
 
 ## Inspect the output files

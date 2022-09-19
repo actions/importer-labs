@@ -16,7 +16,7 @@ Answer the following questions before running a `migrate` command:
 1. What project do you want to migrate?
     - __circleci-hello-world__
 2. Where do you want to store the logs?
-    - __./tmp/migrate__
+    - __tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
     - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
@@ -25,12 +25,16 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal. Ensure the values in `--target-url` for `:owner` and `:repo` are replaced with your values:
 
     ```bash
-    gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --circle-ci-project circleci-hello-world
+    gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
-    ![pr](https://user-images.githubusercontent.com/18723510/189923353-1166bd94-8d64-4924-ac55-3e06fa5d1734.png)
+    ```console
+    $ gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
+    [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/valet-20220916-014033.log'
+    [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
+    ```
 
 3. Open the generated pull request in a new browser tab.
 
