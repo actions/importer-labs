@@ -14,7 +14,7 @@ Answer the following questions before running the `forecast` command:
 1. What is the date you want to start forecasting from?
     - **2022-09-02**. This date is needed as it is prior to when the bulk of builds were trigger in the demo Travis CI organization for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
 2. Where do you want to store the results?
-    - **./tmp/forecast_reports**
+    - **tmp/forecast**
 
 ### Steps
 
@@ -22,7 +22,7 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast travis-ci --output-dir ./tmp/forecast_reports --start-date 2022-09-02
+    gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -31,7 +31,7 @@ Answer the following questions before running the `forecast` command:
 
 ## Review the forecast report
 
-The forecast report, logs, and completed job data will be located within the `tmp/forecast_reports` folder.
+The forecast report, logs, and completed job data will be located within the `tmp/forecast` folder.
 
 1. Find the `forecast_report.md` file in the file explorer.
 2. Right-click the `forecast_report.md` file and select `Open Preview`.
@@ -90,7 +90,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/combined-forecast
+gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/forecast-combined
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.

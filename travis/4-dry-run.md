@@ -16,7 +16,7 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
     - __travisci-ruby-example__.  This is one of the sample projects avaiable in the TravisCI labs-data organization.
 
 2. Where do you want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+    - __tmp/dry-run__. This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
@@ -24,7 +24,7 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/travis/dry-run-lab
+    gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -32,7 +32,7 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
     ![command-result](https://user-images.githubusercontent.com/19557880/190724470-2936443e-d2f2-41f8-8470-28e313111036.png)
 
 4. View the converted workflow:
-    - Find `./tmp/travis/dry-run-lab` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run` in the file explorer pane in your codespace.
     - Click `travisci-ruby-example.yml` to open.
 
 ## Inspect the output files

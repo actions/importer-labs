@@ -25,7 +25,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal. Ensure the values in `--target-url` for `:owner` and `:repo` are replaced with your values:
 
     ```bash
-    gh valet migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir ./tmp/migrate --travis-ci-repository "travisci-deploy-example"
+    gh valet migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --travis-ci-repository "travisci-deploy-example"
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
