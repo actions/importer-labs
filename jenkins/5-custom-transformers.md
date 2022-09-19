@@ -205,7 +205,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 
 You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will be updating the `DB_ENGINE` environment variable to be `mongodb` instead of `sqlite`.
 
-To do this, add the following code to the `transformers.rb` file.
+To do this, add the following code at the top of the `transformers.rb` file.
 
 ```ruby
 env "DB_ENGINE", "mongodb"
