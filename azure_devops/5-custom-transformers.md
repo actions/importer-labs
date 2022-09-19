@@ -94,10 +94,10 @@ You can use custom transformers to override Valet's default behavior. In this sc
           shell: bash
       ```
 
-Now you can begin to write the custom transformer. Customer transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
+Now you can begin to write the custom transformer. Custom transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
 
 ```bash
-code transformers.rb
+touch transformers.rb && code transformers.rb
 ```
 
 Next, you will define a `transform` method for the `DotnetCoreCLI@2` identifier by adding the following code to `transformers.rb`:
