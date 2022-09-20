@@ -148,12 +148,42 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 +  PLAN_JSON: custom_plan.json
 ```
 
+## Custom transformers for runners
+
+Finally, you can use custom transformers to dictate which runners the converted workflows should use. To do this, answer the following questions:
+
+1. What is label of the runner in GitLab to update?
+    - Since there is no `tags` stanza defined in the `terraform-example` project in GitLab, you will need to use the Ruby symbol for the default runner:
+      
+      __:default__
+
+2. What is the label of the runner in Actions to use instead?
+    - __custom-runner__
+
+With these questions answered, you can add the following code to the `transformers.rb` file:
+
+```ruby
+runner :default, "custom-runner"
+```
+
+In this example, the first parameter to the `runner` method is the GitLab label and the second is the Actions runner label.
+
+Now you can perform another `dry-run` command with the `--custom-transformers` CLI option. When you open the converted workflow the `runs-on` statement will use the customized runner label:
+
+```diff
+runs-on:
+-  - ubuntu-latest
++  - custom-runner
+```
+
 At this point, the file contents of `transformers.rb` should match this:
 
 <details>
   <summary><em>Custom transformers 👇</em></summary>
 
 ```ruby
+  runner :default, "custom-runner"
+
   env "PLAN_JSON", "custom_plan.json"
 
   transform "artifacts.terraform" do |item|
