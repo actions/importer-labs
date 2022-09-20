@@ -18,7 +18,7 @@ The `audit` command operates by performing the following:
 You will be performing an audit against the **labs-data** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
-    - **./tmp/audit**.  This can be any path within the working directory that Valet commands are executed from.
+    - **tmp/audit**.  This can be any path within the working directory that Valet commands are executed from.
 
 ### Steps
 
