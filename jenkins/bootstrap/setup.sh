@@ -18,10 +18,6 @@ else
   docker run -d --name jenkins -p 8080:8080 --env JENKINS_ADMIN_ID=$username --env JENKINS_ADMIN_PASSWORD=$password jenkins:$container_name
 fi
 
-# allow valet to talk to Jenkins by removing network isolation between containers
-export DOCKER_ARGS="--network=host"
-grep -q "export DOCKER_ARGS=" ~/.bashrc || echo 'export DOCKER_ARGS="--network=host"' >> ~/.bashrc
-
 echo -e "\nWaiting for Jenkins to start..."
 while ! curl -s http://localhost:8080/ > /dev/null; do
   printf "."
