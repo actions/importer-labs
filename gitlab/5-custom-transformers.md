@@ -63,7 +63,7 @@ The converted workflow above contains an `artifacts.terraform` step that was not
     - __artifacts.terraform__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, you have determined that the following GitHub Action will provide similar functionality:
+    - After some research, you have determined that the following action will provide similar functionality:
 
       ```yaml
       - uses: actions/upload-artifact@v3
