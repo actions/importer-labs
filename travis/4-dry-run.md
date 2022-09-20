@@ -29,7 +29,12 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![command-result](https://user-images.githubusercontent.com/19557880/190724470-2936443e-d2f2-41f8-8470-28e313111036.png)
+    ```console
+    $ gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
+    [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
+    [2022-09-19 19:46:05] Output file(s):                                           
+    [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/travisci-ruby-example.yml
+    ```
 
 4. View the converted workflow:
     - Find `tmp/dry-run` in the file explorer pane in your codespace.

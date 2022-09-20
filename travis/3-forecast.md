@@ -27,7 +27,14 @@ Answer the following questions before running the `forecast` command:
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![command-output](https://user-images.githubusercontent.com/19557880/190510549-e2d4eacd-2d3f-4778-8cf5-f5187f78350a.png)
+    ```console
+    $ gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
+    [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/valet-20220916-021004.log'
+    [2022-08-20 22:08:20] Forecasting 'http://travis-ci.com/valet-labs'
+    [2022-08-20 22:08:20] Output file(s):
+    [2022-08-20 22:08:20]   tmp/forecast/jobs/09-16-2022-02-10_jobs_0.json
+    [2022-08-20 22:08:20]   tmp/forecast/forecast_report.md
+    ```
 
 ## Review the forecast report
 

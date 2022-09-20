@@ -30,7 +30,11 @@ Answer the following questions before running a `migrate` command:
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
-    ![pr](https://user-images.githubusercontent.com/19557880/190726057-f90d31ed-69cc-457b-aab7-3ca21e16df68.png)
+    ```console
+    $ gh valet migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --travis-ci-repository "travisci-deploy-example"
+    [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/valet-20220916-014033.log'
+    [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
+    ```
 
 3. Open the generated pull request in a new browser tab.
 

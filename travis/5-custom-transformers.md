@@ -98,7 +98,7 @@ The converted workflow above contains an `codedeploy` step that was not automati
 Now you can begin to write the custom transformer. Custom transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
 
 ```bash
-code transformers.rb
+touch transformers.rb && code transformers.rb
 ```
 
 Next, you will define a `transform` method for the `codedeploy` identifier by adding the following code to `transformers.rb`:
@@ -107,15 +107,15 @@ Next, you will define a `transform` method for the `codedeploy` identifier by ad
 transform "codedeploy" do |_item|
   [
     {
-      "uses": "aws-actions/configure-aws-credentials@v1",
-      "with": {
-        "role-to-assume": "owner",
-        "role-session-name": "GitHub-Action-Role",
-        "aws-region": "east-2"
+      "uses" => "aws-actions/configure-aws-credentials@v1",
+      "with" => {
+        "role-to-assume" => "owner",
+        "role-session-name" => "GitHub-Action-Role",
+        "aws-region" => "east-2"
       }
     },
     {
-      "run": "echo \"Deploying branch ${{ env.GITHUB_REF }} to ${{ github.event.inputs.environment }}\"\ncommit_hash=`git rev-parse HEAD`\naws deploy create-deployment --application-name MyApp --deployment-group-name MyDeploymentGroup --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures\n"
+      "run" => "echo \"Deploying branch ${{ env.GITHUB_REF }} to ${{ github.event.inputs.environment }}\"\ncommit_hash=`git rev-parse HEAD`\naws deploy create-deployment --application-name MyApp --deployment-group-name MyDeploymentGroup --github-location repository=$GITHUB_REPOSITORY,commitId=$commit_hash --ignore-application-stop-failures\n"
     }
   ]
 end
@@ -241,7 +241,7 @@ That's it! Congratulations, you have overridden Valet's default behavior by cust
 
 - Unknown steps
 - Environment variables
-- Runner
+- Runners
 
 ## Next lab
 
