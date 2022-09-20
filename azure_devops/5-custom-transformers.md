@@ -87,7 +87,7 @@ You can use custom transformers to override Valet's default behavior. In this sc
     - __DotnetCoreCLI@2__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, you have determined that the uploading test results as an artifact will be suitable:
+      - After some research, you have determined that the following script will provide the desired functionality:
 
       ```yaml
         - run: shopt -s globstar; for f in ./**/*.csproj; do dotnet build $f --configuration ${{ env.BUILDCONFIGURATION }} ; done

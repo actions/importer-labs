@@ -9,7 +9,7 @@ In this lab you will build upon the `dry-run` command to override Valet's defaul
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start you GitLab server.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start your GitLab server.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./4-dry-run.md).
 
@@ -63,7 +63,7 @@ The converted workflow above contains an `artifacts.terraform` step that was not
     - __artifacts.terraform__
 
 2. What is the desired Actions syntax to use instead?
-    - After some research, you have determined that the following bash script will provide similar functionality:
+    - After some research, you have determined that the following GitHub Action will provide similar functionality:
 
       ```yaml
       - uses: actions/upload-artifact@v3
@@ -82,7 +82,7 @@ Next, you will define a `transform` method for the `artifacts.terraform` identif
 ```ruby
 transform "artifacts.terraform" do |item|
   {
-    uses: "actions/upload-artifact@v2",
+    uses: "actions/upload-artifact@v3",
     with: {
       path: item
     }
