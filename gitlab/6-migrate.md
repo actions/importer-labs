@@ -19,14 +19,14 @@ Answer the following questions before running a `migrate` command:
 3. Where do you want to store the logs?
     - __tmp/migrate__
 4. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values. The command below uses `git remote get-url` to automatically populate these values.
+    - __this repository__. The URL should should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ### Steps
 
 1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh valet migrate gitlab --target-url $(git remote get-url origin) --output-dir tmp/migrate --namespace valet --project rails-example
+    gh valet migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --namespace valet --project rails-example
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
