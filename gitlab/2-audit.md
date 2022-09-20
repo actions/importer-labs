@@ -181,6 +181,51 @@ Each pipeline will have a variety of files written that include:
 - The converted workflow.
 - Stack traces that can be used to troubleshoot a failed pipeline conversion
 
+## Inspect the workflow usage csv file
+
+1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
+2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
+  
+    ```csv
+    Pipeline,Action,File path
+    valet/included-files-example,actions/checkout@v2,/data/tmp/audit/valet/included-files-example.yml
+    valet/terraform-example,actions/checkout@v2,/data/tmp/audit/valet/terraform-example.yml
+    valet/child-parent-example,actions/checkout@v2,/data/tmp/audit/valet/child-parent-example.yml
+    valet/child-parent-example,./.github/workflows/a-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example.yml
+    valet/child-parent-example,./.github/workflows/b-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example.yml
+    valet/include-file-example,actions/checkout@v2,/data/tmp/audit/valet/include-file-example.yml
+    valet/basic-pipeline-example,actions/checkout@v2,/data/tmp/audit/valet/basic-pipeline-example.yml
+    valet/gatsby-example,actions/checkout@v2,/data/tmp/audit/valet/gatsby-example.yml
+    valet/gatsby-example,actions/cache@v2,/data/tmp/audit/valet/gatsby-example.yml
+    valet/gatsby-example,actions/upload-artifact@v2,/data/tmp/audit/valet/gatsby-example.yml
+    valet/gatsby-example,actions/download-artifact@v2,/data/tmp/audit/valet/gatsby-example.yml
+    valet/gatsby-example,JamesIves/github-pages-deploy-action@4.1.5,/data/tmp/audit/valet/gatsby-example.yml
+    valet/android-example,actions/checkout@v2,/data/tmp/audit/valet/android-example.yml
+    valet/android-example,actions/upload-artifact@v2,/data/tmp/audit/valet/android-example.yml
+    valet/android-example,actions/download-artifact@v2,/data/tmp/audit/valet/android-example.yml
+    valet/dotnet-example,actions/checkout@v2,/data/tmp/audit/valet/dotnet-example.yml
+    valet/dotnet-example,actions/upload-artifact@v2,/data/tmp/audit/valet/dotnet-example.yml
+    valet/dotnet-example,actions/download-artifact@v2,/data/tmp/audit/valet/dotnet-example.yml
+    valet/node-example,actions/checkout@v2,/data/tmp/audit/valet/node-example.yml
+    valet/node-example,actions/cache@v2,/data/tmp/audit/valet/node-example.yml
+    valet/rails-example,actions/checkout@v2,/data/tmp/audit/valet/rails-example.yml
+
+    Pipeline,Secret,File path
+    valet/rails-example,${{ secrets.PASSWORD }},/data/tmp/audit/valet/rails-example.yml
+
+    Pipeline,Runner,File path
+    ```
+
+### Review workflow usage csv file
+
+#### Actions section
+
+The actions section contains a list of all actions that are used by each converted pipeline. This will enable you to perform strict security reviews to know exactly which repo will need access to a third-party action.
+
+#### Secrets and Runners sections
+
+The secrets and runners sections contain a list of all secrets and runners that are used by each converted pipeline. This will enable you to have a holistic view of what secrets and runners are used across all of your pipelines.
+
 ### Next lab
 
 [Forecast potential build runner usage](3-forecast.md)
