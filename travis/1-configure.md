@@ -32,10 +32,20 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     - At the Travis CI token prompt, enter the Travis CI access token from step 2 and press enter.
     - At the Travis CI base url prompt, hit enter to accept the default value (`https://travis-ci.com`).
     - At the Travis CI organization name, enter `valet-labs`.
-    - At the access token to fetch source code in GitHub prompt, enter the GitHub PAT generated in step 1 and press enter.
-    - At the GitHub instance url containing source code prompt, press enter to accept the default value (`https://github.com`).
 
-    ![configure-cli-terminal](https://user-images.githubusercontent.com/19557880/190726544-b07dbc5f-6756-44f2-a24c-54bb3f4d0414.png)
+    ```console
+    $ gh valet configure
+    ✔ Which CI providers are you configuring?: CircleCI
+    Enter the following values (leave empty to omit):
+    ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
+    ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
+    ✔ Personal access token for GitHub: ***************
+    ✔ Base url of the GitHub instance: https://github.com
+    ✔ Personal access token for CircleCI: ***************
+    ✔ Base url of the CircleCI instance: https://circleci.com
+    ✔ CircleCI organization name: valet-labs
+    Environment variables successfully updated.
+    ```
 
 ## Verify your environment
 
