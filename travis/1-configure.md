@@ -1,4 +1,4 @@
-a# Configure credentials for Valet
+# Configure credentials for Valet
 
 In this lab, you will use the `configure` CLI command to set the required credentials and information for Valet to use when working with Travis CI and GitHub.
 
