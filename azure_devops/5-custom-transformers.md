@@ -100,7 +100,32 @@ Now you can begin to write the custom transformer. Custom transformers use a DSL
 touch transformers.rb && code transformers.rb
 ```
 
-Next, you will define a `transform` method for the `DotnetCoreCLI@2` identifier by adding the following code to `transformers.rb`:
+To build this custom transformer, you first need to inspect the `item` keyword to programmatically obtain the projects, command, and arguments to use in the `DotNetCoreCLI@2` step.
+
+To do this, you will print `item` to the console. You can achieve this by adding the following custom transformer to `transformers.rb`:
+
+```ruby
+transform "DotNetCoreCLI@2" do |item|
+  puts "This is the item: #{item}"
+end
+```
+
+The `transform` method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
+
+Now, we can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
+
+```console
+$ gh valet dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-run --custom-transformers transformers.rb
+[2022-09-20 18:39:50] Logs: 'tmp/dry-run/log/valet-20220920-183950.log'         
+This is the item: {"command"=>"restore", "projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)"}
+This is the item: {"projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)", "arguments"=>"--configuration $(BUILDCONFIGURATION)"}
+[2022-09-20 18:39:51] Output file(s):
+[2022-09-20 18:39:51]   tmp/dry-run/lab-test/pipelines/valet-custom-transformer-example.yml
+```
+
+In the above command you will see two instances of `item` printed to the console. This is because there are two `DotNetCoreCLI@2` steps in the pipeline. Each item listed above represents each `DotNetCoreCLI@2` step in the order that they are defined in the pipeline.
+
+Now that you know the data structure of `item`, you can access the dotnet projects, command, and arguments programmatically by editing the custom transformer to the following:
 
 ```ruby
 transform "DotNetCoreCLI@2" do |item|
@@ -121,8 +146,6 @@ transform "DotNetCoreCLI@2" do |item|
   }
 end
 ```
-
-This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
 
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
