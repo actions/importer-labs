@@ -172,7 +172,7 @@ Open the workflow that is generated and inspect the contents. Now the `DotnetCor
 
 You can also use custom transformers to edit the values of environment variables in converted workflows. In this example, you will be updating the `BUILDCONFIGURATION` environment variable to be `Debug` instead of `Release`.
 
-To do this, add the following code to the `transformers.rb` file.
+To do this, add the following code at the top of the `transformers.rb` file.
 
 ```ruby
 env "BUILDCONFIGURATION", "Debug"

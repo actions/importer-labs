@@ -33,10 +33,6 @@ else
   docker exec -it gitlab update-permissions &> /dev/null
 fi
 
-# allow valet to talk to GitLab by removing network isolation between containers
-export DOCKER_ARGS="--network=host"
-`grep -q "export DOCKER_ARGS=" ~/.bashrc || echo 'export DOCKER_ARGS="--network=host"' >> ~/.bashrc`
-
 echo -e "Waiting for GitLab to be ready. This might take a while \U23F0"
 until $(curl --output /dev/null --silent --head --fail http://localhost); do
   printf '.'
