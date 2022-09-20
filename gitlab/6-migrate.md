@@ -26,7 +26,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh valet migrate gitlab --target-url $(git remote get-url origin) --output-dir ./tmp/migrate --namespace valet --project rails-example
+    gh valet migrate gitlab --target-url $(git remote get-url origin) --output-dir tmp/migrate --namespace valet --project rails-example
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
