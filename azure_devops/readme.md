@@ -1,143 +1,111 @@
-# Valet labs for Azure DevOps
+# Azure Pipelines to Actions migrations powered by Valet
 
-This lab bootstraps a Valet environment using GitHub Codespaces and enables you to create an Azure DevOps project against which to run the Valet CI/CD migration tool.
+These instructions will guide you through configuring the GitHub Codespaces environment that will be used in these labs to demonstrate how to use Valet to migrate Azure DevOps pipelines to GitHub Actions.
 
-- [Use this Repo as a template](#repo-template)
-- [Prerequisites](#prerequisites)
-- [Codespace secrets](#codespace-secrets)
-- [Action secrets](#action-secrets)
-- [Azure DevOps project creation](#azure-devops-project-creation)
-- [Use Valet with a codespace](#use-valet-with-a-codespace)
-- [Labs for Azure DevOps](#labs-for-azure-devops)
+These steps **must** be completed prior to starting other labs.
 
-## Repo template
+## Create your own repository for these labs
 
-1. Verify you are in your own Repository created from the landing page [Valet Labs](https://github.com/valet-customers/labs).
+- Ensure that you have created a repository using [valet-customers/labs](https://github.com/valet-customers/labs) as a template.
 
-## Prerequisites
+## Configure your codespace
 
-1. Azure DevOps organization. Please identify or create an Azure DevOps organization to use: [Click to create an Azure DevOps Org](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?toc=%2Fazure%2Fdevops%2Fget-started%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fget-started%2Fbreadcrumb%2Ftoc.json&view=azure-devops)
-    - Note and store the Azure DevOps organization name for later.
-    - Note and store the username you use for your Azure DevOps organization. It will be an email address.
-2. Azure DevOps Project. The default project name for this lab is `ValetBootstrap` There is an Action workflow that will create and populate the Azure DevOps project. No need to create it yourself. Note: The project has to be unique in the Azure DevOps organization. If you already have a project name `ValetBootstrap` please pick a different unique project name.
-    - Note and store the Azure DevOps project name for later.
-3. Create an Azure DevOps personal access token with the following scopes:
-    - To do so, navigate to Sign in to your organization `https://dev.azure.com/{yourorganization}`.
-    - Click your `Account management` icon
-    - Click `User settings`.
-    - Click `Personal access tokens`.
-    - Select `+ New Token`.
-    - Name your token, select the organization where you want to use the token, and then set your token to automatically expire after a set number of days.
-    - Select the following scopes (Click `Show more scopes` to ensure you see all of the following):
-        - Agents Pool: `Read`
-        - Build: `Read & Execute`
-        - Code: `Read & Write`
-        - Project and Team: `Read, Write, & Manage`
-        - Release: `Read`
-        - Service Connections: `Read`
-        - Task Groups: `Read`
-        - Variable Groups: `Read`
-    - Click `Create`.
-    - Copy the PAT somewhere safe and temporary.
-4. Create a GitHub personal access token.
-    - To do so, navigate to your GitHub `Settings` - click your profile photo and then click `Settings`.
-    - Go to `Developer settings`.
-    - Go to `Personal access tokens` -> `Legacy tokens (if present)`
-    - Click `Generate new token` -> `Legacy tokens (if present)`. If required, provide your password.
-    - Select at least these scopes: `read packages` and `workflow`. Optionally, provide a text in the **Note** field and change the expiration.
-    - Click `Generate token`.
-    - Copy the PAT somewhere safe and temporary.
+1. Start a new codespace.
 
-## Codespace secrets
-
-Please add the following Codespace secrets.
-
-- `VALET_GHCR_PASSWORD`: Add `VALET_GHCR_PASSWORD` as the `Name` and the GitHub personal access token created above as the `Value`.
-- `AZURE_DEVOPS_ACCESS_TOKEN`: Add `AZURE_DEVOPS_ACCESS_TOKEN` as the `Name` and the Azure DevOps personal access token created above as the value.
-- `AZURE_DEVOPS_ORGANIZATION`: Add `AZURE_DEVOPS_ORGANIZATION` as the `Name` and the Azure DevOps organization noted above as the `Value`.
-- `AZURE_DEVOPS_PROJECT`: Add `AZURE_DEVOPS_PROJECT` as the `Name` and `ValetBootstrap` as the `Value`.
-
-Steps to create the Codespace secrets. Complete for secret noted above:
-
-- Navigate to the `Settings` tab in this repo
-- Find `Secrets` and click the down arrow
-- Click `Codespaces`
-- Click `New repository secret` to create a new secret
-- Name the secret as noted above
-- Paste in the value noted above
-- Click `Add secret`
-
-## Action secrets
-
-Please add the following Action secrets.
-
-- `AZURE_DEVOPS_ACCESS_TOKEN`: Add `AZURE_DEVOPS_ACCESS_TOKEN` as the `Name` and the Azure DevOps personal access token created above as the value.
-
-Steps to create the Actions secret. Complete for secret noted above:
-
-- Navigate to the `Settings` tab in this repo
-- Find `Secrets` and click the down arrow
-- Click `Actions`
-- Click `New repository secret` to create a new secret
-- Name the secret as noted above
-- Paste in the value noted above
-- Click `Add secret`
-
-## Azure DevOps project creation
-
-Run the Actions workflow:
-
-- CLick the `Actions` tab
-- Select the `Valet Bootstrap for Azure DevOps` action
-- Click `Run workflow`
-- Input the Azure DevOps organization name identified above
-- Input the Azure DevOps user name of the user that created the Azure DevOps PAT above. This will be an email address
-- Accept the default Azure DevOps project name or change it to one of your preference
-  - NOTE: The default project name is `ValetBootstrap`. This must be unique in your Azure DevOps organization. If not, please choose a unique name.
-- Click `Run workflow`
-- Verify the workflow completed successfully. If the workflow did not run successfully you will see a detailed error message.
-
-### Example ###
-
-![runaction](https://user-images.githubusercontent.com/26442605/167679930-9bdf6f4f-2e94-4145-aed3-8ee3e8e91d90.png)
-
-## Use Valet with a codespace
-
-1. Start the codespace
-    - Navigate to the `< > Code` tab within your GitHub repository.
-    - Click the `Code` with button down arrow above repository on the repository's landing page.
+    - Click the `Code` button on your repository's landing page.
     - Click the `Codespaces` tab.
-    - Click `Create codespaces on main` to create the codespace. If you are in another branch then the `main` branch, the codespace will button will have the current branch specified.
-    - Wait a couple minutes, then verify that the codespace starts up. Once it is fully booted up, the termininal should be present.
-2. Verify Valet CLI is installed and working. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
-    - Verify Valet CLI is installed and working.
-    - Run `gh valet version` in the Visual Studio Code terminal and verify the output looks like the below image. Note the valet version will be different than below as the latest version gets pulled down.
-       - If `gh valet version` did not produce a similar image with a version please follow these instructions [Troubleshoot GH Valet extension](#troubleshoot-gh-valet-extension).
-    - Start using Valet by following along with the [Labs for Azure DevOps](#labs-for-azure-devops).
+    - Click `Create codespaces on main` to create the codespace.
+    - After the codespace has initialized there will be a terminal present.
 
-### Example ###
+2. Verify the Valet CLI is installed and working. More information on the Valet extension for the official GitHub CLI can be found [here](https://github.com/github/gh-valet).
 
-![gh-valet-version](https://user-images.githubusercontent.com/26442605/170106559-e69e669f-a1f6-4c2c-8998-3f089b899704.png)
+    - Run the following command in the codespace terminal:
+
+      ```bash
+      gh valet version
+      ```
+
+    - Verify the output is similar to below.
+
+      ```console
+      $ gh valet version
+      gh version 2.14.3 (2022-07-26)
+      gh valet        github/gh-valet v0.1.12
+      valet-cli       unknown
+      ```
+
+    - If `gh valet version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
+
+## Bootstrap your Azure DevOps organization
+
+1. Create an Azure DevOps personal access token (PAT):
+
+    - Navigate to your existing organization (<https://dev.azure.com/:organization>) in your browser.
+    - In the top right corner of the screen, click `User settings`.
+    - Click `Personal access tokens`.
+    - Select `+ New Token`
+    - Name your token, select the organization where you want to use the token, and set your token to automatically expire after a set number of days.
+    - Select the following scopes (you may need to `Show more scopes` to reveal all scopes):
+      - Agents Pool: `Read`
+      - Build: `Read & Execute`
+      - Code: `Read & Write`
+      - Project and Team: `Read, Write, & Manage`
+      - Release: `Read`
+      - Service Connections: `Read`
+      - Task Groups: `Read`
+      - Variable Groups: `Read`
+    - Click `Create`.
+    - Copy the generated API token and save it in a safe location.
+
+2. Execute the Azure DevOps setup script that will create a new Azure DevOps project in your organization to be used in the following labs. This script should only be run once.
+
+    - Run the following command from the codespace terminal, replacing the values accordingly:
+      - `:organization`: the name of your existing Azure DevOps organization
+      - `:project`: the name of the project to be created in your Azure DevOps organization
+      - `:access_token`: the PAT created in step 1 above
+
+      ```bash
+      ./azure_devops/bootstrap/setup --organization :organization --project :project --access-token :access-token
+      ```
+
+3. Open the newly created Azure DevOps project in your browser (<https://dev.azure.com/:organization/:project>)
+
+    - Once authenticated, you will see an Azure DevOps project with a few predefined pipelines.
 
 ## Labs for Azure DevOps
 
-Perform the following labs to test-drive Valet
+Perform the following labs to learn how to migrate Azure DevOps pipelines to GitHub Actions using Valet:
 
-- [Audit Azure DevOps pipelines using the Valet audit command](valet-audit-lab.md)
-- [Dry run the migration of an Azure DevOps pipeline to GitHub Actions](valet-dry-run-lab.md)
-- [Migrate an Azure DevOps pipeline to GitHub Actions](valet-migrate-lab.md)
-- [Migrate an Azure DevOps pipeline to GitHub Actions with a custom transformer](valet-migrate-custom-lab.md)
-- [Forecast: Valet forecast lab](valet-forecast-lab.md)
+1. [Configure credentials for Valet](1-configure.md)
+2. [Perform an audit of an Azure DevOps project](2-audit.md)
+3. [Forecast potential build runner usage](3-forecast.md)
+4. [Perform a dry-run migration of an Azure DevOps pipeline](4-dry-run.md)
+5. [Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
+6. [Perform a production migration of a Azure DevOps pipeline](6-migrate.md)
 
-## Troubleshoot GH Valet extension
+## Troubleshoot the Valet CLI
 
-Manually Install the GitHub CLI Valet extension. More information on the [GitHub Valet CLI extension](https://github.com/github/gh-valet)
+The CLI extension for Valet can be manually installed by following these steps:
 
-- Verify you are in the Visual Studio Code terminal
-- Run this command to install the GitHub Valet extension
-- `gh extension install github/gh-valet`
-- Verify the result of the install is: `✓ Installed extension github/gh-valet`
-- If you get a similiar error to the following, click the link to authorize the token
-      ![linktolcickauth](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
-  - Restart Codespace after clicking the link
-- Verify Valet CLI is installed and working
+- Verify you are in the codespace terminal
+- Run this command from within the codespace terminal:
+
+  ```bash
+  gh extension install github/gh-valet
+  ```
+
+- Verify the result of the install contains:
+
+  ```console
+  $ gh extension install github/gh-valet
+  ✓ Installed extension github/gh-valet
+  ```
+
+- If you get an error similar to the image below, click the link in the terminal output to authorize the token.
+  - Restart the codespace after clicking the link.
+  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
+- Verify Valet CLI extension is installed and working by running the following command from the codespace terminal:
+
+  ```bash
+  gh valet version
+  ```

@@ -1,41 +1,46 @@
-# Perform a dry-run of a Jenkins pipeline
+# Perform a dry-run migration of a Jenkins pipeline
 
 In this lab you will use the `dry-run` command to convert a Jenkins pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment and start a Jenkins server.
-2. Completed the [configure lab](./1-configure-lab.md#configuring-credentials).
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a Jenkins server.
+2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
-## Perform a dry-run
+## Perform a dry run
 
-We will be performing a dry-run against a pipeline in your preconfigured Jenkins server. We will need to answer the following questions before running this command:
+You will be performing a dry run against a pipeline in your preconfigured Jenkins server. Answer the following questions before running this command:
 
-1. What is the name of the pipeline we want to convert?
+1. What is the name of the pipeline you want to convert?
     - __test_pipeline__
 
-2. What is the URL of the pipeline we want to convert?
+2. What is the URL of the pipeline you want to convert?
     - __<http://localhost:8080/job/test_pipeline>__
 
-3. Where do we want to store the result?
-    - __./tmp/dry-run-lab__. This can be any path within the working directory that Valet commands are executed from.
+3. Where do you want to store the result?
+    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
 
 ### Steps
 
-1. Navigate to the codespace terminal
+1. Navigate to your codespace terminal
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline -o .tmp/jenkins/dry-run
+    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
-    ![img](https://user-images.githubusercontent.com/19557880/184935603-5c2d4dfe-66ef-4cb1-9398-e96954ca72e3.png)
+    ```console
+    $ gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
+    [2022-08-20 22:08:20] Logs: 'tmp/dry-run/log/valet-20220916-022338.log'
+    [2022-08-20 22:08:20] Output file(s):
+    [2022-08-20 22:08:20]   tmp/dry-run/test_pipeline.yml
+    ```
 
 4. View the converted workflow:
-    - Find `./tmp/dry-run` in the file explorer pane in codespaces.
+    - Find `tmp/dry-run` in the file explorer pane in your codespace.
     - Click `test_pipeline.yml` to open
 
 ## Inspect the output files
@@ -66,7 +71,7 @@ pipeline {
         }
         stage('test') {
             steps{
-                junit '**/target/*.xml' 
+                junit '**/target/*.xml'
             }
         }
     }
@@ -123,7 +128,7 @@ jobs:
 
 </details>
 
-These 2 pipelines function equivantly despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
+These two pipelines function equivalently despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
 
 ```diff
 - sleep 80
@@ -135,10 +140,10 @@ These 2 pipelines function equivantly despite using different syntax. In this ca
 + #           value: 80
 ```
 
-In the next lab, we'll learn how to override Valet's default behavior and customize the converted workflow that is generate.
+In the next lab, you'll learn how to override Valet's default behavior and customize the converted workflow that is generated.
 
-Try running the `dry-run` command for different pipelines in the Jenkins server. As a hint, you just have to change the `--source-url` CLI option.
+Try running the `dry-run` command for different pipelines in the Jenkins server. As a hint, you only have to change the `--source-url` CLI option.
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](4-custom-transformers.md)
+[Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
