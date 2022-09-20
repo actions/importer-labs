@@ -31,6 +31,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
         - In the left panel, click `Developer Settings`.
         - Click `Personal access tokens` and then `Legacy tokens` (if present).
         - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+        - Name your token in the `Note` field.
         - Select the following scopes: `workflow` and `read:packages`.
         - Click `Generate token`.
         - Copy the generated PAT and save it in a safe location.
@@ -39,7 +40,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
         - Select the `TERMINAL` tab from within the codespace terminal window.
         - Run the following command: `gh valet configure`.
         - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, and then press enter to continue.
-        - At the prompt, enter your GitHub username and press enter.
+        - At the GitHub handle prompt, enter the GitHub handle used to generate the GitHub PAT in step 2 and press enter.
         - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 4 and press enter.
         - At the GitHub PAT prompt, enter the GitHub PAT generated in step 4 and press enter.
         - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
@@ -57,7 +58,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
             ✔ Private token for GitLab: ***************
             ✔ Base url of the GitLab instance: https://gitlab.com
             Environment variables successfully updated.
-            ```        
+            ```
 
 ## Verify your environment
 

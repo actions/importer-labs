@@ -7,7 +7,6 @@ In this lab, you will use the `migrate` command to convert a Jenkins pipeline an
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and start a Jenkins server.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./4-dry-run.md).
-4. Completed the [custom transformers lab](./5-custom-transformers.md).
 
 ## Performing a migration
 
@@ -43,8 +42,6 @@ Answer the following questions before running a `migrate` command:
 The first thing we should notice about the pull request is that there is a list of manual steps to complete:
 
 ![img](https://user-images.githubusercontent.com/19557880/186784161-b7882ac4-ac99-4462-b69f-f49b9202527b.png)
-
-Next, review the workflow you are adding by clicking on the `Files changed` tab. This is where you double check that everything looks good. If it didn't, you could push commits with the required changes, prior to merging.
 
 Next, you can inspect the "Files changed" in this pull request and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this pull request.
 

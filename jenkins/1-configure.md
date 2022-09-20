@@ -33,11 +33,12 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - Select the `TERMINAL` tab from within the codespace terminal window.
       - Run the following command: `gh valet configure`.
       - Use the down arrow key to highlight `Jenkins`, press the spacebar to select, and then press enter to continue.
-      - At the prompt, enter your GitHub username and press enter.
+      - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 3 and press enter.
       - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 3 and press enter.
       - At the GitHub PAT prompt, enter the GitHub PAT generated in step 3 and press enter.
       - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
       - At the Jenkins token prompt, enter the Jenkins access token from step 2 and press enter.
+      - At the Jenkins username prompt, enter `admin`  and press enter.
       - At the Jenkins URL prompt, enter `http://localhost:8080/` and press enter.
 
             ```console

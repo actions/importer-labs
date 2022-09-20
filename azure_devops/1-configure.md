@@ -13,11 +13,11 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - Click `Personal access tokens`.
       - Select `+ New Token`
       - Name your token, select the organization where you want to use the token, and set your token to automatically expire after a set number of days.
-      - Select the following scopes (you may need to `Show more scopes` to reveal all scopes):
+      - Select the following scopes (you may need to `Show all scopes` to reveal all scopes):
          - Agents Pool: `Read`
-         - Build: `Read & Execute`
-         - Code: `Read & Write`
-         - Project and Team: `Read, Write, & Manage`
+         - Build: `Read & execute`
+         - Code: `Read & write`
+         - Project and Team: `Read, write, & manage`
          - Release: `Read`
          - Service Connections: `Read`
          - Task Groups: `Read`
@@ -31,6 +31,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - In the left panel, click `Developer Settings`.
       - Click `Personal access tokens` and then `Legacy tokens` (if present).
       - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+      - Name your token in the `Note` field.
       - Select the following scopes: `workflow` and `read:packages`.
       - Click `Generate token`.
       - Copy the generated PAT and save it in a safe location.
@@ -39,6 +40,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - Select the `TERMINAL` tab from within the codespace terminal.
       - Run the following command: `gh valet configure`.
       - Use the down arrow key to highlight `Azure DevOps`, press the spacebar to select, and then press enter to continue.
+      - At the GitHub handle prompt, enter the GitHub handle used to generate the GitHub PAT in step 2 and press enter.
       - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 2 and press enter.
       - At the GitHub PAT prompt, enter the GitHub PAT generated in step 2 and press enter.
       - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
