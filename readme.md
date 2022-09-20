@@ -12,4 +12,5 @@ To get started:
    - [Migrations from CircleCI to GitHub Actions](/circle_ci/readme.md)
    - [Migrations from GitLab CI to GitHub Actions](/gitlab/readme.md)
    - [Migrations from Jenkins to GitHub Actions](/jenkins/readme.md)
+   - [Migrations from Travis CI to GitHub Actions](/travis/readme.md)
 3. Each learning path describes how to configure your codespace, bootstrap a CI/CD environment, and troubleshoot the Valet CLI.
