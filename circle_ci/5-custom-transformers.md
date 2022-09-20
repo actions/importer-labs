@@ -64,7 +64,7 @@ _Note_: You can refer to the previous [lab](./4-dry-run.md) to learn about the f
 
 ## Custom transformers for an unknown step
 
-The converted workflow above contains an `codecov_codecov_upload` step that was not automatically converted. Answer the following questions before writing a custom transformer:
+The converted workflow above contains a `codecov_codecov_upload` step that was not automatically converted. Answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __codecov_codecov_upload__
@@ -127,7 +127,7 @@ end
 
 ## Custom transformers for environment variables
 
-You can use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `tmp/cov`.
+You can use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `./tmp/cov`.
 
 To do this, add the following code to the `transformers.rb` file.
 
@@ -191,7 +191,7 @@ That's it! Congratulations, you have overridden Valet's default behavior by cust
 
 - Unknown steps
 - Environment variables
-- Runner
+- Runners
 
 ## Next lab
 

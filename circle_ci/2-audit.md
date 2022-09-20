@@ -34,7 +34,7 @@ You will be performing an `audit` for the __valet-labs__ CircleCI organization t
 
 1. Find the `audit_summary.md` file in the file explorer.
 2. Right-click the `audit_summary.md` file and select `Open Preview`.
-3. This file contains details that summarizes what percentage of your pipelines were converted automatically.
+3. This file contains details that summarize what percentage of your pipelines were converted automatically.
 
 ### Review audit summary
 
