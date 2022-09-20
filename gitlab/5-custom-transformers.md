@@ -153,9 +153,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 Finally, you can use custom transformers to dictate which runners the converted workflows should use. To do this, answer the following questions:
 
 1. What is label of the runner in GitLab to update?
-    - Since there is no `tags` stanza defined in the `terraform-example` project in GitLab, you will need to use the Ruby symbol for the default runner:
-      
-      __:default__
+    - __:default__. This is a special keyword to define the default runner to use. You can optional target specific `tags` in a job.
 
 2. What is the label of the runner in Actions to use instead?
     - __custom-runner__
