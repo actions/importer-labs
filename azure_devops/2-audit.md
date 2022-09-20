@@ -193,15 +193,11 @@ Each pipeline will have a variety of files written that include:
     lab-test/pipelines/valet-custom-transformer-example,mechamachine,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
     ```
 
-### Review workflow usage csv file
-
-#### Actions section
-
-The actions section contains a list of all actions that are used by each converted pipeline. This will enable you to perform strict security reviews to know exactly which repo will need access to a third-party action.
-
-#### Secrets and Runners sections
-
-The secrets and runners sections contain a list of all secrets and runners that are used by each converted pipeline. This will enable you to have a holistic view of what secrets and runners are used across all of your pipelines.
+The contents of this file can be useful in answering questions similar to the following:
+- What workflows will depend on which actions?
+- What workflows use an action that must go through a security review?
+- What workflows use specific secrets?
+- What workflows use specific runners?
 
 ### Next lab
 
