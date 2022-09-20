@@ -27,7 +27,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh valet migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url $(git remote get-url origin) --output-dir ./tmp/migrate
+    gh valet migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url $(git remote get-url origin) --output-dir tmp/migrate
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
