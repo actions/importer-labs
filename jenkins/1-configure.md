@@ -25,6 +25,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - In the left panel, click `Developer Settings`.
       - Click `Personal access tokens` and then `Legacy tokens` (if present).
       - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+      - Name your token in the `Note` field.
       - Select the following scopes: `workflow` and `read:packages`.
       - Click `Generate token`.
       - Copy the generated PAT and save it in a safe location.

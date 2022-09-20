@@ -12,6 +12,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
         - In the left panel, click `Developer Settings`.
         - Click `Personal access tokens` and then `Legacy tokens` (if present).
         - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+        - Name your token in the `Note` field.
         - Select the following scopes: `workflow` and `read:packages`.
         - Click `Generate token`.
         - Copy the generated PAT and save it in a safe location.
@@ -19,13 +20,15 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 3. Create a Travis CI personal access token (PAT):
         - Open app.travis-ci.com in a new browser tab.
         - Click on your profile icon in the top right hand corner to reveal a dropdown menu.
+        - Click `Settings`.
         - Click on the `Settings` tab.
-        - Click on the `COPY TOKEN` button under "API authentication header" and save it in a safe location.
+        - Click on the `COPY TOKEN` button under the "API authentication" header and save it in a safe location.
 
 2. Run the `configure` CLI command:
         - Select the `TERMINAL` tab from within the codespace terminal.
         - Run the following command: `gh valet configure`.
         - Use the down arrow key to highlight `Travis CI`, press the spacebar to select, and then press enter to continue.
+        - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 3 and press enter.
         - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 2 and press enter.
         - At the GitHub PAT prompt, enter the GitHub PAT generated in step 2 and press enter.
         - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
