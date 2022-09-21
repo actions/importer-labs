@@ -10,4 +10,4 @@ Here's some helpful notes on how to contribute to this project, including detail
 
 ## How to submit a bug or request a feature
 
-If you think you've found a bug or have a great idea for new functionality please create an issue in the [repo](https://github.com/valet-customers/issue-ops/issues/new).
+If you think you've found a bug or have a great idea for new functionality please create an issue in the [repo](https://github.com/valet-customers/labs/issues/new).
