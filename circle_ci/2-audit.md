@@ -191,6 +191,40 @@ Each pipeline will have a variety of files written that include:
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
 
+## Inspect the workflow usage csv file
+
+1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
+2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
+  
+    ```csv
+    Pipeline,Action,File path
+    valet-labs/circleci-hello-world,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-hello-world/say-hello-workflow.yml
+    valet-labs/circleci-command-example,./.github/actions/greeting,/data/tmp/audit/valet-labs/circleci-command-example/my-workflow.yml
+    valet-labs/circleci-node-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-node-example/sample.yml
+    valet-labs/circleci-node-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-node-example/sample.yml
+    valet-labs/circleci-python-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-python-example/sample.yml
+    valet-labs/circleci-python-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-python-example/sample.yml
+    valet-labs/circleci-demo-java-spring,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
+    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+
+    Pipeline,Secret,File path
+
+
+    Pipeline,Runner,File path
+    ```
+
+The contents of this file can be useful in answering questions similar to the following:
+
+- What workflows will depend on which actions?
+- What workflows use an action that must go through a security review?
+- What workflows use specific secrets?
+- What workflows use specific runners?
+
 ### Next lab
 
 [Forecast potential build runner usage](3-forecast.md)

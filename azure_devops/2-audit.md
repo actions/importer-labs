@@ -173,6 +173,32 @@ Each pipeline will have a variety of files written that include:
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
 
+## Inspect the workflow usage csv file
+
+1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
+2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
+  
+    ```csv
+    Pipeline,Action,File path
+    lab-test/pipelines/valet-pipeline2,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-pipeline2.yml
+    lab-test/pipelines/valet-pipeline1,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-pipeline1.yml
+    lab-test/pipelines/valet-custom-transformer-example,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
+    lab-test/pipelines/valet-custom-transformer-example,actions/setup-node@v2,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
+
+    Pipeline,Secret,File path
+
+
+    Pipeline,Runner,File path
+    lab-test/pipelines/valet-pipeline2,mechamachine,/data/tmp/adoa/lab-test/pipelines/valet-pipeline2.yml
+    lab-test/pipelines/valet-custom-transformer-example,mechamachine,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
+    ```
+
+The contents of this file can be useful in answering questions similar to the following:
+- What workflows will depend on which actions?
+- What workflows use an action that must go through a security review?
+- What workflows use specific secrets?
+- What workflows use specific runners?
+
 ### Next lab
 
 [Forecast potential build runner usage](3-forecast.md)

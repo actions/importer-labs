@@ -56,7 +56,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
             ✔ Personal access token for GitHub: ***************
             ✔ Base url of the GitHub instance: https://github.com
             ✔ Private token for GitLab: ***************
-            ✔ Base url of the GitLab instance: https://gitlab.com
+            ✔ Base url of the GitLab instance: http://localhost
             Environment variables successfully updated.
             ```
 

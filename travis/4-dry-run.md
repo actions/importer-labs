@@ -37,7 +37,7 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/valet-labs` in the file explorer pane in your codespace.
     - Click `travisci-ruby-example.yml` to open.
 
 ## Inspect the output files

@@ -7,7 +7,6 @@ In this lab, you will use the `migrate` command to convert a Travis CI pipeline 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./3-dry-run.md).
-4. Completed the [custom transformers lab](./4-custom-transformers.md).
 
 ## Performing a migration
 
