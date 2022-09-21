@@ -2,7 +2,10 @@
 
 In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Jenkins server.
 
-The `audit` command operates by fetching all of the pipelines defined in a Jenkins server, converting each to their equivalent GitHub Actions workflow, and writing a report that summarizes how complete and complex of a migration is possible with Valet.
+The `audit` command will perform the following steps:
+1. Fetch all of the projects defined in a Jenkins server.
+2. Convert each pipeline to their equivalent GitHub Actions workflow.
+3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
 
 ## Prerequisites
 
@@ -234,6 +237,38 @@ Each pipeline will have a variety of files written that include:
 - Any network responses used to convert a pipeline.
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
+
+## Inspect the workflow usage csv file
+
+1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
+2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
+  
+    ```csv
+    Pipeline,Action,File path
+    demo_pipeline,actions/checkout@v2,/data/tmp/audit/demo_pipeline.yml
+    demo_pipeline,actions/upload-artifact@v2,/data/tmp/audit/demo_pipeline.yml
+    demo_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/demo_pipeline.yml
+    monas_dev_work/monas_freestyle,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_freestyle.yml
+    monas_dev_work/monas_pipeline,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_pipeline.yml
+    test_freestyle_project,actions/checkout@v2,/data/tmp/audit/test_freestyle_project.yml
+    test_pipeline,actions/checkout@v2,/data/tmp/audit/test_pipeline.yml
+    test_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/test_pipeline.yml
+
+    Pipeline,Secret,File path
+    monas_dev_work/monas_freestyle,${{ secrets.SECRET_TEST_EXPRESSION_VAR }},/data/tmp/audit/monas_dev_work/monas_freestyle.yml
+    test_freestyle_project,${{ secrets.EXPRESSION_FIRST_VAR }},/data/tmp/audit/test_freestyle_project.yml
+
+    Pipeline,Runner,File path
+    demo_pipeline,TeamARunner,/data/tmp/audit/demo_pipeline.yml
+    test_freestyle_project,DemoRunner,/data/tmp/audit/test_freestyle_project.yml
+    test_pipeline,TeamARunner,/data/tmp/audit/test_pipeline.yml
+    ```
+
+The contents of this file can be useful in answering questions similar to the following:
+- What workflows will depend on which actions?
+- What workflows use an action that must go through a security review?
+- What workflows use specific secrets?
+- What workflows use specific runners?
 
 ## Next lab
 

@@ -15,7 +15,7 @@ The `audit` command operates by performing the following:
 
 ## Perform an audit
 
-You will be performing an audit against the **labs-data** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
+You will be performing an audit against the **valet-labs** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
     - **tmp/audit**.  This can be any path within the working directory that Valet commands are executed from.
@@ -315,6 +315,35 @@ Each pipeline will have a variety of files written that include:
 - Any network responses used to convert a pipeline.
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
+
+## Inspect the workflow usage csv file
+
+1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
+2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
+  
+    ```csv
+    Pipeline,Action,File path
+    valet-labs/travisci-php-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-php-example.yml
+    valet-labs/travisci-php-example,shivammathur/setup-php@v2,/data/tmp/audit/valet-labs/travisci-php-example.yml
+    valet-labs/travisci-php-example,rectalogic/notify-irc@v1,/data/tmp/audit/valet-labs/travisci-php-example.yml
+    valet-labs/travisci-nodejs-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-nodejs-example.yml
+    valet-labs/travisci-ruby-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-ruby-example.yml
+    valet-labs/travisci-ruby-example,ruby/setup-ruby@v1,/data/tmp/audit/valet-labs/travisci-ruby-example.yml
+    valet-labs/travisci-python-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-python-example.yml
+    valet-labs/travisci-deploy-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-deploy-example.yml
+    valet-labs/travisci-deploy-example,desiderati/github-action-pushover@v1,/data/tmp/audit/valet-labs/travisci-deploy-example.yml
+
+    Pipeline,Secret,File path
+    valet-labs/travisci-deploy-example,${{ secrets.PUSHOVER_USER_KEY }},/data/tmp/audit/valet-labs/travisci-deploy-example.yml
+
+    Pipeline,Runner,File path
+    ```
+
+The contents of this file can be useful in answering questions similar to the following:
+- What workflows will depend on which actions?
+- What workflows use an action that must go through a security review?
+- What workflows use specific secrets?
+- What workflows use specific runners?
 
 ### Next lab
 

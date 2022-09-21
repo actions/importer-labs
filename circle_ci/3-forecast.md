@@ -1,6 +1,6 @@
 # Forecast potential build runner usage
 
-In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in Travis CI.
+In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in CircleCI.
 
 ## Prerequisites
 
@@ -12,9 +12,9 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 Answer the following questions before running the `forecast` command:
 
 1. What is the date you want to start forecasting from?
-    - **2022-09-02**. This date is needed as it is prior to when the bulk of builds were triggered in the demo Travis CI organization for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
+    - **2022-09-02**. This date is needed as it is prior to when the bulk of builds were triggered in the demo CircleCI organization for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
 2. Where do you want to store the results?
-    - **tmp/forecast**
+    - **tmp/forecast_reports**
 
 ### Steps
 
@@ -22,15 +22,15 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
+    gh valet forecast circle-ci --output-dir tmp/forecast_reports --start-date 2022-09-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
+    $ gh valet forecast circle-ci --output-dir tmp/forecast_reports --start-date 2022-09-02
     [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/valet-20220916-021004.log'
-    [2022-08-20 22:08:20] Forecasting 'http://travis-ci.com/valet-labs'
+    [2022-08-20 22:08:20] Forecasting 'http://app.circleci.com/pipelines/github/valet-labs'
     [2022-08-20 22:08:20] Output file(s):
     [2022-08-20 22:08:20]   tmp/forecast/jobs/09-16-2022-02-10_jobs_0.json
     [2022-08-20 22:08:20]   tmp/forecast/forecast_report.md
@@ -38,7 +38,7 @@ Answer the following questions before running the `forecast` command:
 
 ## Review the forecast report
 
-The forecast report, logs, and completed job data will be located within the `tmp/forecast` folder.
+The forecast report, logs, and completed job data will be located within the `tmp/forecast_reports` folder.
 
 1. Find the `forecast_report.md` file in the file explorer.
 2. Right-click the `forecast_report.md` file and select `Open Preview`.
@@ -84,13 +84,25 @@ Here are some key terms of items defined in the forecast report:
 - `Queue time` metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
 
-Additionally, these metrics are defined for each queue of runners defined in Travis CI. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
+Additionally, these metrics are defined for each queue of runners defined in CircleCI. This is especially useful if there are a mix of hosted/self-hosted runners or high/low spec machines to see metrics specific to different types of runners.
 
 ## Forecasting multiple providers
 
 You can examine the available options for the `forecast` command by running `gh valet forecast --help`. When you do this you will see the `--source-file-path` option:
 
-![img](https://user-images.githubusercontent.com/19557880/190511652-081ae8c3-c37e-4c5f-9e7f-8fcd9fe63b3a.png)
+```console
+$ gh valet forecast -h
+Options:
+  --source-file-path <source-file-path> (REQUIRED)  The file path(s) to existing jobs data.
+  -o, --output-dir <output-dir> (REQUIRED)          The location for any output files.
+  --start-date <start-date>                         The start date of the forecast analysis in YYYY-MM-DD format. [default: 9/12/2022 12:42:39 PM]
+  --time-slice <time-slice>                         The time slice in seconds to use for computing concurrency metrics. [default: 60]
+  --credentials-file <credentials-file>             The file containing the credentials to use.
+  --no-telemetry                                    Boolean value to disallow telemetry.
+  --no-ssl-verify                                   Disable ssl certificate verification.
+  --no-http-cache                                   Disable caching of http responses.
+  -?, -h, --help                                    Show help and usage information
+```
 
 You can use the `--source-file-path` CLI option to combine data from multiple reports into a single report. This becomes useful if you use multiple CI/CD providers and want to get a holistic view of the runner usage. This works by using the `.json` files generated by `forecast` commands as space-delimited values for the `--source-file-path` CLI option. Optionally, this value could be a glob pattern to dynamically specify the list of files (e.g. `**/*.json`).
 
@@ -102,6 +114,6 @@ gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/forecast-combined
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
 
-### Next Lab
+## Next steps
 
-[Perform a dry-run of a Travis CI pipeline](4-dry-run.md)
+[Perform a dry-run of a CircleCI pipeline](4-dry-run.md)

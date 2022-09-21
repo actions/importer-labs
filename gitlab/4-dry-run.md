@@ -211,7 +211,13 @@ include:
   - local: /config/test.gitlab-ci.yml
 ```
 
-The output of the `dry-run` command can be seen below:
+Run the following command from the root directory:
+
+```bash
+gh valet dry-run gitlab --output-dir tmp/dry-run --namespace valet --project included-files-example
+```
+
+The output of the command above can be seen below:
 
 ```yaml
 name: valet/included-files-example
@@ -246,7 +252,7 @@ jobs:
     - run: echo "this is from a local file"
 ```
 
-It's important to note that Valet converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of Valet could be refactored to use [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
+It's important to note that Valet converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of Valet could be refactored to use [reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
 
 As an added challenge, try constructing and running the `dry-run` command yourself. Hint, you should only have to change the project name.
 

@@ -75,7 +75,7 @@ _Note_: You can refer to the previous [lab](./4-dry-run.md) to learn about the f
 
 ## Custom transformers for an unknown step
 
-The converted workflow above contains a `sleep` step was not automatically converted. Answer the following questions before writing a custom transformer:
+The converted workflow above contains a `sleep` step that was not automatically converted. Answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __sleep__. The identifier will be the key of a key value pair within the step of a Jenkinsfile.
@@ -92,7 +92,7 @@ The converted workflow above contains a `sleep` step was not automatically conve
 Now you can begin to write the custom transformer. Custom transformers use a DSL built on top of Ruby and should be defined in a file with the `.rb` file extension. You can create this file by running the following command in your codespace terminal:
 
 ```bash
-code transformers.rb
+touch transformers.rb && code transformers.rb
 ```
 
 Next, you will define a `transform` method for the `sleep` identifier by adding the following code to `transformers.rb`:
@@ -198,7 +198,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 +    - uses: actions/upload-artifact@v3
 +      with:
 +        name: junit-artifact
-+        path: path/to/artifact/world.txt
++        path: "**/target/*.xml"
 ```
 
 ## Custom transformers for environment variables

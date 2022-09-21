@@ -35,7 +35,7 @@ Answer the following questions before running the `forecast` command:
 
     ![img](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
 
-4. If you inspect the help menu using the `gh valet forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` command using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
+4. If you inspect the help menu using the `gh valet forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
 
     ![img](https://user-images.githubusercontent.com/18723510/187692843-623d4bdc-8970-4348-a632-73c8b00a40f8.png)
 

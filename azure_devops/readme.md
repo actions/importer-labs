@@ -45,11 +45,11 @@ These steps **must** be completed prior to starting other labs.
     - Click `Personal access tokens`.
     - Select `+ New Token`
     - Name your token, select the organization where you want to use the token, and set your token to automatically expire after a set number of days.
-    - Select the following scopes (you may need to `Show more scopes` to reveal all scopes):
+    - Select the following scopes (you may need to `Show all scopes` at the bottom of the page to reveal all scopes):
       - Agents Pool: `Read`
-      - Build: `Read & Execute`
-      - Code: `Read & Write`
-      - Project and Team: `Read, Write, & Manage`
+      - Build: `Read & execute`
+      - Code: `Read & write`
+      - Project and Team: `Read, write, & manage`
       - Release: `Read`
       - Service Connections: `Read`
       - Task Groups: `Read`
