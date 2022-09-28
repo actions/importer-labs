@@ -33,11 +33,11 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
     $ gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
     [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
     [2022-09-19 19:46:05] Output file(s):                                           
-    [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/travisci-ruby-example.yml
+    [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run/valet-labs` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/valet-labs/travisci-ruby-example/.github/workflows` in the file explorer pane in your codespace.
     - Click `travisci-ruby-example.yml` to open.
 
 ## Inspect the output files
