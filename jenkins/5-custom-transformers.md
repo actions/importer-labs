@@ -165,7 +165,7 @@ $ gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline 
 [2022-08-20 22:08:20] Logs: 'tmp/dry-run/log/valet-20220916-022628.log'
 This is the item: {"name"=>"junit", "arguments"=>[{"key"=>"testResults", "value"=>{"isLiteral"=>true, "value"=>"**/target/*.xml"}}]}
 [2022-08-20 22:08:20] Output file(s):
-[2022-08-20 22:08:20]   tmp/dry-run/test_pipeline.yml
+[2022-08-20 22:08:20]   tmp/dry-run/test_pipeline/.github/workflows/test_pipeline.yml
 ```
 
 Now that you know the data structure of `item`, you can access the file path programmatically by editing the custom transformer to the following:
