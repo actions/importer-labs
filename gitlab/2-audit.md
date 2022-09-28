@@ -155,23 +155,23 @@ The final section of the audit report provides a manifest of all of the files th
 
 #### valet/included-files-example
 
-- [valet/included-files-example.yml](valet/included-files-example.yml)
-- [valet/included-files-example.config.json](valet/included-files-example.config.json)
-- [valet/included-files-example.source.yml](valet/included-files-example.source.yml)
+- [valet/included-files-example/.github/workflows/included-files-example.yml](valet/included-files-example/.github/workflows/included-files-example.yml)
+- [valet/included-files-example/config.json](valet/included-files-example/config.json)
+- [valet/included-files-example/source.yml](valet/included-files-example/source.yml)
 
 #### valet/terraform-example
 
-- [valet/terraform-example.yml](valet/terraform-example.yml)
-- [valet/terraform-example.config.json](valet/terraform-example.config.json)
-- [valet/terraform-example.source.yml](valet/terraform-example.source.yml)
+- [valet/terraform-example/.github/workflows/terraform-example.yml](valet/terraform-example/.github/workflows/terraform-example.yml)
+- [valet/terraform-example/config.json](valet/terraform-example/config.json)
+- [valet/terraform-example/source.yml](valet/terraform-example/source.yml)
 
 #### valet/child-parent-example
 
-- [valet/child-parent-example.yml](valet/child-parent-example.yml)
-- [.github/workflows/a-.gitlab-ci.yml](.github/workflows/a-.gitlab-ci.yml)
-- [.github/workflows/b-.gitlab-ci.yml](.github/workflows/b-.gitlab-ci.yml)
-- [valet/child-parent-example.config.json](valet/child-parent-example.config.json)
-- [valet/child-parent-example.source.yml](valet/child-parent-example.source.yml)
+- [valet/child-parent-example/.github/workflows/child-parent-example.yml](valet/child-parent-example/.github/workflows/child-parent-example.yml)
+- [valet/child-parent-example/.github/workflows/a-.gitlab-ci.yml](valet/child-parent-example/.github/workflows/a-.gitlab-ci.yml)
+- [valet/child-parent-example/.github/workflows/b-.gitlab-ci.yml](valet/child-parent-example/.github/workflows/b-.gitlab-ci.yml)
+- [valet/child-parent-example/config.json](valet/child-parent-example/config.json)
+- [valet/child-parent-example/source.yml](valet/child-parent-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -188,30 +188,30 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet/included-files-example,actions/checkout@v2,/data/tmp/audit/valet/included-files-example.yml
-    valet/terraform-example,actions/checkout@v2,/data/tmp/audit/valet/terraform-example.yml
-    valet/child-parent-example,actions/checkout@v2,/data/tmp/audit/valet/child-parent-example.yml
-    valet/child-parent-example,./.github/workflows/a-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example.yml
-    valet/child-parent-example,./.github/workflows/b-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example.yml
-    valet/include-file-example,actions/checkout@v2,/data/tmp/audit/valet/include-file-example.yml
-    valet/basic-pipeline-example,actions/checkout@v2,/data/tmp/audit/valet/basic-pipeline-example.yml
-    valet/gatsby-example,actions/checkout@v2,/data/tmp/audit/valet/gatsby-example.yml
-    valet/gatsby-example,actions/cache@v2,/data/tmp/audit/valet/gatsby-example.yml
-    valet/gatsby-example,actions/upload-artifact@v2,/data/tmp/audit/valet/gatsby-example.yml
-    valet/gatsby-example,actions/download-artifact@v2,/data/tmp/audit/valet/gatsby-example.yml
-    valet/gatsby-example,JamesIves/github-pages-deploy-action@4.1.5,/data/tmp/audit/valet/gatsby-example.yml
-    valet/android-example,actions/checkout@v2,/data/tmp/audit/valet/android-example.yml
-    valet/android-example,actions/upload-artifact@v2,/data/tmp/audit/valet/android-example.yml
-    valet/android-example,actions/download-artifact@v2,/data/tmp/audit/valet/android-example.yml
-    valet/dotnet-example,actions/checkout@v2,/data/tmp/audit/valet/dotnet-example.yml
-    valet/dotnet-example,actions/upload-artifact@v2,/data/tmp/audit/valet/dotnet-example.yml
-    valet/dotnet-example,actions/download-artifact@v2,/data/tmp/audit/valet/dotnet-example.yml
-    valet/node-example,actions/checkout@v2,/data/tmp/audit/valet/node-example.yml
-    valet/node-example,actions/cache@v2,/data/tmp/audit/valet/node-example.yml
-    valet/rails-example,actions/checkout@v2,/data/tmp/audit/valet/rails-example.yml
+    valet/included-files-example,actions/checkout@v2,/data/tmp/audit/valet/included-files-example/.github/workflows/included-files-example.yml
+    valet/terraform-example,actions/checkout@v2,/data/tmp/audit/valet/terraform-example/.github/workflows/terraform-example.yml
+    valet/child-parent-example,actions/checkout@v2,/data/tmp/audit/valet/child-parent-example/.github/workflows/child-parent-example.yml
+    valet/child-parent-example,./.github/workflows/a-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example/.github/workflows/child-parent-example.yml
+    valet/child-parent-example,./.github/workflows/b-.gitlab-ci.yml,/data/tmp/audit/valet/child-parent-example/.github/workflows/child-parent-example.yml
+    valet/include-file-example,actions/checkout@v2,/data/tmp/audit/valet/include-file-example/.github/workflows/include-file-example.yml
+    valet/basic-pipeline-example,actions/checkout@v2,/data/tmp/audit/valet/basic-pipeline-example/.github/workflows/basic-pipeline-example.yml
+    valet/gatsby-example,actions/checkout@v2,/data/tmp/audit/valet/gatsby-example/.github/workflows/gatsby-example.yml
+    valet/gatsby-example,actions/cache@v2,/data/tmp/audit/valet/gatsby-example/.github/workflows/gatsby-example.yml
+    valet/gatsby-example,actions/upload-artifact@v2,/data/tmp/audit/valet/gatsby-example/.github/workflows/gatsby-example.yml
+    valet/gatsby-example,actions/download-artifact@v2,/data/tmp/audit/valet/gatsby-example/.github/workflows/gatsby-example.yml
+    valet/gatsby-example,JamesIves/github-pages-deploy-action@4.1.5,/data/tmp/audit/valet/gatsby-example/.github/workflows/gatsby-example.yml
+    valet/android-example,actions/checkout@v2,/data/tmp/audit/valet/android-example/.github/workflows/android-example.yml
+    valet/android-example,actions/upload-artifact@v2,/data/tmp/audit/valet/android-example/.github/workflows/android-example.yml
+    valet/android-example,actions/download-artifact@v2,/data/tmp/audit/valet/android-example/.github/workflows/android-example.yml
+    valet/dotnet-example,actions/checkout@v2,/data/tmp/audit/valet/dotnet-example/.github/workflows/dotnet-example.yml
+    valet/dotnet-example,actions/upload-artifact@v2,/data/tmp/audit/valet/dotnet-example/.github/workflows/dotnet-example.yml
+    valet/dotnet-example,actions/download-artifact@v2,/data/tmp/audit/valet/dotnet-example/.github/workflows/dotnet-example.yml
+    valet/node-example,actions/checkout@v2,/data/tmp/audit/valet/node-example/.github/workflows/node-example.yml
+    valet/node-example,actions/cache@v2,/data/tmp/audit/valet/node-example/.github/workflows/node-example.yml
+    valet/rails-example,actions/checkout@v2,/data/tmp/audit/valet/rails-example/.github/workflows/rails-example.yml
 
     Pipeline,Secret,File path
-    valet/rails-example,${{ secrets.PASSWORD }},/data/tmp/audit/valet/rails-example.yml
+    valet/rails-example,${{ secrets.PASSWORD }},/data/tmp/audit/valet/rails-example/.github/workflows/rails-example.yml
 
     Pipeline,Runner,File path
     ```
