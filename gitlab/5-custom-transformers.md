@@ -93,7 +93,8 @@ Now, we can perform a `dry-run` command with the `--custom-transformers` CLI opt
 
 ```console
 $ gh valet dry-run gitlab --output-dir tmp --namespace valet --project terraform-example --custom-transformers transformers.rb
-[2022-09-28 20:29:41] Logs: 'tmp/log/valet-20220928-202941.log'                 
+[2022-09-28 20:29:41] Logs: 'tmp/log/valet-20220928-202941.log'
+This is the item: $PLAN_JSON  
 [2022-09-28 20:29:43] Output file(s):                                           
 [2022-09-28 20:29:43]   tmp/valet/terraform-example/.github/workflows/terraform-example.yml
 ```
