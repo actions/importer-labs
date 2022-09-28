@@ -34,13 +34,13 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 
     ```console
     $ gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
-    [2022-08-20 22:08:20] Logs: 'tmp/dry-run/log/valet-20220916-022338.log'
-    [2022-08-20 22:08:20] Output file(s):
-    [2022-08-20 22:08:20]   tmp/dry-run/test_pipeline.yml
+    [2022-09-28 20:12:00] Logs: 'tmp/dry-run/log/valet-20220928-201200.log'         
+    [2022-09-28 20:12:00] Output file(s):                                           
+    [2022-09-28 20:12:00]   tmp/dry-run/test_pipeline/.github/workflows/test_pipeline.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/test_pipeline/.github/workflows` in the file explorer pane in your codespace.
     - Click `test_pipeline.yml` to open
 
 ## Inspect the output files
