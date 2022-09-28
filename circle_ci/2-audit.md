@@ -148,40 +148,42 @@ The final section of the audit report provides a manifest of all of the files th
 
 #### valet-labs/circleci-hello-world
 
-- [valet-valet-labs/circleci-hello-world/say-hello-workflow.yml](valet-labs/circleci-hello-world/say-hello-workflow.yml)
-- [valet-labs/circleci-hello-world.config.json](valet-labs/circleci-hello-world.config.json)
-- [valet-labs/circleci-hello-world.source.yml](valet-labs/circleci-hello-world.source.yml)
+- [valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml](valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml)
+- [valet-labs/circleci-hello-world/config.json](valet-labs/circleci-hello-world/config.json)
+- [valet-labs/circleci-hello-world/source.yml](valet-labs/circleci-hello-world/source.yml)
 
 #### valet-labs/circleci-command-example
 
-- [valet-labs/circleci-command-example/my-workflow.yml](valet-labs/circleci-command-example/my-workflow.yml)
-- [.github/actions/greeting/action.yml](.github/actions/greeting/action.yml)
-- [valet-labs/circleci-command-example.config.json](valet-labs/circleci-command-example.config.json)
-- [valet-labs/circleci-command-example.source.yml](valet-labs/circleci-command-example.source.yml)
-
-#### valet-labs/circleci-node-example
-
-- [valet-labs/circleci-node-example/sample.yml](valet-labs/circleci-node-example/sample.yml)
-- [valet-labs/circleci-node-example.config.json](valet-labs/circleci-node-example.config.json)
-- [valet-labs/circleci-node-example.source.yml](valet-labs/circleci-node-example.source.yml)
+- [valet-labs/circleci-command-example/.github/workflows/my-workflow.yml](valet-labs/circleci-command-example/.github/workflows/my-workflow.yml)
+- [valet-labs/circleci-command-example/.github/actions/greeting/action.yml](valet-labs/circleci-command-example/.github/actions/greeting/action.yml)
+- [valet-labs/circleci-command-example/config.json](valet-labs/circleci-command-example/config.json)
+- [valet-labs/circleci-command-example/source.yml](valet-labs/circleci-command-example/source.yml)
 
 #### valet-labs/circleci-python-example
 
-- [valet-labs/circleci-python-example/sample.yml](valet-labs/circleci-python-example/sample.yml)
-- [valet-labs/circleci-python-example.config.json](valet-labs/circleci-python-example.config.json)
-- [valet-labs/circleci-python-example.source.yml](valet-labs/circleci-python-example.source.yml)
+- [valet-labs/circleci-python-example/.github/workflows/sample.yml](valet-labs/circleci-python-example/.github/workflows/sample.yml)
+- [valet-labs/circleci-python-example/config.json](valet-labs/circleci-python-example/config.json)
+- [valet-labs/circleci-python-example/source.yml](valet-labs/circleci-python-example/source.yml)
 
 #### valet-labs/circleci-demo-java-spring
 
-- [valet-labs/circleci-demo-java-spring/workflow.yml](valet-labs/circleci-demo-java-spring/workflow.yml)
-- [valet-labs/circleci-demo-java-spring.config.json](valet-labs/circleci-demo-java-spring.config.json)
-- [valet-labs/circleci-demo-java-spring.source.yml](valet-labs/circleci-demo-java-spring.source.yml)
+- [valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml](valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml)
+- [valet-labs/circleci-demo-java-spring/config.json](valet-labs/circleci-demo-java-spring/config.json)
+- [valet-labs/circleci-demo-java-spring/source.yml](valet-labs/circleci-demo-java-spring/source.yml)
 
 #### valet-labs/circleci-demo-ruby-rails
 
-- [valet-labs/circleci-demo-ruby-rails/build_and_test.yml](valet-labs/circleci-demo-ruby-rails/build_and_test.yml)
-- [valet-labs/circleci-demo-ruby-rails.config.json](valet-labs/circleci-demo-ruby-rails.config.json)
-- [valet-labs/circleci-demo-ruby-rails.source.yml](valet-labs/circleci-demo-ruby-rails.source.yml)
+- [valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml](valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml)
+- [valet-labs/circleci-demo-ruby-rails/config.json](valet-labs/circleci-demo-ruby-rails/config.json)
+- [valet-labs/circleci-demo-ruby-rails/source.yml](valet-labs/circleci-demo-ruby-rails/source.yml)
+
+### Partially successful
+
+#### valet-labs/circleci-node-example
+
+- [valet-labs/circleci-node-example/.github/workflows/sample.yml](valet-labs/circleci-node-example/.github/workflows/sample.yml)
+- [valet-labs/circleci-node-example/config.json](valet-labs/circleci-node-example/config.json)
+- [valet-labs/circleci-node-example/source.yml](valet-labs/circleci-node-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -198,19 +200,19 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-labs/circleci-hello-world,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-hello-world/say-hello-workflow.yml
-    valet-labs/circleci-command-example,./.github/actions/greeting,/data/tmp/audit/valet-labs/circleci-command-example/my-workflow.yml
-    valet-labs/circleci-node-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-node-example/sample.yml
-    valet-labs/circleci-node-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-node-example/sample.yml
-    valet-labs/circleci-python-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-python-example/sample.yml
-    valet-labs/circleci-python-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-python-example/sample.yml
-    valet-labs/circleci-demo-java-spring,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/workflow.yml
-    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+    valet-labs/circleci-hello-world,actions/checkout@v2,/data/tmp/valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml
+    valet-labs/circleci-command-example,./.github/actions/greeting,/data/tmp/valet-labs/circleci-command-example/.github/workflows/my-workflow.yml
+    valet-labs/circleci-node-example,actions/checkout@v2,/data/tmp/valet-labs/circleci-node-example/.github/workflows/sample.yml
+    valet-labs/circleci-node-example,actions/cache@v2,/data/tmp/valet-labs/circleci-node-example/.github/workflows/sample.yml
+    valet-labs/circleci-python-example,actions/checkout@v2,/data/tmp/valet-labs/circleci-python-example/.github/workflows/sample.yml
+    valet-labs/circleci-python-example,actions/cache@v2,/data/tmp/valet-labs/circleci-python-example/.github/workflows/sample.yml
+    valet-labs/circleci-demo-java-spring,actions/checkout@v2,/data/tmp/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/cache@v2,/data/tmp/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,/data/tmp/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,/data/tmp/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,/data/tmp/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,/data/tmp/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,/data/tmp/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
 
     Pipeline,Secret,File path
 
