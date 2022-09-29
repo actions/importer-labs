@@ -323,18 +323,18 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-labs/travisci-php-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-php-example,shivammathur/setup-php@v2,/data/tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-php-example,rectalogic/notify-irc@v1,/data/tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-nodejs-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml
-    valet-labs/travisci-ruby-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
-    valet-labs/travisci-ruby-example,ruby/setup-ruby@v1,/data/tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
-    valet-labs/travisci-python-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml
-    valet-labs/travisci-deploy-example,actions/checkout@v2,/data/tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
-    valet-labs/travisci-deploy-example,desiderati/github-action-pushover@v1,/data/tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    valet-labs/travisci-php-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    valet-labs/travisci-php-example,shivammathur/setup-php@v2,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    valet-labs/travisci-php-example,rectalogic/notify-irc@v1,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    valet-labs/travisci-nodejs-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml
+    valet-labs/travisci-ruby-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
+    valet-labs/travisci-ruby-example,ruby/setup-ruby@v1,tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
+    valet-labs/travisci-python-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml
+    valet-labs/travisci-deploy-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    valet-labs/travisci-deploy-example,desiderati/github-action-pushover@v1,tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
 
     Pipeline,Secret,File path
-    valet-labs/travisci-deploy-example,${{ secrets.PUSHOVER_USER_KEY }},/data/tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    valet-labs/travisci-deploy-example,${{ secrets.PUSHOVER_USER_KEY }},tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
 
     Pipeline,Runner,File path
     ```
