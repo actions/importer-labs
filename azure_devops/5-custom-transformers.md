@@ -120,7 +120,7 @@ $ gh valet dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-ru
 This is the item: {"command"=>"restore", "projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)"}
 This is the item: {"projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)", "arguments"=>"--configuration $(BUILDCONFIGURATION)"}
 [2022-09-20 18:39:51] Output file(s):
-[2022-09-20 18:39:51]   tmp/dry-run/lab-test/pipelines/valet-custom-transformer-example.yml
+[2022-09-20 18:39:51]   tmp/dry-run/pipelines/lab-testing/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
 ```
 
 In the above command you will see two instances of `item` printed to the console. This is because there are two `DotNetCoreCLI@2` steps in the pipeline. Each item listed above represents each `DotNetCoreCLI@2` step in the order that they are defined in the pipeline.
