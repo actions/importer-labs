@@ -200,19 +200,19 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-labs/circleci-hello-world,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml
-    valet-labs/circleci-command-example,./.github/actions/greeting,/data/tmp/audit/valet-labs/circleci-command-example/.github/workflows/my-workflow.yml
-    valet-labs/circleci-node-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
-    valet-labs/circleci-node-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
-    valet-labs/circleci-python-example,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
-    valet-labs/circleci-python-example,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
-    valet-labs/circleci-demo-java-spring,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,/data/tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,/data/tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    valet-labs/circleci-hello-world,actions/checkout@v2,tmp/audit/valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml
+    valet-labs/circleci-command-example,./.github/actions/greeting,tmp/audit/valet-labs/circleci-command-example/.github/workflows/my-workflow.yml
+    valet-labs/circleci-node-example,actions/checkout@v2,tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
+    valet-labs/circleci-node-example,actions/cache@v2,tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
+    valet-labs/circleci-python-example,actions/checkout@v2,tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
+    valet-labs/circleci-python-example,actions/cache@v2,tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
+    valet-labs/circleci-demo-java-spring,actions/checkout@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/cache@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
 
     Pipeline,Secret,File path
 
