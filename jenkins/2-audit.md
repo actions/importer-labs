@@ -245,23 +245,23 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    demo_pipeline,actions/checkout@v2,/data/tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
-    demo_pipeline,actions/upload-artifact@v2,/data/tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
-    demo_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
-    monas_dev_work/monas_freestyle,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
-    monas_dev_work/monas_pipeline,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml
-    test_freestyle_project,actions/checkout@v2,/data/tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
-    test_pipeline,actions/checkout@v2,/data/tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
-    test_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
+    demo_pipeline,actions/checkout@v2,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    demo_pipeline,actions/upload-artifact@v2,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    demo_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    monas_dev_work/monas_freestyle,actions/checkout@v2,tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
+    monas_dev_work/monas_pipeline,actions/checkout@v2,tmp/audit/monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml
+    test_freestyle_project,actions/checkout@v2,tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    test_pipeline,actions/checkout@v2,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
+    test_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
 
     Pipeline,Secret,File path
-    monas_dev_work/monas_freestyle,${{ secrets.SECRET_TEST_EXPRESSION_VAR }},/data/tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
-    test_freestyle_project,${{ secrets.EXPRESSION_FIRST_VAR }},/data/tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    monas_dev_work/monas_freestyle,${{ secrets.SECRET_TEST_EXPRESSION_VAR }},tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
+    test_freestyle_project,${{ secrets.EXPRESSION_FIRST_VAR }},tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
 
     Pipeline,Runner,File path
-    demo_pipeline,TeamARunner,/data/tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
-    test_freestyle_project,DemoRunner,/data/tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
-    test_pipeline,TeamARunner,/data/tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
+    demo_pipeline,TeamARunner,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    test_freestyle_project,DemoRunner,tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    test_pipeline,TeamARunner,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
