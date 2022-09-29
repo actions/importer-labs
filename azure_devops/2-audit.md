@@ -182,17 +182,17 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-bootstrap/pipelines/valet-pipeline2,actions/checkout@v2,tmp/adoa/valet-bootstrap/pipelines/valet-pipeline2.yml
-    valet-bootstrap/pipelines/valet-pipeline1,actions/checkout@v2,tmp/adoa/valet-bootstrap/pipelines/valet-pipeline1.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/checkout@v2,tmp/valet-bootstrap/pipelines/valet-custom-transformer-example.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/setup-node@v2,tmp/adoa/valet-bootstrap/pipelines/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-pipeline2,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
+    valet-bootstrap/pipelines/valet-pipeline1,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/setup-node@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
 
     Pipeline,Secret,File path
 
 
     Pipeline,Runner,File path
-    valet-bootstrap/pipelines/valet-pipeline2,mechamachine,tmp/adoa/valet-bootstrap/pipelines/valet-pipeline2.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,mechamachine,tmp/adoa/valet-bootstrap/pipelines/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-pipeline2,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
