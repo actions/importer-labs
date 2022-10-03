@@ -32,7 +32,7 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `tmp/dry-run` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/pipelines/lab-testing/pipelines/valet-pipeline1/.github/workflows` in the file explorer pane in your codespace.
     - Click `valet-pipeline1.yml` to open.
 
 ## Inspect the output files

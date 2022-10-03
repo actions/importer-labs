@@ -38,24 +38,24 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
     [2022-08-20 22:08:20] Logs: 'tmp/audit/log/valet-20220916-015817.log'
     [2022-08-20 22:08:20] Auditing 'http://localhost:8080/'
     [2022-08-20 22:08:20] Output file(s):==========================================|
-    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.yml
-    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.config.json
-    [2022-08-20 22:08:20]   tmp/audit/demo_pipeline.jenkinsfile
-    [2022-08-20 22:08:20]   tmp/audit/groovy_script.error.txt
-    [2022-08-20 22:08:20]   tmp/audit/groovy_script.config.json
-    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_freestyle.yml
-    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_freestyle.config.json
-    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.yml
-    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.config.json
-    [2022-08-20 22:08:20]   tmp/audit/monas_dev_work/monas_pipeline.jenkinsfile
-    [2022-08-20 22:08:20]   tmp/audit/test_freestyle_project.yml
-    [2022-08-20 22:08:20]   tmp/audit/test_freestyle_project.config.json
-    [2022-08-20 22:08:20]   tmp/audit/test_mutlibranch_pipeline.config.json
-    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.yml
-    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.config.json
-    [2022-08-20 22:08:20]   tmp/audit/test_pipeline.jenkinsfile
-    [2022-08-20 22:08:20]   tmp/audit/workflow_usage.csv
-    [2022-08-20 22:08:20]   tmp/audit/audit_summary.md
+    [2022-09-28 20:08:48]   tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    [2022-09-28 20:08:48]   tmp/audit/demo_pipeline/config.json
+    [2022-09-28 20:08:48]   tmp/audit/demo_pipeline/jenkinsfile
+    [2022-09-28 20:08:48]   tmp/audit/groovy_script/error.txt
+    [2022-09-28 20:08:48]   tmp/audit/groovy_script/config.json
+    [2022-09-28 20:08:48]   tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
+    [2022-09-28 20:08:48]   tmp/audit/monas_dev_work/monas_freestyle/config.json
+    [2022-09-28 20:08:48]   tmp/audit/monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml
+    [2022-09-28 20:08:48]   tmp/audit/monas_dev_work/monas_pipeline/config.json
+    [2022-09-28 20:08:48]   tmp/audit/monas_dev_work/monas_pipeline/jenkinsfile
+    [2022-09-28 20:08:48]   tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    [2022-09-28 20:08:48]   tmp/audit/test_freestyle_project/config.json
+    [2022-09-28 20:08:48]   tmp/audit/test_mutlibranch_pipeline/config.json
+    [2022-09-28 20:08:48]   tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
+    [2022-09-28 20:08:48]   tmp/audit/test_pipeline/config.json
+    [2022-09-28 20:08:48]   tmp/audit/test_pipeline/jenkinsfile
+    [2022-09-28 20:08:48]   tmp/audit/workflow_usage.csv
+    [2022-09-28 20:08:48]   tmp/audit/audit_summary.md
     ```
 
 ## Inspect the output files
@@ -191,44 +191,44 @@ The final section of the audit report provides a manifest of all of the files th
 
 #### demo_pipeline
 
-- [demo_pipeline.yml](demo_pipeline.yml)
-- [demo_pipeline.config.json](demo_pipeline.config.json)
-- [demo_pipeline.jenkinsfile](demo_pipeline.jenkinsfile)
+- [demo_pipeline/.github/workflows/demo_pipeline.yml](demo_pipeline/.github/workflows/demo_pipeline.yml)
+- [demo_pipeline/config.json](demo_pipeline/config.json)
+- [demo_pipeline/jenkinsfile](demo_pipeline/jenkinsfile)
 
 #### monas_dev_work/monas_freestyle
 
-- [monas_dev_work/monas_freestyle.yml](monas_dev_work/monas_freestyle.yml)
-- [monas_dev_work/monas_freestyle.config.json](monas_dev_work/monas_freestyle.config.json)
+- [monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml](monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml)
+- [monas_dev_work/monas_freestyle/config.json](monas_dev_work/monas_freestyle/config.json)
 
 #### test_mutlibranch_pipeline
 
-- [test_mutlibranch_pipeline.config.json](test_mutlibranch_pipeline.config.json)
+- [test_mutlibranch_pipeline/config.json](test_mutlibranch_pipeline/config.json)
 
 ### Partially successful
 
 #### monas_dev_work/monas_pipeline
 
-- [monas_dev_work/monas_pipeline.yml](monas_dev_work/monas_pipeline.yml)
-- [monas_dev_work/monas_pipeline.config.json](monas_dev_work/monas_pipeline.config.json)
-- [monas_dev_work/monas_pipeline.jenkinsfile](monas_dev_work/monas_pipeline.jenkinsfile)
+- [monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml](monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml)
+- [monas_dev_work/monas_pipeline/config.json](monas_dev_work/monas_pipeline/config.json)
+- [monas_dev_work/monas_pipeline/jenkinsfile](monas_dev_work/monas_pipeline/jenkinsfile)
 
 #### test_freestyle_project
 
-- [test_freestyle_project.yml](test_freestyle_project.yml)
-- [test_freestyle_project.config.json](test_freestyle_project.config.json)
+- [test_freestyle_project/.github/workflows/test_freestyle_project.yml](test_freestyle_project/.github/workflows/test_freestyle_project.yml)
+- [test_freestyle_project/config.json](test_freestyle_project/config.json)
 
 #### test_pipeline
 
-- [test_pipeline.yml](test_pipeline.yml)
-- [test_pipeline.config.json](test_pipeline.config.json)
-- [test_pipeline.jenkinsfile](test_pipeline.jenkinsfile)
+- [test_pipeline/.github/workflows/test_pipeline.yml](test_pipeline/.github/workflows/test_pipeline.yml)
+- [test_pipeline/config.json](test_pipeline/config.json)
+- [test_pipeline/jenkinsfile](test_pipeline/jenkinsfile)
 
 ### Failed
 
 #### groovy_script
 
-- [groovy_script.error.txt](groovy_script.error.txt)
-- [groovy_script.config.json](groovy_script.config.json)
+- [groovy_script/error.txt](groovy_script/error.txt)
+- [groovy_script/config.json](groovy_script/config.json)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -245,23 +245,23 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    demo_pipeline,actions/checkout@v2,/data/tmp/audit/demo_pipeline.yml
-    demo_pipeline,actions/upload-artifact@v2,/data/tmp/audit/demo_pipeline.yml
-    demo_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/demo_pipeline.yml
-    monas_dev_work/monas_freestyle,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_freestyle.yml
-    monas_dev_work/monas_pipeline,actions/checkout@v2,/data/tmp/audit/monas_dev_work/monas_pipeline.yml
-    test_freestyle_project,actions/checkout@v2,/data/tmp/audit/test_freestyle_project.yml
-    test_pipeline,actions/checkout@v2,/data/tmp/audit/test_pipeline.yml
-    test_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,/data/tmp/audit/test_pipeline.yml
+    demo_pipeline,actions/checkout@v2,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    demo_pipeline,actions/upload-artifact@v2,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    demo_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    monas_dev_work/monas_freestyle,actions/checkout@v2,tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
+    monas_dev_work/monas_pipeline,actions/checkout@v2,tmp/audit/monas_dev_work/monas_pipeline/.github/workflows/monas_pipeline.yml
+    test_freestyle_project,actions/checkout@v2,tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    test_pipeline,actions/checkout@v2,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
+    test_pipeline,EnricoMi/publish-unit-test-result-action@v1.7,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
 
     Pipeline,Secret,File path
-    monas_dev_work/monas_freestyle,${{ secrets.SECRET_TEST_EXPRESSION_VAR }},/data/tmp/audit/monas_dev_work/monas_freestyle.yml
-    test_freestyle_project,${{ secrets.EXPRESSION_FIRST_VAR }},/data/tmp/audit/test_freestyle_project.yml
+    monas_dev_work/monas_freestyle,${{ secrets.SECRET_TEST_EXPRESSION_VAR }},tmp/audit/monas_dev_work/monas_freestyle/.github/workflows/monas_freestyle.yml
+    test_freestyle_project,${{ secrets.EXPRESSION_FIRST_VAR }},tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
 
     Pipeline,Runner,File path
-    demo_pipeline,TeamARunner,/data/tmp/audit/demo_pipeline.yml
-    test_freestyle_project,DemoRunner,/data/tmp/audit/test_freestyle_project.yml
-    test_pipeline,TeamARunner,/data/tmp/audit/test_pipeline.yml
+    demo_pipeline,TeamARunner,tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
+    test_freestyle_project,DemoRunner,tmp/audit/test_freestyle_project/.github/workflows/test_freestyle_project.yml
+    test_pipeline,TeamARunner,tmp/audit/test_pipeline/.github/workflows/test_pipeline.yml
     ```
 
 The contents of this file can be useful in answering questions similar to the following:

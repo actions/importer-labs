@@ -33,11 +33,11 @@ You will be performing a dry run migration against a CircleCI project. Answer th
     $ gh valet dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails --circle-ci-organization valet-labs
     [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
     [2022-09-19 19:46:05] Output file(s):                                           
-    [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/circleci-demo-ruby-rails/build_and_test.yml
+    [2022-09-19 19:46:05]  tmp/dry-run/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run/valet-labs/circleci-demo-ruby-rails` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/valet-labs/circleci-demo-ruby-rails/.github/workflows` in the file explorer pane in your codespace.
     - Click `build_and_test.yml` to open.
 
 ## Inspect the output files

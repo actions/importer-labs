@@ -149,21 +149,23 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Successful
 
-#### valet-bootstrap/valet-classic-test-import1
+#### valet-bootstrap/pipelines/valet-pipeline2
 
-- [valet-bootstrap/valet-classic-test-import1.yml](valet-bootstrap/valet-classic-test-import1.yml)
-- [valet-bootstrap/valet-classic-test-import1.config.json](valet-bootstrap/valet-classic-test-import1.config.json)
-
-#### valet-bootstrap/valet-classic-test-import2
-
-- [valet-bootstrap/valet-classic-test-import2.yml](valet-bootstrap/valet-classic-test-import2.yml)
-- [valet-bootstrap/valet-classic-test-import2.config.json](valet-bootstrap/valet-classic-test-import2.config.json)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/config.json](pipelines/valet-bootstrap/pipelines/valet-pipeline2/config.json)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/source.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline2/source.yml)
 
 #### valet-bootstrap/pipelines/valet-pipeline1
 
-- [valet-bootstrap/pipelines/valet-pipeline1.yml](valet-bootstrap/pipelines/valet-pipeline1.yml)
-- [valet-bootstrap/pipelines/valet-pipeline1.config.json](valet-bootstrap/pipelines/valet-pipeline1.config.json)
-- [valet-bootstrap/pipelines/valet-pipeline1.source.yml](valet-bootstrap/pipelines/valet-pipeline1.source.yml)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/config.json](pipelines/valet-bootstrap/pipelines/valet-pipeline1/config.json)
+- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/source.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline1/source.yml)
+
+#### valet-bootstrap/pipelines/valet-custom-transformer-example
+
+- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml)
+- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/config.json](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/config.json)
+- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/source.yml](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -180,17 +182,17 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    lab-test/pipelines/valet-pipeline2,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-pipeline2.yml
-    lab-test/pipelines/valet-pipeline1,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-pipeline1.yml
-    lab-test/pipelines/valet-custom-transformer-example,actions/checkout@v2,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
-    lab-test/pipelines/valet-custom-transformer-example,actions/setup-node@v2,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-pipeline2,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
+    valet-bootstrap/pipelines/valet-pipeline1,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/setup-node@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
 
     Pipeline,Secret,File path
 
 
     Pipeline,Runner,File path
-    lab-test/pipelines/valet-pipeline2,mechamachine,/data/tmp/adoa/lab-test/pipelines/valet-pipeline2.yml
-    lab-test/pipelines/valet-custom-transformer-example,mechamachine,/data/tmp/adoa/lab-test/pipelines/valet-custom-transformer-example.yml
+    valet-bootstrap/pipelines/valet-pipeline2,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
+    valet-bootstrap/pipelines/valet-custom-transformer-example,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
