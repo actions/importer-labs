@@ -33,7 +33,7 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails --circle-ci-organization valet-labs
+    $ gh valet dry-run gitlab --output-dir tmp/dry-run --namespace valet --project basic-pipeline-example
     [2022-09-28 19:59:55] Logs: 'tmp/dry-run/log/valet-20220928-195955.log'         
     [2022-09-28 19:59:56] Output file(s):                                           
     [2022-09-28 19:59:56]   tmp/dry-run/valet/basic-pipeline-example/.github/workflows/basic-pipeline-example.yml
