@@ -19,7 +19,7 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
     - __<http://localhost:8080/job/test_pipeline>__
 
 3. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -34,7 +34,7 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 
     ```console
     $ gh actions-importer dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
-    [2022-09-28 20:12:00] Logs: 'tmp/dry-run/log/valet-20220928-201200.log'
+    [2022-09-28 20:12:00] Logs: 'tmp/dry-run/log/actions-importer-20220928-201200.log'
     [2022-09-28 20:12:00] Output file(s):
     [2022-09-28 20:12:00]   tmp/dry-run/test_pipeline/.github/workflows/test_pipeline.yml
     ```
@@ -140,10 +140,10 @@ These two pipelines function equivalently despite using different syntax. In thi
 + #           value: 80
 ```
 
-In the next lab, you'll learn how to override Valet's default behavior and customize the converted workflow that is generated.
+In the next lab, you'll learn how to override GitHub Actions Importer's default behavior and customize the converted workflow that is generated.
 
 Try running the `dry-run` command for different pipelines in the Jenkins server. As a hint, you only have to change the `--source-url` CLI option.
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
+[Use custom transformers to customize GitHub Actions Importer's behavior](5-custom-transformers.md)

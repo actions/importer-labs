@@ -1,6 +1,6 @@
-# Perform a dry-run of a TravisCI pipeline
+# Perform a dry-run of a Travis CI pipeline
 
-In this lab you will use the `dry-run` command to convert a TravisCI pipeline to its equivalent GitHub Actions workflow.
+In this lab you will use the `dry-run` command to convert a Travis CI pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
@@ -10,13 +10,13 @@ In this lab you will use the `dry-run` command to convert a TravisCI pipeline to
 
 ## Perform a dry run
 
-You will be performing a dry-run against a TravisCI project. Answer the following questions before running this command:
+You will be performing a dry-run against a Travis CI project. Answer the following questions before running this command:
 
 1. What pipeline do you want to convert?
-    - __travisci-ruby-example__.  This is one of the sample projects avaiable in the TravisCI labs-data organization.
+    - __travisci-ruby-example__.  This is one of the sample projects available in the `actions-importer-labs` organization.
 
 2. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory that Valet commands are executed from.
+    - __tmp/dry-run__. This can be any path within the working directory that GitHub Actions Importer commands are executed from.
 
 ### Steps
 
@@ -31,21 +31,21 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
 
     ```console
     $ gh actions-importer dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
-    [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
+    [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/actions-importer-20220919-194603.log'     
     [2022-09-19 19:46:05] Output file(s):                                           
-    [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
+    [2022-09-19 19:46:05]   tmp/dry-run/actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run/valet-labs/travisci-ruby-example/.github/workflows` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/actions-importer-labs/travisci-ruby-example/.github/workflows` in the file explorer pane in your codespace.
     - Click `travisci-ruby-example.yml` to open.
 
 ## Inspect the output files
 
-The files generated from the `dry-run` command represent the equivalent Actions workflow for the TravisCI project. The TravisCI configuration and converted workflow can be seen below:
+The files generated from the `dry-run` command represent the equivalent Actions workflow for the Travis CI project. The Travis CI configuration and converted workflow can be seen below:
 
 <details>
-  <summary><em>TravisCI configuration 👇</em></summary>
+  <summary><em>Travis CI configuration 👇</em></summary>
 
 ```yaml
   language: ruby
@@ -73,7 +73,7 @@ The files generated from the `dry-run` command represent the equivalent Actions 
   <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
-name: valet-labs/travisci-ruby-example
+name: actions-importer-labs/travisci-ruby-example
 on:
   push:
     branches:
@@ -121,4 +121,4 @@ Despite these two pipelines using different syntax they will function equivalent
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)
+[Use custom transformers to customize GitHub Actions Importer's behavior](./5-custom-transformers.md)

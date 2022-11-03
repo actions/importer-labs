@@ -19,7 +19,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &quot;hello valet!&quot;
+      <command>echo &quot;hello GitHub Actions Importer!&quot;
 sleep 70</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>

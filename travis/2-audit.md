@@ -6,19 +6,19 @@ The `audit` command operates by performing the following:
 
 - Fetching all of the projects defined in a Travis CI organization.
 - Converting each to their equivalent GitHub Actions workflow.
-- Generating a report that summarizes how complete and complex of a migration is possible with Valet.
+- Generating a report that summarizes how complete and complex of a migration is possible with GitHub Actions Importer.
 
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment.
-2. Completed the [configure lab](./1-configure.md#configure-credentials-for-valet).
+2. Completed the [configure lab](./1-configure.md).
 
 ## Perform an audit
 
-You will be performing an audit against the **valet-labs** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
+You will be performing an audit against the **actions-importer-labs** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
-    - **tmp/audit**.  This can be any path within the working directory that Valet commands are executed from.
+    - **tmp/audit**.  This can be any path within the working directory that GitHub Actions Importer commands are executed from.
 
 ### Steps
 
@@ -41,14 +41,14 @@ You will be performing an audit against the **valet-labs** Travis CI organizatio
 
 #### Pipelines
 
-The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
+The pipeline summary section contains high level statistics regarding the conversion rate done by GitHub Actions Importer:
 
 ```md
 # Audit summary
 
-Summary for [Travis CI instance](https://travis-ci.com/valet-labs)
+Summary for [Travis CI instance](https://travis-ci.com/actions-importer-labs)
 
-- Valet version: **0.1.0.13539 (5bb6c723d6db3688ea0653e14bbf3c63df445bfc)**
+- GitHub Actions Importer version: **0.1.0.13539 (5bb6c723d6db3688ea0653e14bbf3c63df445bfc)**
 - Performed at: **9/16/22 at 20:01**
 
 ## Pipelines
@@ -160,35 +160,35 @@ Secrets: **1**
 
 ### Partially successful
 
-#### valet-labs/travisci-php-example
+#### actions-importer-labs/travisci-php-example
 
-- [valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml](valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml)
-- [valet-labs/travisci-php-example/config.json](valet-labs/travisci-php-example/config.json)
-- [valet-labs/travisci-php-example/source.yml](valet-labs/travisci-php-example/source.yml)
+- [actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml](actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml)
+- [actions-importer-labs/travisci-php-example/config.json](actions-importer-labs/travisci-php-example/config.json)
+- [actions-importer-labs/travisci-php-example/source.yml](actions-importer-labs/travisci-php-example/source.yml)
 
-#### valet-labs/travisci-nodejs-example
+#### actions-importer-labs/travisci-nodejs-example
 
-- [valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml](valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml)
-- [valet-labs/travisci-nodejs-example/config.json](valet-labs/travisci-nodejs-example/config.json)
-- [valet-labs/travisci-nodejs-example/source.yml](valet-labs/travisci-nodejs-example/source.yml)
+- [actions-importer-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml](actions-importer-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml)
+- [actions-importer-labs/travisci-nodejs-example/config.json](actions-importer-labs/travisci-nodejs-example/config.json)
+- [actions-importer-labs/travisci-nodejs-example/source.yml](actions-importer-labs/travisci-nodejs-example/source.yml)
 
-#### valet-labs/travisci-ruby-example
+#### actions-importer-labs/travisci-ruby-example
 
-- [valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml](valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml)
-- [valet-labs/travisci-ruby-example/config.json](valet-labs/travisci-ruby-example/config.json)
-- [valet-labs/travisci-ruby-example/source.yml](valet-labs/travisci-ruby-example/source.yml)
+- [actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml](actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml)
+- [actions-importer-labs/travisci-ruby-example/config.json](actions-importer-labs/travisci-ruby-example/config.json)
+- [actions-importer-labs/travisci-ruby-example/source.yml](actions-importer-labs/travisci-ruby-example/source.yml)
 
-#### valet-labs/travisci-python-example
+#### actions-importer-labs/travisci-python-example
 
-- [valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml](valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml)
-- [valet-labs/travisci-python-example/config.json](valet-labs/travisci-python-example/config.json)
-- [valet-labs/travisci-python-example/source.yml](valet-labs/travisci-python-example/source.yml)
+- [actions-importer-labs/travisci-python-example/.github/workflows/travisci-python-example.yml](actions-importer-labs/travisci-python-example/.github/workflows/travisci-python-example.yml)
+- [actions-importer-labs/travisci-python-example/config.json](actions-importer-labs/travisci-python-example/config.json)
+- [actions-importer-labs/travisci-python-example/source.yml](actions-importer-labs/travisci-python-example/source.yml)
 
-#### valet-labs/travisci-deploy-example
+#### actions-importer-labs/travisci-deploy-example
 
-- [valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml](valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml)
-- [valet-labs/travisci-deploy-example/config.json](valet-labs/travisci-deploy-example/config.json)
-- [valet-labs/travisci-deploy-example/source.yml](valet-labs/travisci-deploy-example/source.yml)
+- [actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml](actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml)
+- [actions-importer-labs/travisci-deploy-example/config.json](actions-importer-labs/travisci-deploy-example/config.json)
+- [actions-importer-labs/travisci-deploy-example/source.yml](actions-importer-labs/travisci-deploy-example/source.yml)
 ```
 
 Here are some key terms that can appear in the “Pipelines” section:
@@ -197,14 +197,14 @@ Here are some key terms that can appear in the “Pipelines” section:
 - **Partially successful** pipelines had 100% of all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their GitHub Actions equivalent.
 - **Failed pipelines** encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Travis CI.
-  - Valet encountered an internal error when converting it.
+  - GitHub Actions Importer encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by GitHub Actions Importer.
 
 #### Build steps
 
-The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by GitHub Actions Importer.
 
 ```md
 Total: **25**
@@ -254,7 +254,7 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 #### Manual Tasks
 
-The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
 
 ```md
 ### Manual tasks
@@ -278,35 +278,35 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Partially successful
 
-#### valet-labs/travisci-php-example
+#### actions-importer-labs/travisci-php-example
 
-- [valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml](valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml)
-- [valet-labs/travisci-php-example/config.json](valet-labs/travisci-php-example/config.json)
-- [valet-labs/travisci-php-example/source.yml](valet-labs/travisci-php-example/source.yml)
+- [actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml](actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml)
+- [actions-importer-labs/travisci-php-example/config.json](actions-importer-labs/travisci-php-example/config.json)
+- [actions-importer-labs/travisci-php-example/source.yml](actions-importer-labs/travisci-php-example/source.yml)
 
-#### valet-labs/travisci-nodejs-example
+#### actions-importer-labs/travisci-nodejs-example
 
-- [valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml](valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml)
-- [valet-labs/travisci-nodejs-example/config.json](valet-labs/travisci-nodejs-example/config.json)
-- [valet-labs/travisci-nodejs-example/source.yml](valet-labs/travisci-nodejs-example/source.yml)
+- [actions-importer-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml](actions-importer-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml)
+- [actions-importer-labs/travisci-nodejs-example/config.json](actions-importer-labs/travisci-nodejs-example/config.json)
+- [actions-importer-labs/travisci-nodejs-example/source.yml](actions-importer-labs/travisci-nodejs-example/source.yml)
 
-#### valet-labs/travisci-ruby-example
+#### actions-importer-labs/travisci-ruby-example
 
-- [valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml](valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml)
-- [valet-labs/travisci-ruby-example/config.json](valet-labs/travisci-ruby-example/config.json)
-- [valet-labs/travisci-ruby-example/source.yml](valet-labs/travisci-ruby-example/source.yml)
+- [actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml](actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml)
+- [actions-importer-labs/travisci-ruby-example/config.json](actions-importer-labs/travisci-ruby-example/config.json)
+- [actions-importer-labs/travisci-ruby-example/source.yml](actions-importer-labs/travisci-ruby-example/source.yml)
 
-#### valet-labs/travisci-python-example
+#### actions-importer-labs/travisci-python-example
 
-- [valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml](valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml)
-- [valet-labs/travisci-python-example/config.json](valet-labs/travisci-python-example/config.json)
-- [valet-labs/travisci-python-example/source.yml](valet-labs/travisci-python-example/source.yml)
+- [actions-importer-labs/travisci-python-example/.github/workflows/travisci-python-example.yml](actions-importer-labs/travisci-python-example/.github/workflows/travisci-python-example.yml)
+- [actions-importer-labs/travisci-python-example/config.json](actions-importer-labs/travisci-python-example/config.json)
+- [actions-importer-labs/travisci-python-example/source.yml](actions-importer-labs/travisci-python-example/source.yml)
 
-#### valet-labs/travisci-deploy-example
+#### actions-importer-labs/travisci-deploy-example
 
-- [valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml](valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml)
-- [valet-labs/travisci-deploy-example/config.json](valet-labs/travisci-deploy-example/config.json)
-- [valet-labs/travisci-deploy-example/source.yml](valet-labs/travisci-deploy-example/source.yml)
+- [actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml](actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml)
+- [actions-importer-labs/travisci-deploy-example/config.json](actions-importer-labs/travisci-deploy-example/config.json)
+- [actions-importer-labs/travisci-deploy-example/source.yml](actions-importer-labs/travisci-deploy-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -323,23 +323,24 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-labs/travisci-php-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-php-example,shivammathur/setup-php@v2,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-php-example,rectalogic/notify-irc@v1,tmp/audit/valet-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
-    valet-labs/travisci-nodejs-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml
-    valet-labs/travisci-ruby-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
-    valet-labs/travisci-ruby-example,ruby/setup-ruby@v1,tmp/audit/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
-    valet-labs/travisci-python-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-python-example/.github/workflows/travisci-python-example.yml
-    valet-labs/travisci-deploy-example,actions/checkout@v2,tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
-    valet-labs/travisci-deploy-example,desiderati/github-action-pushover@v1,tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    actions-importer-labs/travisci-php-example,actions/checkout@v2,tmp/audit/actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    actions-importer-labs/travisci-php-example,shivammathur/setup-php@v2,tmp/audit/actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    actions-importer-labs/travisci-php-example,rectalogic/notify-irc@v1,tmp/audit/actions-importer-labs/travisci-php-example/.github/workflows/travisci-php-example.yml
+    actions-importer-labs/travisci-nodejs-example,actions/checkout@v2,tmp/audit/actions-importer-labs/travisci-nodejs-example/.github/workflows/travisci-nodejs-example.yml
+    actions-importer-labs/travisci-ruby-example,actions/checkout@v2,tmp/audit/actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
+    actions-importer-labs/travisci-ruby-example,ruby/setup-ruby@v1,tmp/audit/actions-importer-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml
+    actions-importer-labs/travisci-python-example,actions/checkout@v2,tmp/audit/actions-importer-labs/travisci-python-example/.github/workflows/travisci-python-example.yml
+    actions-importer-labs/travisci-deploy-example,actions/checkout@v2,tmp/audit/actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    actions-importer-labs/travisci-deploy-example,desiderati/github-action-pushover@v1,tmp/audit/actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
 
     Pipeline,Secret,File path
-    valet-labs/travisci-deploy-example,${{ secrets.PUSHOVER_USER_KEY }},tmp/audit/valet-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
+    actions-importer-labs/travisci-deploy-example,${{ secrets.PUSHOVER_USER_KEY }},tmp/audit/actions-importer-labs/travisci-deploy-example/.github/workflows/travisci-deploy-example.yml
 
     Pipeline,Runner,File path
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
+
 - What workflows will depend on which actions?
 - What workflows use an action that must go through a security review?
 - What workflows use specific secrets?

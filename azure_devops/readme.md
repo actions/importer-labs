@@ -1,12 +1,12 @@
-# Azure Pipelines to Actions migrations powered by Valet
+# Azure Pipelines to Actions migrations powered by GitHub Actions Importer
 
-These instructions will guide you through configuring the GitHub Codespaces environment that will be used in these labs to demonstrate how to use Valet to migrate Azure DevOps pipelines to GitHub Actions.
+These instructions will guide you through configuring the GitHub Codespaces environment that will be used in these labs to demonstrate how to use GitHub Actions Importer to migrate Azure DevOps pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
 ## Create your own repository for these labs
 
-- Ensure that you have created a repository using [valet-customers/labs](https://github.com/valet-customers/labs) as a template.
+- Ensure that you have created a repository using [actions/importer-labs](https://github.com/actions/importer-labs) as a template.
 
 ## Configure your codespace
 
@@ -17,7 +17,7 @@ These steps **must** be completed prior to starting other labs.
     - Click `Create codespaces on main` to create the codespace.
     - After the codespace has initialized there will be a terminal present.
 
-2. Verify the Valet CLI is installed and working. More information on the Valet extension for the official GitHub CLI can be found [here](https://github.com/github/gh-valet).
+2. Verify the GitHub Actions Importer CLI is installed and working. More information on the GitHub Actions Importer extension for the official GitHub CLI can be found [here](https://github.com/github/gh-actions-importer).
 
     - Run the following command in the codespace terminal:
 
@@ -30,11 +30,11 @@ These steps **must** be completed prior to starting other labs.
       ```console
       $ gh actions-importer version
       gh version 2.14.3 (2022-07-26)
-      gh actions-importer        github/gh-valet v0.1.12
-      valet-cli       unknown
+      gh actions-importer        github/gh-actions-importer v0.1.12
+      actions-importer/cli       unknown
       ```
 
-    - If `gh actions-importer version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
+    - If `gh actions-importer version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-actions-importer/cli).
 
 ## Bootstrap your Azure DevOps organization
 
@@ -74,37 +74,37 @@ These steps **must** be completed prior to starting other labs.
 
 ## Labs for Azure DevOps
 
-Perform the following labs to learn how to migrate Azure DevOps pipelines to GitHub Actions using Valet:
+Perform the following labs to learn how to migrate Azure DevOps pipelines to GitHub Actions using GitHub Actions Importer:
 
-1. [Configure credentials for Valet](1-configure.md)
+1. [Configure credentials for GitHub Actions Importer](1-configure.md)
 2. [Perform an audit of an Azure DevOps project](2-audit.md)
 3. [Forecast potential build runner usage](3-forecast.md)
 4. [Perform a dry-run migration of an Azure DevOps pipeline](4-dry-run.md)
-5. [Use custom transformers to customize Valet's behavior](5-custom-transformers.md)
+5. [Use custom transformers to customize GitHub Actions Importer's behavior](5-custom-transformers.md)
 6. [Perform a production migration of a Azure DevOps pipeline](6-migrate.md)
 
-## Troubleshoot the Valet CLI
+## Troubleshoot the GitHub Actions Importer CLI
 
-The CLI extension for Valet can be manually installed by following these steps:
+The CLI extension for GitHub Actions Importer can be manually installed by following these steps:
 
 - Verify you are in the codespace terminal
 - Run this command from within the codespace terminal:
 
   ```bash
-  gh extension install github/gh-valet
+  gh extension install github/gh-actions-importer
   ```
 
 - Verify the result of the install contains:
 
   ```console
-  $ gh extension install github/gh-valet
-  ✓ Installed extension github/gh-valet
+  $ gh extension install github/gh-actions-importer
+  ✓ Installed extension github/gh-actions-importer
   ```
 
 - If you get an error similar to the image below, click the link in the terminal output to authorize the token.
   - Restart the codespace after clicking the link.
   ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
-- Verify Valet CLI extension is installed and working by running the following command from the codespace terminal:
+- Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace terminal:
 
   ```bash
   gh actions-importer version

@@ -15,7 +15,7 @@ Answer the following questions before running a `migrate` command:
 1. What is the id of the pipeline to convert?
     - __:pipeline_id__. This id can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
-      - Selecting the pipeline with the name "valet-pipeline2"
+      - Selecting the pipeline with the name "pipeline2"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 2. Where do you want to store the logs?
     - __tmp/migrate__
@@ -34,7 +34,7 @@ Answer the following questions before running a `migrate` command:
 
    ```console
    $ gh actions-importer migrate azure-devops pipeline --pipeline-id 8 --target-url https://github.com/ethanis/labs --output-dir tmp/migrate
-   [2022-09-07 20:25:08] Logs: 'tmp/dry-run/log/valet-20220907-202508.log'
+   [2022-09-07 20:25:08] Logs: 'tmp/dry-run/log/actions-importer-20220907-202508.log'
    [2022-09-07 20:25:13] Pull request: 'https://github.com/ethanis/labs/pull/42'
    ```
 
@@ -56,4 +56,4 @@ At this point, the migration has completed and you have successfully migrated an
 
 ### Next lab
 
-This concludes all labs for migrating Azure DevOps pipelines to Actions with Valet!
+This concludes all labs for migrating Azure DevOps pipelines to Actions with GitHub Actions Importer!

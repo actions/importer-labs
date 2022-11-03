@@ -3,9 +3,10 @@
 In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Jenkins server.
 
 The `audit` command will perform the following steps:
+
 1. Fetch all of the projects defined in a Jenkins server.
 2. Convert each pipeline to their equivalent GitHub Actions workflow.
-3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
+3. Generate a report that summarizes how complete and complex of a migration is possible with GitHub Actions Importer.
 
 ## Prerequisites
 
@@ -20,7 +21,7 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
     - In this example you will audit the entire Jenkins instance, but in the future if you wanted to configure a specific folder to be audited add the `-f <folder_path>` flag to the `audit` command.
 
 2. Where do you want to store the result?
-    - __tmp/audit__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/audit__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -35,7 +36,7 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
 
     ```console
     $ gh actions-importer audit jenkins --output-dir tmp/audit
-    [2022-08-20 22:08:20] Logs: 'tmp/audit/log/valet-20220916-015817.log'
+    [2022-08-20 22:08:20] Logs: 'tmp/audit/log/actions-importer-20220916-015817.log'
     [2022-08-20 22:08:20] Auditing 'http://localhost:8080/'
     [2022-08-20 22:08:20] Output file(s):==========================================|
     [2022-09-28 20:08:48]   tmp/audit/demo_pipeline/.github/workflows/demo_pipeline.yml
@@ -70,7 +71,7 @@ The audit summary, logs, config files, jenkinsfiles, and transformed workflows w
 
 #### Pipelines
 
-The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
+The pipeline summary section contains high level statistics regarding the conversion rate done by GitHub Actions Importer:
 
 ```md
 ## Pipelines
@@ -99,20 +100,20 @@ Here are some key terms in the “Pipelines” section in the above example:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
-- __Unsupported__ pipelines are definition types that are not supported by Valet. The following Jenkins pipeline types are supported:
+- __Unsupported__ pipelines are definition types that are not supported by GitHub Actions Importer. The following Jenkins pipeline types are supported:
   - Flow Definition
   - Project (declarative Jenkinsfile pipelines)
   - Multibranch Project
 - __Failed__ pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Jenkins.
-  - Valet encountered an internal error when converting it.
+  - GitHub Actions Importer encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by GitHub Actions Importer.
 
 #### Build steps
 
-The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by GitHub Actions Importer.
 
 ```md
 ### Build steps
@@ -159,7 +160,7 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 #### Manual Tasks
 
-The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
 
 ```md
 ### Manual tasks
@@ -265,6 +266,7 @@ Each pipeline will have a variety of files written that include:
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
+
 - What workflows will depend on which actions?
 - What workflows use an action that must go through a security review?
 - What workflows use specific secrets?

@@ -150,23 +150,23 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Successful
 
-#### valet-bootstrap/pipelines/valet-pipeline2
+#### actions-importer-bootstrap/pipelines/pipeline2
 
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml)
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/config.json](pipelines/valet-bootstrap/pipelines/valet-pipeline2/config.json)
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline2/source.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline2/source.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline2/.github/workflows/pipeline2.yml](pipelines/actions-importer-bootstrap/pipelines/pipeline2/.github/workflows/pipeline2.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline2/config.json](pipelines/actions-importer-bootstrap/pipelines/pipeline2/config.json)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline2/source.yml](pipelines/actions-importer-bootstrap/pipelines/pipeline2/source.yml)
 
-#### valet-bootstrap/pipelines/valet-pipeline1
+#### actions-importer-bootstrap/pipelines/pipeline1
 
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml)
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/config.json](pipelines/valet-bootstrap/pipelines/valet-pipeline1/config.json)
-- [pipelines/valet-bootstrap/pipelines/valet-pipeline1/source.yml](pipelines/valet-bootstrap/pipelines/valet-pipeline1/source.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline1/.github/workflows/pipeline1.yml](pipelines/actions-importer-bootstrap/pipelines/pipeline1/.github/workflows/pipeline1.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline1/config.json](pipelines/actions-importer-bootstrap/pipelines/pipeline1/config.json)
+- [pipelines/actions-importer-bootstrap/pipelines/pipeline1/source.yml](pipelines/actions-importer-bootstrap/pipelines/pipeline1/source.yml)
 
-#### valet-bootstrap/pipelines/valet-custom-transformer-example
+#### actions-importer-bootstrap/pipelines/custom-transformer-example
 
-- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml)
-- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/config.json](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/config.json)
-- [pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/source.yml](pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/source.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml](pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml)
+- [pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/config.json](pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/config.json)
+- [pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/source.yml](pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -183,17 +183,17 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-bootstrap/pipelines/valet-pipeline2,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
-    valet-bootstrap/pipelines/valet-pipeline1,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline1/.github/workflows/valet-pipeline1.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/checkout@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,actions/setup-node@v2,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
+    actions-importer-bootstrap/pipelines/pipeline2,actions/checkout@v2,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/pipeline2/.github/workflows/pipeline2.yml
+    actions-importer-bootstrap/pipelines/pipeline1,actions/checkout@v2,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/pipeline1/.github/workflows/pipeline1.yml
+    actions-importer-bootstrap/pipelines/custom-transformer-example,actions/checkout@v2,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml
+    actions-importer-bootstrap/pipelines/custom-transformer-example,actions/setup-node@v2,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml
 
     Pipeline,Secret,File path
 
 
     Pipeline,Runner,File path
-    valet-bootstrap/pipelines/valet-pipeline2,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-pipeline2/.github/workflows/valet-pipeline2.yml
-    valet-bootstrap/pipelines/valet-custom-transformer-example,mechamachine,tmp/audit/pipelines/valet-bootstrap/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
+    actions-importer-bootstrap/pipelines/pipeline2,mechamachine,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/pipeline2/.github/workflows/pipeline2.yml
+    actions-importer-bootstrap/pipelines/custom-transformer-example,mechamachine,tmp/audit/pipelines/actions-importer-bootstrap/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml
     ```
 
 The contents of this file can be useful in answering questions similar to the following:

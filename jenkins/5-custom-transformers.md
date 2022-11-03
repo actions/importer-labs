@@ -1,6 +1,6 @@
-# Use custom transformers to customize Valet's behavior
+# Use custom transformers to customize GitHub Actions Importer's behavior
 
-In this lab you will build upon the `dry-run` command to override Valet's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
+In this lab you will build upon the `dry-run` command to override GitHub Actions Importer's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
 
 1. Convert items that are not automatically converted.
 2. Convert items that were automatically converted using different actions.
@@ -109,7 +109,7 @@ transform "sleep" do |item|
 end
 ```
 
-This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Jenkins.
+This method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Jenkins.
 
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
@@ -133,7 +133,7 @@ Open the workflow that is generated and inspect the contents. Now the `sleep` st
 
 ## Custom transformers for a known step
 
-You can also override Valet's default behavior. In this scenario, you may not want to use the third-party action for publishing junit test results that is used by default. Again, answer the following questions before writing a custom transformer:
+You can also override GitHub Actions Importer's default behavior. In this scenario, you may not want to use the third-party action for publishing junit test results that is used by default. Again, answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __junit__
@@ -162,7 +162,7 @@ Now, we can perform another `dry-run` command with the `--custom-transformers` C
 
 ```console
 $ gh actions-importer dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run --custom-transformers transformers.rb
-[2022-08-20 22:08:20] Logs: 'tmp/dry-run/log/valet-20220916-022628.log'
+[2022-08-20 22:08:20] Logs: 'tmp/dry-run/log/actions-importer-20220916-022628.log'
 This is the item: {"name"=>"junit", "arguments"=>[{"key"=>"testResults", "value"=>{"isLiteral"=>true, "value"=>"**/target/*.xml"}}]}
 [2022-08-20 22:08:20] Output file(s):
 [2022-08-20 22:08:20]   tmp/dry-run/test_pipeline/.github/workflows/test_pipeline.yml
@@ -287,7 +287,7 @@ At this point the file contents of `transformers.rb` should match this:
 
 </details>
 
-That's it! Congratulations, you have overridden Valet's default behavior by customizing the conversion of:
+That's it! Congratulations, you have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
 
 - Unknown steps
 - Known steps

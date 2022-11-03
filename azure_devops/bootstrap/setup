@@ -51,7 +51,7 @@ def create_project(options)
   
   project_to_create = {
     name: project,
-    description: "Project to be used for Valet Labs",
+    description: "Project to be used for GitHub Actions Importer Labs",
     capabilities: {
       versioncontrol: {
         sourceControlType: "Git"

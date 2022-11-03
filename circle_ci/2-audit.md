@@ -3,21 +3,22 @@
 In this lab, you will use the `audit` command to get a high-level view of all projects in a CircleCI organization.
 
 The `audit` command will perform the following steps:
+
 1. Fetch all of the projects defined in an CircleCI organization.
 2. Convert each pipeline to their equivalent GitHub Actions workflow.
-3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
+3. Generate a report that summarizes how complete and complex of a migration is possible with GitHub Actions Importer.
 
 ## Prerequisites
 
 1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
-2. Completed the [configure lab](./1-configure.md#configure-credentials-for-valet).
+2. Completed the [configure lab](./1-configure.md).
 
 ## Perform an audit
 
-You will be performing an `audit` for the __valet-labs__ CircleCI organization that was created for the purposes of these labs. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
+You will be performing an `audit` for the __actions-importer-labs__ CircleCI organization that was created for the purposes of these labs. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
 1. Where do we want to store the result?
-    - __tmp/audit__.  This can be any path within the working directory that Valet commands are executed from.
+    - __tmp/audit__.  This can be any path within the working directory that GitHub Actions Importer commands are executed from.
 
 ### Steps
 
@@ -40,7 +41,7 @@ You will be performing an `audit` for the __valet-labs__ CircleCI organization t
 
 #### Pipelines
 
-The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
+The pipeline summary section contains high level statistics regarding the conversion rate done by GitHub Actions Importer:
 
 ```md
 ## Pipelines
@@ -66,14 +67,14 @@ Here are some key terms that can appear in the “Pipelines” section:
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their GitHub Actions equivalent.
 - __Failed pipelines__ encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in CircleCI.
-  - Valet encountered an internal error when converting it.
+  - GitHub Actions Importer encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by GitHub Actions Importer.
 
 #### Build steps
 
-The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by GitHub Actions Importer.
 
 ```md
 ### Build steps
@@ -122,7 +123,7 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 #### Manual Tasks
 
-The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
 
 ```md
 ### Manual tasks
@@ -146,44 +147,44 @@ The final section of the audit report provides a manifest of all of the files th
 ```md
 ### Successful
 
-#### valet-labs/circleci-hello-world
+#### actions-importer-labs/circleci-hello-world
 
-- [valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml](valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml)
-- [valet-labs/circleci-hello-world/config.json](valet-labs/circleci-hello-world/config.json)
-- [valet-labs/circleci-hello-world/source.yml](valet-labs/circleci-hello-world/source.yml)
+- [actions-importer-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml](actions-importer-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml)
+- [actions-importer-labs/circleci-hello-world/config.json](actions-importer-labs/circleci-hello-world/config.json)
+- [actions-importer-labs/circleci-hello-world/source.yml](actions-importer-labs/circleci-hello-world/source.yml)
 
-#### valet-labs/circleci-command-example
+#### actions-importer-labs/circleci-command-example
 
-- [valet-labs/circleci-command-example/.github/workflows/my-workflow.yml](valet-labs/circleci-command-example/.github/workflows/my-workflow.yml)
-- [valet-labs/circleci-command-example/.github/actions/greeting/action.yml](valet-labs/circleci-command-example/.github/actions/greeting/action.yml)
-- [valet-labs/circleci-command-example/config.json](valet-labs/circleci-command-example/config.json)
-- [valet-labs/circleci-command-example/source.yml](valet-labs/circleci-command-example/source.yml)
+- [actions-importer-labs/circleci-command-example/.github/workflows/my-workflow.yml](actions-importer-labs/circleci-command-example/.github/workflows/my-workflow.yml)
+- [actions-importer-labs/circleci-command-example/.github/actions/greeting/action.yml](actions-importer-labs/circleci-command-example/.github/actions/greeting/action.yml)
+- [actions-importer-labs/circleci-command-example/config.json](actions-importer-labs/circleci-command-example/config.json)
+- [actions-importer-labs/circleci-command-example/source.yml](actions-importer-labs/circleci-command-example/source.yml)
 
-#### valet-labs/circleci-python-example
+#### actions-importer-labs/circleci-python-example
 
-- [valet-labs/circleci-python-example/.github/workflows/sample.yml](valet-labs/circleci-python-example/.github/workflows/sample.yml)
-- [valet-labs/circleci-python-example/config.json](valet-labs/circleci-python-example/config.json)
-- [valet-labs/circleci-python-example/source.yml](valet-labs/circleci-python-example/source.yml)
+- [actions-importer-labs/circleci-python-example/.github/workflows/sample.yml](actions-importer-labs/circleci-python-example/.github/workflows/sample.yml)
+- [actions-importer-labs/circleci-python-example/config.json](actions-importer-labs/circleci-python-example/config.json)
+- [actions-importer-labs/circleci-python-example/source.yml](actions-importer-labs/circleci-python-example/source.yml)
 
-#### valet-labs/circleci-demo-java-spring
+#### actions-importer-labs/circleci-demo-java-spring
 
-- [valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml](valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml)
-- [valet-labs/circleci-demo-java-spring/config.json](valet-labs/circleci-demo-java-spring/config.json)
-- [valet-labs/circleci-demo-java-spring/source.yml](valet-labs/circleci-demo-java-spring/source.yml)
+- [actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml](actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml)
+- [actions-importer-labs/circleci-demo-java-spring/config.json](actions-importer-labs/circleci-demo-java-spring/config.json)
+- [actions-importer-labs/circleci-demo-java-spring/source.yml](actions-importer-labs/circleci-demo-java-spring/source.yml)
 
-#### valet-labs/circleci-demo-ruby-rails
+#### actions-importer-labs/circleci-demo-ruby-rails
 
-- [valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml](valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml)
-- [valet-labs/circleci-demo-ruby-rails/config.json](valet-labs/circleci-demo-ruby-rails/config.json)
-- [valet-labs/circleci-demo-ruby-rails/source.yml](valet-labs/circleci-demo-ruby-rails/source.yml)
+- [actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml](actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml)
+- [actions-importer-labs/circleci-demo-ruby-rails/config.json](actions-importer-labs/circleci-demo-ruby-rails/config.json)
+- [actions-importer-labs/circleci-demo-ruby-rails/source.yml](actions-importer-labs/circleci-demo-ruby-rails/source.yml)
 
 ### Partially successful
 
-#### valet-labs/circleci-node-example
+#### actions-importer-labs/circleci-node-example
 
-- [valet-labs/circleci-node-example/.github/workflows/sample.yml](valet-labs/circleci-node-example/.github/workflows/sample.yml)
-- [valet-labs/circleci-node-example/config.json](valet-labs/circleci-node-example/config.json)
-- [valet-labs/circleci-node-example/source.yml](valet-labs/circleci-node-example/source.yml)
+- [actions-importer-labs/circleci-node-example/.github/workflows/sample.yml](actions-importer-labs/circleci-node-example/.github/workflows/sample.yml)
+- [actions-importer-labs/circleci-node-example/config.json](actions-importer-labs/circleci-node-example/config.json)
+- [actions-importer-labs/circleci-node-example/source.yml](actions-importer-labs/circleci-node-example/source.yml)
 ```
 
 Each pipeline will have a variety of files written that include:
@@ -200,19 +201,19 @@ Each pipeline will have a variety of files written that include:
   
     ```csv
     Pipeline,Action,File path
-    valet-labs/circleci-hello-world,actions/checkout@v2,tmp/audit/valet-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml
-    valet-labs/circleci-command-example,./.github/actions/greeting,tmp/audit/valet-labs/circleci-command-example/.github/workflows/my-workflow.yml
-    valet-labs/circleci-node-example,actions/checkout@v2,tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
-    valet-labs/circleci-node-example,actions/cache@v2,tmp/audit/valet-labs/circleci-node-example/.github/workflows/sample.yml
-    valet-labs/circleci-python-example,actions/checkout@v2,tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
-    valet-labs/circleci-python-example,actions/cache@v2,tmp/audit/valet-labs/circleci-python-example/.github/workflows/sample.yml
-    valet-labs/circleci-demo-java-spring,actions/checkout@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/cache@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/upload-artifact@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-java-spring,actions/download-artifact@v2,tmp/audit/valet-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
-    valet-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/checkout@v2,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
-    valet-labs/circleci-demo-ruby-rails,actions/cache@v2,tmp/audit/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    actions-importer-labs/circleci-hello-world,actions/checkout@v2,tmp/audit/actions-importer-labs/circleci-hello-world/.github/workflows/say-hello-workflow.yml
+    actions-importer-labs/circleci-command-example,./.github/actions/greeting,tmp/audit/actions-importer-labs/circleci-command-example/.github/workflows/my-workflow.yml
+    actions-importer-labs/circleci-node-example,actions/checkout@v2,tmp/audit/actions-importer-labs/circleci-node-example/.github/workflows/sample.yml
+    actions-importer-labs/circleci-node-example,actions/cache@v2,tmp/audit/actions-importer-labs/circleci-node-example/.github/workflows/sample.yml
+    actions-importer-labs/circleci-python-example,actions/checkout@v2,tmp/audit/actions-importer-labs/circleci-python-example/.github/workflows/sample.yml
+    actions-importer-labs/circleci-python-example,actions/cache@v2,tmp/audit/actions-importer-labs/circleci-python-example/.github/workflows/sample.yml
+    actions-importer-labs/circleci-demo-java-spring,actions/checkout@v2,tmp/audit/actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    actions-importer-labs/circleci-demo-java-spring,actions/cache@v2,tmp/audit/actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    actions-importer-labs/circleci-demo-java-spring,actions/upload-artifact@v2,tmp/audit/actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    actions-importer-labs/circleci-demo-java-spring,actions/download-artifact@v2,tmp/audit/actions-importer-labs/circleci-demo-java-spring/.github/workflows/workflow.yml
+    actions-importer-labs/circleci-demo-ruby-rails,ruby/setup-ruby@v1,tmp/audit/actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    actions-importer-labs/circleci-demo-ruby-rails,actions/checkout@v2,tmp/audit/actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
+    actions-importer-labs/circleci-demo-ruby-rails,actions/cache@v2,tmp/audit/actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
 
     Pipeline,Secret,File path
 

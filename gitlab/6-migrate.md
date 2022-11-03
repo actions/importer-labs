@@ -15,7 +15,7 @@ Answer the following questions before running a `migrate` command:
 1. What project do you want to migrate?
     - __rails-example__
 2. What is the namespace for that project?
-    - __Valet__
+    - __actions-importer__
 3. Where do you want to store the logs?
     - __tmp/migrate__
 4. What is the URL for the GitHub repository to add the workflow to?
@@ -26,7 +26,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh actions-importer migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --namespace valet --project rails-example
+    gh actions-importer migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --namespace actions-importer --project rails-example
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
@@ -49,4 +49,4 @@ At this point, the migration has completed and you have successfully migrated a 
 
 ### Next Lab
 
-This concludes all labs for migrating GitLab pipelines to Actions with Valet!
+This concludes all labs for migrating GitLab pipelines to Actions with GitHub Actions Importer!

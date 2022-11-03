@@ -15,11 +15,11 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 1. What is the id of the pipeline to convert?
     - __:pipeline_id__. This id can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
-      - Selecting the pipeline with the name "valet-pipeline1"
+      - Selecting the pipeline with the name "pipeline1"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
 2. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -32,8 +32,8 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `tmp/dry-run/pipelines/lab-testing/pipelines/valet-pipeline1/.github/workflows` in the file explorer pane in your codespace.
-    - Click `valet-pipeline1.yml` to open.
+    - Find `tmp/dry-run/pipelines/lab-testing/pipelines/pipeline1/.github/workflows` in the file explorer pane in your codespace.
+    - Click `pipeline1.yml` to open.
 
 ## Inspect the output files
 
@@ -65,7 +65,7 @@ steps:
   <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
-name: valet-bootstrap/pipelines/valet-pipeline1
+name: actions-importer-bootstrap/pipelines/pipeline1
 on:
   push:
     branches:
@@ -90,4 +90,4 @@ Despite these two pipelines using different syntax they will function equivalent
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)
+[Use custom transformers to customize GitHub Actions Importer's behavior](./5-custom-transformers.md)

@@ -12,7 +12,7 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 Answer the following questions before running the `forecast` command:
 
 1. What namespace do you want to run the forecast for?
-    - **valet**
+    - **actions-importer**
 2. What is the date you want to start forecasting from?
     - **2022-08-02**. This date is needed as it is prior to when the data was seeded in GitLab for these labs. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
 3. Where do you want to store the results?
@@ -24,7 +24,7 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh actions-importer forecast gitlab --output-dir tmp/forecast --namespace valet --start-date 2022-08-02
+    gh actions-importer forecast gitlab --output-dir tmp/forecast --namespace actions-importer --start-date 2022-08-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.

@@ -1,6 +1,6 @@
-# Using custom transformers to customize Valet's behavior
+# Using custom transformers to customize GitHub Actions Importer's behavior
 
-In this lab we will build upon the `dry-run` command to override Valet's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
+In this lab we will build upon the `dry-run` command to override GitHub Actions Importer's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
 
 1. Convert items that are not automatically converted.
 2. Convert items that were automatically converted using different actions.
@@ -21,11 +21,11 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
 1. What is the id of the pipeline to convert?
     - __:pipeline_id__. This id can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
-      - Selecting the pipeline with the name "valet-custom-transformer-example"
+      - Selecting the pipeline with the name "custom-transformer-example"
       - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 
 2. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -38,8 +38,8 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
 
 3. The command will list all the files written to disk when the command succeeds.
 4. View the converted workflow:
-    - Find `tmp/dry-run/pipelines/lab-testing/pipelines/valet-custom-transformer-example/.github/workflows` in the file explorer pane in your codespace.
-    - Click `valet-custom-transformer-example.yml` to open.
+    - Find `tmp/dry-run/pipelines/lab-testing/pipelines/custom-transformer-example/.github/workflows` in the file explorer pane in your codespace.
+    - Click `custom-transformer-example.yml` to open.
 
 The converted workflow that is generated can be seen below:
 
@@ -47,7 +47,7 @@ The converted workflow that is generated can be seen below:
   <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
-name: valet-bootstrap/pipelines/valet-custom-transformer-example
+name: actions-importer-bootstrap/pipelines/custom-transformer-example
 on:
   push:
     branches:
@@ -81,7 +81,7 @@ _Note_: You can refer to the previous [lab](./4-dry-run.md) to learn about the f
 
 ## Custom transformers for build steps
 
-You can use custom transformers to override Valet's default behavior. In this scenario, you may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. Answer the following questions before writing a custom transformer:
+You can use custom transformers to override GitHub Actions Importer's default behavior. In this scenario, you may want to override the behavior for converting `DotnetCoreCLI@2` tasks to support parameters that are glob patterns. Answer the following questions before writing a custom transformer:
 
 1. What is the "identifier" of the step to customize?
     - __DotnetCoreCLI@2__
@@ -110,17 +110,17 @@ transform "DotNetCoreCLI@2" do |item|
 end
 ```
 
-The `transform` method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. Valet will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
+The `transform` method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
 
 Now, we can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
 
 ```console
 $ gh actions-importer dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-run --custom-transformers transformers.rb
-[2022-09-20 18:39:50] Logs: 'tmp/dry-run/log/valet-20220920-183950.log'         
+[2022-09-20 18:39:50] Logs: 'tmp/dry-run/log/actions-importer-20220920-183950.log'         
 This is the item: {"command"=>"restore", "projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)"}
 This is the item: {"projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)", "arguments"=>"--configuration $(BUILDCONFIGURATION)"}
 [2022-09-20 18:39:51] Output file(s):
-[2022-09-20 18:39:51]   tmp/dry-run/pipelines/lab-testing/pipelines/valet-custom-transformer-example/.github/workflows/valet-custom-transformer-example.yml
+[2022-09-20 18:39:51]   tmp/dry-run/pipelines/lab-testing/pipelines/custom-transformer-example/.github/workflows/custom-transformer-example.yml
 ```
 
 In the above command you will see two instances of `item` printed to the console. This is because there are two `DotNetCoreCLI@2` steps in the pipeline. Each item listed above represents each `DotNetCoreCLI@2` step in the order that they are defined in the pipeline.
@@ -247,7 +247,7 @@ runner "mechamachine", "ubuntu-latest"
 
 </details>
 
-That's it! At this point you have overridden Valet's default behavior by customizing the conversion of:
+That's it! At this point you have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
 
 - Build steps
 - Environment variables

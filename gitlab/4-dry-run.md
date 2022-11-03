@@ -16,10 +16,10 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
     - __basic-pipeline-example__
 
 2. What is the namespace for that project?
-    - __Valet__
+    - __actions-importer__
 
 3. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -27,20 +27,20 @@ You will be performing a dry run against a pipeline in your preconfigured GitLab
 2. Run the following command from the root directory:
 
     ```bash
-    gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace valet --project basic-pipeline-example
+    gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace actions-importer --project basic-pipeline-example
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace valet --project basic-pipeline-example
-    [2022-09-28 19:59:55] Logs: 'tmp/dry-run/log/valet-20220928-195955.log'         
+    $ gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace actions-importer --project basic-pipeline-example
+    [2022-09-28 19:59:55] Logs: 'tmp/dry-run/log/actions-importer-20220928-195955.log'         
     [2022-09-28 19:59:56] Output file(s):                                           
-    [2022-09-28 19:59:56]   tmp/dry-run/valet/basic-pipeline-example/.github/workflows/basic-pipeline-example.yml
+    [2022-09-28 19:59:56]   tmp/dry-run/actions-importer/basic-pipeline-example/.github/workflows/basic-pipeline-example.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run/valet/basic-pipeline-example/.github/workflows` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/actions-importer/basic-pipeline-example/.github/workflows` in the file explorer pane in your codespace.
     - Click `basic-pipeline-example.yml` to open.
 
 ## Inspect the output files
@@ -105,7 +105,7 @@ deploy_b:
   <summary><em>Converted workflow 👇</em></summary>
 
 ```yaml
-name: valet/basic-pipeline-example
+name: actions-importer/basic-pipeline-example
 on:
   push:
   workflow_dispatch:
@@ -219,13 +219,13 @@ include:
 Run the following command from the root directory:
 
 ```bash
-gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace valet --project included-files-example
+gh actions-importer dry-run gitlab --output-dir tmp/dry-run --namespace actions-importer --project included-files-example
 ```
 
 The output of the command above can be seen below:
 
 ```yaml
-name: valet/included-files-example
+name: actions-importer/included-files-example
 on:
   push:
   pull_request:
@@ -257,10 +257,10 @@ jobs:
     - run: echo "this is from a local file"
 ```
 
-It's important to note that Valet converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of Valet could be refactored to use [reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
+It's important to note that GitHub Actions Importer converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of GitHub Actions Importer could be refactored to use [reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
 
 As an added challenge, try constructing and running the `dry-run` command yourself. Hint, you should only have to change the project name.
 
 ## Next lab
 
-[Use custom transformers to customize Valet's behavior](./5-custom-transformers.md)
+[Use custom transformers to customize GitHub Actions Importer's behavior](./5-custom-transformers.md)

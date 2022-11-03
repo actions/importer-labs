@@ -1,6 +1,6 @@
-# Configure credentials for Valet
+# Configure credentials for GitHub Actions Importer
 
-In this lab, you will use the `configure` CLI command to set the required credentials and information for Valet to use when working with Jenkins and GitHub.
+In this lab, you will use the `configure` CLI command to set the required credentials and information for GitHub Actions Importer to use when working with Jenkins and GitHub.
 
 You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
 
@@ -58,7 +58,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 ## Verify your environment
 
-To verify your environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of Valet to your codespace.
+To verify your environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of GitHub Actions Importer to your codespace.
 
 1. In the codespace terminal run the following command:
 
@@ -66,12 +66,12 @@ To verify your environment is configured correctly, run the `update` CLI command
    gh actions-importer update
    ```
 
-2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
+2. You should see a confirmation that you were logged into the GitHub Container Registry and the image was updated to the latest version.
 
    ```console
    $ gh actions-importer update
    Login Succeeded
-   latest: Pulling from valet-customers/valet-cli
+   latest: Pulling from actions-importer/cli
    Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
    Status: Image is up to date for ghcr.io/actions-importer/cli:latest
    ghcr.io/actions-importer/cli:latest
@@ -79,4 +79,4 @@ To verify your environment is configured correctly, run the `update` CLI command
 
 ### Next lab
 
-[Perform an audit of a Jenkins server](2-audit.md#perform-an-audit-of-a-jenkins-server)
+[Perform an audit of a Jenkins server](2-audit.md)

@@ -33,7 +33,7 @@ Answer the following questions before running the `forecast` command:
 
     ```console
     $ gh actions-importer forecast jenkins --output-dir tmp/forecast --start-date 2022-08-02
-    [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/valet-20220916-021004.log'
+    [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/actions-importer-20220916-021004.log'
     [2022-08-20 22:08:20] Forecasting 'http://localhost:8080/'
     [2022-08-20 22:08:20] Output file(s):
     [2022-08-20 22:08:20]   tmp/forecast/jobs/09-16-2022-02-10_jobs_0.json

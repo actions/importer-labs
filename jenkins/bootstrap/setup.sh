@@ -1,6 +1,6 @@
 #!/bin/bash
 
-container_name="valet"
+container_name="actions-importer"
 username="admin"
 password="password"
 

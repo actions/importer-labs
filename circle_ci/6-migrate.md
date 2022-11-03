@@ -31,7 +31,7 @@ Answer the following questions before running a `migrate` command:
 
     ```console
     $ gh actions-importer migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
-    [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/valet-20220916-014033.log'
+    [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/actions-importer-20220916-014033.log'
     [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
     ```
 
@@ -51,4 +51,4 @@ At this point, the migration has completed and you have successfully migrated a 
 
 ### Next Lab
 
-This concludes all labs for migrating CircleCI pipelines to Actions with Valet!
+This concludes all labs for migrating CircleCI pipelines to Actions with GitHub Actions Importer!
