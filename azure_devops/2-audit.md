@@ -3,9 +3,10 @@
 In this lab, you will use the `audit` command to get a high-level view of all pipelines in an Azure DevOps organization or project.
 
 The `audit` command will perform the following steps:
+
 1. Fetch all of the projects defined in an Azure DevOps organization.
 2. Convert each pipeline to their equivalent GitHub Actions workflow.
-3. Generate a report that summarizes how complete and complex of a migration is possible with Valet.
+3. Generate a report that summarizes how complete and complex of a migration is possible with GitHub Actions Importer.
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ You will now perform an audit against the bootstrapped Azure DevOps project. Ans
     - __:project__. This should be the same project name used in the setup steps [here](./readme.md#bootstrap-your-azure-devops-organization)
 
 3. Where do you want to store the result?
-    - __tmp/audit__.  This can be any path within the working directory from which Valet commands are executed.
+    - __tmp/audit__.  This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 
@@ -48,7 +49,7 @@ You will now perform an audit against the bootstrapped Azure DevOps project. Ans
 
 #### Pipelines
 
-The pipeline summary section contains high level statistics regarding the conversion rate done by Valet:
+The pipeline summary section contains high level statistics regarding the conversion rate done by GitHub Actions Importer:
 
 ```md
 ## Pipelines
@@ -72,20 +73,20 @@ Here are some key terms in the "Pipelines" section in the above example:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
-- __Unsupported__ pipelines are definition types that are not supported by Valet. The following Azure DevOps pipeline types are supported:
+- __Unsupported__ pipelines are definition types that are not supported by GitHub Actions Importer. The following Azure DevOps pipeline types are supported:
   - Classic (designer)
   - YAML
   - Release
 - __Failed__ pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Azure DevOps.
-  - Valet encountered an internal error when converting it.
+  - GitHub Actions Importer encountered an internal error when converting it.
   - There was an unsuccessful network response, often due to invalid credentials, that caused the pipeline to be inaccessible.
 
-The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by Valet.
+The "Job types" section will summarize which types of pipelines are being used and which are supported or unsupported by GitHub Actions Importer.
 
 #### Build steps
 
-The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by Valet.
+The build steps summary section presents an overview of the individual build steps that are used across all pipelines and how many were automatically converted by GitHub Actions Importer.
 
 ```md
 ### Build steps
@@ -125,7 +126,7 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 
 #### Manual Tasks
 
-The manual tasks summary section presents an overview of the manual tasks that you will need to perform that Valet is not able to complete automatically.
+The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
 
 ```md
 ### Manual tasks
@@ -196,6 +197,7 @@ Each pipeline will have a variety of files written that include:
     ```
 
 The contents of this file can be useful in answering questions similar to the following:
+
 - What workflows will depend on which actions?
 - What workflows use an action that must go through a security review?
 - What workflows use specific secrets?
