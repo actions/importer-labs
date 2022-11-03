@@ -39,17 +39,17 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 5. Run the `configure` CLI command:
         - Select the `TERMINAL` tab from within the codespace terminal window.
         - Run the following command: `gh actions-importer configure`.
-        - Use the down arrow key to highlight `GitLab CI`, press the spacebar to select, and then press enter to continue.
+        - Use the down arrow key to highlight `GitLab`, press the spacebar to select, and then press enter to continue.
         - At the GitHub handle prompt, enter the GitHub handle used to generate the GitHub PAT in step 2 and press enter.
         - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 4 and press enter.
         - At the GitHub PAT prompt, enter the GitHub PAT generated in step 4 and press enter.
         - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
-        - At the GitLab CI token prompt, enter the GitLab CI access token from step 3 and press enter.
-        - At the GitLab CI URL prompt, enter `http://localhost` and press enter.
+        - At the GitLab token prompt, enter the GitLab access token from step 3 and press enter.
+        - At the GitLab URL prompt, enter `http://localhost` and press enter.
 
             ```console
             $ gh actions-importer configure
-            ✔ Which CI providers are you configuring?: GitLab CI
+            ✔ Which CI providers are you configuring?: GitLab
             Enter the following values (leave empty to omit):
             ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
             ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
