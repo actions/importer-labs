@@ -24,13 +24,13 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal. Ensure the values in `--target-url` for `:owner` and `:repo` are replaced with your values:
 
     ```bash
-    gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
+    gh actions-importer migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
     ```console
-    $ gh valet migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
+    $ gh actions-importer migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
     [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/valet-20220916-014033.log'
     [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
     ```

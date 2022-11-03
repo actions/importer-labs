@@ -27,7 +27,7 @@ You will perform a dry run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
+    gh actions-importer dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.

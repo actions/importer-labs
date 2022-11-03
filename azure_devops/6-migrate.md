@@ -27,13 +27,13 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in the codespace terminal:
 
     ```bash
-    gh valet migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url https://github.com/:owner/:repo --output-dir tmp/migrate
+    gh actions-importer migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url https://github.com/:owner/:repo --output-dir tmp/migrate
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
    ```console
-   $ gh valet migrate azure-devops pipeline --pipeline-id 8 --target-url https://github.com/ethanis/labs --output-dir tmp/migrate
+   $ gh actions-importer migrate azure-devops pipeline --pipeline-id 8 --target-url https://github.com/ethanis/labs --output-dir tmp/migrate
    [2022-09-07 20:25:08] Logs: 'tmp/dry-run/log/valet-20220907-202508.log'
    [2022-09-07 20:25:13] Pull request: 'https://github.com/ethanis/labs/pull/42'
    ```

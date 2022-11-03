@@ -24,13 +24,13 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in your codespace terminal:
 
     ```bash
-    gh valet migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
+    gh actions-importer migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
     ```
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
     ```console
-    $ gh valet migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
+    $ gh actions-importer migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
     [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/valet-20220916-014033.log'
     [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
     ```

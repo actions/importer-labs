@@ -28,13 +28,13 @@ You will be performing an audit against your preconfigured Jenkins server. Answe
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit jenkins --output-dir tmp/audit
+    gh actions-importer audit jenkins --output-dir tmp/audit
     ```
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
     ```console
-    $ gh valet audit jenkins --output-dir tmp/audit
+    $ gh actions-importer audit jenkins --output-dir tmp/audit
     [2022-08-20 22:08:20] Logs: 'tmp/audit/log/valet-20220916-015817.log'
     [2022-08-20 22:08:20] Auditing 'http://localhost:8080/'
     [2022-08-20 22:08:20] Output file(s):==========================================|

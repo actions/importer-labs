@@ -22,19 +22,19 @@ These steps **must** be completed prior to starting other labs.
     - Run the following command in the codespace's terminal:
 
       ```bash
-      gh valet version
+      gh actions-importer version
       ```
 
     - Verify the output is similar to below.
 
       ```console
-      $ gh valet version
+      $ gh actions-importer version
       gh version 2.14.3 (2022-07-26)
-      gh valet        github/gh-valet v0.1.12
+      gh actions-importer        github/gh-valet v0.1.12
       valet-cli       unknown
       ```
 
-    - If `gh valet version` did not produce similar output, refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
+    - If `gh actions-importer version` did not produce similar output, refer to the troubleshooting [guide](#troubleshoot-the-valet-cli).
 
 ## Labs for CircleCI
 
@@ -71,5 +71,5 @@ The CLI extension for Valet can be manually installed by following these steps:
 - Verify Valet CLI extension is installed and working by running the following command from the codespace's terminal:
 
   ```bash
-  gh valet version
+  gh actions-importer version
   ```

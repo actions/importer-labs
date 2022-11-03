@@ -33,7 +33,7 @@ You will perform a dry-run for a pipeline in the bootstrapped Azure DevOps proje
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
+    gh actions-importer dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
@@ -115,7 +115,7 @@ The `transform` method can use any valid ruby syntax and should return a `Hash` 
 Now, we can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
 
 ```console
-$ gh valet dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-run --custom-transformers transformers.rb
+$ gh actions-importer dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-run --custom-transformers transformers.rb
 [2022-09-20 18:39:50] Logs: 'tmp/dry-run/log/valet-20220920-183950.log'         
 This is the item: {"command"=>"restore", "projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)"}
 This is the item: {"projects"=>"$(BuildParameters.RESTOREBUILDPROJECTS)", "arguments"=>"--configuration $(BUILDCONFIGURATION)"}
@@ -150,7 +150,7 @@ end
 Now you can perform another `dry-run` command and use the `--custom-transformers` CLI option to provide this custom transformer. Run the following command within your codespace terminal:
 
 ```bash
-gh valet dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run --custom-transformers transformers.rb
+gh actions-importer dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run --custom-transformers transformers.rb
 ```
 
 Open the workflow that is generated and inspect the contents. Now the `DotnetCoreCLI@2` steps are converted using the customized behavior!

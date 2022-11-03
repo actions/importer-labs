@@ -24,13 +24,13 @@ You will be performing a dry-run against a TravisCI project. Answer the followin
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
+    gh actions-importer dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
+    $ gh actions-importer dry-run travis-ci --travis-ci-repository "travisci-ruby-example" --output-dir tmp/dry-run
     [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
     [2022-09-19 19:46:05] Output file(s):                                           
     [2022-09-19 19:46:05]   tmp/dry-run/valet-labs/travisci-ruby-example/.github/workflows/travisci-ruby-example.yml

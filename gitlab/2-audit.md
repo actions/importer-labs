@@ -28,7 +28,7 @@ You will be performing an audit against your preconfigured GitLab server. Answer
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit gitlab --output-dir tmp/audit --namespace valet
+    gh actions-importer audit gitlab --output-dir tmp/audit --namespace valet
     ```
 
 3. The command will list all the files written to disk in green when the command succeeds.

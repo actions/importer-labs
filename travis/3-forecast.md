@@ -22,13 +22,13 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
+    gh actions-importer forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
+    $ gh actions-importer forecast travis-ci --output-dir tmp/forecast --start-date 2022-09-02
     [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/valet-20220916-021004.log'
     [2022-08-20 22:08:20] Forecasting 'http://travis-ci.com/valet-labs'
     [2022-08-20 22:08:20] Output file(s):
@@ -88,7 +88,7 @@ Additionally, these metrics are defined for each queue of runners defined in Tra
 
 ## Forecasting multiple providers
 
-You can examine the available options for the `forecast` command by running `gh valet forecast --help`. When you do this you will see the `--source-file-path` option:
+You can examine the available options for the `forecast` command by running `gh actions-importer forecast --help`. When you do this you will see the `--source-file-path` option:
 
 ![img](https://user-images.githubusercontent.com/19557880/190511652-081ae8c3-c37e-4c5f-9e7f-8fcd9fe63b3a.png)
 
@@ -97,7 +97,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json -o tmp/forecast-combined
+gh actions-importer forecast --source-file-path tmp/**/jobs/*.json -o tmp/forecast-combined
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.

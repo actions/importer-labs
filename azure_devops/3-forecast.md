@@ -26,7 +26,7 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast azure-devops --output-dir tmp/forecast
+    gh actions-importer forecast azure-devops --output-dir tmp/forecast
     ```
 
     __Note__: The Azure DevOps organization and project name can be omitted from the `forecast` command because they were persisted in the `.env.local` file in the [configure lab](./1-configure.md). You can optionally provide these arguments on the command line with the `--azure-devops-organization` and `--azure-devops-project` CLI options.
@@ -35,14 +35,14 @@ Answer the following questions before running the `forecast` command:
 
     ![img](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
 
-4. If you inspect the help menu using the `gh valet forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
+4. If you inspect the help menu using the `gh actions-importer forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
 
     ![img](https://user-images.githubusercontent.com/18723510/187692843-623d4bdc-8970-4348-a632-73c8b00a40f8.png)
 
 5. Run the following `forecast` command while specifying the path to the sample json files:
 
     ```bash
-    gh valet forecast azure-devops --output-dir tmp/forecast --source-file-path azure_devops/bootstrap/jobs.json
+    gh actions-importer forecast azure-devops --output-dir tmp/forecast --source-file-path azure_devops/bootstrap/jobs.json
     ```
 
 6. The command will list all the files written to disk when the command succeeds.

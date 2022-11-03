@@ -1,18 +1,5 @@
 {
-  "name": "Codespace to perform Valet Labs",
-  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
-  "remoteUser": "codespace",
-  "overrideCommand": false,
-  "mounts": [
-    "source=codespaces-linux-var-lib-docker,target=/var/lib/docker,type=volume"
-  ],
-  "runArgs": [
-    "--cap-add=SYS_PTRACE",
-    "--security-opt",
-    "seccomp=unconfined",
-    "--privileged",
-    "--init"
-  ],
+  "name": "Codespace to perform GitHub Actions Importer Labs",
   "remoteEnv": {
     "DOCKER_ARGS": "--network=host",
     "INSTALLATION_TYPE": "labs"
@@ -28,5 +15,5 @@
       ]
     }
   },
-  "postCreateCommand": "gh extension install github/gh-valet || echo 'Could not auto-build. Skipping.' "
+  "postCreateCommand": "gh extension install github/gh-actions-importer || echo 'Could not auto-build. Skipping.' "
 }

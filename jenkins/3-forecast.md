@@ -26,13 +26,13 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet forecast jenkins --output-dir tmp/forecast --start-date 2022-08-02
+    gh actions-importer forecast jenkins --output-dir tmp/forecast --start-date 2022-08-02
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet forecast jenkins --output-dir tmp/forecast --start-date 2022-08-02
+    $ gh actions-importer forecast jenkins --output-dir tmp/forecast --start-date 2022-08-02
     [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/valet-20220916-021004.log'
     [2022-08-20 22:08:20] Forecasting 'http://localhost:8080/'
     [2022-08-20 22:08:20] Output file(s):
@@ -92,10 +92,10 @@ Additionally, these metrics are defined for each queue of runners defined in Jen
 
 ## Forecasting multiple providers
 
-You can examine the available options for the `forecast` command by running `gh valet forecast jenkins --help`. When you do this you will see the `--source-file-path` option:
+You can examine the available options for the `forecast` command by running `gh actions-importer forecast jenkins --help`. When you do this you will see the `--source-file-path` option:
 
 ```console
-$ gh valet forecast -h
+$ gh actions-importer forecast -h
 Options:
   --source-file-path <source-file-path> (REQUIRED)  The file path(s) to existing jobs data.
   -o, --output-dir <output-dir> (REQUIRED)          The location for any output files.
@@ -113,7 +113,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh valet forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined
+gh actions-importer forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.

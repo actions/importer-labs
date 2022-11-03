@@ -25,7 +25,7 @@ You will be performing an `audit` for the __valet-labs__ CircleCI organization t
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit circle-ci --output-dir tmp/audit
+    gh actions-importer audit circle-ci --output-dir tmp/audit
     ```
 
 3. The command will list all the files written to disk in green when the command succeeds.

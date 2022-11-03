@@ -26,7 +26,7 @@ You will be performing an audit against the **valet-labs** Travis CI organizatio
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet audit travis-ci --output-dir tmp/audit
+    gh actions-importer audit travis-ci --output-dir tmp/audit
     ```
 
 3. The command will list all the files written to disk in green when the command succeeds.

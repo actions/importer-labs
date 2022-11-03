@@ -24,13 +24,13 @@ You will be performing a dry run migration against a CircleCI project. Answer th
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails
+    gh actions-importer dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails --circle-ci-organization valet-labs
+    $ gh actions-importer dry-run circle-ci --output-dir tmp/dry-run --circle-ci-project circleci-demo-ruby-rails --circle-ci-organization valet-labs
     [2022-09-19 19:46:03] Logs: 'tmp/dry-run/log/valet-20220919-194603.log'     
     [2022-09-19 19:46:05] Output file(s):                                           
     [2022-09-19 19:46:05]  tmp/dry-run/valet-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml

@@ -27,13 +27,13 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 2. Run the following command from the root directory:
 
     ```bash
-    gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
+    gh actions-importer dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh valet dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
+    $ gh actions-importer dry-run jenkins --source-url http://localhost:8080/job/test_pipeline --output-dir tmp/dry-run
     [2022-09-28 20:12:00] Logs: 'tmp/dry-run/log/valet-20220928-201200.log'
     [2022-09-28 20:12:00] Output file(s):
     [2022-09-28 20:12:00]   tmp/dry-run/test_pipeline/.github/workflows/test_pipeline.yml

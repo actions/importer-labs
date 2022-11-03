@@ -20,7 +20,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 2. Run the `configure` CLI command:
         - Select the `TERMINAL` tab from within the codespace terminal window.
-        - Run the following command: `gh valet configure`.
+        - Run the following command: `gh actions-importer configure`.
         - Using the down arrow key to highlight `CircleCI`, press the spacebar to select, and then hit enter to continue.
         - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 2 and press enter.
         - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 1 and press enter.
@@ -31,7 +31,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
         - At the CircleCI organization name prompt, enter `valet-labs`. This is the organization we'll be using throughout these labs.
 
             ```console
-            $ gh valet configure
+            $ gh actions-importer configure
             ✔ Which CI providers are you configuring?: CircleCI
             Enter the following values (leave empty to omit):
             ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
@@ -51,18 +51,18 @@ To verify our environment is configured correctly, we are going to run the `upda
 1. In the codespace terminal run the following command:
 
    ```bash
-   gh valet update
+   gh actions-importer update
    ```
 
 2. You should see a confirmation that you were logged into the GitHub Container Registry and Valet was updated to the latest version.
 
    ```console
-   $ gh valet update
+   $ gh actions-importer update
    Login Succeeded
    latest: Pulling from valet-customers/valet-cli
    Digest: sha256:a7d00dee8a37e25da59daeed44b1543f476b00fa2c41c47f48deeaf34a215bbb
-   Status: Image is up to date for ghcr.io/valet-customers/valet-cli:latest
-   ghcr.io/valet-customers/valet-cli:latest
+   Status: Image is up to date for ghcr.io/actions-importer/cli:latest
+   ghcr.io/actions-importer/cli:latest
    ```
 
 ### Next lab
