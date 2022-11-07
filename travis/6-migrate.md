@@ -27,7 +27,7 @@ Answer the following questions before running a `migrate` command:
     gh actions-importer migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --travis-ci-repository "travisci-deploy-example"
     ```
 
-2. The command will write the URL to the pull request that was created when the command succeeds.
+2. The command will write the URL to the pull request that is created when the command succeeds.
 
     ```console
     $ gh actions-importer migrate travis-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --travis-ci-repository "travisci-deploy-example"
@@ -43,12 +43,10 @@ The first thing to notice about the pull request is that there is a list of manu
 
 Next, you can inspect the "Files changed" in this pull request and see the converted workflow that is being added. Any additional changes or code reviews that were needed should be done in this pull request.
 
-![action-run](https://user-images.githubusercontent.com/19557880/190726209-dd9ddc54-5ac7-4951-b525-24d76d4378ab.png)
-
 Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
 
-At this point, the migration has completed and you have successfully migrated a Travis CI pipeline to Actions!
+At this point, the migration has completed and you have successfully migrated a Travis CI pipeline to Actions.
 
 ## Next steps
 
-This concludes all labs for migrating Travis CI pipelines to Actions with GitHub Actions Importer!
+This concludes all labs for migrating Travis CI pipelines to Actions with GitHub Actions Importer.
