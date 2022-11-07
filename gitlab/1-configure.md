@@ -47,18 +47,18 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - At the GitLab token prompt, enter the GitLab access token from step 3 and press enter.
    - At the GitLab URL prompt, enter `http://localhost` and press enter.
 
-            ```console
-            $ gh actions-importer configure
-            ✔ Which CI providers are you configuring?: GitLab
-            Enter the following values (leave empty to omit):
-            ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
-            ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
-            ✔ Personal access token for GitHub: ***************
-            ✔ Base url of the GitHub instance: https://github.com
-            ✔ Private token for GitLab: ***************
-            ✔ Base url of the GitLab instance: http://localhost
-            Environment variables successfully updated.
-            ```
+        ```console
+        $ gh actions-importer configure
+        ✔ Which CI providers are you configuring?: GitLab
+        Enter the following values (leave empty to omit):
+        ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
+        ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
+        ✔ Personal access token for GitHub: ***************
+        ✔ Base url of the GitHub instance: https://github.com
+        ✔ Private token for GitLab: ***************
+        ✔ Base url of the GitLab instance: http://localhost
+        Environment variables successfully updated.
+        ```
 
 ## Verify your environment
 
