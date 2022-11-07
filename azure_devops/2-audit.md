@@ -69,7 +69,7 @@ Supported: **5 (100%)**
 - YAML: **3**
 ```
 
-Here are some key terms in the "Pipelines" section in the above example:
+Here are some key terms in the "Pipelines" section:
 
 - __Successful__ pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - __Partially successful__ pipelines had all of the pipeline constructs converted, however, there were some individual items (e.g. build tasks or build triggers) that were not converted automatically to their GitHub Actions equivalent.
@@ -111,7 +111,7 @@ Actions: **19**
 - actions/setup-node@v2: **1**
 ```
 
-Here are some key terms in the "Build steps" section in the above example:
+Here are some key terms in the "Build steps" section:
 
 - A __known__ build step is a step that was automatically converted to an equivalent action.
 - An __unknown__ build step is a step that was not automatically converted to an equivalent action.
@@ -138,7 +138,7 @@ Self hosted runners: **1**
 - `mechamachine`: **1**
 ```
 
-Here are some key terms in the "Manual tasks" section in the above example:
+Here are some key terms in the "Manual tasks" section:
 
 - A __secret__ refers to a repository or organization level secret that is used by the converted pipelines. These secrets will need to be created manually in Actions in order for these pipelines to function properly.
 - A __self-hosted runner__ refers to a label of a runner that is referenced by a converted pipeline that is not a GitHub-hosted runner. You will need to manually define these runners in order for these pipelines to function properly.
@@ -176,7 +176,7 @@ Each pipeline will have a variety of files written that include:
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
 
-## Inspect the workflow usage csv file
+## Inspect the workflow usage .csv file
 
 1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
 2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:

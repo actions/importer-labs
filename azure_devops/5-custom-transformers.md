@@ -112,7 +112,7 @@ end
 
 The `transform` method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Azure DevOps.
 
-Now, we can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
+Now, you can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
 
 ```console
 $ gh actions-importer dry-run azure-devops pipeline --pipeline-id 6 --output-dir tmp/dry-run --custom-transformers transformers.rb
@@ -153,7 +153,7 @@ Now you can perform another `dry-run` command and use the `--custom-transformers
 gh actions-importer dry-run azure-devops pipeline --pipeline-id :pipeline_id --output-dir tmp/dry-run --custom-transformers transformers.rb
 ```
 
-Open the workflow that is generated and inspect the contents. Now the `DotnetCoreCLI@2` steps are converted using the customized behavior!
+Open the workflow that is generated and inspect the contents. The `DotnetCoreCLI@2` steps are now converted using the customized behavior.
 
 ```diff
 -    - name: Restore
