@@ -1,6 +1,6 @@
-# Travis CI to Actions migrations powered by GitHub Actions Importer
+# Travis CI migrations powered by GitHub Actions Importer
 
-The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use GitHub Actions Importer to migrate Travis CI pipelines to GitHub Actions.
+The instructions below will guide you through configuring a GitHub Codespaces environment that your will use in subsequent labs to learn how to use GitHub Actions Importer to migrate Travis CI pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
@@ -8,18 +8,18 @@ These steps **must** be completed prior to starting other labs.
 
 1. Ensure that you have created a repository using the [actions/importer-labs](https://github.com/actions/importer-labs) as a template.
 
-## Configure your Codespace
+## Configure your codespace
 
-1. Start a new Codespace.
+1. Start a new codespace.
 
-    - Click the `Code` with button down arrow above repository on the repository's landing page.
+    - Click the `Code` button on your repository's landing page.
     - Click the `Codespaces` tab.
     - Click `Create codespaces on main` to create the codespace.
     - After the Codespace has initialized there will be a terminal present.
 
 2. Verify the GitHub Actions Importer CLI is installed and working. More information on the GitHub Actions Importer extension for the official GitHub CLI can be found [here](https://github.com/github/gh-actions-importer).
 
-    - Run the following command in the codespace's terminal:
+    - Run the following command in the codespace terminal:
 
       ```bash
       gh actions-importer version
@@ -34,11 +34,11 @@ These steps **must** be completed prior to starting other labs.
       actions-importer/cli       unknown
       ```
 
-    - If `gh actions-importer version` did not produce similar output then please follow the troubleshooting [guide](#troubleshoot-the-actions-importer/cli).
+    - If `gh actions-importer version` did not produce similar output, please refer to the [troubleshooting section](#troubleshoot-the-github-actions-importer-cli).
 
 ## Labs for Travis CI
 
-Perform the following labs to learn more about GitHub Actions migrations with GitHub Actions Importer:
+Perform the following labs to learn more about how to migrate Travis CI pipelines to GitHub Actions using GitHub Actions Importer:
 
 1. [Configure credentials for GitHub Actions Importer](1-configure.md)
 2. [Perform an audit of Travis CI](2-audit.md)
@@ -65,10 +65,7 @@ The CLI extension for GitHub Actions Importer can be manually installed by follo
   ✓ Installed extension github/gh-actions-importer
   ```
 
-- If you get an error similar to the image below, then click the link in the terminal output to authorize the token.
-  - Restart the codespace after clicking the link.
-  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
-- Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace's terminal:
+- Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace terminal:
 
   ```bash
   gh actions-importer version
