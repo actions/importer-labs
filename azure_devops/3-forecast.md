@@ -33,11 +33,34 @@ Answer the following questions before running the `forecast` command:
 
 3. The command will output a message that says "No jobs found" because no jobs have been executed in your bootstrapped project.
 
-    ![img](https://user-images.githubusercontent.com/18723510/187690315-6312088d-9888-4c55-9bbf-c6f2687fa547.png)
+    ```console
+    $ gh actions-importer forecast azure-devops --output-dir tmp/forecast
+    [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/actions-importer-20220916-021004.log'
+    [2022-08-20 22:08:20] Forecasting 'http://dev.azure.com/mona/actions-bootstrap/_build'
+    [2022-08-20 22:08:20] No jobs found
+    ```
 
-4. If you inspect the help menu using the `gh actions-importer forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
+4. If you inspect the help menu using the `gh actions-importer azure-devops forecast --help` command, you will see a `--source-file-path` option. You can use this option to perform a `forecast` using json files that are already present on the filesystem. These labs come bundled with sample json files located [here](./bootstrap/jobs.json).
 
-    ![img](https://user-images.githubusercontent.com/18723510/187692843-623d4bdc-8970-4348-a632-73c8b00a40f8.png)
+    ```console
+    $ gh actions-importer forecast azure-devops -h
+    Options:
+      -g, --azure-devops-organization <azure-devops-organization>  The Azure DevOps organization name.
+      -p, --azure-devops-project <azure-devops-project>            The Azure DevOps project name.
+      -u, --azure-devops-instance-url <azure-devops-instance-url>  The URL of the Azure DevOps instance.
+      -t, --azure-devops-access-token <azure-devops-access-token>  Access token for the Azure DevOps instance.
+      --source-file-path <source-file-path>                        The file path(s) to existing jobs data.
+      -o, --output-dir <output-dir> (REQUIRED)                     The location for any output files.
+      --start-date <start-date>                                    The start date of the forecast analysis in YYYY-MM-DD format. [default:
+                                                                   10/31/2022 8:35:17 AM]
+      --time-slice <time-slice>                                    The time slice in seconds to use for computing concurrency metrics.
+                                                                   [default: 60]
+      --credentials-file <credentials-file>                        The file containing the credentials to use.
+      --no-telemetry                                               Boolean value to disallow telemetry.
+      --no-ssl-verify                                              Disable ssl certificate verification.
+      --no-http-cache                                              Disable caching of http responses.
+      -?, -h, --help                                               Show help and usage information
+    ```
 
 5. Run the following `forecast` command while specifying the path to the sample json files:
 
@@ -47,7 +70,13 @@ Answer the following questions before running the `forecast` command:
 
 6. The command will list all the files written to disk when the command succeeds.
 
-    ![img](https://user-images.githubusercontent.com/18723510/187694590-9121b997-0c89-4984-bbf2-84f3df2ed882.png)
+    ```console
+    $ gh actions-importer forecast azure-devops --output-dir tmp/forecast --source-file-path azure_devops/bootstrap/jobs.json
+    [2022-08-20 22:08:20] Logs: 'tmp/forecast/log/actions-importer-20220916-021004.log'
+    [2022-08-20 22:08:20] Forecasting 'http://dev.azure.com/mona/actions-bootstrap/_build'
+    [2022-08-20 22:08:20] Outfile file(s):
+    [2022-08-20 22:08:20]   ./tmp/forecast/forecast_report.md
+    ```
 
 ## Review the forecast report
 
