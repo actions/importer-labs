@@ -13,39 +13,39 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
     ```
 
 2. Open the GitLab server in a new browser tab:
-        - Click the `PORTS` tab in the codespace terminal window.
-        - In the `PORTS` tab find the row for port 80.
-        - Hover over the address under the `Local Address` column and click the globe to "open in browser".
+   - Click the `PORTS` tab in the codespace terminal window.
+   - In the `PORTS` tab find the row for port 80.
+   - Hover over the address under the `Local Address` column and click the globe to "open in browser".
 
 3. Create a GitLab personal access token (PAT):
-        - Authenticate with the GitLab server using the following credentials:
-            - Username: `root`
-            - Password: `actions-importer-labs!`
-        - Follow the GitLab [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a PAT.
-            - Ensure the token has the `read_api` scope.
-        - Copy the generated token and save it in a safe location.
+   - Authenticate with the GitLab server using the following credentials:
+      - Username: `root`
+      - Password: `actions-importer-labs!`
+   - Follow the GitLab [instructions](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) to generate a PAT.
+      - Ensure the token has the `read_api` scope.
+   - Copy the generated token and save it in a safe location.
 
 4. Create a GitHub personal access token (PAT):
-        - Open github.com in a new browser tab.
-        - In the top right corner of the UI, click your profile photo and click `Settings`.
-        - In the left panel, click `Developer Settings`.
-        - Click `Personal access tokens` and then `Legacy tokens` (if present).
-        - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
-        - Name your token in the `Note` field.
-        - Select the following scopes: `workflow` and `read:packages`.
-        - Click `Generate token`.
-        - Copy the generated PAT and save it in a safe location.
+   - Open github.com in a new browser tab.
+   - In the top right corner of the UI, click your profile photo and then click `Settings`.
+   - In the left panel, click `Developer Settings`.
+   - Click `Personal access tokens` and then `Tokens (classic)` (if present).
+   - Click `Generate new token` and then `Generate new token (classic)`. You may be required to authenticate with GitHub during this step.
+    - Name your token in the `Note` field.
+   - Select the following scopes: `workflow` and `read:packages`.
+   - Click `Generate token`.
+   - Copy the generated PAT and save it in a safe location.
 
 5. Run the `configure` CLI command:
-        - Select the `TERMINAL` tab from within the codespace terminal window.
-        - Run the following command: `gh actions-importer configure`.
-        - Use the down arrow key to highlight `GitLab`, press the spacebar to select, and then press enter to continue.
-        - At the GitHub handle prompt, enter the GitHub handle used to generate the GitHub PAT in step 2 and press enter.
-        - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 4 and press enter.
-        - At the GitHub PAT prompt, enter the GitHub PAT generated in step 4 and press enter.
-        - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
-        - At the GitLab token prompt, enter the GitLab access token from step 3 and press enter.
-        - At the GitLab URL prompt, enter `http://localhost` and press enter.
+   - Select the `TERMINAL` tab from within the codespace terminal window.
+   - Run the following command: `gh actions-importer configure`.
+   - Use the down arrow key to highlight `GitLab`, press the spacebar to select, and then press enter to continue.
+   - At the GitHub handle prompt, enter the GitHub handle used to generate the GitHub PAT in step 2 and press enter.
+   - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 4 and press enter.
+   - At the GitHub PAT prompt, enter the GitHub PAT generated in step 4 and press enter.
+   - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
+   - At the GitLab token prompt, enter the GitLab access token from step 3 and press enter.
+   - At the GitLab URL prompt, enter `http://localhost` and press enter.
 
             ```console
             $ gh actions-importer configure
@@ -64,7 +64,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 To verify your environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of GitHub Actions Importer to your codespace.
 
-1. In the codespace terminal run the following command:
+1. In the codespace terminal, run the following command:
 
    ```bash
    gh actions-importer update
