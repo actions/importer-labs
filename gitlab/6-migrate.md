@@ -31,7 +31,11 @@ Answer the following questions before running a `migrate` command:
 
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
-    ![img](https://user-images.githubusercontent.com/18723510/184953133-9bafd9a1-c3f0-40b3-8414-f23cea698c8e.png)
+    ```console
+    $ gh actions-importer migrate gitlab --target-url https://github.com/:owner/:repo --output-dir tmp/migrate
+    [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/actions-importer-20220916-014033.log'
+    [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
+    ```
 
 3. Open the generated pull request in a new browser tab.
 
