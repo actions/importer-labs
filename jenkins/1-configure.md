@@ -9,7 +9,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 1. Open the Jenkins server in a new browser tab:
       - Click the `PORTS` tab in the codespace terminal window.
       - In the `PORTS` tab, find the row for port 8080.
-      - Hover over the address under the `Local Address` column and click the globe to "open in browser".
+      - Hover over the address under the `Local Address` column and click the globe to **open in browser**.
 
 2. Create a Jenkins API token:
       - In the top right menu bar, click the `admin` button.
@@ -23,8 +23,8 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - Open github.com in a new browser tab.
       - In the top right corner of the UI, click your profile photo and click `Settings`.
       - In the left panel, click `Developer Settings`.
-      - Click `Personal access tokens` and then `Legacy tokens` (if present).
-      - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+      - Click `Personal access tokens` and then `Tokens (classic)` (if present).
+      - Click `Generate new token` and then `Generate new token (classic)`. You may be required to authenticate with GitHub during this step.
       - Name your token in the `Note` field.
       - Select the following scopes: `workflow` and `read:packages`.
       - Click `Generate token`.
@@ -42,19 +42,19 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - At the Jenkins username prompt, enter `admin`  and press enter.
       - At the Jenkins URL prompt, enter `http://localhost:8080/` and press enter.
 
-            ```console
-            $ gh actions-importer configure
-            ✔ Which CI providers are you configuring?: Jenkins
-            Enter the following values (leave empty to omit):
-            ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
-            ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
-            ✔ Personal access token for GitHub: ***************
-            ✔ Base url of the GitHub instance: https://github.com
-            ✔ Personal access token for Jenkins: *************** 
-            ✔ Username of Jenkins user: admin
-            ✔ Base url of the Jenkins instance: https://localhost
-            Environment variables successfully updated.
-            ```
+      ```console
+      $ gh actions-importer configure
+      ✔ Which CI providers are you configuring?: Jenkins
+      Enter the following values (leave empty to omit):
+      ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
+      ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
+      ✔ Personal access token for GitHub: ***************
+      ✔ Base url of the GitHub instance: https://github.com
+      ✔ Personal access token for Jenkins: *************** 
+      ✔ Username of Jenkins user: admin
+      ✔ Base url of the Jenkins instance: https://localhost
+      Environment variables successfully updated.
+      ```
 
 ## Verify your environment
 
