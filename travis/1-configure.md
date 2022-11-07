@@ -36,19 +36,19 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - At the Travis CI base URL prompt, hit enter to accept the default value (`https://travis-ci.com`).
    - At the Travis CI organization name, enter `actions-importer-labs`.
 
-            ```console
-            $ gh actions-importer configure
-            ✔ Which CI providers are you configuring?: Travis CI
-            Enter the following values (leave empty to omit):
-            ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
-            ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
-            ✔ Personal access token for GitHub: ***************
-            ✔ Base url of the GitHub instance: https://github.com
-            ✔ Personal access token for Travis CI: ***************
-            ✔ Base url of the Travis CI instance: https://travis-ci.com
-            ✔ Travis CI organization name: actions-importer-labs
-            Environment variables successfully updated.
-            ```
+      ```console
+      $ gh actions-importer configure
+      ✔ Which CI providers are you configuring?: Travis CI
+      Enter the following values (leave empty to omit):
+      ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
+      ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
+      ✔ Personal access token for GitHub: ***************
+      ✔ Base url of the GitHub instance: https://github.com
+      ✔ Personal access token for Travis CI: ***************
+      ✔ Base url of the Travis CI instance: https://travis-ci.com
+      ✔ Travis CI organization name: actions-importer-labs
+      Environment variables successfully updated.
+      ```
 
 ## Verify your environment
 
