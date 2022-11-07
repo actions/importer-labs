@@ -1,6 +1,6 @@
-# Azure Pipelines to Actions migrations powered by GitHub Actions Importer
+# Azure Pipelines migrations powered by GitHub Actions Importer
 
-These instructions will guide you through configuring the GitHub Codespaces environment that will be used in these labs to demonstrate how to use GitHub Actions Importer to migrate Azure DevOps pipelines to GitHub Actions.
+These instructions will guide you through configuring the GitHub Codespaces environment that you will use in these labs to learn how to use GitHub Actions Importer to migrate Azure DevOps pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
@@ -34,7 +34,7 @@ These steps **must** be completed prior to starting other labs.
       actions-importer/cli       unknown
       ```
 
-    - If `gh actions-importer version` did not produce similar output, please refer to the troubleshooting [guide](#troubleshoot-the-actions-importer/cli).
+    - If `gh actions-importer version` did not produce similar output, please refer to the [troubleshooting section](#troubleshoot-the-github-actions-importer-cli).
 
 ## Bootstrap your Azure DevOps organization
 
@@ -45,7 +45,7 @@ These steps **must** be completed prior to starting other labs.
     - Click `Personal access tokens`.
     - Select `+ New Token`
     - Name your token, select the organization where you want to use the token, and set your token to automatically expire after a set number of days.
-    - Select the following scopes (you may need to `Show all scopes` at the bottom of the page to reveal all scopes):
+    - Select the following scopes (you may need to select `Show all scopes` at the bottom of the page to reveal all scopes):
       - Agents Pool: `Read`
       - Build: `Read & execute`
       - Code: `Read & write`
@@ -101,9 +101,6 @@ The CLI extension for GitHub Actions Importer can be manually installed by follo
   ✓ Installed extension github/gh-actions-importer
   ```
 
-- If you get an error similar to the image below, click the link in the terminal output to authorize the token.
-  - Restart the codespace after clicking the link.
-  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
 - Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace terminal:
 
   ```bash
