@@ -1,6 +1,6 @@
 # CircleCI migrations powered by GitHub Actions Importer
 
-The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use GitHub Actions Importer to migrate CircleCI pipelines to GitHub Actions.
+The instructions below will guide you through configuring a GitHub Codespace environment that you will use in subsequent labs to learn how to use GitHub Actions Importer to migrate CircleCI pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
@@ -34,7 +34,7 @@ These steps **must** be completed prior to starting other labs.
       actions-importer/cli       unknown
       ```
 
-    - If `gh actions-importer version` did not produce similar output, refer to the troubleshooting [guide](#troubleshoot-the-actions-importer/cli).
+    - If `gh actions-importer version` did not produce similar output, refer to the [troubleshooting section](#troubleshoot-the-github-actions-importer-cli).
 
 ## Labs for CircleCI
 
