@@ -12,11 +12,11 @@ In this lab, you will use the `migrate` command to convert an Azure DevOps pipel
 
 Answer the following questions before running a `migrate` command:
 
-1. What is the id of the pipeline to convert?
-    - __:pipeline_id__. This id can be found by:
+1. What is the ID of the pipeline to convert?
+    - __:pipeline_id__. This ID can be found by:
       - Navigating to the build pipelines in the bootstrapped Azure DevOps project <https://dev.azure.com/:organization/:project/_build>
       - Selecting the pipeline with the name "pipeline2"
-      - Inspecting the URL to locate the pipeline id <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
+      - Inspecting the URL to locate the pipeline ID <https://dev.azure.com/:organization/:project/_build?definitionId=:pipeline_id>
 2. Where do you want to store the logs?
     - __tmp/migrate__
 3. What is the URL for the GitHub repository to add the workflow to?
@@ -30,7 +30,7 @@ Answer the following questions before running a `migrate` command:
     gh actions-importer migrate azure-devops pipeline --pipeline-id :pipeline_id --target-url https://github.com/:owner/:repo --output-dir tmp/migrate
     ```
 
-2. The command will write the URL to the pull request that was created when the command succeeds.
+2. The command will write the URL to the pull request that is created when the command succeeds.
 
    ```console
    $ gh actions-importer migrate azure-devops pipeline --pipeline-id 8 --target-url https://github.com/ethanis/labs --output-dir tmp/migrate
@@ -52,8 +52,8 @@ Finally, you can merge the pull request once your review has completed. You can 
 
 ![img](https://user-images.githubusercontent.com/19557880/185509704-90243ec5-e77f-4baf-a9b2-d9a4d9fda199.png)
 
-At this point, the migration has completed and you have successfully migrated an Azure DevOps pipeline to Actions!
+At this point, the migration has completed and you have successfully migrated an Azure DevOps pipeline to Actions.
 
 ### Next lab
 
-This concludes all labs for migrating Azure DevOps pipelines to Actions with GitHub Actions Importer!
+This concludes all labs for migrating Azure DevOps pipelines to Actions with GitHub Actions Importer.
