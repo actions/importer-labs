@@ -1,4 +1,4 @@
-# CircleCI to Actions migrations powered by GitHub Actions Importer
+# CircleCI migrations powered by GitHub Actions Importer
 
 The instructions below will guide you through configuring a GitHub Codespace environment that will be used in subsequent labs that demonstrate how to use GitHub Actions Importer to migrate CircleCI pipelines to GitHub Actions.
 
@@ -12,8 +12,8 @@ These steps **must** be completed prior to starting other labs.
 
 1. Start a new Codespace.
 
-    - Click the `Code` with button down arrow above repository on the repository's landing page.
-    - Click the `Codespaces` tab
+    - Click the `Code` button on your repository's landing page.
+    - Click the `Codespaces` tab.
     - Click `Create codespaces on main` to create the codespace.
     - After the Codespace has initialized there will be a terminal present.
 
@@ -65,9 +65,6 @@ The CLI extension for GitHub Actions Importer can be manually installed by follo
   ✓ Installed extension github/gh-actions-importer
   ```
 
-- If you get an error similar to the image below, then click the link in the terminal output to authorize the token.
-  - Restart the codespace after clicking the link.
-  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
 - Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace's terminal:
 
   ```bash
