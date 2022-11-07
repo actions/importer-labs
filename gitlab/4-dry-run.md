@@ -206,7 +206,7 @@ jobs:
 
 Despite these two pipelines using different syntax they will function equivalently.
 
-## Perform a dry-run migration of a pipeline using `include`'d files
+## Perform a dry-run migration of a pipeline using included files
 
 The previous example demonstrated a basic pipeline that mapped exactly to concepts in GitHub Actions. In this section, you will perform a dry run of the `included-files-example` pipeline that uses the `include` statement in GitLab:
 
@@ -257,7 +257,7 @@ jobs:
     - run: echo "this is from a local file"
 ```
 
-It's important to note that GitHub Actions Importer converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (i.e. Reusable Workflows and Composite Actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of GitHub Actions Importer could be refactored to use [reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
+It's important to note that GitHub Actions Importer converted this into a single workflow without templates. This is because of fundamental differences in how GitLab templates and GitHub Actions templates (that is, reusable workflows and composite actions) function in regards to job ordering. Unfortunately, elements of reusability will be sacrificed in order for the converted pipelines to function the same. It is likely that the output of GitHub Actions Importer could be refactored to use [reusable workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows) at a later date.
 
 As an added challenge, try constructing and running the `dry-run` command yourself. Hint, you should only have to change the project name.
 
