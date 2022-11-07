@@ -23,7 +23,7 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 
 ### Steps
 
-1. Navigate to your codespace terminal
+1. Navigate to your codespace terminal.
 2. Run the following command from the root directory:
 
     ```bash
@@ -41,7 +41,7 @@ You will be performing a dry run against a pipeline in your preconfigured Jenkin
 
 4. View the converted workflow:
     - Find `tmp/dry-run/test_pipeline/.github/workflows` in the file explorer pane in your codespace.
-    - Click `test_pipeline.yml` to open
+    - Click `test_pipeline.yml` to open.
 
 ## Inspect the output files
 
@@ -128,7 +128,7 @@ jobs:
 
 </details>
 
-These two pipelines function equivalently despite using different syntax. In this case, the pipeline conversion was “partially successful” (i.e. there were item(s) not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
+These two pipelines function equivalently despite using different syntax. In this case, the pipeline conversion was “partially successful” (that is, some item[s] were not automatically converted) and the unconverted item was placed as comment in the location the Jenkins pipeline used it. For example:
 
 ```diff
 - sleep 80
