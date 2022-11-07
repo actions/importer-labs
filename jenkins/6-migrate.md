@@ -27,7 +27,7 @@ Answer the following questions before running a `migrate` command:
     gh actions-importer migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
     ```
 
-2. The command will write the URL to the pull request that was created when the command succeeds.
+2. The command will write the URL to the pull request that is created when the command succeeds.
 
     ```console
     $ gh actions-importer migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
