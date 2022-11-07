@@ -66,7 +66,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
 
 ## Verify your environment
 
-To verify our environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of GitHub Actions Importer to your codespace.
+To verify your environment is configured correctly, run the `update` CLI command. The `update` CLI command will download the latest version of GitHub Actions Importer to your codespace.
 
 1. In the codespace terminal, run the following command:
 
