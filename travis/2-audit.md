@@ -1,23 +1,23 @@
-# Perform an audit of CircleCI
+# Perform an audit of Travis CI
 
 In this lab, you will use the `audit` command to get a high-level view of all projects in a Travis CI organization.
 
 The `audit` command operates by performing the following:
 
 - Fetching all of the projects defined in a Travis CI organization.
-- Converting each to their equivalent GitHub Actions workflow.
+- Converting each to its equivalent GitHub Actions workflow.
 - Generating a report that summarizes how complete and complex of a migration is possible with GitHub Actions Importer.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your codespace environment.
 2. Completed the [configure lab](./1-configure.md).
 
 ## Perform an audit
 
 You will be performing an audit against the **actions-importer-labs** Travis CI organization that was created for the purposes of this lab. Your environment was configured to use this organization during the [configure lab](./1-configure.md). The remaining information needed to perform an `audit` is:
 
-1. Where do we want to store the result?
+1. Where do you want to store the result?
     - **tmp/audit**.  This can be any path within the working directory that GitHub Actions Importer commands are executed from.
 
 ### Steps
@@ -193,7 +193,7 @@ Secrets: **1**
 
 Here are some key terms that can appear in the “Pipelines” section:
 
-- **Successful** pipelines had 0% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
+- **Successful** pipelines had 100% of the pipeline constructs and individual items converted automatically to their GitHub Actions equivalent.
 - **Partially successful** pipelines had 100% of all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their GitHub Actions equivalent.
 - **Failed pipelines** encountered a fatal error when being converted. This can occur for one of three reasons:
   - The pipeline was misconfigured and not valid in Travis CI.
@@ -246,13 +246,13 @@ Here are some key terms that can appear in "Build steps" section:
 - An **unsupported** build step is a step that is either:
   - A step that is fundamentally not supported by GitHub Actions.
   - A step that is configured in a way that is incompatible with GitHub Actions.
-- An **action** is a list of the actions that were used in the converted workflows. This is important for the following scenarios:
+- **Actions** provides a list of the actions that were used in the converted workflows. This is important for the following scenarios:
   - Gathering the list of actions to sync to your appliance if you use GitHub Enterprise Server.
   - Defining an organization-level allowlist of actions that can be used. This list of actions is a comprehensive list of which actions their security and/or compliance teams will need to review.
 
 There is an equivalent breakdown of build triggers, environment variables, and other uncategorized items displayed in the audit summary file.
 
-#### Manual Tasks
+#### Manual tasks
 
 The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
 
@@ -316,7 +316,7 @@ Each pipeline will have a variety of files written that include:
 - The converted workflow.
 - Stack traces that can used to troubleshoot a failed pipeline conversion
 
-## Inspect the workflow usage csv file
+## Inspect the workflow usage .csv file
 
 1. Open the `tmp/audit/workflow_usage.csv` file in the file explorer.
 2. This file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline:
