@@ -1,6 +1,6 @@
 # Using custom transformers to customize GitHub Actions Importer's behavior
 
-In this lab you will build upon the `dry-run` command to override GitHub Actions Importer's default behavior and customize the converted workflow using "custom transformers". Custom transformers can be used to:
+In this lab you will build upon the `dry-run` command to override GitHub Actions Importer's default behavior and customize the converted workflow using "custom transformers." Custom transformers can be used to:
 
 1. Convert items that are not automatically converted.
 2. Convert items that were automatically converted using different actions.
@@ -13,7 +13,7 @@ In this lab you will build upon the `dry-run` command to override GitHub Actions
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./4-dry-run.md).
 
-## Perform a dry-run
+## Perform a dry run
 
 You will be performing a `dry-run` command to inspect the workflow that is converted by default. Run the following command within the codespace terminal:
 
@@ -87,7 +87,7 @@ transform "artifacts.terraform" do |item|
 end
 ```
 
-The `transform` method can use any valid ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in GitLab.
+The `transform` method can use any valid Ruby syntax and should return a `Hash` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in GitLab.
 
 Now, we can perform a `dry-run` command with the `--custom-transformers` CLI option. The output of the `dry-run` command should look similar to this:
 
@@ -153,7 +153,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 Finally, you can use custom transformers to dictate which runners the converted workflows should use. To do this, answer the following questions:
 
 1. What is label of the runner in GitLab to update?
-    - __:default__. This is a special keyword to define the default runner to use. You can optional target specific `tags` in a job.
+    - __:default__. This is a special keyword to define the default runner to use. You can optionally target specific `tags` in a job.
 
 2. What is the label of the runner in Actions to use instead?
     - __custom-runner__
@@ -196,7 +196,7 @@ At this point, the file contents of `transformers.rb` should match this:
 
 </details>
 
-That's it! Congratulations, you have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
+That's it. Congratulations, you have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
 
 - Unknown steps
 - Environment variables
