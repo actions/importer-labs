@@ -29,8 +29,8 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - Open github.com in a new browser tab.
       - In the top right corner of the UI, click your profile photo and then click `Settings`.
       - In the left panel, click `Developer Settings`.
-      - Click `Personal access tokens` and then `Legacy tokens` (if present).
-      - Click `Generate new token` and then `Generate new legacy token`. You may be required to authenticate with GitHub during this step.
+      - Click `Personal access tokens` and then `Tokens (classic)` (if present).
+      - Click `Generate new token` and then `Generate new token (classic)`. You may be required to authenticate with GitHub during this step.
       - Name your token in the `Note` field.
       - Select the following scopes: `workflow` and `read:packages`.
       - Click `Generate token`.
