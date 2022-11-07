@@ -1,16 +1,16 @@
-# Perform a dry-run of a Travis CI pipeline
+# Perform a dry run of a Travis CI pipeline
 
 In this lab you will use the `dry-run` command to convert a Travis CI pipeline to its equivalent GitHub Actions workflow.
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your Codespace environment.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your codespace environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
 ## Perform a dry run
 
-You will be performing a dry-run against a Travis CI project. Answer the following questions before running this command:
+You will be performing a dry run against a Travis CI project. Answer the following questions before running this command:
 
 1. What pipeline do you want to convert?
     - __travisci-ruby-example__.  This is one of the sample projects available in the `actions-importer-labs` organization.
