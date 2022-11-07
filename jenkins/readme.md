@@ -1,12 +1,12 @@
-# Jenkins to Actions migrations powered by GitHub Actions Importer
+# Jenkins migrations powered by GitHub Actions Importer
 
-These instructions will guide you through configuring a GitHub Codespaces environment that will be used in subsequent labs that demonstrate how to use GitHub Actions Importer to migrate Jenkins pipelines to GitHub Actions.
+These instructions will guide you through configuring a GitHub Codespaces environment that you will use in subsequent labs to learn how to use GitHub Actions Importer to migrate Jenkins pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
 ## Create your own repository for these labs
 
-1. Ensure that you have created a repository using the [actions/importer-labs](https://github.com/actions/importer-labs) as a template.
+- Ensure that you have created a repository using the [actions/importer-labs](https://github.com/actions/importer-labs) as a template.
 
 ## Configure your codespace
 
@@ -34,7 +34,7 @@ These steps **must** be completed prior to starting other labs.
       actions-importer/cli       unknown
       ```
 
-    - If `gh actions-importer version` did not produce similar output, refer to the troubleshooting [guide](#troubleshoot-the-actions-importer/cli).
+    - If `gh actions-importer version` did not produce similar output, refer to the [troubleshooting section](#troubleshoot-the-github-actions-importer-cli).
 
 ## Bootstrap a Jenkins server
 
@@ -86,10 +86,7 @@ The CLI extension for GitHub Actions Importer can be manually installed by follo
   ✓ Installed extension github/gh-actions-importer
   ```
 
-- If you get an error similar to the image below, then click the link in the terminal output to authorize the token.
-  - Restart the codespace after clicking the link.
-  ![img](https://user-images.githubusercontent.com/26442605/169588015-9414404f-82b6-4d0f-89d4-5f0e6941b029.png)
-- Verify GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace terminal:
+- Verify the GitHub Actions Importer CLI extension is installed and working by running the following command from the codespace terminal:
 
   ```bash
   gh actions-importer version
@@ -100,9 +97,7 @@ The CLI extension for GitHub Actions Importer can be manually installed by follo
 Follow these steps if the Jenkins server does not start correctly after running the setup script:
 
 1. On the left side of the codespace, navigate to the `Docker` tab.
-2. Under the `Containers` tab you should see a docker container named `jenkins:actions-importer` listed with a green play button ▶
+2. Under the `Containers` tab you should see a docker container named `jenkins:actions-importer` listed with a green play button.
 
-- If you see the `jenkins:actions-importer` container, but it has a red stopped symbol next to it ▢, right-click the container and click `start`. The container should begin running again.
-- If the container does not start even after trying to start it manually, right-click the `jenkins:actions-importer` container and click the `remove` button. Then, attempt to start the Jenkins server again by following the steps [here](#bootstrap-a-jenkins-server).
-
-![img](https://user-images.githubusercontent.com/19557880/183770210-c0386616-656e-4fe9-9324-b410ad62c406.png)
+   - If you see the `jenkins:actions-importer` container, but it has a red stopped symbol next to it, right-click the container and click `start`. The container should begin running again.
+   - If the container does not start even after trying to start it manually, right-click the `jenkins:actions-importer` container and click `remove`. Then, attempt to start the Jenkins server again by following the steps [here](#bootstrap-a-jenkins-server).
