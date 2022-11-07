@@ -27,7 +27,7 @@ Answer the following questions before running a `migrate` command:
     gh actions-importer migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
     ```
 
-2. The command will write the URL to the pull request that was created when the command succeeds.
+2. The command will write the URL to the pull request that is created when the command succeeds.
 
     ```console
     $ gh actions-importer migrate circle-ci --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --circle-ci-project circleci-hello-world
@@ -45,10 +45,10 @@ Next, you can inspect the "Files changed" in this pull request and see the conve
 
 ![action-run](https://user-images.githubusercontent.com/18723510/189924238-9f6799c7-e029-4695-a1de-a23666171992.png)
 
-Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the "Actions" menu in the top navigation bar in GitHub.
+Finally, you can merge the pull request once your review has completed. You can then view the workflow running by selecting the **Actions** menu in the top navigation bar in GitHub.
 
-At this point, the migration has completed and you have successfully migrated a CircleCI pipeline to Actions!
+At this point, the migration has completed and you have successfully migrated a CircleCI pipeline to Actions.
 
-### Next Lab
+### Next lab
 
-This concludes all labs for migrating CircleCI pipelines to Actions with GitHub Actions Importer!
+This concludes all labs for migrating CircleCI pipelines to Actions with GitHub Actions Importer.
