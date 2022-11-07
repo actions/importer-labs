@@ -101,5 +101,3 @@ Follow these steps if the Jenkins server does not start correctly after running 
 
    - If you see the `jenkins:actions-importer` container, but it has a red stopped symbol next to it, right-click the container and click `start`. The container should begin running again.
    - If the container does not start even after trying to start it manually, right-click the `jenkins:actions-importer` container and click `remove`. Then, attempt to start the Jenkins server again by following the steps [here](#bootstrap-a-jenkins-server).
-
-![img](https://user-images.githubusercontent.com/19557880/183770210-c0386616-656e-4fe9-9324-b410ad62c406.png)
