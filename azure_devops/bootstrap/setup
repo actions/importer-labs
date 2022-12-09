@@ -92,7 +92,7 @@ def create_repository(options)
     }],
     commits: [{
       comment: "Initial commit.",
-      changes: Dir[File.join(tmp_dir, "**/*")].reject {|f| File.directory?(f) }.map do |entry|
+      changes: Dir[File.join(tmp_dir, "**/*.{cs,csproj,sln}")].reject {|f| File.directory?(f) }.map do |entry|
         {
           changeType: "add",
           item: {
