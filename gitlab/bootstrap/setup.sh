@@ -27,7 +27,7 @@ else
   --volume /srv/gitlab/logs:/var/log/gitlab \
   --volume /srv/gitlab/data:/var/opt/gitlab \
   --shm-size 256m \
-  gitlab/gitlab-ee:latest
+  gitlab/gitlab-ee:15.5.6-ee.0
 
   # updates file permissions to avoid git and server errors
   docker exec -it gitlab update-permissions &> /dev/null
