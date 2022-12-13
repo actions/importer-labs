@@ -4,6 +4,11 @@
     "DOCKER_ARGS": "--network=host",
     "INSTALLATION_TYPE": "labs"
   },
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
   "customizations": {
     "vscode": {
       "settings": {
