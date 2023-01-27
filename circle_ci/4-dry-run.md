@@ -36,6 +36,8 @@ You will be performing a dry run migration against a CircleCI project. Answer th
     [2022-09-19 19:46:05]  tmp/dry-run/actions-importer-labs/circleci-demo-ruby-rails/.github/workflows/build_and_test.yml
     ```
 
+    _Note:  It is expected to see "Resource not found" warnings in the output.  These warnings are present because you are not a member of the CircleCI organization actions-importer-labs._
+
 4. View the converted workflow:
     - Find `tmp/dry-run/actions-importer-labs/circleci-demo-ruby-rails/.github/workflows` in the file explorer pane in your codespace.
     - Click `build_and_test.yml` to open.
