@@ -59,11 +59,11 @@ def abort_on_ado_error!(response, uri)
 
   message = case response.code
             when "401"
-              "Please check your Azure DevOps access token has the correct permissions."
+              "Please ensure that your Azure DevOps access token has the correct permissions."
             when "404"
               JSON.parse(response.body)["message"]
             when "302"
-              "Please check your Azure DevOps access token is correctly entered."
+              "Please ensure that your Azure DevOps access token is entered correctly"
             else
               begin
                 JSON.parse(response.body)["message"]
