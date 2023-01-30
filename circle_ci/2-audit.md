@@ -31,7 +31,7 @@ You will be performing an `audit` for the __actions-importer-labs__ CircleCI org
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
-   _Note:  It is expected to see "Resource not found" warnings in the output.  These warnings are present because you are not a member of the CircleCI organization actions-importer-labs._
+   **Note**:  It is expected that you will see "Resource not found" warnings in the output. These warnings are present because you are not a member of the CircleCI organization actions-importer-labs.
    
 ## Inspect the output files
 
