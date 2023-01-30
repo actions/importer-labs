@@ -35,7 +35,7 @@ Answer the following questions before running a `migrate` command:
     [2022-08-20 22:08:20] Pull request: 'https://github.com/:owner/:repo/pull/1'
     ```
 
-    _Note:  It is expected to see "Resource not found" warnings in the output.  These warnings are present because you are not a member of the CircleCI organization actions-importer-labs._
+    **Note**:  It is expected that you will see "Resource not found" warnings in the output. These warnings are present because you are not a member of the CircleCI organization actions-importer-labs.
 
 3. Open the generated pull request in a new browser tab.
 
