@@ -32,14 +32,61 @@ def post_request(uri, body, access_token)
     request.content_type = 'application/json'
   
     response = http.request request
+    abort_on_ado_error!(response, uri)
 
     yield(response) if block_given?
 
     sleep(5)
+    
+    JSON.parse(response.body)
+  end
+end
+
+def get_request(uri, access_token)
+  Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
+    request = Net::HTTP::Get.new(uri)
+    request.basic_auth "", access_token
+    response = http.request request
+
+    yield(response) if block_given?
 
     JSON.parse(response.body)
   end
 end
+
+def abort_on_ado_error!(response, uri)
+  return if response.code.start_with?("20")
+
+  message = case response.code
+            when "401"
+              "Please ensure that your Azure DevOps access token has the correct permissions."
+            when "404"
+              JSON.parse(response.body)["message"]
+            when "302"
+              "Please ensure that your Azure DevOps access token is entered correctly"
+            else
+              begin
+                JSON.parse(response.body)["message"]
+              rescue JSON::ParserError
+                response.body
+              end
+            end
+  abort "Error encountered on request:#{uri}\n  StatusCode:#{response.code}\n  Message: '#{message}'"
+end
+
+
+
+def project_exists?(options)
+  organization = options[:organization]
+  project = options[:project]
+  access_token = options[:access_token]
+
+  uri = URI("https://dev.azure.com/#{organization}/_apis/projects/#{project}?api-version=6.0")
+  get_request(uri, access_token) do |response|
+    return response.code.start_with?("20")
+  end
+end
+
 
 def create_project(options)
   organization = options[:organization]
@@ -62,9 +109,7 @@ def create_project(options)
     }
   }
 
-  post_request(uri, project_to_create, access_token) do |response|
-    raise "Error creating project (#{response.code}:#{response.message})" unless response.code.start_with?("20")
-  end
+  post_request(uri, project_to_create, access_token)
 end
 
 def create_repository(options)
@@ -107,10 +152,7 @@ def create_repository(options)
     }]
   }
 
-  result = post_request(uri, repository_to_create, access_token) do |response|
-    raise "Error creating repository (#{response.code}:#{response.message})" unless response.code.start_with?("20")
-  end
-
+  result = post_request(uri, repository_to_create, access_token)
   [result, tmp_dir]
 end
 
@@ -143,9 +185,7 @@ def create_yaml_pipelines(options, repository, tmp_dir)
       }
     }
 
-    post_request(uri, pipeline_to_create, access_token) do |response|
-      raise "Error creating pipeline (#{response.code}:#{response.message})" unless response.code.start_with?("20")
-    end
+    post_request(uri, pipeline_to_create, access_token)
   end
 end
 
@@ -170,9 +210,7 @@ def create_classic_pipelines(options, repository)
     pipeline_to_create["repository"]["name"] = repository_name
     pipeline_to_create["repository"]["id"] = repository_id
 
-    post_request(uri, pipeline_to_create, access_token) do |response|
-      raise "Error creating pipeline (#{response.code}:#{response.message})" unless response.code.start_with?("20")
-    end
+    post_request(uri, pipeline_to_create, access_token) 
   end
 end
 
@@ -186,7 +224,14 @@ def update_forecast_source_file(options, tmp_dir)
   File.write(File.join(root_dir, jobs_data_file), jobs_data)
 end
 
-create_project(options)
+
+if project_exists?(options)
+  print "Project '#{options[:project]}' already exists. Would you like to continue? [y/N]"
+  abort unless gets.chomp.casecmp? "y"
+else
+  create_project(options)
+end
+
 repository, tmp_dir = create_repository(options)
 create_yaml_pipelines(options, repository, tmp_dir)
 create_classic_pipelines(options, repository)
