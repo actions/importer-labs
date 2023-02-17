@@ -125,7 +125,7 @@ transform "codecov_codecov_upload" do |item|
 end
 ```
 
-In this case, `puts` will only print `{}` to the console since there are no properties of the CircleCI step. In the source configuration, it simply appears as:
+In this example, `puts` will output an empty hash (i.e. `{}`) to the console since there are no properties configured for the CircleCI step. The step from the CircleCI pipeline is:
 
 ```yml
 - codecov/upload
