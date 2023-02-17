@@ -125,6 +125,12 @@ transform "codecov_codecov_upload" do |item|
 end
 ```
 
+In this example, `puts` will output an empty hash (i.e. `{}`) to the console since there are no properties configured for the CircleCI step. The step from the CircleCI pipeline is:
+
+```yml
+- codecov/upload
+```
+
 ## Custom transformers for environment variables
 
 You can use custom transformers to edit the values of environment variables in converted workflows. In this example, you will update the `COVERAGE_DIR` environment variable to be `$RUNNER_TEMP/cov` instead of `./tmp/cov`.
