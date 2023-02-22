@@ -8,6 +8,6 @@ Please note that this project is released with a [Contributor Code of Conduct](c
 
 Here's some helpful notes on how to contribute to this project, including details on how to get started working with the codebase.
 
-## How to submit a bug or request a feature
+## How to offer feedback or make a feature request
 
-If you think you've found a bug or have a great idea for new functionality please create an issue in the [repo](https://github.com/actions/importer-labs/issues/new).
+If you would like to offer feedback or have a great idea for new functionality, please create a new discussion [here](https://github.com/actions/importer-labs/discussions/new/choose).
