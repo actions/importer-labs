@@ -12,7 +12,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - In the left panel, click `Developer Settings`.
    - Click `Personal access tokens` and then `Tokens (classic)` (if present).
    - Click `Generate new token` and then `Generate new token (classic)`. You may be required to authenticate with GitHub during this step.
-   - Select the following scopes: `read:packages` and `workflow`.
+   - Select the following scope: `workflow`.
    - Click `Generate token`.
    - Copy the generated PAT and save in a safe location.
 
@@ -22,8 +22,6 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - Select the `TERMINAL` tab from within the codespace terminal window.
    - Run the following command: `gh actions-importer configure`.
    - Using the down arrow key to highlight `CircleCI`, press the spacebar to select, and then press enter to continue.
-   - At the GitHub handle prompt, enter the GitHub username used to generate the GitHub PAT in step 2 and press enter.
-   - At the GitHub Container Registry prompt, enter the GitHub PAT generated in step 1 and press enter.
    - At the GitHub PAT prompt, enter the GitHub PAT generated in step 1 and press enter.
    - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
    - At the CircleCI token prompt, enter the CircleCI access token from step 2 and press enter.
@@ -34,8 +32,6 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
             $ gh actions-importer configure
             ✔ Which CI providers are you configuring?: CircleCI
             Enter the following values (leave empty to omit):
-            ✔ GitHub handle used to authenticate with the GitHub Container Registry: mona
-            ✔ Personal access token to authenticate with the GitHub Container Registry: ***************
             ✔ Personal access token for GitHub: ***************
             ✔ Base url of the GitHub instance: https://github.com
             ✔ Personal access token for CircleCI: ***************
