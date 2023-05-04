@@ -1,7 +1,6 @@
 {
   "name": "Codespace to perform GitHub Actions Importer Labs",
   "remoteEnv": {
-    "DOCKER_ARGS": "--network=host",
     "INSTALLATION_TYPE": "labs"
   },
   "hostRequirements": {
