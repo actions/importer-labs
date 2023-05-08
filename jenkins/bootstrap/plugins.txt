@@ -4,6 +4,7 @@ antisamy-markup-formatter:159.v25b_c67cd35fb_
 build-timeout:1.24
 cloudbees-folder:6.740.ve4f4ffa_dea_54
 configuration-as-code:1569.vb_72405b_80249
+credentials:1087.1089.v2f1b_9a_b_040e4
 credentials-binding:523.vd859a_4b_122e6
 email-ext:2.92
 git:4.12.1
