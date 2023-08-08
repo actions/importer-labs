@@ -1,0 +1,3 @@
+source_files:
+  - repository_slug: NEW/ROCKET
+    path: bamboo/bootstrap/source_files/bamboo/bamboo.yml
