@@ -1,0 +1,9 @@
+source_files:
+  - repository_slug: python
+    path: bitbucket/bootstrap/source_files/python.yml
+  - repository_slug: ruby
+    path: bitbucket/bootstrap/source_files/ruby.yml
+  - repository_slug: docker
+    path: bitbucket/bootstrap/source_files/docker.yml
+  - repository_slug: react-deploy
+    path: bitbucket/bootstrap/source_files/react_deploy.yml
