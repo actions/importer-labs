@@ -1,0 +1,90 @@
+[
+  {
+    "id": "{d47f79cd-9cb6-4ac8-8e85-ba448edab7df}",
+    "build_number": "{d47f79cd-9cb6-4ac8-8e85-ba448edab7df}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-07T08:00:46+00:00",
+    "finish_time": "2023-09-07T08:00:49+00:00",
+    "definition_id": "{a990d84b-2229-4fb5-addf-9d85a20568bb}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  },
+  {
+    "id": "{91fa4c59-31e6-48e8-9db2-24133dd820c6}",
+    "build_number": "{91fa4c59-31e6-48e8-9db2-24133dd820c6}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-06T08:00:37+00:00",
+    "finish_time": "2023-09-06T08:00:43+00:00",
+    "definition_id": "{fa347742-00ea-4a28-9866-c5257b15d719}",
+    "runner_name": null,
+    "runner_group": "self-hosted"
+  },
+  {
+    "id": "{dd548f45-405b-4efe-9413-15a2cd585f53}",
+    "build_number": "{dd548f45-405b-4efe-9413-15a2cd585f53}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-05T08:00:56+00:00",
+    "finish_time": "2023-09-05T08:03:59+00:00",
+    "definition_id": "{6112d63f-6e28-4464-b9aa-7f24eb34e00f}",
+    "runner_name": null,
+    "runner_group": "self-hosted"
+  },
+  {
+    "id": "{4eb4521a-9159-4ff6-b328-c62cac52131f}",
+    "build_number": "{4eb4521a-9159-4ff6-b328-c62cac52131f}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-04T08:00:19+00:00",
+    "finish_time": "2023-09-04T08:00:23+00:00",
+    "definition_id": "{c7e80d72-f205-4603-8569-f074191187e4}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  },
+  {
+    "id": "{12c99c31-d12d-49e5-9d38-83c5e226b0a5}",
+    "build_number": "{12c99c31-d12d-49e5-9d38-83c5e226b0a5}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-03T08:00:10+00:00",
+    "finish_time": "2023-09-03T08:00:13+00:00",
+    "definition_id": "{fc61a473-8718-4ddd-a89b-3343db294726}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  },
+  {
+    "id": "{190e777d-3ff3-4f3c-9f77-cbf03e69415b}",
+    "build_number": "{190e777d-3ff3-4f3c-9f77-cbf03e69415b}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-02T08:00:35+00:00",
+    "finish_time": "2023-09-02T08:00:38+00:00",
+    "definition_id": "{fc5bae20-556d-43db-9be4-80bbe1eb1995}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  },
+  {
+    "id": "{a597affa-c2a2-441b-b91b-e80751ba3ecc}",
+    "build_number": "{a597affa-c2a2-441b-b91b-e80751ba3ecc}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-09-01T08:00:48+00:00",
+    "finish_time": "2023-09-01T08:00:52+00:00",
+    "definition_id": "{0117b0f0-dcd3-4680-812f-6162cb919d90}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  },
+  {
+    "id": "{ea0e658d-86d8-40cc-90e5-b69ceff1bf4e}",
+    "build_number": "{ea0e658d-86d8-40cc-90e5-b69ceff1bf4e}",
+    "result": "pipeline_step_state_completed_successful",
+    "queue_time": null,
+    "start_time": "2023-08-31T08:00:16+00:00",
+    "finish_time": "2023-08-31T08:00:20+00:00",
+    "definition_id": "{32a1db46-05b4-405f-aeac-6a34eb04f587}",
+    "runner_name": null,
+    "runner_group": "hosted"
+  }
+]
