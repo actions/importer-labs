@@ -29,8 +29,8 @@ These steps **must** be completed prior to starting other labs.
 
       ```console
       $ gh actions-importer version
-      gh version 2.14.3 (2022-07-26)
-      gh actions-importer        github/gh-actions-importer v0.1.12
+      gh version 2.31.0 (2023-06-20)
+      gh actions-importer	github/gh-actions-importer	v1.3.3
       actions-importer/cli       unknown
       ```
 

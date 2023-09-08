@@ -10,7 +10,7 @@ In this lab you will use the `dry-run` command to convert a Bitbucket pipeline t
 
 ## Perform a dry run
 
-You will be performing a dry run against a Bitbucket pipeline. Answer the following questions before running this command:
+Before executing the dry-run command we will need to answer the following questions.
 
 1. What repository is that pipeline in?
     - __react-deploy__
@@ -29,7 +29,7 @@ You will be performing a dry run against a Bitbucket pipeline. Answer the follow
     ```bash
     gh actions-importer dry-run bitbucket --output-dir tmp/dry-run --workspace actions-importer --repository react-deploy --source-file-path ./bitbucket/bootstrap/source_files/react_deploy.yml
     ```
-    >Note: To simplify the lab we are using `--source-file-path` to specify a local file for the source of the pipeline yaml.
+    >Note: For the purpose of this lab exercise, we're using the `--source-file-path` option to specify a local file as the source for the pipeline YAML, in order to simplify the process.
 
 3. The command will list all the files written to disk when the command succeeds.
 
@@ -43,8 +43,8 @@ You will be performing a dry run against a Bitbucket pipeline. Answer the follow
 
 4. View the converted workflows:
     - Find `tmp/dry-run/actions-importer/react-deploy/.github/workflows` in the file explorer pane in your codespace.
-    - Click `default.yml` to open the workflow that runs on all pushes to branches that are not master.
-    - Click `branches-master.yml` to open workflow that run on pushes to master.
+    - Click `default.yml` to open the workflow that was generated for the __default__ start condition.
+    - Click `branches-master.yml` to open workflow that was generated for the __master branch__ start condition.
 
 ## Inspect the output files
 

@@ -15,8 +15,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - Select the following scope: `workflow`.
    - Click `Generate token`.
    - Copy the generated PAT and save in a safe location.
-
-2. Create a Bitbucket workspace access token with read scopes for pipeline, project, and repository, using Bitbucket's [documentation](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) and store the token in a safe location.
+2. Follow Bitbucket's [documentation](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) to generate a workspace access token with read scopes for pipeline, project, and repository, and ensure that you store the token securely.
 
 3. Run the `configure` CLI command:
    - Select the `TERMINAL` tab from within the codespace terminal window.

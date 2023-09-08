@@ -14,7 +14,7 @@ Answer the following questions before running the `forecast` command:
 1. What workspace do you want to run the forecast for?
     - **actions-importer**
 2. What is the date you want to start forecasting from?
-    - **2023-08-03**. This value defaults to the date one week ago, however, you should use a start date that will show a representative view of typical usage.
+    - **2023-08-03**. By default, the value is set to one week ago, but it's recommended that you choose a start date that provides a representative view of typical usage.
 3. Where do you want to store the results?
     - **tmp/forecast**
 
@@ -24,16 +24,16 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh actions-importer forecast bitbucket --workspace actions-importer --start-date 2023-08-03 --output-dir tmp/audit --source-file-path bitbucket/**/source_files/*.json
+    gh actions-importer forecast bitbucket --workspace actions-importer --start-date 2023-08-03 --output-dir tmp/forecast --source-file-path bitbucket/**/source_files/*.json
     ```
-    > Note: This uses `--source-file-path` to specify the source of the usage date, which would typically be left out of the command during normal usage. This option is explained in more depth in a later section.
+    > Note: The --source-file-path flag is used in this command to indicate the location of the usage data source. In regular usage, this flag may not be necessary. For more information on this option, please refer to a later section.
 
 3. The command will list all the files written to disk when the command succeeds.
     ```console
     [2023-09-07 18:26:22] Logs: 'tmp/audit/log/valet-20230907-182622.log'
     [2023-09-07 18:26:22] Forecasting 'https://bitbucket.org/actions-importer'
     [2023-09-07 18:26:22] Output file(s):                                           
-    [2023-09-07 18:26:22]   tmp/audit/forecast_report.md
+    [2023-09-07 18:26:22]   tmp/forecast/forecast_report.md
     ```
 ## Review the forecast report
 

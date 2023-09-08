@@ -23,7 +23,7 @@ Answer the following questions before running a `migrate` command:
 
 ### Steps
 
-1. Run the following `migrate` command in the codespace terminal:
+1. Run the below `migrate` command in the codespace terminal, remember to update the `--target-url` before executing:
 
     ```bash
     gh actions-importer migrate bitbucket --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --workspace actions-importer --repository basic-pipeline --source-file-path ./bitbucket/bootstrap/source_files/basic_pipeline.yml
