@@ -166,7 +166,7 @@ Now you can perform another `dry-run` command with the `--custom-transformers` C
 ```bash
 gh actions-importer dry-run bitbucket --output-dir tmp/dry-run --workspace actions-importer --repository python --source-file-path ./bitbucket/bootstrap/source_files/python.yml --custom-transformers transformers.rb
 ```
-> Note: we are using a different pipeline then before that has uses `runs-on` with the target label.
+> Note: we are using a different pipeline than before that defines a `runs-on` tag with the target label.
 
 ```diff
 runs-on:
