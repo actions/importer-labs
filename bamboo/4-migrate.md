@@ -19,10 +19,6 @@ Answer the following questions before running a `migrate` command:
 2. What is the URL for the GitHub repository to add the workflow to?
     - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
-    ```
-    export TARGET_URL=<url>
-    ```
-
 3. What is the source
 
 ### Steps
@@ -30,7 +26,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in your codespace terminal:
 
     ```bash
-    $ gh actions-importer migrate bamboo build --target-url $TARGET_URL --output-dir tmp/migrate --source-file-path $SOURCE_FILE_PATH
+    $ gh actions-importer migrate bamboo build --target-url <target_url> --output-dir tmp/migrate --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml
     ```
 
 2. The command will write the URL to the pull request that is created when the command succeeds.
