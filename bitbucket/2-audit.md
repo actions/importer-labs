@@ -31,7 +31,7 @@ Answer the following questions before running this command:
     ```bash
     gh actions-importer audit bitbucket --output-dir tmp/audit --workspace actions-importer --config-file-path bitbucket/bootstrap/config.yml
     ```
-    > Note: The use of --config-file-path is specific to this lab exercise, and it's not necessary unless you intend to perform an audit solely on local files.
+    > Note: The `--config-file-path` option is not required and is used throughout these labs to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipelines using the Bitbucket REST APIs.
 3. The command will list all the files written to disk in green when the command succeeds.
 
 ## Inspect the output files
