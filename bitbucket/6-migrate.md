@@ -28,7 +28,7 @@ Answer the following questions before running a `migrate` command:
     ```bash
     gh actions-importer migrate bitbucket --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --workspace actions-importer --repository basic-pipeline --source-file-path ./bitbucket/bootstrap/source_files/basic_pipeline.yml
     ```
-    > Note: We are utilizing `--source-file-path` specifically for this lab, and it may not be necessary for regular use.
+    Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipeline definitions using the Bitbucket REST APIs.
 2. The command will write the URL to the pull request that was created when the command succeeds.
 
     ```console
