@@ -29,7 +29,7 @@ Before executing the dry-run command we will need to answer the following questi
     ```bash
     gh actions-importer dry-run bitbucket --output-dir tmp/dry-run --workspace actions-importer --repository react-deploy --source-file-path ./bitbucket/bootstrap/source_files/react_deploy.yml
     ```
-    >Note: For the purpose of this lab exercise, we're using the `--source-file-path` option to specify a local file as the source for the pipeline YAML, in order to simplify the process.
+     > Note: The `--source-file-path` option is not required and is used throughout this lab to convert a pipeline that is stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipelines using the Bitbucket REST APIs
 
 3. The command will list all the files written to disk when the command succeeds.
 
