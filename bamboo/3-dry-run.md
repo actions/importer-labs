@@ -14,18 +14,14 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
 
 1. What is the planslug of the pipeline you want to convert?
 
-    ```
-    export PLAN_SLUG=MARS-ROCKET
-    ```
+    - __MARS-ROCKET__
 
 2. Where do you want to store the result?
     - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 3. Which file would you like to conver?
 
-    ```
-    export SOURCE_FILE_PATH=bamboo/bootstrap/source_files/bamboo/bamboo.yml
-    ```
+    - __bamboo/bootstrap/source_files/bamboo/bamboo.yml__
 
 4. Are you converting a build or deployment plan?
     - The supplied configuration is a build plan.
@@ -36,7 +32,7 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
 2. Run the following command from the root directory:
 
     ```bash
-    gh actions-importer dry-run bamboo build --source-file-path $SOURCE_FILE_PATH -p $PLAN_SLUG--output-dir tmp/dry-run
+    gh actions-importer dry-run bamboo build --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml -p MARS-ROCKET --output-dir tmp/dry-run
     ```
 
 3. The command will list all the files written to disk when the command succeeds.
