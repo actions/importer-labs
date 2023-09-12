@@ -1,6 +1,6 @@
-# Bitbucket migrations powered by GitHub Actions Importer
+# Bitbucket Pipelines migrations powered by GitHub Actions Importer
 
-These instructions will guide you through configuring the GitHub Codespaces environment that you will use in these labs to learn how to use GitHub Actions Importer to migrate Bitbucket pipelines to GitHub Actions.
+These instructions will guide you through configuring the GitHub Codespaces environment that you will use in these labs to learn how to use GitHub Actions Importer to migrate from Bitbucket Pipelines to GitHub Actions.
 
 These steps **must** be completed prior to starting other labs.
 
