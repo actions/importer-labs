@@ -26,7 +26,7 @@ Answer the following questions before running the `forecast` command:
     ```bash
     gh actions-importer forecast bitbucket --workspace actions-importer --start-date 2023-08-03 --output-dir tmp/forecast --source-file-path bitbucket/**/source_files/*.json
     ```
-    > Note: The --source-file-path flag is used in this command to indicate the location of the usage data source. In regular usage, this flag may not be necessary. For more information on this option, please refer to a later section.
+    > Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch historical pipeline runs using the Bitbucket REST APIs.
 
 3. The command will list all the files written to disk when the command succeeds.
     ```console
