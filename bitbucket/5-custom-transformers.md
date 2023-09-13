@@ -120,7 +120,7 @@ Let's answer the following questions before proceeding to write a custom transfo
   end
   ```
 
-This method can use any valid Ruby syntax and should return a `Hash` or `Array` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Bitbucket. The structure of the item can be viewed by looking at the commented out step for the identifier in the workflow.
+This method can use any valid Ruby syntax and should return a `Hash` or `Array` that represents the YAML that should be generated for a given step. GitHub Actions Importer will use this method to convert a step with the provided identifier and will use the `item` parameter for the original values configured in Bitbucket. The Bitbucket variables can be accessed in the `item` parameter via `item["variables"]["<BITBUCKET_VARIABLE_NAME>"]`.
 
 ```yaml
 identifier: atlassian/unknown-azure-deploy:1.1.0
