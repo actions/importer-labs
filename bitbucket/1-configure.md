@@ -15,7 +15,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - Select the following scope: `workflow`.
    - Click `Generate token`.
    - Copy the generated PAT and save in a safe location.
-2. Follow Bitbucket's [documentation](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) to generate a workspace access token with read scopes for pipeline, project, and repository, and ensure that you store the token securely.
+2. Follow Bitbucket's [documentation](https://support.atlassian.com/bitbucket-cloud/docs/create-a-workspace-access-token/) to generate a workspace access token with read scopes for pipeline, project, and repository, and ensure that you store the token securely.  This step is optional since we are using source files in this lab.
 
 3. Run the `configure` CLI command:
    - Select the `TERMINAL` tab from within the codespace terminal window.
@@ -23,7 +23,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
    - Using the down arrow key to highlight `Bitbucket`, press the spacebar to select, and then press enter to continue.
    - At the GitHub PAT prompt, enter the GitHub PAT generated in step 1 and press enter.
    - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
-   - At the Bitbucket token prompt, enter the Bitbucket access token from step 2 and press enter.
+   - At the Bitbucket token prompt, enter the Bitbucket access token from step 2 or any random string if no token was generated, and press enter.
 
             ```console
             $ gh actions-importer configure

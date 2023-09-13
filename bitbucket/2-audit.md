@@ -18,7 +18,7 @@ The `audit` command will perform the following steps:
 Answer the following questions before running this command:
 
 1. What workspace do you want to audit?
-    - __actions-importer__. In this example you will be auditing the `actions-importer` workspace.
+    - __actions-importer__. In this example will be instructing Actions Importer to audit the `actions-importer` workspace.
 
 2. Where do you want to store the result?
     - __tmp/audit__.  This can be any path within the working directory from which GitHub Actions Importer commands are executed.
