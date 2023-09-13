@@ -1,0 +1,164 @@
+---
+version: 2
+plan:
+  project-key: DEMO
+  key: MAR
+  name: Bonnie
+stages:
+- Git Fun:
+    description: All the git things
+    manual: false
+    final: false
+    jobs:
+    - All The Git
+- Run tests:
+    manual: false
+    final: false
+    jobs:
+    - Integration tests
+    - Unit tests
+- Deploy:
+    manual: true
+    final: false
+    jobs:
+    - Deploy
+- Cleanup:
+    manual: false
+    final: true
+    jobs:
+    - Cleanup
+All The Git:
+  key: GIT
+  description: All things GIT!
+  tasks:
+  - checkout:
+      force-clean-build: false
+      description: Checkout Repo
+  - script:
+      interpreter: SHELL
+      scripts:
+      - |-
+        echo $RANDOM > random.txt
+        cat random.txt
+      description: Write some nonsense to a file
+  artifact-subscriptions: []
+  source_plan: DEMO-MAR
+  enabled: true
+Integration tests:
+  key: IT
+  tasks:
+  - checkout:
+      force-clean-build: true
+  - script:
+      interpreter: SHELL
+      scripts:
+      - touch report.xml
+  - any-task:
+      plugin-key: com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.builder.npm
+      configuration:
+        isolatedCache: 'false'
+        runtime: alt
+        command: install
+  final-tasks:
+  - any-task:
+      plugin-key: com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.reporter.mocha
+      configuration:
+        testPattern: mocha-1.json, mocha-2.json
+        workingSubDirectory: "/this_is_a_subdir"
+        pickupOutdatedFiles: 'true'
+  artifact-subscriptions: []
+  source_plan: DEMO-MAR
+  enabled: true
+Unit tests:
+  key: UT
+  tasks:
+  - checkout:
+      force-clean-build: false
+  - script:
+      interpreter: SHELL
+      scripts:
+      - touch report.xml
+  - test-parser:
+      type: junit
+      ignore-time: true
+      test-results: "**/test-reports/*.xml"
+      conditions:
+      - variable:
+          exists: test
+      description: this is not a final task
+  artifact-subscriptions: []
+  source_plan: DEMO-MAR
+  enabled: true
+Deploy:
+  key: JOB1
+  docker:
+    image: oracle
+    volumes:
+      "/home/user": "/home/user"
+      "/opt": "/opt"
+    docker-run-arguments: []
+  tasks:
+  - checkout:
+      force-clean-build: false
+  - any-task:
+      plugin-key: com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-aws-codedeploy:task.aws.codeDeploy
+      configuration:
+        deploymentTimeout: '15'
+        deploymentGroup: DgpECS-user_cluster-alt_service
+        credentialsId: '10092545'
+        region: US_WEST_1
+        applicationName: AppECS-user_cluster-alt_service
+        s3Bucket: elasticbeanstalk-us-west-1-778232459879
+        workingSubDirectory: this_is_a_subdir
+      conditions:
+      - variable:
+          exists: test
+  artifact-subscriptions: []
+  source_plan: DEMO-MAR
+  enabled: true
+Cleanup:
+  key: CLEAN
+  tasks:
+  - checkout:
+      force-clean-build: false
+  artifact-subscriptions: []
+  source_plan: DEMO-MAR
+  enabled: true
+variables:
+  password: BAMSCRT@0@0@V2tJ1qmyHu7Rpm0N/jQ6k2552ul9JTDCUVI0r6sMo9k=
+  username: admin
+repositories:
+- User Actions Playground:
+    type: git
+    url: git@github.com:User/actions-playground.git
+    branch: main
+    shared-credentials: User Bamboo SSH Key
+    command-timeout-minutes: '180'
+    lfs: false
+    verbose-logs: false
+    use-shallow-clones: false
+    cache-on-agents: true
+    submodules: false
+    ssh-key-applies-to-submodules: true
+    fetch-all: false
+triggers:
+- cron:
+    expression: 0 10,44 14 ? 3 WED
+branches:
+  create: manually
+  delete: never
+  link-to-jira: false
+notifications:
+- events:
+  - plan-failed
+  recipients:
+  - responsible
+  - watchers
+labels: []
+dependencies:
+  require-all-stages-passing: false
+  enabled-for-branches: true
+  block-strategy: none
+  plans: []
+other:
+  concurrent-build-plugin: system-default
