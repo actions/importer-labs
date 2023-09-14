@@ -12,7 +12,7 @@ In this lab you will use the `dry-run` command to convert a Bamboo build plan to
 
 You will be performing a dry run against a single Bamboo pipeline. Answer the following questions before running this command:
 
-1. What is the planslug of the pipeline you want to convert?
+1. What is the plan slug of the pipeline you want to convert?
 
     - __MARS-ROCKET__
 
