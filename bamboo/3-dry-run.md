@@ -38,11 +38,13 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
 3. The command will list all the files written to disk when the command succeeds.
 
     ```console
-    $ gh actions-importer dry-run bamboo build
+    Logs: 'tmp/dry-run/log/valet.log'
+    Output file(s):
+      tmp/dry-run/build/mars/sample_plan/.github/workflows/sample_plan.yml
     ```
 
 4. View the converted workflow:
-    - Find `tmp/dry-run/test_pipeline/.github/workflows` in the file explorer pane in your codespace.
+    - Find `tmp/dry-run/build/mars/sample_plan/.github/workflows` in the file explorer pane in your codespace.
     - Click `sample_plan.yml` to open.
 
 ## Inspect the output files
