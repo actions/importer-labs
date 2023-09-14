@@ -49,9 +49,9 @@ The pipeline summary section contains high level statistics regarding the conver
 ```md
 ## Pipelines
 
-Total: **1**
+Total: **2**
 
-- Successful: **1 (100%)**
+- Successful: **2 (100%)**
 - Partially successful: **0 (0%)**
 - Unsupported: **0 (0%)**
 - Failed: **0 (0%)**
@@ -73,9 +73,9 @@ The "Job types" section will summarize which types of pipelines are being used a
 ```
 ### Job types
 
-Supported: **1 (100%)**
+Supported: **2 (100%)**
 
-- build: **1**
+- build: **2**
 ```
 
 #### Build steps
@@ -85,18 +85,25 @@ The build steps summary section presents an overview of the individual build ste
 ```md
 ### Build steps
 
-Total: **2**
+Total: **15**
 
-Known: **2 (100%)**
+Known: **15 (100%)**
 
-- script: **1**
-- checkout: **1**
+- checkout: **6**
+- script: **4**
+- any-task/plugin-key/com.atlassian.bamboo.plugins.atlassian-bamboo-plugin-aws-codedeploy:task.aws.codeDeploy: **2**
+- any-task/plugin-key/com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.reporter.mocha: **1**
+- test-parser/type/junit: **1**
+- any-task/plugin-key/com.atlassian.bamboo.plugins.bamboo-nodejs-plugin:task.builder.npm: **1**
 
-Actions: **3**
+Actions: **17**
 
+- actions/checkout@v3.5.0: **6**
+- run: **6**
+- EnricoMi/publish-unit-test-result-action@v2.9.0: **2**
+- actions/setup-node@v3.7.0: **1**
+- aws-actions/configure-aws-credentials@v2.2.0: **1**
 - actions/upload-artifact@v3.1.1: **1**
-- run: **1**
-- actions/checkout@v3.5.0: **1**
 ```
 
 Here are some key terms in the "Build steps" section:
@@ -115,6 +122,18 @@ There is an equivalent breakdown of build triggers, environment variables, and o
 #### Manual Tasks
 
 The manual tasks summary section presents an overview of the manual tasks that you will need to perform that GitHub Actions Importer is not able to complete automatically.
+
+```
+### Manual tasks
+
+Total: **3**
+
+Secrets: **3**
+
+- `${{ secrets.AWS_ACCESS_KEY_ID }}`: **1**
+- `${{ secrets.AWS_SECRET_ACCESS_KEY }}`: **1**
+- `${{ secrets.AWS_S3_BUCKET_KEY }}`: **1**
+```
 
 Here are some key terms in the "Manual tasks" section:
 
@@ -139,11 +158,17 @@ Each pipeline will have a variety of files written that include:
 
     ```csv
     Pipeline,Action,File path
-    mars/rocket,actions/checkout@v3.5.0,tmp/audit/build/mars/rocket/.github/workflows/rocket.yml
-    mars/rocket,actions/upload-artifact@v3.1.1,tmp/audit/build/mars/rocket/.github/workflows/rocket.yml
+    sam/sample,actions/checkout@v3.5.0,tmp/audit/build/sam/sample/.github/workflows/sample.yml
+    sam/sample,actions/upload-artifact@v3.1.1,tmp/audit/build/sam/sample/.github/workflows/sample.yml
+    demo/mar,actions/checkout@v3.5.0,tmp/audit/build/demo/mar/.github/workflows/mar.yml
+    demo/mar,actions/setup-node@v3.7.0,tmp/audit/build/demo/mar/.github/workflows/mar.yml
+    demo/mar,EnricoMi/publish-unit-test-result-action@v2.9.0,tmp/audit/build/demo/mar/.github/workflows/mar.yml
+    demo/mar,aws-actions/configure-aws-credentials@v2.2.0,tmp/audit/build/demo/mar/.github/workflows/mar.yml
 
     Pipeline,Secret,File path
-
+    demo/mar,${{ secrets.AWS_ACCESS_KEY_ID }},tmp/audit/build/demo/mar/.github/workflows/mar.yml
+    demo/mar,${{ secrets.AWS_SECRET_ACCESS_KEY }},tmp/audit/build/demo/mar/.github/workflows/mar.yml
+    demo/mar,${{ secrets.AWS_S3_BUCKET_KEY }},tmp/audit/build/demo/mar/.github/workflows/mar.yml
 
     Pipeline,Runner,File path
     ```
