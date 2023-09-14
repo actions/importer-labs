@@ -43,7 +43,7 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
 
 4. View the converted workflow:
     - Find `tmp/dry-run/test_pipeline/.github/workflows` in the file explorer pane in your codespace.
-    - Click `test_pipeline.yml` to open.
+    - Click `sample_plan.yml` to open.
 
 ## Inspect the output files
 
