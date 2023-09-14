@@ -19,7 +19,7 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
 2. Where do you want to store the result?
     - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
-3. Which file would you like to conver?
+3. Which file would you like to convert?
 
     - __bamboo/bootstrap/source_files/bamboo/bamboo.yml__
 
