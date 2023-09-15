@@ -1,0 +1,26 @@
+image: atlassian/default-image:3
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'Build and Test'
+          script:
+            - echo "Your build and test goes here..."
+      - step:
+          name: 'Lint'
+          script:
+            - echo "Your linting goes here..."
+      - step:
+          name: 'Security scan'
+          script:
+            - echo "Your security scan goes here..."
+    - step:
+        name: 'Deployment to Staging'
+        script:
+          - echo "Your deployment to staging script goes here..."
+    - step:
+        name: 'Deployment to Production'
+        trigger: 'manual'
+        script:
+          - echo "Your deployment to production script goes here..."

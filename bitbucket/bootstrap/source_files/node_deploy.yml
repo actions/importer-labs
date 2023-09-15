@@ -1,0 +1,29 @@
+image: node:16
+
+pipelines:
+  default:
+      - step:
+          name: Build and Test
+          script:
+            - npm install
+            - npm test
+            - apt update && apt install zip
+            - zip -r app-$BITBUCKET_BUILD_NUMBER.zip . -x *.git* bitbucket-pipelines.yml
+          artifacts:
+            - "*.zip"
+      - step:
+          name: Code linting
+          script:
+            - npm install eslint
+            - npx eslint .
+      - step:
+          name: Deploy to Production
+          script:
+          - pipe: atlassian/unknown-azure-deploy:1.1.0
+            variables:
+              AZURE_APP_ID: $AZURE_APP_ID
+              AZURE_PASSWORD: $AZURE_PASSWORD
+              AZURE_TENANT_ID: $AZURE_TENANT_ID
+              AZURE_RESOURCE_GROUP: $AZURE_RESOURCE_GROUP
+              AZURE_APP_NAME: "my-site"
+              ZIP_FILE: "my-package.zip"

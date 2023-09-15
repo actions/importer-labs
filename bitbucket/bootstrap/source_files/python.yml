@@ -1,0 +1,23 @@
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: Test
+          runs-on: 
+          - 'self.hosted'
+          - 'my.custom.label'
+          caches:
+            - pip
+          script:
+            - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+            - pip install pytest
+            - pytest -v tests/* --junitxml=test-reports/report.xml
+      - step:
+          name: Lint code
+          runs-on: 
+          - 'self.hosted'
+          - 'my.custom.label'
+          script:
+            - pip install flake8
+            - flake8 . --extend-exclude=dist,build --show-source --statistics
