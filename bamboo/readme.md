@@ -40,9 +40,13 @@ These steps **must** be completed prior to starting other labs.
 Perform the following labs to learn more about Actions migrations with GitHub Actions Importer:
 
 1. [Configure credentials for GitHub Actions Importer](1-configure.md)
-2. [Perform an audit of a Bamboo server](2-audit.md)
-3. [Perform a dry-run migration of a Bamboo pipeline](3-dry-run.md)
-4. [Perform a production migration of a Bamboo pipeline](4-migrate.md)
+2. [Perform an audit on Bamboo](2-audit.md)
+3. [Forecast potential build runner usage](3-forecast.md)
+4. [Perform a dry-run migration of a Bamboo pipeline](4-dry-run.md)
+5. [Use custom transformers to customize GitHub Actions Importer's behavior](5-custom-transformers.md)
+6. [Perform a production migration of a Bamboo pipeline](6-migrate.md)
+
+
 
 ## Troubleshoot the GitHub Actions Importer CLI
 

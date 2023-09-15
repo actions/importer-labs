@@ -54,4 +54,4 @@ The files generated from the `dry-run` command represent the equivalent Actions 
 
 ## Next lab
 
-[Use the migrate command to open a PR with the supplied workflow.](4-migrate.md)
+[Use custom transformers to customize GitHub Actions Importer's behavior](5-custom-transformers.md)

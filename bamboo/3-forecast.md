@@ -1,6 +1,6 @@
 # Forecast potential build runner usage
 
-In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed pipeline runs in Bitbucket.
+In this lab you will use the `forecast` command to forecast potential GitHub Actions usage by computing metrics from completed plan runs in Bamboo.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ Answer the following questions before running the `forecast` command:
 1. What workspace do you want to run the forecast for?
     - **actions-importer**
 2. What is the date you want to start forecasting from?
-    - **2023-08-03**. By default, the value is set to one week ago, but it's recommended that you choose a start date that provides a representative view of typical usage.
+    - **2023-08-01**. By default, the value is set to one week ago, but it's recommended that you choose a start date that provides a representative view of typical usage.
 3. Where do you want to store the results?
     - **tmp/forecast**
 
@@ -24,21 +24,18 @@ Answer the following questions before running the `forecast` command:
 2. Run the following command from the root directory:
 
     ```bash
-    gh actions-importer forecast bitbucket --workspace actions-importer --start-date 2023-08-03 --output-dir tmp/forecast --source-file-path bitbucket/**/source_files/*.json
+    gh actions-importer forecast bamboo --start-date 2023-08-01 --output-dir tmp/forecast --source-file-path bamboo/**/source_files/*.json
     ```
-    > Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch historical pipeline runs using the Bitbucket REST APIs.
-
+    > Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch historical pipeline runs using the Bamboo REST APIs.
 3. The command will list all the files written to disk when the command succeeds.
     ```console
-    [2023-09-07 18:26:22] Logs: 'tmp/audit/log/valet-20230907-182622.log'
-    [2023-09-07 18:26:22] Forecasting 'https://bitbucket.org/actions-importer'
-    [2023-09-07 18:26:22] Output file(s):
-    [2023-09-07 18:26:22]   tmp/forecast/forecast_report.md
+    Logs: 'tmp/forecast/log/valet-20230915-223223.log'
+    Forecasting 'https://<bamboo-server>.com'
+    Output file(s):
+      tmp/forecast/forecast_report.md
     ```
 ## Review the forecast report
-
 The forecast report, logs, and completed job data will be located within the `tmp/forecast` folder.
-
 1. Find the `forecast_report.md` file in the file explorer.
 2. Right-click the `forecast_report.md` file and select `Open Preview`.
 3. This file contains metrics used to forecast potential GitHub Actions usage.
@@ -48,39 +45,41 @@ The forecast report, logs, and completed job data will be located within the `tm
 The "Total" section of the forecast report contains high level statistics related to all the jobs completed after the `--start-date` CLI option:
 
 ```md
-- Job count: **8**
-- Pipeline count: **8**
+- Job count: **40**
+- Pipeline count: **4**
 
 - Execution time
 
-  - Total: **11 minutes**
+  - Total: **64 minutes**
   - Median: **1 minutes**
   - P90: **4 minutes**
-  - Min: **1 minutes**
+  - Min: **0 minutes**
   - Max: **4 minutes**
+
+- Queue time
+
+  - Median: **0 minutes**
+  - P90: **2 minutes**
+  - Min: **0 minutes**
+  - Max: **2 minutes**
 
 - Concurrent jobs
 
   - Median: **0**
   - P90: **0**
   - Min: **0**
-  - Max: **1**
+  - Max: **3**
 ```
 
 Here are some key terms of items defined in the forecast report:
-
 - The `job count` is the total number of completed jobs.
 - The `pipeline count` is the number of unique pipelines used.
 - `Execution time` describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of GitHub-hosted runners.
   - This metric is correlated to how much you should expect to spend in GitHub Actions. This will vary depending on the hardware used for these minutes. You can use the [Actions pricing calculator](https://github.com/pricing/calculator) to estimate a dollar amount.
 - `Concurrent jobs` metrics describe the amount of jobs running at any given time. This metric can be used to define the number of runners a customer should configure.
-
 Additionally, these metrics are defined by hosted and self-hosted runners.
-
 ## Forecasting multiple providers
-
 You can examine the available options for the `forecast` command by running `gh actions-importer forecast --help`. When you do this you will see the `--source-file-path` option:
-
 ```console
 $ gh actions-importer forecast -h
 Options:
@@ -94,15 +93,10 @@ Options:
   --no-http-cache                                   Disable caching of http responses.
   -?, -h, --help                                    Show help and usage information
 ```
-
 You can use the `--source-file-path` CLI option to combine data from multiple reports into a single report. This becomes useful if you use multiple CI/CD providers and want to get a holistic view of the runner usage. This works by using the `.json` files generated by `forecast` commands as space-delimited values for the `--source-file-path` CLI option. Optionally, this value could be a glob pattern to dynamically specify the list of files (e.g. `**/*.json`).
-
 Below is a example command that would generate a report for all files matching `tmp/**/jobs/*.json`:
-
 ```bash
 gh actions-importer forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined
 ```
-
 ## Next steps
-
-[Perform a dry-run migration of a Bitbucket pipeline](4-dry-run.md)
+[Perform a dry-run migration of a Bamboo pipeline](4-dry-run.md)

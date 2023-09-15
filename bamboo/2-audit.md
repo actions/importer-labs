@@ -183,4 +183,4 @@ The contents of this file can be useful in answering questions similar to the fo
 
 ### Next lab
 
-[Perform a dry run of a individual pipeline](3-dry-run.md)
+[Forecast potential build runner usage](3-forecast.md)
