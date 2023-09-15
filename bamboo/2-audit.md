@@ -10,7 +10,7 @@ The `audit` command will perform the following steps:
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap an Bamboo project.
+1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment and bootstrap a Bamboo project.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform an audit
