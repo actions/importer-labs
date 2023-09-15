@@ -1,6 +1,6 @@
 # Perform an audit of an Bamboo plan
 
-In this lab, you will use the `audit` command to get a high-level view of all pipelines in an Bamboo config file. This lab uses local config files to demonstrate the actions-importer functionality.
+In this lab, you will use the `audit` command to get a high-level view of all pipelines in a Bamboo config file. This lab uses local config files to demonstrate the actions-importer functionality.
 
 The `audit` command will perform the following steps:
 
