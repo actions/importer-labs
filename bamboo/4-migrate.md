@@ -29,6 +29,8 @@ Answer the following questions before running a `migrate` command:
     $ gh actions-importer migrate bamboo build --target-url <target_url> --output-dir tmp/migrate --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml
     ```
 
+    Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipeline definitions using the Bamboo REST APIs.
+
 2. The command will write the URL to the pull request that is created when the command succeeds.
 
 

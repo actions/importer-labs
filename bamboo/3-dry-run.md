@@ -34,6 +34,7 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
     ```bash
     gh actions-importer dry-run bamboo build --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml -p MARS-ROCKET --output-dir tmp/dry-run
     ```
+    > Note: The `--source-file-path` option is not required and is used throughout this lab to convert a pipeline that is stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipelines using the Bamboo REST APIs
 
 3. The command will list all the files written to disk when the command succeeds.
 

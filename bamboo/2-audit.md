@@ -31,6 +31,7 @@ You will audit the configured Bamboo pipelines. Answer the following questions b
     ```bash
     gh actions-importer audit bamboo -o tmp/audit --config-file-path bamboo/bootstrap/config.yml
     ```
+    > Note: The `--config-file-path` option is not required and is used throughout these labs to convert files that are stored locally for this lab. When performing a migration on your own Bamboo Server, `config-file-path` can be omitted and GitHub Actions Importer will programmatically fetch pipelines using the Bambooo REST APIs.
 
 3. The command will list all the files written to disk in green when the command succeeds.
 
