@@ -1,0 +1,68 @@
+---
+version: 2
+
+plan:
+  project-key: FOO
+  key: BAR
+  name: Sample Plan
+stages:
+- Custom Dry Run:
+    manual: false
+    final: false
+    jobs:
+    - Build
+Build:
+  key: JOB1
+  requirements:
+  - bamboo-runner
+  tasks:
+  - checkout:
+      force-clean-build: false
+  - script:
+      interpreter: SHELL
+      scripts:
+      - |-
+        mkdir -p falcon/red
+        echo wings > falcon/red/wings
+        sleep 1
+        echo 'Built it'
+  - any-task:
+      plugin-key: com.atlassian.bamboo.plugins.builder.unknowncache
+      configuration:
+        key: cache_key
+        path: falcon/red/wings
+  artifacts:
+  - name: Red rocket built
+    pattern: falcon/red/wings
+    shared: true
+    required: true
+  artifact-subscriptions: []
+variables:
+  global_variable: global_variable_value
+  plan_variable_override: plan_variable_override
+repositories:
+- yaml-test-repo:
+    scope: global
+triggers:
+- polling:
+    period: '180'
+branches:
+  create: for-new-branch
+  delete:
+    after-deleted-days: 1
+    after-inactive-days: 30
+  link-to-jira: true
+notifications:
+- events:
+  - plan-failed
+  recipients:
+  - responsible
+  - watchers
+labels: []
+dependencies:
+  require-all-stages-passing: false
+  enabled-for-branches: true
+  block-strategy: none
+  plans: []
+other:
+  concurrent-build-plugin: system-default
