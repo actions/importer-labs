@@ -17,13 +17,15 @@ You will need to complete all of the [setup instructions](./readme.md#configure-
    - Click `Generate token`.
    - Copy the generated PAT and save it in a safe location.
 
+2. Create a Bamboo personal access token using the Bamboo [documentation](https://confluence.atlassian.com/bamboo/personal-access-tokens-976779873.html).  This step is optional since we are using local files throughout the labs and a random value can be used instead.  
+
 2. Run the `configure` CLI command:
       - Select the `TERMINAL` tab from within the codespace terminal.
       - Run the following command: `gh actions-importer configure`.
       - Use the down arrow key to highlight `Bamboo`, press the spacebar to select, and then press enter to continue.
-      - At the GitHub PAT prompt, enter the GitHub PAT generated in step 2 and press enter.
+      - At the GitHub PAT prompt, enter the GitHub PAT generated in step 1 and press enter.
       - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
-      - At the Bamboo token prompt, enter the access token from step 1 and press enter.
+      - At the Bamboo token prompt, enter the access token from step 2 and press enter.
       - At the Bamboo URL prompt, enter your Bamboo Base URL.
 
 ## Verify your environment

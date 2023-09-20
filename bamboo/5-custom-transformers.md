@@ -76,7 +76,7 @@ Let's answer the following questions before proceeding to write a custom transfo
   - Upon conducting some research, you've discovered that the [Actions Cache](https://github.com/marketplace/actions/cache) action in the marketplace offer comparable functionality.
 
   ```yaml
-  - uses: actions/cache/save@v3
+  - uses: actions/cache@v3
     with:
       path: <path>
       key: <key>
@@ -94,7 +94,7 @@ Let's answer the following questions before proceeding to write a custom transfo
   transform "any-task/plugin-key/com.atlassian.bamboo.plugins.builder.unknowncache" do |item|
     [
       {
-        "uses" => "azure/cache/save@v3",
+        "uses" => "actions/cache@v3",
         "with" => {
           "path" => item["configuration"]["path"],
           "key" => item["configuration"]["key"]
@@ -139,7 +139,7 @@ With these questions answered, you can add the following code to the `transforme
 runner "bamboo-runner", "some-other-runner"
 ```
 
-In this example, the first parameter to the `runner` method is the runner label in Bitbucket and the second is the new runner label to use in GitHub Actions.
+In this example, the first parameter to the `runner` method is the runner label in Bamboo and the second is the new runner label to use in GitHub Actions.
 
 Now you can perform another `dry-run` command with the `--custom-transformers` CLI option. When you open the converted workflow the `runs-on` statement will use the customized runner label:
 
@@ -165,7 +165,7 @@ runner "bamboo-runner", "some-other-runner"
 transform "any-task/plugin-key/com.atlassian.bamboo.plugins.builder.unknowncache" do |item|
   [
     {
-      "uses" => "azure/cache/save@v3",
+      "uses" => "actions/cache@v3",
       "with" => {
         "path" => item["configuration"]["path"],
         "key" => item["configuration"]["key"]

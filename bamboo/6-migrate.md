@@ -7,7 +7,7 @@ In this lab, you will use the `migrate` command to convert a Bamboo plan and ope
 1. Followed the [steps to set up your GitHub Codespaces](./readme.md#configure-your-codespace) environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
-3. Completed the [dry-run lab](./3-dry-run.md).
+3. Completed the [dry-run lab](./4-dry-run.md).
 
 ## Performing a migration
 
@@ -28,7 +28,7 @@ Answer the following questions before running a `migrate` command:
 1. Run the following `migrate` command in your codespace terminal:
 
     ```bash
-    $ gh actions-importer migrate bamboo build --target-url <target_url> --output-dir tmp/migrate --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml
+   gh actions-importer migrate bamboo build -p MARS-ROCKET --target-url <target_url> --output-dir tmp/migrate --source-file-path bamboo/bootstrap/source_files/bamboo/bamboo.yml
     ```
 
     Note: The `--source-file-path` option is not required and is used throughout this lab to convert files that are stored locally. This can be omitted and GitHub Actions Importer will programmatically fetch pipeline definitions using the Bamboo REST APIs.
