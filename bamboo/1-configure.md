@@ -19,7 +19,7 @@ You will need to complete all of the [setup instructions](./readme.md#configure-
 
 2. Create a Bamboo personal access token using the Bamboo [documentation](https://confluence.atlassian.com/bamboo/personal-access-tokens-976779873.html).  This step is optional since we are using local files throughout the labs and a random value can be used instead.  
 
-2. Run the `configure` CLI command:
+3. Run the `configure` CLI command:
       - Select the `TERMINAL` tab from within the codespace terminal.
       - Run the following command: `gh actions-importer configure`.
       - Use the down arrow key to highlight `Bamboo`, press the spacebar to select, and then press enter to continue.
