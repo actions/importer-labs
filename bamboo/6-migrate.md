@@ -13,15 +13,20 @@ In this lab, you will use the `migrate` command to convert a Bamboo plan and ope
 
 Answer the following questions before running a `migrate` command:
 
-1. Where do you want to store the logs?
+1. What is the plan slug of the pipeline you want to migrate?
+    - __MARS-ROCKET__
+    
+2. Where do you want to store the logs?
     - __tmp/migrate__
+    
+3. Which file would you like to convert?
+    - __bamboo/bootstrap/source_files/bamboo/bamboo.yml__
 
-2. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__
-        - The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+4. Are you converting a build or deployment plan?
+    - The supplied configuration is a build plan.
 
-
-3. What is the source
+5. What is the URL for the GitHub repository to add the workflow to?
+    - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
 
 ### Steps
 
