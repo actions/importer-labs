@@ -4,7 +4,7 @@ In this lab you will use the `forecast` command to forecast potential GitHub Act
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
+1. Followed the [steps to set up your GitHub Codespaces](./readme.md#configure-your-codespace) environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 ## Perform a forecast

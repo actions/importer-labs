@@ -2,7 +2,7 @@
 
 In this lab, you will use the `configure` CLI command to set the required credentials and information for GitHub Actions Importer to use when working with Bamboo and GitHub.
 
-You will need to complete all of the setup instructions [here](./readme.md#configure-your-codespace) prior to performing this lab.
+You will need to complete all of the [setup instructions](./readme.md#configure-your-codespace) prior to performing this lab.
 
 ## Configuring credentials
 
@@ -24,7 +24,7 @@ You will need to complete all of the setup instructions [here](./readme.md#confi
       - At the GitHub PAT prompt, enter the GitHub PAT generated in step 2 and press enter.
       - At the GitHub URL prompt, enter the GitHub instance URL or press enter to accept the default value (`https://github.com`).
       - At the Bamboo token prompt, enter the access token from step 1 and press enter.
-      - At the Bamboo URL prompt, enter your Bamboo URL.
+      - At the Bamboo URL prompt, enter your Bamboo Base URL.
 
 ## Verify your environment
 

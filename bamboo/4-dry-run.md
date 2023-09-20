@@ -4,7 +4,7 @@ In this lab you will use the `dry-run` command to convert a Bamboo build plan to
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
+1. Followed the [steps to set up your GitHub Codespaces](./readme.md#configure-your-codespace) environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [audit lab](./2-audit.md).
 
@@ -17,7 +17,8 @@ You will be performing a dry run against a single Bamboo pipeline. Answer the fo
     - __MARS-ROCKET__
 
 2. Where do you want to store the result?
-    - __tmp/dry-run__. This can be any path within the working directory from which GitHub Actions Importer commands are executed.
+    - __tmp/dry-run__
+        - This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 3. Which file would you like to convert?
 

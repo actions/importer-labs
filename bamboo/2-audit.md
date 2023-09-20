@@ -18,10 +18,11 @@ The `audit` command will perform the following steps:
 You will audit the configured Bamboo pipelines. Answer the following questions before running this command:
 
 1. Where is the local configuration file?
-  - __bamboo/bootstrap/config.yml__
+    - __bamboo/bootstrap/config.yml__
 
 2. Where do you want to store the result?
-    - __tmp/audit__.  This can be any path within the working directory from which GitHub Actions Importer commands are executed.
+    - __tmp/audit__
+        - This can be any path within the working directory from which GitHub Actions Importer commands are executed.
 
 ### Steps
 

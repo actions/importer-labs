@@ -9,7 +9,7 @@ In this lab, you will build upon the `dry-run` command to override GitHub Action
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
+1. Followed the [steps to set up your GitHub Codespaces](./readme.md#configure-your-codespace) environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 3. Completed the [dry-run lab](./4-dry-run.md).
 
@@ -177,7 +177,7 @@ end
 
 </details>
 
-That's it. Congratulations, you have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
+Congratulations! You have overridden GitHub Actions Importer's default behavior by customizing the conversion of:
 
 - Unknown steps
 - Runners

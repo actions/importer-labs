@@ -4,7 +4,7 @@ In this lab, you will use the `migrate` command to convert a Bamboo plan and ope
 
 ## Prerequisites
 
-1. Followed the steps [here](./readme.md#configure-your-codespace) to set up your GitHub Codespaces environment.
+1. Followed the [steps to set up your GitHub Codespaces](./readme.md#configure-your-codespace) environment.
 2. Completed the [configure lab](./1-configure.md#configuring-credentials).
 
 3. Completed the [dry-run lab](./3-dry-run.md).
@@ -17,7 +17,9 @@ Answer the following questions before running a `migrate` command:
     - __tmp/migrate__
 
 2. What is the URL for the GitHub repository to add the workflow to?
-    - __this repository__. The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+    - __this repository__
+        - The URL should follow the pattern <https://github.com/:owner/:repo> with `:owner` and `:repo` replaced with your values.
+
 
 3. What is the source
 
