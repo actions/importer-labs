@@ -108,7 +108,7 @@ Deploy:
         credentialsId: '10092545'
         region: US_WEST_1
         applicationName: AppECS-user_cluster-alt_service
-        s3Bucket: elasticbeanstalk-us-west-1-778232459879
+        s3Bucket: elasticbeanstalk-us-west-1-12345
         workingSubDirectory: this_is_a_subdir
       conditions:
       - variable:
