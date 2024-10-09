@@ -104,7 +104,7 @@ You can use the `--source-file-path` CLI option to combine data from multiple re
 Run the following command from within the codespace terminal:
 
 ```bash
-gh actions-importer forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined
+gh actions-importer forecast --source-file-path tmp/**/jobs/*.json --output-dir tmp/forecast-combined --start-date 2022-08-02
 ```
 
 You can now inspect the output of the command to see a forecast report using all of the files matching the `tmp/**/jobs/*.json` pattern.
